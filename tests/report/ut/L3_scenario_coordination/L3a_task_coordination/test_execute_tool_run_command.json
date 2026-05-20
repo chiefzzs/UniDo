@@ -1,0 +1,199 @@
+{
+  "timestamp": "2026-05-20T15:23:18.363188",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3a_task_coordination",
+  "component": "ToolExecutionService",
+  "case_name": "test_execute_tool_run_command",
+  "test_points": [
+    "测试工具执行-RunCommand",
+    "验证真实命令执行",
+    "验证工具调用结果正确",
+    "验证工具调用记录持久化"
+  ],
+  "inputs": {
+    "tool_name": "RunCommand",
+    "command": "mkdir d:\\learnning\\260521\\src\\data\\test\\tool_test_dir"
+  },
+  "outputs": {
+    "success": true,
+    "result": "{'command_id': 'cmd_2589010729584', 'command': 'mkdir d:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_test_dir', 'status': 'completed', 'return_code': 0, 'stdout': '\\n\\n    Ŀ¼: D:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\n\\n\\nMode                 LastWriteTime         Length Name                         \\n----                 -------------         ------ ----                         \\nd-----         2026/5/20     15:23                tool_test_dir                \\n\\n\\n', 'stderr': '', 'success': True, 'workspace': 'D:\\\\learnning\\\\260521'}",
+    "call_id": "call-664b24166288",
+    "tool_call_count": 1
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [
+      {
+        "call_id": "call-664b24166288",
+        "tool_id": "T12",
+        "tool_name": "RunCommand",
+        "dialog_id": "test-tool-exec-1",
+        "task_id": "test-tool-exec-1",
+        "input_params": {
+          "command": "mkdir d:\\learnning\\260521\\src\\data\\test\\tool_test_dir",
+          "workspace": "d:\\learnning\\260521"
+        },
+        "output_result": "{'command_id': 'cmd_2589010729584', 'command': 'mkdir d:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_test_dir', 'status': 'completed', 'return_code': 0, 'stdout': '\\n\\n    Ŀ¼: D:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\n\\n\\nMode                 LastWriteTime         Length Name                         \\n----                 -------------         ------ ----                         \\nd-----         2026/5/20     15:23                tool_test_dir                \\n\\n\\n', 'stderr': '', 'success': True, 'workspace': 'D:\\\\learnning\\\\260521'}",
+        "status": "completed",
+        "error_message": null,
+        "start_time": "2026-05-20T15:23:16.677739",
+        "end_time": "2026-05-20T15:23:18.340058",
+        "duration": 1.6597957611083984
+      }
+    ],
+    "events": [
+      {
+        "record_id": "rec-11984f7b03ab",
+        "event_id": "evt-237f295120ee",
+        "event_type": "tool.call_started",
+        "timestamp": "2026-05-20T15:23:16.680262",
+        "payload": {
+          "call_id": "call-664b24166288",
+          "tool_name": "RunCommand",
+          "dialog_id": "test-tool-exec-1",
+          "task_id": "test-tool-exec-1",
+          "params": {
+            "command": "mkdir d:\\learnning\\260521\\src\\data\\test\\tool_test_dir",
+            "workspace": "d:\\learnning\\260521"
+          },
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
+        },
+        "stored_at": "2026-05-20T15:23:16.680262",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "0ee9d611-e466-4c2d-bc67-000b0b011360",
+        "entity_id": "evt-e8587aa76664",
+        "created_at": "2026-05-20T15:23:16.680262",
+        "updated_at": "2026-05-20T15:23:16.680262"
+      },
+      {
+        "record_id": "rec-3732deebc689",
+        "event_id": "evt-d23337dcb5bc",
+        "event_type": "tool.execution_output_end",
+        "timestamp": "2026-05-20T15:23:18.338665",
+        "payload": {
+          "call_id": "call-664b24166288",
+          "tool_name": "RunCommand",
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
+        },
+        "stored_at": "2026-05-20T15:23:18.338665",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "fb7425e6-ef6b-4062-8a27-92e5cf7be652",
+        "entity_id": "evt-a99b6b2ba8c5",
+        "created_at": "2026-05-20T15:23:18.338665",
+        "updated_at": "2026-05-20T15:23:18.338665"
+      },
+      {
+        "record_id": "rec-e4050c238dbb",
+        "event_id": "evt-b1d7289c4714",
+        "event_type": "tool.call_completed",
+        "timestamp": "2026-05-20T15:23:18.342572",
+        "payload": {
+          "call_id": "call-664b24166288",
+          "tool_name": "RunCommand",
+          "success": true,
+          "duration": 1.6597957611083984,
+          "workspace": "D:\\learnning\\260521",
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
+        },
+        "stored_at": "2026-05-20T15:23:18.342572",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "942f2932-1876-405c-b295-3d99df5cccf4",
+        "entity_id": "evt-0c79411ed2a7",
+        "created_at": "2026-05-20T15:23:18.342572",
+        "updated_at": "2026-05-20T15:23:18.342572"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [
+    {
+      "call_id": "call-664b24166288",
+      "tool_id": "T12",
+      "tool_name": "RunCommand",
+      "dialog_id": "test-tool-exec-1",
+      "task_id": "test-tool-exec-1",
+      "input_params": {
+        "command": "mkdir d:\\learnning\\260521\\src\\data\\test\\tool_test_dir",
+        "workspace": "d:\\learnning\\260521"
+      },
+      "output_result": "{'command_id': 'cmd_2589010729584', 'command': 'mkdir d:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_test_dir', 'status': 'completed', 'return_code': 0, 'stdout': '\\n\\n    Ŀ¼: D:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\n\\n\\nMode                 LastWriteTime         Length Name                         \\n----                 -------------         ------ ----                         \\nd-----         2026/5/20     15:23                tool_test_dir                \\n\\n\\n', 'stderr': '', 'success': True, 'workspace': 'D:\\\\learnning\\\\260521'}",
+      "status": "completed",
+      "error_message": null,
+      "start_time": "2026-05-20T15:23:16.677739",
+      "end_time": "2026-05-20T15:23:18.340058",
+      "duration": 1.6597957611083984
+    }
+  ],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "tool_calls",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\tool_calls.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "call_id": "call-664b24166288",
+        "tool_id": "T12",
+        "tool_name": "RunCommand",
+        "dialog_id": "test-tool-exec-1",
+        "task_id": "test-tool-exec-1",
+        "input_params": {
+          "command": "mkdir d:\\learnning\\260521\\src\\data\\test\\tool_test_dir",
+          "workspace": "d:\\learnning\\260521"
+        },
+        "output_result": "{'command_id': 'cmd_2589010729584', 'command': 'mkdir d:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_test_dir', 'status': 'completed', 'return_code': 0, 'stdout': '\\n\\n    Ŀ¼: D:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\n\\n\\nMode                 LastWriteTime         Length Name                         \\n----                 -------------         ------ ----                         \\nd-----         2026/5/20     15:23                tool_test_dir                \\n\\n\\n', 'stderr': '', 'success': True, 'workspace': 'D:\\\\learnning\\\\260521'}",
+        "status": "completed",
+        "error_message": null,
+        "start_time": "2026-05-20T15:23:16.677739",
+        "end_time": "2026-05-20T15:23:18.340058",
+        "duration": 1.6597957611083984
+      }
+    },
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 3,
+      "sample_data": {
+        "record_id": "rec-e4050c238dbb",
+        "event_id": "evt-b1d7289c4714",
+        "event_type": "tool.call_completed",
+        "timestamp": "2026-05-20T15:23:18.342572",
+        "payload": {
+          "call_id": "call-664b24166288",
+          "tool_name": "RunCommand",
+          "success": true,
+          "duration": 1.6597957611083984,
+          "workspace": "D:\\learnning\\260521",
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
+        },
+        "stored_at": "2026-05-20T15:23:18.342572",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "942f2932-1876-405c-b295-3d99df5cccf4",
+        "entity_id": "evt-0c79411ed2a7",
+        "created_at": "2026-05-20T15:23:18.342572",
+        "updated_at": "2026-05-20T15:23:18.342572"
+      }
+    }
+  ]
+}

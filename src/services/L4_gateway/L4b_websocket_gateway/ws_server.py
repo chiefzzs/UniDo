@@ -506,7 +506,7 @@ class MessageHandler:
             return {
                 "tool_name": tool_name,
                 "success": result.success,
-                "result": result.content if result.success else None,
+                "result": result.result if result.success else None,
                 "error": result.error if not result.success else None,
                 "call_id": result.call_id
             }

@@ -1,0 +1,295 @@
+{
+  "timestamp": "2026-05-20T15:23:18.427529",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3a_task_coordination",
+  "component": "ToolExecutionService",
+  "case_name": "test_execute_tool_write_read_file",
+  "test_points": [
+    "测试工具执行-Write/Read",
+    "验证文件写入",
+    "验证文件读取",
+    "验证读写内容一致性"
+  ],
+  "inputs": {
+    "write_file": "d:\\learnning\\260521\\src\\data\\test\\tool_test_file.txt",
+    "write_content": "测试工具执行内容"
+  },
+  "outputs": {
+    "write_success": true,
+    "read_success": true,
+    "read_content": "{'file_path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_test_file.txt', 'total_lines': 1, 'start_line': 1, 'end_line': 1, 'content': '测试工具执行内容', 'line_count': 1}",
+    "tool_call_count": 2
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [
+      {
+        "call_id": "call-d4ee53652178",
+        "tool_id": "T11",
+        "tool_name": "Write",
+        "dialog_id": "test-tool-exec-2",
+        "task_id": "test-tool-exec-2",
+        "input_params": {
+          "file_path": "d:\\learnning\\260521\\src\\data\\test\\tool_test_file.txt",
+          "content": "测试工具执行内容"
+        },
+        "output_result": "{'success': True, 'file_path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_test_file.txt', 'content_length': 8, 'message': '写入成功'}",
+        "status": "completed",
+        "error_message": null,
+        "start_time": "2026-05-20T15:23:18.379496",
+        "end_time": "2026-05-20T15:23:18.388765",
+        "duration": 0.0077362060546875
+      },
+      {
+        "call_id": "call-6b8873484c90",
+        "tool_id": "T06",
+        "tool_name": "Read",
+        "dialog_id": "test-tool-exec-2",
+        "task_id": "test-tool-exec-2",
+        "input_params": {
+          "file_path": "d:\\learnning\\260521\\src\\data\\test\\tool_test_file.txt"
+        },
+        "output_result": "{'file_path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_test_file.txt', 'total_lines': 1, 'start_line': 1, 'end_line': 1, 'content': '测试工具执行内容', 'line_count': 1}",
+        "status": "completed",
+        "error_message": null,
+        "start_time": "2026-05-20T15:23:18.397805",
+        "end_time": "2026-05-20T15:23:18.405915",
+        "duration": 0.0065975189208984375
+      }
+    ],
+    "events": [
+      {
+        "record_id": "rec-7aa0d84527a0",
+        "event_id": "evt-0b10f59fb38d",
+        "event_type": "tool.call_started",
+        "timestamp": "2026-05-20T15:23:18.381029",
+        "payload": {
+          "call_id": "call-d4ee53652178",
+          "tool_name": "Write",
+          "dialog_id": "test-tool-exec-2",
+          "task_id": "test-tool-exec-2",
+          "params": {
+            "file_path": "d:\\learnning\\260521\\src\\data\\test\\tool_test_file.txt",
+            "content": "测试工具执行内容"
+          },
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
+        },
+        "stored_at": "2026-05-20T15:23:18.381029",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "720c47d3-d588-4940-b608-e1a9830f40f7",
+        "entity_id": "evt-c2f0a9f698b2",
+        "created_at": "2026-05-20T15:23:18.382051",
+        "updated_at": "2026-05-20T15:23:18.382051"
+      },
+      {
+        "record_id": "rec-31b474af1c50",
+        "event_id": "evt-ec9b26626ed5",
+        "event_type": "tool.execution_output_end",
+        "timestamp": "2026-05-20T15:23:18.388765",
+        "payload": {
+          "call_id": "call-d4ee53652178",
+          "tool_name": "Write",
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
+        },
+        "stored_at": "2026-05-20T15:23:18.388765",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "d9409caf-f325-455a-bb78-72adbde2adba",
+        "entity_id": "evt-427d5c71d879",
+        "created_at": "2026-05-20T15:23:18.388765",
+        "updated_at": "2026-05-20T15:23:18.388765"
+      },
+      {
+        "record_id": "rec-15a3d07cd425",
+        "event_id": "evt-25d5a4b23551",
+        "event_type": "tool.call_completed",
+        "timestamp": "2026-05-20T15:23:18.393292",
+        "payload": {
+          "call_id": "call-d4ee53652178",
+          "tool_name": "Write",
+          "success": true,
+          "duration": 0.0077362060546875,
+          "workspace": "D:\\learnning\\260521",
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
+        },
+        "stored_at": "2026-05-20T15:23:18.393292",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "c9f278c6-bcfb-4355-ab3d-7cab48551b3c",
+        "entity_id": "evt-38ce9f505717",
+        "created_at": "2026-05-20T15:23:18.393292",
+        "updated_at": "2026-05-20T15:23:18.393292"
+      },
+      {
+        "record_id": "rec-c0289f7cac22",
+        "event_id": "evt-9cd9a4f70fef",
+        "event_type": "tool.call_started",
+        "timestamp": "2026-05-20T15:23:18.399318",
+        "payload": {
+          "call_id": "call-6b8873484c90",
+          "tool_name": "Read",
+          "dialog_id": "test-tool-exec-2",
+          "task_id": "test-tool-exec-2",
+          "params": {
+            "file_path": "d:\\learnning\\260521\\src\\data\\test\\tool_test_file.txt"
+          },
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
+        },
+        "stored_at": "2026-05-20T15:23:18.399318",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "173fdcc6-8269-45c9-b3de-eafdb8c74a06",
+        "entity_id": "evt-e0b5f871287e",
+        "created_at": "2026-05-20T15:23:18.399318",
+        "updated_at": "2026-05-20T15:23:18.399318"
+      },
+      {
+        "record_id": "rec-ef62090ccbac",
+        "event_id": "evt-30c1a91ba1ca",
+        "event_type": "tool.execution_output_end",
+        "timestamp": "2026-05-20T15:23:18.403907",
+        "payload": {
+          "call_id": "call-6b8873484c90",
+          "tool_name": "Read",
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
+        },
+        "stored_at": "2026-05-20T15:23:18.403907",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "3f69a586-f1f6-46f8-ab36-4bf4a18ff5cb",
+        "entity_id": "evt-e2373c311175",
+        "created_at": "2026-05-20T15:23:18.403907",
+        "updated_at": "2026-05-20T15:23:18.403907"
+      },
+      {
+        "record_id": "rec-013d54972cfc",
+        "event_id": "evt-77adc13b01ab",
+        "event_type": "tool.call_completed",
+        "timestamp": "2026-05-20T15:23:18.407424",
+        "payload": {
+          "call_id": "call-6b8873484c90",
+          "tool_name": "Read",
+          "success": true,
+          "duration": 0.0065975189208984375,
+          "workspace": "D:\\learnning\\260521",
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
+        },
+        "stored_at": "2026-05-20T15:23:18.407424",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "303905e3-cb3d-4bd1-b14e-f47f434a310b",
+        "entity_id": "evt-d3106fff3fce",
+        "created_at": "2026-05-20T15:23:18.407424",
+        "updated_at": "2026-05-20T15:23:18.407424"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [
+    {
+      "call_id": "call-d4ee53652178",
+      "tool_id": "T11",
+      "tool_name": "Write",
+      "dialog_id": "test-tool-exec-2",
+      "task_id": "test-tool-exec-2",
+      "input_params": {
+        "file_path": "d:\\learnning\\260521\\src\\data\\test\\tool_test_file.txt",
+        "content": "测试工具执行内容"
+      },
+      "output_result": "{'success': True, 'file_path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_test_file.txt', 'content_length': 8, 'message': '写入成功'}",
+      "status": "completed",
+      "error_message": null,
+      "start_time": "2026-05-20T15:23:18.379496",
+      "end_time": "2026-05-20T15:23:18.388765",
+      "duration": 0.0077362060546875
+    },
+    {
+      "call_id": "call-6b8873484c90",
+      "tool_id": "T06",
+      "tool_name": "Read",
+      "dialog_id": "test-tool-exec-2",
+      "task_id": "test-tool-exec-2",
+      "input_params": {
+        "file_path": "d:\\learnning\\260521\\src\\data\\test\\tool_test_file.txt"
+      },
+      "output_result": "{'file_path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_test_file.txt', 'total_lines': 1, 'start_line': 1, 'end_line': 1, 'content': '测试工具执行内容', 'line_count': 1}",
+      "status": "completed",
+      "error_message": null,
+      "start_time": "2026-05-20T15:23:18.397805",
+      "end_time": "2026-05-20T15:23:18.405915",
+      "duration": 0.0065975189208984375
+    }
+  ],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "tool_calls",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\tool_calls.json",
+      "operation": "write",
+      "record_count": 2,
+      "sample_data": {
+        "call_id": "call-6b8873484c90",
+        "tool_id": "T06",
+        "tool_name": "Read",
+        "dialog_id": "test-tool-exec-2",
+        "task_id": "test-tool-exec-2",
+        "input_params": {
+          "file_path": "d:\\learnning\\260521\\src\\data\\test\\tool_test_file.txt"
+        },
+        "output_result": "{'file_path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_test_file.txt', 'total_lines': 1, 'start_line': 1, 'end_line': 1, 'content': '测试工具执行内容', 'line_count': 1}",
+        "status": "completed",
+        "error_message": null,
+        "start_time": "2026-05-20T15:23:18.397805",
+        "end_time": "2026-05-20T15:23:18.405915",
+        "duration": 0.0065975189208984375
+      }
+    },
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 6,
+      "sample_data": {
+        "record_id": "rec-013d54972cfc",
+        "event_id": "evt-77adc13b01ab",
+        "event_type": "tool.call_completed",
+        "timestamp": "2026-05-20T15:23:18.407424",
+        "payload": {
+          "call_id": "call-6b8873484c90",
+          "tool_name": "Read",
+          "success": true,
+          "duration": 0.0065975189208984375,
+          "workspace": "D:\\learnning\\260521",
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
+        },
+        "stored_at": "2026-05-20T15:23:18.407424",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "303905e3-cb3d-4bd1-b14e-f47f434a310b",
+        "entity_id": "evt-d3106fff3fce",
+        "created_at": "2026-05-20T15:23:18.407424",
+        "updated_at": "2026-05-20T15:23:18.407424"
+      }
+    }
+  ]
+}

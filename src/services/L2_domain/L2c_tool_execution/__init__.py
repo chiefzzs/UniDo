@@ -130,6 +130,22 @@ class ToolExecutor:
         if not tool:
             tool = self.registry.get_tool(tool_name)
         if not tool:
+            # 尝试使用配置驱动的注册表
+            config_registry = self._get_config_driven_registry()
+            if config_registry:
+                config_tool = config_registry.get_tool(tool_name)
+                if config_tool:
+                    # 创建临时的ToolDefinition对象用于验证参数
+                    from src.services.L2_domain.L2f_tool_management import ToolDefinition
+                    tool = ToolDefinition(
+                        tool_id=config_tool.tool_id,
+                        tool_name=config_tool.name,
+                        category=config_tool.category,
+                        description=config_tool.description,
+                        parameters={}
+                    )
+
+        if not tool:
             return ToolResult.failed(f"Tool not found: {tool_name}")
 
         validation_error = self._validate_params(tool, params)

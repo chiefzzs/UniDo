@@ -1,0 +1,193 @@
+{
+  "timestamp": "2026-05-20T15:23:18.477523",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3a_task_coordination",
+  "component": "ToolExecutionService",
+  "case_name": "test_execute_tool_ls",
+  "test_points": [
+    "测试工具执行-LS",
+    "验证目录列表功能",
+    "验证返回结果格式正确"
+  ],
+  "inputs": {
+    "path": "d:\\learnning\\260521\\src\\data\\test"
+  },
+  "outputs": {
+    "success": true,
+    "result_type": "str",
+    "item_count": 0,
+    "tool_call_count": 1
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [
+      {
+        "call_id": "call-116e9f046d32",
+        "tool_id": "T04",
+        "tool_name": "LS",
+        "dialog_id": "test-tool-exec-3",
+        "task_id": "test-tool-exec-3",
+        "input_params": {
+          "path": "d:\\learnning\\260521\\src\\data\\test"
+        },
+        "output_result": "{'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test', 'entries': [{'name': 'events.json', 'type': 'file', 'size': 935, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\events.json'}, {'name': 'tool_calls.json', 'type': 'file', 'size': 496, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_calls.json'}, {'name': 'tool_definitions.json', 'type': 'file', 'size': 2, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_definitions.json'}, {'name': 'workspace_configs.json', 'type': 'file', 'size': 2, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\workspace_configs.json'}], 'total': 4, 'directories': 0, 'files': 4}",
+        "status": "completed",
+        "error_message": null,
+        "start_time": "2026-05-20T15:23:18.443675",
+        "end_time": "2026-05-20T15:23:18.453901",
+        "duration": 0.008678197860717773
+      }
+    ],
+    "events": [
+      {
+        "record_id": "rec-b32e119afbe1",
+        "event_id": "evt-853a95ac261f",
+        "event_type": "tool.call_started",
+        "timestamp": "2026-05-20T15:23:18.445223",
+        "payload": {
+          "call_id": "call-116e9f046d32",
+          "tool_name": "LS",
+          "dialog_id": "test-tool-exec-3",
+          "task_id": "test-tool-exec-3",
+          "params": {
+            "path": "d:\\learnning\\260521\\src\\data\\test"
+          },
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
+        },
+        "stored_at": "2026-05-20T15:23:18.445223",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "18f05b51-9315-499d-b75c-ac5eb5ebc500",
+        "entity_id": "evt-bd876ba9a03e",
+        "created_at": "2026-05-20T15:23:18.445223",
+        "updated_at": "2026-05-20T15:23:18.445223"
+      },
+      {
+        "record_id": "rec-585289840c5b",
+        "event_id": "evt-57d5b6a6982a",
+        "event_type": "tool.execution_output_end",
+        "timestamp": "2026-05-20T15:23:18.451893",
+        "payload": {
+          "call_id": "call-116e9f046d32",
+          "tool_name": "LS",
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
+        },
+        "stored_at": "2026-05-20T15:23:18.451893",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "df9325ca-7969-41f7-8614-e0803751d9d8",
+        "entity_id": "evt-d5e626a2a5a5",
+        "created_at": "2026-05-20T15:23:18.451893",
+        "updated_at": "2026-05-20T15:23:18.451893"
+      },
+      {
+        "record_id": "rec-d2b47bc15eac",
+        "event_id": "evt-b17c29a6a612",
+        "event_type": "tool.call_completed",
+        "timestamp": "2026-05-20T15:23:18.457442",
+        "payload": {
+          "call_id": "call-116e9f046d32",
+          "tool_name": "LS",
+          "success": true,
+          "duration": 0.008678197860717773,
+          "workspace": "D:\\learnning\\260521",
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
+        },
+        "stored_at": "2026-05-20T15:23:18.457442",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "05365032-18d3-4bb8-864d-ced4d5ea0cef",
+        "entity_id": "evt-0dce459f8107",
+        "created_at": "2026-05-20T15:23:18.457442",
+        "updated_at": "2026-05-20T15:23:18.457442"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [
+    {
+      "call_id": "call-116e9f046d32",
+      "tool_id": "T04",
+      "tool_name": "LS",
+      "dialog_id": "test-tool-exec-3",
+      "task_id": "test-tool-exec-3",
+      "input_params": {
+        "path": "d:\\learnning\\260521\\src\\data\\test"
+      },
+      "output_result": "{'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test', 'entries': [{'name': 'events.json', 'type': 'file', 'size': 935, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\events.json'}, {'name': 'tool_calls.json', 'type': 'file', 'size': 496, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_calls.json'}, {'name': 'tool_definitions.json', 'type': 'file', 'size': 2, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_definitions.json'}, {'name': 'workspace_configs.json', 'type': 'file', 'size': 2, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\workspace_configs.json'}], 'total': 4, 'directories': 0, 'files': 4}",
+      "status": "completed",
+      "error_message": null,
+      "start_time": "2026-05-20T15:23:18.443675",
+      "end_time": "2026-05-20T15:23:18.453901",
+      "duration": 0.008678197860717773
+    }
+  ],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "tool_calls",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\tool_calls.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "call_id": "call-116e9f046d32",
+        "tool_id": "T04",
+        "tool_name": "LS",
+        "dialog_id": "test-tool-exec-3",
+        "task_id": "test-tool-exec-3",
+        "input_params": {
+          "path": "d:\\learnning\\260521\\src\\data\\test"
+        },
+        "output_result": "{'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test', 'entries': [{'name': 'events.json', 'type': 'file', 'size': 935, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\events.json'}, {'name': 'tool_calls.json', 'type': 'file', 'size': 496, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_calls.json'}, {'name': 'tool_definitions.json', 'type': 'file', 'size': 2, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_definitions.json'}, {'name': 'workspace_configs.json', 'type': 'file', 'size': 2, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\workspace_configs.json'}], 'total': 4, 'directories': 0, 'files': 4}",
+        "status": "completed",
+        "error_message": null,
+        "start_time": "2026-05-20T15:23:18.443675",
+        "end_time": "2026-05-20T15:23:18.453901",
+        "duration": 0.008678197860717773
+      }
+    },
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 3,
+      "sample_data": {
+        "record_id": "rec-d2b47bc15eac",
+        "event_id": "evt-b17c29a6a612",
+        "event_type": "tool.call_completed",
+        "timestamp": "2026-05-20T15:23:18.457442",
+        "payload": {
+          "call_id": "call-116e9f046d32",
+          "tool_name": "LS",
+          "success": true,
+          "duration": 0.008678197860717773,
+          "workspace": "D:\\learnning\\260521",
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
+        },
+        "stored_at": "2026-05-20T15:23:18.457442",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "05365032-18d3-4bb8-864d-ced4d5ea0cef",
+        "entity_id": "evt-0dce459f8107",
+        "created_at": "2026-05-20T15:23:18.457442",
+        "updated_at": "2026-05-20T15:23:18.457442"
+      }
+    }
+  ]
+}
