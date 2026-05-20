@@ -15,5 +15,21 @@
         "start_time": "2026-05-20T15:26:59.113159",
         "end_time": "2026-05-20T15:27:01.621273",
         "duration": 2.5059549808502197
+    },
+    {
+        "call_id": "call-2ddd2776bf9e",
+        "tool_id": "T12",
+        "tool_name": "RunCommand",
+        "dialog_id": "sess-a991141c6f68",
+        "task_id": "sess-a991141c6f68",
+        "input_params": {
+            "command": "mkdir D:\\learnning\\260521\\workspace\\test_11"
+        },
+        "output_result": "{'command_id': 'cmd_2617569125616', 'command': 'mkdir D:\\\\learnning\\\\260521\\\\workspace\\\\test_11', 'status': 'completed', 'return_code': 0, 'stdout': '\\n\\n    目录: D:\\\\learnning\\\\260521\\\\workspace\\n\\n\\nMode                 LastWriteTime         Length Name                                        \\n----                 -------------         ------ ----                                        \\nd-----         2026/5/20     15:54                test_11                                     \\n\\n\\n', 'stderr': '', 'success': True, 'workspace': 'D:\\\\learnning\\\\260521\\\\workspace'}",
+        "status": "completed",
+        "error_message": null,
+        "start_time": "2026-05-20T15:54:25.667954",
+        "end_time": "2026-05-20T15:54:27.144006",
+        "duration": 1.4760518074035645
     }
 ]

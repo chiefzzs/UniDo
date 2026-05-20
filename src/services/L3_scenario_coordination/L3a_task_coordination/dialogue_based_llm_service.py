@@ -261,12 +261,14 @@ class DialogueBasedLLMService:
 
 ## 输出格式
 - 如果需要调用工具，输出JSON格式的工具调用
-- 如果直接回答，输出自然语言文本
+- 如果直接回答，使用Markdown格式输出
+- 代码块请使用```语言名 ```包裹
+- 支持使用标题、列表、粗体、斜体等Markdown语法
 
 ## 注意事项
 - 仔细分析用户问题，确定是否需要调用工具
 - 如果调用工具，确保参数正确
-- 如果收到工具结果，用自然语言总结给用户
+- 如果收到工具结果，用Markdown格式总结给用户
 """
     
     def _format_tools_for_prompt(self, tools: List[Dict[str, Any]]) -> str:

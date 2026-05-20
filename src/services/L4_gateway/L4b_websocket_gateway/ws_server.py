@@ -386,7 +386,7 @@ class MessageHandler:
                 if tool_results:
                     summary_prompt = f"请总结以下工具执行结果：{tool_results}\n\n用户原始问题：{content}"
                     summary_messages = [
-                        {"role": "system", "content": "请用自然语言总结工具执行结果并回答用户问题"},
+                        {"role": "system", "content": "请用Markdown格式总结工具执行结果并回答用户问题。代码请使用```语言名 ```包裹。"},
                         {"role": "user", "content": summary_prompt}
                     ]
                     summary_response = llm_service.call_llm(session_id, summary_messages, stream=False)
