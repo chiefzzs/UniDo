@@ -1,0 +1,29 @@
+{
+  "tool_id": "T18",
+  "name": "AskUserQuestion",
+  "category": "UI",
+  "parameters": {
+    "questions": {
+      "type": "string",
+      "description": "JSON string containing questions array with id, question, options, and multiSelect settings.",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "description": "Optional title for the questions form.",
+      "required": false
+    }
+  },
+  "description": "Collect structured multiple-choice answers from the user. Provide one or more questions with options, and set multiSelect when multi-select is appropriate.",
+  "description_zh": "从用户收集结构化多选题答案。提供一个或多个带选项的问题，并在适合多选时设置multiSelect。",
+  "default_params": {
+    "questions": "[{\"id\":\"q1\",\"question\":\"Which framework do you prefer?\",\"options\":[\"React\",\"Vue\",\"Angular\",\"Svelte\"],\"multiSelect\":false}]",
+    "title": "Please select your preference"
+  },
+  "examples": [
+    "Ask single question: questions=\"[{\\\"id\\\":\\\"q1\\\",\\\"question\\\":\\\"Choose option:\\\",\\\"options\\\":[\\\"A\\\",\\\"B\\\"]}]\""
+  ],
+  "examples_zh": [
+    "询问单个问题: questions=\"[{\\\"id\\\":\\\"q1\\\",\\\"question\\\":\\\"选择选项:\\\",\\\"options\\\":[\\\"A\\\",\\\"B\\\"]}]\""
+  ]
+}

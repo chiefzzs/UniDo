@@ -1,0 +1,73 @@
+{
+  "timestamp": "2026-05-19T17:08:43.592540",
+  "test_type": "ut",
+  "layer": "L1_infrastructure",
+  "sub_layer": "L1b_persistence",
+  "component": "PersistenceService",
+  "case_name": "test_save_and_load",
+  "test_points": [
+    "测试保存和加载功能"
+  ],
+  "inputs": {
+    "entity_type": "projects",
+    "data": {
+      "name": "Test Project",
+      "description": "A test project",
+      "entity_id": "proj-1b125474879b",
+      "created_at": "2026-05-19T17:08:43.568805",
+      "updated_at": "2026-05-19T17:08:43.568805"
+    }
+  },
+  "outputs": {
+    "entity_id": "proj-1b125474879b",
+    "loaded_data": {
+      "name": "Test Project",
+      "description": "A test project",
+      "entity_id": "proj-1b125474879b",
+      "created_at": "2026-05-19T17:08:43.568805",
+      "updated_at": "2026-05-19T17:08:43.568805"
+    }
+  },
+  "persistent_data": {
+    "projects": [
+      {
+        "name": "Test Project",
+        "description": "A test project",
+        "entity_id": "proj-1b125474879b",
+        "created_at": "2026-05-19T17:08:43.568805",
+        "updated_at": "2026-05-19T17:08:43.568805"
+      }
+    ],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "projects",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\projects.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "name": "Test Project",
+        "description": "A test project",
+        "entity_id": "proj-1b125474879b",
+        "created_at": "2026-05-19T17:08:43.568805",
+        "updated_at": "2026-05-19T17:08:43.568805"
+      }
+    }
+  ]
+}

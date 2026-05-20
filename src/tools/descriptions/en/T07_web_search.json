@@ -1,0 +1,37 @@
+{
+  "tool_id": "T07",
+  "name": "WebSearch",
+  "category": "Internet",
+  "parameters": {
+    "query": {
+      "type": "string",
+      "description": "The search query to be executed",
+      "required": true
+    },
+    "num": {
+      "type": "integer",
+      "description": "Maximum number of search results to return (default: 5)",
+      "required": false
+    },
+    "lr": {
+      "type": "string",
+      "description": "Language restriction for search results (e.g., 'lang_en' for English)",
+      "required": false
+    }
+  },
+  "description": "This tool can be used to search the internet. Should be used with caution as frequent searches result in a bad user experience and excessive costs.",
+  "description_zh": "此工具可用于搜索互联网。应谨慎使用，因为频繁搜索会导致糟糕的用户体验和过高的成本。",
+  "default_params": {
+    "query": "Python best practices 2025",
+    "num": 5,
+    "lr": "lang_en"
+  },
+  "examples": [
+    "Search for latest docs: query=\"latest documentation 2025\"",
+    "Search with language: query=\"Python tutorial\", lr=\"lang_en\""
+  ],
+  "examples_zh": [
+    "搜索最新文档: query=\"最新文档 2025\"",
+    "带语言限制搜索: query=\"Python教程\", lr=\"lang_zh\""
+  ]
+}

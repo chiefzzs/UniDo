@@ -1,0 +1,32 @@
+[
+    {
+        "config_id": "ws-config-46f194fc9301",
+        "name": "demo",
+        "root_path": "D:\\learnning\\260521\\workspace",
+        "type": "local",
+        "created_at": "2026-05-19T11:11:14.608232",
+        "updated_at": "2026-05-19T20:25:50.320239",
+        "encoding": "utf-8",
+        "excluded_patterns": []
+    },
+    {
+        "config_id": "ws-config-c2f1b7db89ad",
+        "name": "相对路径测试工作区-更新",
+        "root_path": "D:\\learnning\\260521\\workspaces\\test_updated",
+        "type": "local",
+        "encoding": "utf-8",
+        "excluded_patterns": [],
+        "created_at": "2026-05-19T20:03:01.071742",
+        "updated_at": "2026-05-19T20:03:23.188915"
+    },
+    {
+        "config_id": "ws-config-e510566c38bd",
+        "name": "默认路径测试工作区",
+        "root_path": "D:\\learnning\\260521\\workspace",
+        "type": "local",
+        "encoding": "utf-8",
+        "excluded_patterns": [],
+        "created_at": "2026-05-19T20:05:25.380455",
+        "updated_at": "2026-05-19T20:05:25.380455"
+    }
+]

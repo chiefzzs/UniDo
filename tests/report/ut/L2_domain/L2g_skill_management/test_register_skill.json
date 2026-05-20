@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-05-19T17:09:07.255266",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2g_skill_management",
+  "component": "SkillManagementService",
+  "case_name": "test_register_skill",
+  "test_points": [
+    "测试注册技能",
+    "验证L2服务自动触发L1持久化到skill_definitions.json"
+  ],
+  "inputs": {
+    "skill_name": "test_skill_reg",
+    "category": "test"
+  },
+  "outputs": {
+    "skill_id": "skill-790cb2248ba3",
+    "skill_name": "test_skill_reg"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [
+      {
+        "record_id": "rec-c7508405c347",
+        "event_id": "evt-38fdbd5fc628",
+        "event_type": "skill.registered",
+        "timestamp": "2026-05-19T17:09:07.232495",
+        "payload": {
+          "skill_id": "skill-790cb2248ba3",
+          "skill_name": "test_skill_reg"
+        },
+        "stored_at": "2026-05-19T17:09:07.232495",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "7e379ab5-0fd0-4647-bfab-c18119f260aa",
+        "entity_id": "evt-32489d45d08f",
+        "created_at": "2026-05-19T17:09:07.232495",
+        "updated_at": "2026-05-19T17:09:07.232495"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "record_id": "rec-c7508405c347",
+        "event_id": "evt-38fdbd5fc628",
+        "event_type": "skill.registered",
+        "timestamp": "2026-05-19T17:09:07.232495",
+        "payload": {
+          "skill_id": "skill-790cb2248ba3",
+          "skill_name": "test_skill_reg"
+        },
+        "stored_at": "2026-05-19T17:09:07.232495",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "7e379ab5-0fd0-4647-bfab-c18119f260aa",
+        "entity_id": "evt-32489d45d08f",
+        "created_at": "2026-05-19T17:09:07.232495",
+        "updated_at": "2026-05-19T17:09:07.232495"
+      }
+    }
+  ]
+}

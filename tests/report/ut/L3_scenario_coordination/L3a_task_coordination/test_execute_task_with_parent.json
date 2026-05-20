@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-05-19T17:17:35.881930",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3a_task_coordination",
+  "component": "TaskExecutionService",
+  "case_name": "test_execute_task_with_parent",
+  "test_points": [
+    "测试任务执行-带父任务",
+    "验证父子任务关系"
+  ],
+  "inputs": {
+    "task_id": "test_task_exec_2",
+    "parent_task_id": "parent-task"
+  },
+  "outputs": {
+    "task_id": "test_task_exec_2",
+    "status": "completed"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [
+      {
+        "task_id": "test_task_exec_2",
+        "parent_task_id": "parent-task",
+        "status": "completed",
+        "input_data": {
+          "user_input": "子任务"
+        },
+        "output_data": {
+          "result": "任务执行完成",
+          "input": {
+            "user_input": "子任务"
+          }
+        },
+        "entity_id": "task-6fce6f31e963",
+        "created_at": "2026-05-19T17:17:35.861766",
+        "updated_at": "2026-05-19T17:17:35.863786"
+      }
+    ],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "tasks",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\tasks.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "task_id": "test_task_exec_2",
+        "parent_task_id": "parent-task",
+        "status": "completed",
+        "input_data": {
+          "user_input": "子任务"
+        },
+        "output_data": {
+          "result": "任务执行完成",
+          "input": {
+            "user_input": "子任务"
+          }
+        },
+        "entity_id": "task-6fce6f31e963",
+        "created_at": "2026-05-19T17:17:35.861766",
+        "updated_at": "2026-05-19T17:17:35.863786"
+      }
+    }
+  ]
+}

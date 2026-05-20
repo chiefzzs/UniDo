@@ -1,0 +1,81 @@
+{
+  "timestamp": "2026-05-19T17:09:07.301347",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2g_skill_management",
+  "component": "SkillManagementService",
+  "case_name": "test_get_skill",
+  "test_points": [
+    "测试获取技能",
+    "验证skill_definitions查询功能"
+  ],
+  "inputs": {
+    "skill_id": "skill-5dd9a8626825"
+  },
+  "outputs": {
+    "found": true,
+    "name": "get_test_skill"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [
+      {
+        "record_id": "rec-98a0f7b1929a",
+        "event_id": "evt-12d0ee37fc00",
+        "event_type": "skill.registered",
+        "timestamp": "2026-05-19T17:09:07.270423",
+        "payload": {
+          "skill_id": "skill-5dd9a8626825",
+          "skill_name": "get_test_skill"
+        },
+        "stored_at": "2026-05-19T17:09:07.270423",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "f2d4c96a-e712-4876-822b-fde74a62b7bf",
+        "entity_id": "evt-3f5a50cb4709",
+        "created_at": "2026-05-19T17:09:07.270423",
+        "updated_at": "2026-05-19T17:09:07.270423"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "record_id": "rec-98a0f7b1929a",
+        "event_id": "evt-12d0ee37fc00",
+        "event_type": "skill.registered",
+        "timestamp": "2026-05-19T17:09:07.270423",
+        "payload": {
+          "skill_id": "skill-5dd9a8626825",
+          "skill_name": "get_test_skill"
+        },
+        "stored_at": "2026-05-19T17:09:07.270423",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "f2d4c96a-e712-4876-822b-fde74a62b7bf",
+        "entity_id": "evt-3f5a50cb4709",
+        "created_at": "2026-05-19T17:09:07.270423",
+        "updated_at": "2026-05-19T17:09:07.270423"
+      }
+    }
+  ]
+}

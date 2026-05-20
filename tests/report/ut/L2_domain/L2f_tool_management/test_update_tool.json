@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-05-19T17:09:07.166118",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2f_tool_management",
+  "component": "ToolManagementService",
+  "case_name": "test_update_tool",
+  "test_points": [
+    "测试更新工具",
+    "验证tool_definitions更新"
+  ],
+  "inputs": {
+    "tool_id": "tool-a9bb9e340107",
+    "new_description": "Updated description"
+  },
+  "outputs": {
+    "updated": true,
+    "description": "Updated description"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [
+      {
+        "record_id": "rec-a01726f4613a",
+        "event_id": "evt-ccbc1d746afe",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-19T17:09:07.117612",
+        "payload": {
+          "tool_id": "tool-a9bb9e340107",
+          "tool_name": "update_test_tool"
+        },
+        "stored_at": "2026-05-19T17:09:07.117612",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "59554fce-7b64-4f00-8ba7-eaf6361df227",
+        "entity_id": "evt-f4286589357f",
+        "created_at": "2026-05-19T17:09:07.117612",
+        "updated_at": "2026-05-19T17:09:07.117612"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "record_id": "rec-a01726f4613a",
+        "event_id": "evt-ccbc1d746afe",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-19T17:09:07.117612",
+        "payload": {
+          "tool_id": "tool-a9bb9e340107",
+          "tool_name": "update_test_tool"
+        },
+        "stored_at": "2026-05-19T17:09:07.117612",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "59554fce-7b64-4f00-8ba7-eaf6361df227",
+        "entity_id": "evt-f4286589357f",
+        "created_at": "2026-05-19T17:09:07.117612",
+        "updated_at": "2026-05-19T17:09:07.117612"
+      }
+    }
+  ]
+}

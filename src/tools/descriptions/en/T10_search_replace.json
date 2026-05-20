@@ -1,0 +1,35 @@
+{
+  "tool_id": "T10",
+  "name": "SearchReplace",
+  "category": "File",
+  "parameters": {
+    "file_path": {
+      "type": "string",
+      "description": "The file path to edit.",
+      "required": true
+    },
+    "old_str": {
+      "type": "string",
+      "description": "The SEARCH section, a contiguous chunk of lines to search for.",
+      "required": true
+    },
+    "new_str": {
+      "type": "string",
+      "description": "The REPLACE section to replace into the file.",
+      "required": true
+    }
+  },
+  "description": "Edit files with search and replace. The old_str must match exactly what exists in the file. Only replaces the first match occurrence.",
+  "description_zh": "使用搜索替换编辑文件。old_str必须与文件中存在的内容完全匹配。仅替换第一个匹配项。",
+  "default_params": {
+    "file_path": "/path/to/file.py",
+    "old_str": "def old_function():\n    pass",
+    "new_str": "def new_function():\n    return True"
+  },
+  "examples": [
+    "Replace a function: old_str=\"def old_func():\\n    pass\", new_str=\"def new_func():\\n    return True\""
+  ],
+  "examples_zh": [
+    "替换函数: old_str=\"def old_func():\\n    pass\", new_str=\"def new_func():\\n    return True\""
+  ]
+}

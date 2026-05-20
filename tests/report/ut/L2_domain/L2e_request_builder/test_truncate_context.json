@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-05-19T17:09:06.854413",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2e_request_builder",
+  "component": "ContextBuilder",
+  "case_name": "test_truncate_context",
+  "test_points": [
+    "测试截断上下文"
+  ],
+  "inputs": {
+    "original_count": 3,
+    "max_tokens": 150
+  },
+  "outputs": {
+    "truncated_count": 1
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": []
+}

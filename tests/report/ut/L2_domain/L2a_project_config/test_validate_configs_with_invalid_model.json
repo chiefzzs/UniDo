@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-05-19T17:09:00.676081",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2a_project_config",
+  "component": "ConfigValidationService",
+  "case_name": "test_validate_configs_with_invalid_model",
+  "test_points": [
+    "测试验证无效模型配置",
+    "验证不存在的模型ID被拒绝"
+  ],
+  "inputs": {
+    "workspace_id": "ws-config-9963fd9edb26",
+    "model_config_id": "invalid-model-id"
+  },
+  "outputs": {
+    "valid": false
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [
+      {
+        "config_id": "ws-config-9963fd9edb26",
+        "name": "Test Workspace",
+        "root_path": "/workspace/test",
+        "type": "local",
+        "created_at": "2026-05-19T17:09:00.653845",
+        "updated_at": "2026-05-19T17:09:00.653845"
+      }
+    ],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "workspace_configs",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\workspace_configs.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "config_id": "ws-config-9963fd9edb26",
+        "name": "Test Workspace",
+        "root_path": "/workspace/test",
+        "type": "local",
+        "created_at": "2026-05-19T17:09:00.653845",
+        "updated_at": "2026-05-19T17:09:00.653845"
+      }
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "timestamp": "2026-05-19T17:09:04.265021",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2d_llm_execution",
+  "component": "LLMExecutionService",
+  "case_name": "test_execute_stream",
+  "test_points": [
+    "测试流式LLM请求",
+    "验证流式响应处理"
+  ],
+  "inputs": {
+    "session_id": "session-stream-001"
+  },
+  "outputs": {
+    "request_id": "req-901820045d15",
+    "chunk_count": 0,
+    "status": "failed"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [
+      {
+        "call_id": "call-86738997f6be",
+        "dialog_id": "session-stream-001",
+        "model_config_id": "default",
+        "request": {
+          "model_name": "default",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Stream test"
+            }
+          ],
+          "temperature": 0.7,
+          "max_tokens": 2000,
+          "stream": false,
+          "api_type": "openai",
+          "api_address": "http://localhost/v1",
+          "api_key": "demo",
+          "tools": [],
+          "tool_choice": null
+        },
+        "response": {
+          "error": "'LLMClient' object has no attribute 'send_request_stream'"
+        },
+        "status": "failed",
+        "duration_ms": 0,
+        "created_at": "2026-05-19T17:09:04.239429"
+      }
+    ],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {
+    "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+    "call_count": 1,
+    "last_call": {
+      "call_id": "call-86738997f6be",
+      "dialog_id": "session-stream-001",
+      "model_config_id": "default",
+      "request": {
+        "model_name": "default",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Stream test"
+          }
+        ],
+        "temperature": 0.7,
+        "max_tokens": 2000,
+        "stream": false,
+        "api_type": "openai",
+        "api_address": "http://localhost/v1",
+        "api_key": "demo",
+        "tools": [],
+        "tool_choice": null
+      },
+      "response": {
+        "error": "'LLMClient' object has no attribute 'send_request_stream'"
+      },
+      "status": "failed",
+      "duration_ms": 0,
+      "created_at": "2026-05-19T17:09:04.239429"
+    },
+    "validation": {
+      "valid": true,
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+      "record_count": 1,
+      "data_exists": true
+    }
+  },
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "llm_calls",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "call_id": "call-86738997f6be",
+        "dialog_id": "session-stream-001",
+        "model_config_id": "default",
+        "request": {
+          "model_name": "default",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Stream test"
+            }
+          ],
+          "temperature": 0.7,
+          "max_tokens": 2000,
+          "stream": false,
+          "api_type": "openai",
+          "api_address": "http://localhost/v1",
+          "api_key": "demo",
+          "tools": [],
+          "tool_choice": null
+        },
+        "response": {
+          "error": "'LLMClient' object has no attribute 'send_request_stream'"
+        },
+        "status": "failed",
+        "duration_ms": 0,
+        "created_at": "2026-05-19T17:09:04.239429"
+      }
+    }
+  ]
+}

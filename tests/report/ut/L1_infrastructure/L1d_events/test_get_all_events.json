@@ -1,0 +1,94 @@
+{
+  "timestamp": "2026-05-19T17:08:51.075080",
+  "test_type": "ut",
+  "layer": "L1_infrastructure",
+  "sub_layer": "L1d_events",
+  "component": "EventBus",
+  "case_name": "test_get_all_events",
+  "test_points": [
+    "测试获取所有事件",
+    "验证事件自动持久化"
+  ],
+  "inputs": {
+    "events_published": 2
+  },
+  "outputs": {
+    "events_retrieved": 4
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [
+      {
+        "record_id": "rec-13a173b13e30",
+        "event_id": "evt-4edee5e24a3f",
+        "event_type": "llm.request_sent",
+        "timestamp": "2026-05-19T17:08:51.053280",
+        "payload": {
+          "content": "Hello"
+        },
+        "stored_at": "2026-05-19T17:08:51.053280",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "9c4af30b-373e-41e4-9d9b-01fed3d045e5",
+        "entity_id": "evt-f7f77e629611",
+        "created_at": "2026-05-19T17:08:51.053280",
+        "updated_at": "2026-05-19T17:08:51.053280"
+      },
+      {
+        "record_id": "rec-b029a69b895b",
+        "event_id": "evt-65e6930a9a81",
+        "event_type": "task.completed",
+        "timestamp": "2026-05-19T17:08:51.053280",
+        "payload": {
+          "task_id": "task-1"
+        },
+        "stored_at": "2026-05-19T17:08:51.055805",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "080413c8-eba0-43d7-a7a7-56b461bb11d9",
+        "entity_id": "evt-3b21bdf608ed",
+        "created_at": "2026-05-19T17:08:51.055805",
+        "updated_at": "2026-05-19T17:08:51.055805"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 2,
+      "sample_data": {
+        "record_id": "rec-b029a69b895b",
+        "event_id": "evt-65e6930a9a81",
+        "event_type": "task.completed",
+        "timestamp": "2026-05-19T17:08:51.053280",
+        "payload": {
+          "task_id": "task-1"
+        },
+        "stored_at": "2026-05-19T17:08:51.055805",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "080413c8-eba0-43d7-a7a7-56b461bb11d9",
+        "entity_id": "evt-3b21bdf608ed",
+        "created_at": "2026-05-19T17:08:51.055805",
+        "updated_at": "2026-05-19T17:08:51.055805"
+      }
+    }
+  ]
+}

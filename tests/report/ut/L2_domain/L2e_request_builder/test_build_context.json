@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-05-19T17:09:06.821857",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2e_request_builder",
+  "component": "ContextBuilder",
+  "case_name": "test_build_context",
+  "test_points": [
+    "测试构建上下文",
+    "验证从messages.json获取会话消息"
+  ],
+  "inputs": {
+    "session_id": "test-session"
+  },
+  "outputs": {
+    "message_count": 0
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": []
+}

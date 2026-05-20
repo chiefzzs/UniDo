@@ -1,0 +1,219 @@
+{
+  "timestamp": "2026-05-19T17:09:04.228750",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2d_llm_execution",
+  "component": "LLMExecutionService",
+  "case_name": "test_execute_llm",
+  "test_points": [
+    "测试执行LLM请求",
+    "验证L2服务自动触发L1持久化到llm_calls.json"
+  ],
+  "inputs": {
+    "session_id": "session-llm-001",
+    "model_config_id": "default",
+    "message_count": 2
+  },
+  "outputs": {
+    "request_id": "req-261a6cfbbe43",
+    "status": "completed",
+    "content": "Hello! I'm doing well, thank you for asking. How a"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [
+      {
+        "call_id": "call-1e070e65e0f1",
+        "dialog_id": "session-llm-001",
+        "model_config_id": "default",
+        "request": {
+          "model_name": "default",
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a helpful assistant."
+            },
+            {
+              "role": "user",
+              "content": "Hello, how are you?"
+            }
+          ],
+          "temperature": 0.7,
+          "max_tokens": 100,
+          "stream": false,
+          "api_type": "openai",
+          "api_address": "http://localhost/v1",
+          "api_key": "demo",
+          "tools": [],
+          "tool_choice": null
+        },
+        "response": {
+          "content": "Hello! I'm doing well, thank you for asking. How about you? How's your day going? Is there anything I can help you with?",
+          "finish_reason": "stop",
+          "tool_calls": null,
+          "usage": {
+            "prompt_tokens": 27,
+            "completion_tokens": 418,
+            "total_tokens": 445
+          }
+        },
+        "status": "completed",
+        "duration_ms": 2497,
+        "created_at": "2026-05-19T17:09:04.200757"
+      }
+    ],
+    "tool_calls": [],
+    "events": [
+      {
+        "record_id": "rec-3fce8480cf41",
+        "event_id": "evt-c697e3b919c4",
+        "event_type": "llm.call_completed",
+        "timestamp": "2026-05-19T17:09:04.202972",
+        "payload": {
+          "request_id": "req-261a6cfbbe43",
+          "dialog_id": "session-llm-001",
+          "duration_ms": 2497
+        },
+        "stored_at": "2026-05-19T17:09:04.202972",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "7f93564d-8cc3-42b1-ac6c-93d56c51e5a6",
+        "entity_id": "evt-2d02a620365e",
+        "created_at": "2026-05-19T17:09:04.202972",
+        "updated_at": "2026-05-19T17:09:04.202972"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {
+    "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+    "call_count": 1,
+    "last_call": {
+      "call_id": "call-1e070e65e0f1",
+      "dialog_id": "session-llm-001",
+      "model_config_id": "default",
+      "request": {
+        "model_name": "default",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are a helpful assistant."
+          },
+          {
+            "role": "user",
+            "content": "Hello, how are you?"
+          }
+        ],
+        "temperature": 0.7,
+        "max_tokens": 100,
+        "stream": false,
+        "api_type": "openai",
+        "api_address": "http://localhost/v1",
+        "api_key": "demo",
+        "tools": [],
+        "tool_choice": null
+      },
+      "response": {
+        "content": "Hello! I'm doing well, thank you for asking. How about you? How's your day going? Is there anything I can help you with?",
+        "finish_reason": "stop",
+        "tool_calls": null,
+        "usage": {
+          "prompt_tokens": 27,
+          "completion_tokens": 418,
+          "total_tokens": 445
+        }
+      },
+      "status": "completed",
+      "duration_ms": 2497,
+      "created_at": "2026-05-19T17:09:04.200757"
+    },
+    "validation": {
+      "valid": true,
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+      "record_count": 1,
+      "data_exists": true
+    }
+  },
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "llm_calls",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "call_id": "call-1e070e65e0f1",
+        "dialog_id": "session-llm-001",
+        "model_config_id": "default",
+        "request": {
+          "model_name": "default",
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a helpful assistant."
+            },
+            {
+              "role": "user",
+              "content": "Hello, how are you?"
+            }
+          ],
+          "temperature": 0.7,
+          "max_tokens": 100,
+          "stream": false,
+          "api_type": "openai",
+          "api_address": "http://localhost/v1",
+          "api_key": "demo",
+          "tools": [],
+          "tool_choice": null
+        },
+        "response": {
+          "content": "Hello! I'm doing well, thank you for asking. How about you? How's your day going? Is there anything I can help you with?",
+          "finish_reason": "stop",
+          "tool_calls": null,
+          "usage": {
+            "prompt_tokens": 27,
+            "completion_tokens": 418,
+            "total_tokens": 445
+          }
+        },
+        "status": "completed",
+        "duration_ms": 2497,
+        "created_at": "2026-05-19T17:09:04.200757"
+      }
+    },
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "record_id": "rec-3fce8480cf41",
+        "event_id": "evt-c697e3b919c4",
+        "event_type": "llm.call_completed",
+        "timestamp": "2026-05-19T17:09:04.202972",
+        "payload": {
+          "request_id": "req-261a6cfbbe43",
+          "dialog_id": "session-llm-001",
+          "duration_ms": 2497
+        },
+        "stored_at": "2026-05-19T17:09:04.202972",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "7f93564d-8cc3-42b1-ac6c-93d56c51e5a6",
+        "entity_id": "evt-2d02a620365e",
+        "created_at": "2026-05-19T17:09:04.202972",
+        "updated_at": "2026-05-19T17:09:04.202972"
+      }
+    }
+  ]
+}

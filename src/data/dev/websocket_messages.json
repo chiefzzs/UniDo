@@ -1,0 +1,50 @@
+[
+    {
+        "log_id": "ws-48bb3c2a9af4",
+        "client_id": "client-8um099y45",
+        "session_id": "sess-7087ce5dfc20",
+        "message_type": "leave_session",
+        "direction": "inbound",
+        "payload": "{\"action\": \"leave_session\", \"session_id\": \"sess-7087ce5dfc20\"}",
+        "error_message": null,
+        "created_at": "2026-05-20T14:52:18.925584",
+        "entity_id": "ent-8e9c260fb982",
+        "updated_at": "2026-05-20T14:52:18.925584"
+    },
+    {
+        "log_id": "ws-29de611103bc",
+        "client_id": "client-8um099y45",
+        "session_id": "sess-7087ce5dfc20",
+        "message_type": "leave_session_response",
+        "direction": "outbound",
+        "payload": "{\"type\": \"leave_session_response\", \"status\": \"success\", \"session_id\": \"sess-7087ce5dfc20\"}",
+        "error_message": null,
+        "created_at": "2026-05-20T14:52:18.930883",
+        "entity_id": "ent-14fbcc98a3e6",
+        "updated_at": "2026-05-20T14:52:18.930883"
+    },
+    {
+        "log_id": "ws-7eca057943dc",
+        "client_id": "client-8um099y45",
+        "session_id": "sess-7087ce5dfc20",
+        "message_type": "join_session",
+        "direction": "inbound",
+        "payload": "{\"action\": \"join_session\", \"session_id\": \"sess-7087ce5dfc20\"}",
+        "error_message": null,
+        "created_at": "2026-05-20T14:52:18.932893",
+        "entity_id": "ent-1510bd9b3474",
+        "updated_at": "2026-05-20T14:52:18.932893"
+    },
+    {
+        "log_id": "ws-da9a72d1a318",
+        "client_id": "client-8um099y45",
+        "session_id": "sess-7087ce5dfc20",
+        "message_type": "join_session_response",
+        "direction": "outbound",
+        "payload": "{\"type\": \"join_session_response\", \"status\": \"success\", \"session_id\": \"sess-7087ce5dfc20\", \"client_id\": \"client-8um099y45\"}",
+        "error_message": null,
+        "created_at": "2026-05-20T14:52:18.936221",
+        "entity_id": "ent-9e5bf326affd",
+        "updated_at": "2026-05-20T14:52:18.936221"
+    }
+]

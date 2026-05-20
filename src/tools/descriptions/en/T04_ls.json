@@ -1,0 +1,32 @@
+{
+  "tool_id": "T04",
+  "name": "LS",
+  "category": "File",
+  "parameters": {
+    "path": {
+      "type": "string",
+      "description": "The absolute path to the directory to list.",
+      "required": true
+    },
+    "ignore": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "List of glob patterns to ignore.",
+      "required": false
+    }
+  },
+  "description": "Lists files and directories in a given path. The path parameter must be an absolute path, not a relative path.",
+  "description_zh": "列出给定路径中的文件和目录。路径参数必须是绝对路径，不能是相对路径。",
+  "default_params": {
+    "path": "/",
+    "ignore": ["node_modules", ".git"]
+  },
+  "examples": [
+    "List root directory: path=\"/\"",
+    "List with exclusions: path=\"/project\", ignore=[\"node_modules\", \".git\"]"
+  ],
+  "examples_zh": [
+    "列出根目录: path=\"/\"",
+    "带排除列表: path=\"/project\", ignore=[\"node_modules\", \".git\"]"
+  ]
+}

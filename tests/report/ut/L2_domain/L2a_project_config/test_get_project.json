@@ -1,0 +1,110 @@
+{
+  "timestamp": "2026-05-19T17:09:00.771539",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2a_project_config",
+  "component": "ProjectService",
+  "case_name": "test_get_project",
+  "test_points": [
+    "测试获取项目",
+    "验证从L1持久化正确读取"
+  ],
+  "inputs": {
+    "project_id": "proj-5456c1d1caac"
+  },
+  "outputs": {
+    "found": true,
+    "name": "Test Get Project"
+  },
+  "persistent_data": {
+    "projects": [
+      {
+        "project_id": "proj-5456c1d1caac",
+        "name": "Test Get Project",
+        "description": "Test project for get",
+        "workspace_config_id": "ws-config-002",
+        "model_config_id": "model-config-002",
+        "tool_config_ids": [],
+        "status": "active",
+        "created_at": "2026-05-19T17:09:00.750342",
+        "updated_at": "2026-05-19T17:09:00.750342"
+      }
+    ],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [
+      {
+        "record_id": "rec-e0fdc7f3c782",
+        "event_id": "evt-acaeda75b07c",
+        "event_type": "project.created",
+        "timestamp": "2026-05-19T17:09:00.752340",
+        "payload": {
+          "project_id": "proj-5456c1d1caac",
+          "name": "Test Get Project"
+        },
+        "stored_at": "2026-05-19T17:09:00.752340",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "0b11ce4e-8fdd-4ac8-9a09-b6dd4dc8a9bf",
+        "entity_id": "evt-34e9e1b53a4b",
+        "created_at": "2026-05-19T17:09:00.752340",
+        "updated_at": "2026-05-19T17:09:00.752340"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "projects",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\projects.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "project_id": "proj-5456c1d1caac",
+        "name": "Test Get Project",
+        "description": "Test project for get",
+        "workspace_config_id": "ws-config-002",
+        "model_config_id": "model-config-002",
+        "tool_config_ids": [],
+        "status": "active",
+        "created_at": "2026-05-19T17:09:00.750342",
+        "updated_at": "2026-05-19T17:09:00.750342"
+      }
+    },
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "record_id": "rec-e0fdc7f3c782",
+        "event_id": "evt-acaeda75b07c",
+        "event_type": "project.created",
+        "timestamp": "2026-05-19T17:09:00.752340",
+        "payload": {
+          "project_id": "proj-5456c1d1caac",
+          "name": "Test Get Project"
+        },
+        "stored_at": "2026-05-19T17:09:00.752340",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "0b11ce4e-8fdd-4ac8-9a09-b6dd4dc8a9bf",
+        "entity_id": "evt-34e9e1b53a4b",
+        "created_at": "2026-05-19T17:09:00.752340",
+        "updated_at": "2026-05-19T17:09:00.752340"
+      }
+    }
+  ]
+}

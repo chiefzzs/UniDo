@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-05-19T17:09:01.391359",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2c_tool_execution",
+  "component": "ToolExecutor",
+  "case_name": "test_execute_tool_not_found",
+  "test_points": [
+    "测试执行不存在的工具"
+  ],
+  "inputs": {
+    "tool_name": "non_existent_tool"
+  },
+  "outputs": {
+    "success": false,
+    "error": "Tool not found: non_existent_tool",
+    "status": "failed"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": []
+}

@@ -1,0 +1,65 @@
+{
+  "tool_id": "T05",
+  "name": "Grep",
+  "category": "搜索",
+  "parameters": {
+    "pattern": {
+      "type": "string",
+      "description": "要在文件内容中搜索的正则表达式模式",
+      "required": true
+    },
+    "path": {
+      "type": "string",
+      "description": "要搜索的文件或目录。默认为当前工作目录。",
+      "required": false
+    },
+    "glob": {
+      "type": "string",
+      "description": "过滤文件的glob模式 (例如: \"*.js\", \"*.{ts,tsx}\")",
+      "required": false
+    },
+    "output_mode": {
+      "type": "string",
+      "enum": ["content", "files_with_matches", "count"],
+      "description": "输出模式: content显示行, files_with_matches显示路径, count显示计数",
+      "required": false
+    },
+    "type": {
+      "type": "string",
+      "description": "要搜索的文件类型 (例如: js, py, rust)",
+      "required": false
+    },
+    "-i": {
+      "type": "boolean",
+      "description": "不区分大小写搜索",
+      "required": false
+    },
+    "-n": {
+      "type": "boolean",
+      "description": "在输出中显示行号",
+      "required": false
+    },
+    "-C": {
+      "type": "integer",
+      "description": "显示匹配前后的行数",
+      "required": false
+    },
+    "head_limit": {
+      "type": "integer",
+      "description": "限制输出前N行",
+      "required": false
+    }
+  },
+  "description_zh": "基于ripgrep构建的强力搜索工具。支持完整正则表达式语法。可以按glob模式或类型过滤文件。",
+  "description_en": "A powerful search tool built on ripgrep. Supports full regex syntax. Can filter files by glob pattern or type.",
+  "examples_zh": [
+    "查找函数定义: pattern=\"def\\\\s+\\\\w+\"",
+    "不区分大小写搜索: pattern=\"error\", -i=true",
+    "带上下文搜索: pattern=\"class\", -C=3"
+  ],
+  "examples_en": [
+    "Find function definitions: pattern=\"def\\\\s+\\\\w+\"",
+    "Case insensitive search: pattern=\"error\", -i=true",
+    "Search with context: pattern=\"class\", -C=3"
+  ]
+}

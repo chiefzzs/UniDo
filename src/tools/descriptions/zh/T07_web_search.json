@@ -1,0 +1,32 @@
+{
+  "tool_id": "T07",
+  "name": "WebSearch",
+  "category": "互联网",
+  "parameters": {
+    "query": {
+      "type": "string",
+      "description": "要执行的搜索查询",
+      "required": true
+    },
+    "num": {
+      "type": "integer",
+      "description": "返回的最大搜索结果数（默认: 5）",
+      "required": false
+    },
+    "lr": {
+      "type": "string",
+      "description": "搜索结果的语言限制（例如: 'lang_en' 为英语）",
+      "required": false
+    }
+  },
+  "description_zh": "此工具可用于搜索互联网。应谨慎使用，因为频繁搜索会导致糟糕的用户体验和过高的成本。",
+  "description_en": "This tool can be used to search the internet. Should be used with caution as frequent searches result in a bad user experience and excessive costs.",
+  "examples_zh": [
+    "搜索最新文档: query=\"最新文档 2025\"",
+    "带语言限制搜索: query=\"Python教程\", lr=\"lang_zh\""
+  ],
+  "examples_en": [
+    "Search for latest docs: query=\"latest documentation 2025\"",
+    "Search with language: query=\"Python tutorial\", lr=\"lang_en\""
+  ]
+}

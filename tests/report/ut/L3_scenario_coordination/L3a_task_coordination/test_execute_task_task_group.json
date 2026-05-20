@@ -1,0 +1,272 @@
+{
+  "timestamp": "2026-05-19T17:17:33.161702",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3a_task_coordination",
+  "component": "BaseExecutionService",
+  "case_name": "test_execute_task_task_group",
+  "test_points": [
+    "测试基础执行-任务组",
+    "验证任务编排流程"
+  ],
+  "inputs": {
+    "task_id": "test-group",
+    "user_input": "先分析再执行"
+  },
+  "outputs": {
+    "task_id": "test-group",
+    "status": "completed",
+    "subtask_count": 3
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [
+      {
+        "task_id": "group_test-group_sub1",
+        "parent_task_id": "test-group",
+        "status": "completed",
+        "input_data": {
+          "description": "分析任务"
+        },
+        "output_data": {
+          "result": "任务执行完成",
+          "input": {
+            "description": "分析任务"
+          }
+        },
+        "entity_id": "task-6be6e3d097c8",
+        "created_at": "2026-05-19T17:17:33.120508",
+        "updated_at": "2026-05-19T17:17:33.122520"
+      },
+      {
+        "task_id": "group_test-group_sub2",
+        "parent_task_id": "test-group",
+        "status": "completed",
+        "input_data": {
+          "description": "执行操作"
+        },
+        "output_data": {
+          "result": "任务执行完成",
+          "input": {
+            "description": "执行操作"
+          }
+        },
+        "entity_id": "task-ea8b63031b62",
+        "created_at": "2026-05-19T17:17:33.124026",
+        "updated_at": "2026-05-19T17:17:33.126720"
+      },
+      {
+        "task_id": "group_test-group_sub3",
+        "parent_task_id": "test-group",
+        "status": "completed",
+        "input_data": {
+          "description": "汇总结果"
+        },
+        "output_data": {
+          "result": "任务执行完成",
+          "input": {
+            "description": "汇总结果"
+          }
+        },
+        "entity_id": "task-db4d42563c21",
+        "created_at": "2026-05-19T17:17:33.128260",
+        "updated_at": "2026-05-19T17:17:33.130295"
+      }
+    ],
+    "llm_calls": [
+      {
+        "call_id": "call-6371b3283e38",
+        "dialog_id": "intent-analysis-default-session",
+        "model_config_id": "default",
+        "request": {
+          "model_name": "default",
+          "messages": [
+            {
+              "role": "system",
+              "content": "你是一个意图分析助手。请分析用户输入并返回JSON格式的结果：\n        \n{\n    \"intent_type\": \"direct_completion|single_tool|task_group\",\n    \"confidence\": 0.0-1.0,\n    \"reasoning\": \"分析理由\",\n    \"tool_info\": {\n        \"tool_name\": \"工具名称\",\n        \"parameters\": {\"参数名\": \"参数值\"}\n    },\n    \"task_info\": {\n        \"execution_mode\": \"sequential|parallel|dependency_based\",\n        \"subtasks\": [{\"description\": \"子任务描述\"}]\n    }\n}\n\n## 意图类型说明：\n1. direct_completion：简单问答（问候、介绍自己、闲聊等），无需工具\n2. single_tool：需要调用单个工具完成任务\n3. task_group：需要多个任务协作完成\n\n## 示例：\n- 用户：\"你好\" → intent_type: \"direct_completion\"\n- 用户：\"帮我读取README.md\" → intent_type: \"single_tool\", tool_name: \"Read\"\n- 用户：\"分析项目结构并生成文档\" → intent_type: \"task_group\"\n"
+            },
+            {
+              "role": "user",
+              "content": "先分析再执行"
+            }
+          ],
+          "temperature": 0.1,
+          "max_tokens": 1024,
+          "stream": false,
+          "api_type": "openai",
+          "api_address": "http://localhost/v1",
+          "api_key": "demo",
+          "tools": [],
+          "tool_choice": null
+        },
+        "response": {
+          "error": "Expecting value: line 1 column 1 (char 0)"
+        },
+        "status": "failed",
+        "duration_ms": 2388,
+        "created_at": "2026-05-19T17:17:33.114900"
+      }
+    ],
+    "tool_calls": [],
+    "events": [
+      {
+        "record_id": "rec-931d984d5f19",
+        "event_id": "evt-3b21716789b9",
+        "event_type": "llm.call_failed",
+        "timestamp": "2026-05-19T17:17:33.117947",
+        "payload": {
+          "request_id": "req-e0a86c0575e1",
+          "dialog_id": "intent-analysis-default-session",
+          "error": "Expecting value: line 1 column 1 (char 0)"
+        },
+        "stored_at": "2026-05-19T17:17:33.117947",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "728e7acc-774b-4972-a527-1091f3b10813",
+        "entity_id": "evt-7ac1d7ba1b23",
+        "created_at": "2026-05-19T17:17:33.117947",
+        "updated_at": "2026-05-19T17:17:33.117947"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {
+    "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+    "call_count": 1,
+    "last_call": {
+      "call_id": "call-6371b3283e38",
+      "dialog_id": "intent-analysis-default-session",
+      "model_config_id": "default",
+      "request": {
+        "model_name": "default",
+        "messages": [
+          {
+            "role": "system",
+            "content": "你是一个意图分析助手。请分析用户输入并返回JSON格式的结果：\n        \n{\n    \"intent_type\": \"direct_completion|single_tool|task_group\",\n    \"confidence\": 0.0-1.0,\n    \"reasoning\": \"分析理由\",\n    \"tool_info\": {\n        \"tool_name\": \"工具名称\",\n        \"parameters\": {\"参数名\": \"参数值\"}\n    },\n    \"task_info\": {\n        \"execution_mode\": \"sequential|parallel|dependency_based\",\n        \"subtasks\": [{\"description\": \"子任务描述\"}]\n    }\n}\n\n## 意图类型说明：\n1. direct_completion：简单问答（问候、介绍自己、闲聊等），无需工具\n2. single_tool：需要调用单个工具完成任务\n3. task_group：需要多个任务协作完成\n\n## 示例：\n- 用户：\"你好\" → intent_type: \"direct_completion\"\n- 用户：\"帮我读取README.md\" → intent_type: \"single_tool\", tool_name: \"Read\"\n- 用户：\"分析项目结构并生成文档\" → intent_type: \"task_group\"\n"
+          },
+          {
+            "role": "user",
+            "content": "先分析再执行"
+          }
+        ],
+        "temperature": 0.1,
+        "max_tokens": 1024,
+        "stream": false,
+        "api_type": "openai",
+        "api_address": "http://localhost/v1",
+        "api_key": "demo",
+        "tools": [],
+        "tool_choice": null
+      },
+      "response": {
+        "error": "Expecting value: line 1 column 1 (char 0)"
+      },
+      "status": "failed",
+      "duration_ms": 2388,
+      "created_at": "2026-05-19T17:17:33.114900"
+    },
+    "validation": {
+      "valid": true,
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+      "record_count": 1,
+      "data_exists": true
+    }
+  },
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "tasks",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\tasks.json",
+      "operation": "write",
+      "record_count": 3,
+      "sample_data": {
+        "task_id": "group_test-group_sub3",
+        "parent_task_id": "test-group",
+        "status": "completed",
+        "input_data": {
+          "description": "汇总结果"
+        },
+        "output_data": {
+          "result": "任务执行完成",
+          "input": {
+            "description": "汇总结果"
+          }
+        },
+        "entity_id": "task-db4d42563c21",
+        "created_at": "2026-05-19T17:17:33.128260",
+        "updated_at": "2026-05-19T17:17:33.130295"
+      }
+    },
+    {
+      "entity_type": "llm_calls",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "call_id": "call-6371b3283e38",
+        "dialog_id": "intent-analysis-default-session",
+        "model_config_id": "default",
+        "request": {
+          "model_name": "default",
+          "messages": [
+            {
+              "role": "system",
+              "content": "你是一个意图分析助手。请分析用户输入并返回JSON格式的结果：\n        \n{\n    \"intent_type\": \"direct_completion|single_tool|task_group\",\n    \"confidence\": 0.0-1.0,\n    \"reasoning\": \"分析理由\",\n    \"tool_info\": {\n        \"tool_name\": \"工具名称\",\n        \"parameters\": {\"参数名\": \"参数值\"}\n    },\n    \"task_info\": {\n        \"execution_mode\": \"sequential|parallel|dependency_based\",\n        \"subtasks\": [{\"description\": \"子任务描述\"}]\n    }\n}\n\n## 意图类型说明：\n1. direct_completion：简单问答（问候、介绍自己、闲聊等），无需工具\n2. single_tool：需要调用单个工具完成任务\n3. task_group：需要多个任务协作完成\n\n## 示例：\n- 用户：\"你好\" → intent_type: \"direct_completion\"\n- 用户：\"帮我读取README.md\" → intent_type: \"single_tool\", tool_name: \"Read\"\n- 用户：\"分析项目结构并生成文档\" → intent_type: \"task_group\"\n"
+            },
+            {
+              "role": "user",
+              "content": "先分析再执行"
+            }
+          ],
+          "temperature": 0.1,
+          "max_tokens": 1024,
+          "stream": false,
+          "api_type": "openai",
+          "api_address": "http://localhost/v1",
+          "api_key": "demo",
+          "tools": [],
+          "tool_choice": null
+        },
+        "response": {
+          "error": "Expecting value: line 1 column 1 (char 0)"
+        },
+        "status": "failed",
+        "duration_ms": 2388,
+        "created_at": "2026-05-19T17:17:33.114900"
+      }
+    },
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "record_id": "rec-931d984d5f19",
+        "event_id": "evt-3b21716789b9",
+        "event_type": "llm.call_failed",
+        "timestamp": "2026-05-19T17:17:33.117947",
+        "payload": {
+          "request_id": "req-e0a86c0575e1",
+          "dialog_id": "intent-analysis-default-session",
+          "error": "Expecting value: line 1 column 1 (char 0)"
+        },
+        "stored_at": "2026-05-19T17:17:33.117947",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "728e7acc-774b-4972-a527-1091f3b10813",
+        "entity_id": "evt-7ac1d7ba1b23",
+        "created_at": "2026-05-19T17:17:33.117947",
+        "updated_at": "2026-05-19T17:17:33.117947"
+      }
+    }
+  ]
+}

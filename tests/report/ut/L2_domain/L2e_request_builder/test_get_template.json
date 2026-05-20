@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-05-19T17:09:06.749780",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2e_request_builder",
+  "component": "PromptBuilder",
+  "case_name": "test_get_template",
+  "test_points": [
+    "测试获取Prompt模板",
+    "验证prompt_template查询功能"
+  ],
+  "inputs": {
+    "template_id": "template-b4918667f5b5"
+  },
+  "outputs": {
+    "found": true,
+    "name": "get_test_template"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": []
+}

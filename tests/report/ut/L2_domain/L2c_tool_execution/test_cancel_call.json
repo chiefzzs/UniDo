@@ -1,0 +1,173 @@
+{
+  "timestamp": "2026-05-19T17:09:01.556505",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2c_tool_execution",
+  "component": "ToolExecutor",
+  "case_name": "test_cancel_call",
+  "test_points": [
+    "测试取消工具调用",
+    "验证cancelled状态"
+  ],
+  "inputs": {
+    "call_id": "call-72df3819254b"
+  },
+  "outputs": {
+    "cancelled": true,
+    "status": "cancelled"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [
+      {
+        "call_id": "call-72df3819254b",
+        "tool_id": "tool-67d5a6dc7937",
+        "tool_name": "async_tool",
+        "dialog_id": "dialog-004",
+        "task_id": "task-005",
+        "input_params": {
+          "input": "async test"
+        },
+        "output_result": null,
+        "status": "completed",
+        "error_message": null,
+        "start_time": "2026-05-19T17:09:01.527377",
+        "end_time": "",
+        "duration": 0.0
+      },
+      {
+        "call_id": "call-866dd4548873",
+        "tool_id": "tool-67d5a6dc7937",
+        "tool_name": "async_tool",
+        "dialog_id": "dialog-004",
+        "task_id": "task-005",
+        "input_params": {
+          "input": "async test"
+        },
+        "output_result": "Tool async_tool executed successfully with params: {'input': 'async test'}",
+        "status": "completed",
+        "error_message": null,
+        "start_time": "2026-05-19T17:09:01.532494",
+        "end_time": "2026-05-19T17:09:01.534495",
+        "duration": 0.0
+      }
+    ],
+    "events": [
+      {
+        "record_id": "rec-af8a10bce0d9",
+        "event_id": "evt-1699ef00c2d4",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-19T17:09:01.525343",
+        "payload": {
+          "tool_id": "tool-67d5a6dc7937",
+          "tool_name": "async_tool"
+        },
+        "stored_at": "2026-05-19T17:09:01.525343",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "b1925511-918d-4af8-9333-f88d517f71f2",
+        "entity_id": "evt-cddd1cabe2fc",
+        "created_at": "2026-05-19T17:09:01.525343",
+        "updated_at": "2026-05-19T17:09:01.525343"
+      },
+      {
+        "record_id": "rec-ae507faa19f4",
+        "event_id": "evt-5cfb62bcd75c",
+        "event_type": "tool.call_cancelled",
+        "timestamp": "2026-05-19T17:09:01.532494",
+        "payload": {
+          "call_id": "call-72df3819254b"
+        },
+        "stored_at": "2026-05-19T17:09:01.532494",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "10cf53c0-e23e-4017-b0cc-4afbf7fff37a",
+        "entity_id": "evt-7cedd02bbbcb",
+        "created_at": "2026-05-19T17:09:01.532494",
+        "updated_at": "2026-05-19T17:09:01.532494"
+      },
+      {
+        "record_id": "rec-1dc89ecbae26",
+        "event_id": "evt-c91b86253fe4",
+        "event_type": "tool.call_completed",
+        "timestamp": "2026-05-19T17:09:01.539002",
+        "payload": {
+          "call_id": "call-866dd4548873",
+          "tool_name": "async_tool",
+          "success": true,
+          "duration": 0.0
+        },
+        "stored_at": "2026-05-19T17:09:01.539002",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "68d54b48-7dcc-459c-896b-6fae3fe5a489",
+        "entity_id": "evt-a925db03eeb9",
+        "created_at": "2026-05-19T17:09:01.539002",
+        "updated_at": "2026-05-19T17:09:01.539002"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "tool_calls",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\tool_calls.json",
+      "operation": "write",
+      "record_count": 2,
+      "sample_data": {
+        "call_id": "call-866dd4548873",
+        "tool_id": "tool-67d5a6dc7937",
+        "tool_name": "async_tool",
+        "dialog_id": "dialog-004",
+        "task_id": "task-005",
+        "input_params": {
+          "input": "async test"
+        },
+        "output_result": "Tool async_tool executed successfully with params: {'input': 'async test'}",
+        "status": "completed",
+        "error_message": null,
+        "start_time": "2026-05-19T17:09:01.532494",
+        "end_time": "2026-05-19T17:09:01.534495",
+        "duration": 0.0
+      }
+    },
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 3,
+      "sample_data": {
+        "record_id": "rec-1dc89ecbae26",
+        "event_id": "evt-c91b86253fe4",
+        "event_type": "tool.call_completed",
+        "timestamp": "2026-05-19T17:09:01.539002",
+        "payload": {
+          "call_id": "call-866dd4548873",
+          "tool_name": "async_tool",
+          "success": true,
+          "duration": 0.0
+        },
+        "stored_at": "2026-05-19T17:09:01.539002",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "68d54b48-7dcc-459c-896b-6fae3fe5a489",
+        "entity_id": "evt-a925db03eeb9",
+        "created_at": "2026-05-19T17:09:01.539002",
+        "updated_at": "2026-05-19T17:09:01.539002"
+      }
+    }
+  ]
+}

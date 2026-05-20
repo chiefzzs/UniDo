@@ -1,0 +1,28 @@
+{
+  "tool_id": "T02",
+  "name": "SearchCodebase",
+  "category": "搜索",
+  "parameters": {
+    "information_request": {
+      "type": "string",
+      "description": "你需要的信息描述。",
+      "required": true
+    },
+    "target_directories": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "要搜索的特定目录。必须使用绝对路径。",
+      "required": false
+    }
+  },
+  "description_zh": "Trae的上下文引擎，使用自然语言搜索代码。维护代码库的实时索引。支持跨不同编程语言检索。仅反映磁盘上的当前状态。",
+  "description_en": "Trae's context engine that uses natural language to search code. Maintains a real-time index of the codebase. Can retrieve across different programming languages. Only reflects the current state on disk.",
+  "examples_zh": [
+    "搜索认证逻辑: information_request=\"认证逻辑\"",
+    "在特定目录搜索: information_request=\"API端点\", target_directories=[\"/path/to/api\"]"
+  ],
+  "examples_en": [
+    "Search for authentication logic: information_request=\"authentication logic\"",
+    "Search in specific directory: information_request=\"API endpoints\", target_directories=[\"/path/to/api\"]"
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "timestamp": "2026-05-19T17:17:36.397104",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3c_ui_scenarios",
+  "component": "SessionManager",
+  "case_name": "test_list_sessions",
+  "test_points": [
+    "测试列出会话",
+    "验证会话查询"
+  ],
+  "inputs": {},
+  "outputs": {
+    "session_count": 2
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [
+      {
+        "session_id": "sess-b3c3b9dced6b",
+        "project_id": "",
+        "name": "Session 1",
+        "status": "active",
+        "created_at": "2026-05-19T17:17:36.371925",
+        "updated_at": "2026-05-19T17:17:36.371925"
+      },
+      {
+        "session_id": "sess-8ef8ccad4c8d",
+        "project_id": "",
+        "name": "Session 2",
+        "status": "active",
+        "created_at": "2026-05-19T17:17:36.375462",
+        "updated_at": "2026-05-19T17:17:36.375462"
+      }
+    ],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [
+      {
+        "record_id": "rec-756f3de8a7b5",
+        "event_id": "evt-84fcf233fb91",
+        "event_type": "session.created",
+        "timestamp": "2026-05-19T17:17:36.373432",
+        "payload": {
+          "session_id": "sess-b3c3b9dced6b",
+          "project_id": ""
+        },
+        "stored_at": "2026-05-19T17:17:36.373432",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "f8f5d9c3-b745-487f-afd5-bd42a324f9fd",
+        "entity_id": "evt-426e26e7de58",
+        "created_at": "2026-05-19T17:17:36.373432",
+        "updated_at": "2026-05-19T17:17:36.373432"
+      },
+      {
+        "record_id": "rec-e7a86deae395",
+        "event_id": "evt-0a77e045f8c8",
+        "event_type": "session.created",
+        "timestamp": "2026-05-19T17:17:36.375462",
+        "payload": {
+          "session_id": "sess-8ef8ccad4c8d",
+          "project_id": ""
+        },
+        "stored_at": "2026-05-19T17:17:36.375462",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "91c0eb45-d840-4316-8ce7-102e67a086ec",
+        "entity_id": "evt-afea6f741eb5",
+        "created_at": "2026-05-19T17:17:36.375462",
+        "updated_at": "2026-05-19T17:17:36.375462"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "sessions",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\sessions.json",
+      "operation": "write",
+      "record_count": 2,
+      "sample_data": {
+        "session_id": "sess-8ef8ccad4c8d",
+        "project_id": "",
+        "name": "Session 2",
+        "status": "active",
+        "created_at": "2026-05-19T17:17:36.375462",
+        "updated_at": "2026-05-19T17:17:36.375462"
+      }
+    },
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 2,
+      "sample_data": {
+        "record_id": "rec-e7a86deae395",
+        "event_id": "evt-0a77e045f8c8",
+        "event_type": "session.created",
+        "timestamp": "2026-05-19T17:17:36.375462",
+        "payload": {
+          "session_id": "sess-8ef8ccad4c8d",
+          "project_id": ""
+        },
+        "stored_at": "2026-05-19T17:17:36.375462",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "91c0eb45-d840-4316-8ce7-102e67a086ec",
+        "entity_id": "evt-afea6f741eb5",
+        "created_at": "2026-05-19T17:17:36.375462",
+        "updated_at": "2026-05-19T17:17:36.375462"
+      }
+    }
+  ]
+}

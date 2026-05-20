@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-05-19T17:17:36.470292",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3c_ui_scenarios",
+  "component": "DialogueOutputManager",
+  "case_name": "test_stream_output_empty",
+  "test_points": [
+    "测试流式输出-空流",
+    "验证空流处理"
+  ],
+  "inputs": {
+    "stream_data": []
+  },
+  "outputs": {
+    "chunk_count": 1
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": []
+}

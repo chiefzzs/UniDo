@@ -1,0 +1,126 @@
+{
+  "timestamp": "2026-05-19T17:17:36.079892",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3c_ui_scenarios",
+  "component": "ProjectManager",
+  "case_name": "test_update_project_name",
+  "test_points": [
+    "测试更新项目名称",
+    "验证名称修改"
+  ],
+  "inputs": {
+    "project_id": "proj-9f33776e5dba",
+    "name": "New Name Project"
+  },
+  "outputs": {
+    "project_id": "proj-9f33776e5dba",
+    "name": "New Name Project"
+  },
+  "persistent_data": {
+    "projects": [
+      {
+        "project_id": "proj-9f33776e5dba",
+        "name": "New Name Project",
+        "description": "",
+        "workspace_config_id": "ws-test",
+        "model_config_id": "mc-test",
+        "tool_config_ids": [],
+        "status": "active",
+        "created_at": "2026-05-19T17:17:36.051644",
+        "updated_at": "2026-05-19T17:17:36.056720"
+      }
+    ],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [
+      {
+        "record_id": "rec-4272ae221c8e",
+        "event_id": "evt-aa8abbd75078",
+        "event_type": "project.created",
+        "timestamp": "2026-05-19T17:17:36.053709",
+        "payload": {
+          "project_id": "proj-9f33776e5dba",
+          "name": "Old Name Project"
+        },
+        "stored_at": "2026-05-19T17:17:36.053709",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "8e8dc07f-94c5-40e2-a31b-447e12056143",
+        "entity_id": "evt-c1fa51526744",
+        "created_at": "2026-05-19T17:17:36.053709",
+        "updated_at": "2026-05-19T17:17:36.053709"
+      },
+      {
+        "record_id": "rec-ac26a4a2656d",
+        "event_id": "evt-f6609b9de059",
+        "event_type": "project.updated",
+        "timestamp": "2026-05-19T17:17:36.056720",
+        "payload": {
+          "project_id": "proj-9f33776e5dba"
+        },
+        "stored_at": "2026-05-19T17:17:36.056720",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "03e24463-0d43-4140-af10-0f5748f6d63e",
+        "entity_id": "evt-51d6630b1111",
+        "created_at": "2026-05-19T17:17:36.056720",
+        "updated_at": "2026-05-19T17:17:36.056720"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "projects",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\projects.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "project_id": "proj-9f33776e5dba",
+        "name": "New Name Project",
+        "description": "",
+        "workspace_config_id": "ws-test",
+        "model_config_id": "mc-test",
+        "tool_config_ids": [],
+        "status": "active",
+        "created_at": "2026-05-19T17:17:36.051644",
+        "updated_at": "2026-05-19T17:17:36.056720"
+      }
+    },
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 2,
+      "sample_data": {
+        "record_id": "rec-ac26a4a2656d",
+        "event_id": "evt-f6609b9de059",
+        "event_type": "project.updated",
+        "timestamp": "2026-05-19T17:17:36.056720",
+        "payload": {
+          "project_id": "proj-9f33776e5dba"
+        },
+        "stored_at": "2026-05-19T17:17:36.056720",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "03e24463-0d43-4140-af10-0f5748f6d63e",
+        "entity_id": "evt-51d6630b1111",
+        "created_at": "2026-05-19T17:17:36.056720",
+        "updated_at": "2026-05-19T17:17:36.056720"
+      }
+    }
+  ]
+}

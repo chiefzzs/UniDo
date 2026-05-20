@@ -1,0 +1,96 @@
+{
+  "timestamp": "2026-05-19T17:09:07.424372",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2g_skill_management",
+  "component": "SkillManagementService",
+  "case_name": "test_unregister_skill",
+  "test_points": [
+    "测试注销技能",
+    "验证技能删除"
+  ],
+  "inputs": {
+    "skill_id": "skill-06ea7df8f23e"
+  },
+  "outputs": {
+    "unregistered": true,
+    "retrieved": false
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [
+      {
+        "record_id": "rec-9c25099c100b",
+        "event_id": "evt-a2fa9c445798",
+        "event_type": "skill.registered",
+        "timestamp": "2026-05-19T17:09:07.396177",
+        "payload": {
+          "skill_id": "skill-06ea7df8f23e",
+          "skill_name": "unregister_test_skill"
+        },
+        "stored_at": "2026-05-19T17:09:07.396177",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "37f035e3-37ca-4759-b1ef-cbb432fa8bec",
+        "entity_id": "evt-984a0b154070",
+        "created_at": "2026-05-19T17:09:07.396177",
+        "updated_at": "2026-05-19T17:09:07.396177"
+      },
+      {
+        "record_id": "rec-696f42b99668",
+        "event_id": "evt-57c8ed080870",
+        "event_type": "skill.unregistered",
+        "timestamp": "2026-05-19T17:09:07.399230",
+        "payload": {
+          "skill_id": "skill-06ea7df8f23e"
+        },
+        "stored_at": "2026-05-19T17:09:07.399230",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "be3628c0-f880-4c3e-9bf7-71a64b36e6a8",
+        "entity_id": "evt-09c52e18133f",
+        "created_at": "2026-05-19T17:09:07.399230",
+        "updated_at": "2026-05-19T17:09:07.399230"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 2,
+      "sample_data": {
+        "record_id": "rec-696f42b99668",
+        "event_id": "evt-57c8ed080870",
+        "event_type": "skill.unregistered",
+        "timestamp": "2026-05-19T17:09:07.399230",
+        "payload": {
+          "skill_id": "skill-06ea7df8f23e"
+        },
+        "stored_at": "2026-05-19T17:09:07.399230",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "be3628c0-f880-4c3e-9bf7-71a64b36e6a8",
+        "entity_id": "evt-09c52e18133f",
+        "created_at": "2026-05-19T17:09:07.399230",
+        "updated_at": "2026-05-19T17:09:07.399230"
+      }
+    }
+  ]
+}

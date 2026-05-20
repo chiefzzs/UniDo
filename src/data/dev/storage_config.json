@@ -1,0 +1,87 @@
+[
+    {
+        "entity_type": "projects",
+        "persist": true,
+        "description": "项目数据"
+    },
+    {
+        "entity_type": "sessions",
+        "persist": true,
+        "description": "会话数据"
+    },
+    {
+        "entity_type": "messages",
+        "persist": true,
+        "description": "消息数据"
+    },
+    {
+        "entity_type": "dialogs",
+        "persist": true,
+        "description": "对话数据"
+    },
+    {
+        "entity_type": "llm_calls",
+        "persist": true,
+        "description": "LLM调用记录"
+    },
+    {
+        "entity_type": "events",
+        "persist": true,
+        "description": "事件记录"
+    },
+    {
+        "entity_type": "task_groups",
+        "persist": true,
+        "description": "任务组数据"
+    },
+    {
+        "entity_type": "tasks",
+        "persist": true,
+        "description": "任务数据"
+    },
+    {
+        "entity_type": "workspace_configs",
+        "persist": true,
+        "description": "工作区配置"
+    },
+    {
+        "entity_type": "model_configs",
+        "persist": true,
+        "description": "模型配置"
+    },
+    {
+        "entity_type": "tool_configs",
+        "persist": true,
+        "description": "工具配置"
+    },
+    {
+        "entity_type": "tools",
+        "persist": true,
+        "description": "工具定义"
+    },
+    {
+        "entity_type": "skills",
+        "persist": true,
+        "description": "技能定义"
+    },
+    {
+        "entity_type": "short_term_memory",
+        "persist": false,
+        "description": "短期记忆"
+    },
+    {
+        "entity_type": "long_term_memory",
+        "persist": true,
+        "description": "长期记忆"
+    },
+    {
+        "entity_type": "api_requests",
+        "persist": true,
+        "description": "API请求日志"
+    },
+    {
+        "entity_type": "websocket_messages",
+        "persist": true,
+        "description": "WebSocket消息日志"
+    }
+]

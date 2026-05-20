@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-05-19T17:09:01.109017",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2b_memory_state",
+  "component": "MemoryService",
+  "case_name": "test_compress_memory",
+  "test_points": [
+    "测试记忆压缩",
+    "验证压缩功能"
+  ],
+  "inputs": {
+    "session_id": "session-007"
+  },
+  "outputs": {
+    "compressed_id": "comp-18c08f83f498",
+    "original_count": 3
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": []
+}

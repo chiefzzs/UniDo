@@ -1,0 +1,30 @@
+{
+  "tool_id": "T10",
+  "name": "SearchReplace",
+  "category": "文件",
+  "parameters": {
+    "file_path": {
+      "type": "string",
+      "description": "要编辑的文件路径。",
+      "required": true
+    },
+    "old_str": {
+      "type": "string",
+      "description": "搜索部分，要搜索的连续代码块。",
+      "required": true
+    },
+    "new_str": {
+      "type": "string",
+      "description": "替换部分，要替换到文件中的内容。",
+      "required": true
+    }
+  },
+  "description_zh": "使用搜索替换编辑文件。old_str必须与文件中存在的内容完全匹配。仅替换第一个匹配项。",
+  "description_en": "Edit files with search and replace. The old_str must match exactly what exists in the file. Only replaces the first match occurrence.",
+  "examples_zh": [
+    "替换函数: old_str=\"def old_func():\\n    pass\", new_str=\"def new_func():\\n    return True\""
+  ],
+  "examples_en": [
+    "Replace a function: old_str=\"def old_func():\\n    pass\", new_str=\"def new_func():\\n    return True\""
+  ]
+}

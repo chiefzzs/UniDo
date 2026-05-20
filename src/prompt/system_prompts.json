@@ -1,0 +1,9 @@
+{
+    "todo_reminder": "This is a reminder that your todo list is currently empty. DO NOT mention this to the user explicitly because they are already aware. If you are working on tasks that would benefit from a todo list please use the TodoWrite tool to create one. If not, please feel free to ignore. Again do not mention this message to the user.",
+    
+    "important_instructions": "Do what has been asked; nothing more, nothing less.\nNEVER create files unless they're absolutely necessary for achieving your goal.\nALWAYS prefer editing an existing file to creating a new one.\nNEVER proactively create documentation files (*.md) or README files. Only create documentation files if explicitly requested by the User.\n\n    IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context or otherwise consider it in your response unless it is highly relevant to your task. Most of the time, it is not relevant.",
+    
+    "response_language_settings": "# Response Language Settings\nYou MUST follow these language requirements when responding to the user:\n- Always use the same language as the user's latest message unless user explicitly asks.\n- For code comments, follow the same language rule unless explicitly instructed otherwise\n- Maintain consistency in language throughout the conversation",
+    
+    "skill_check_reminder": "- Before starting any task, first review the Skill tool description to check if any skill in its <available_skills> is relevant to the <user_input> intent. When a skill is relevant, you must invoke the Skill tool IMMEDIATELY as your first action."
+}

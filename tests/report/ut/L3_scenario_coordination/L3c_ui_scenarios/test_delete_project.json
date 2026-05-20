@@ -1,0 +1,49 @@
+{
+  "timestamp": "2026-05-19T17:17:36.102253",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3c_ui_scenarios",
+  "component": "ProjectManager",
+  "case_name": "test_delete_project",
+  "test_points": [
+    "测试删除项目",
+    "验证项目删除"
+  ],
+  "inputs": {
+    "project_id": "proj-7e96b3e2b6f5"
+  },
+  "outputs": {
+    "success": true
+  },
+  "persistent_data": {
+    "project_exists": false
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 2,
+      "sample_data": {
+        "record_id": "rec-2afe01f07681",
+        "event_id": "evt-9909da61c2b8",
+        "event_type": "project.deleted",
+        "timestamp": "2026-05-19T17:17:36.098158",
+        "payload": {
+          "project_id": "proj-7e96b3e2b6f5"
+        },
+        "stored_at": "2026-05-19T17:17:36.098158",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "48bcef2b-60b0-4390-880c-d3e96c8981ce",
+        "entity_id": "evt-fef5a08f6cd9",
+        "created_at": "2026-05-19T17:17:36.098158",
+        "updated_at": "2026-05-19T17:17:36.098158"
+      }
+    }
+  ]
+}

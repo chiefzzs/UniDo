@@ -1,0 +1,69 @@
+{
+  "timestamp": "2026-05-19T17:09:00.643900",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2a_project_config",
+  "component": "ConfigValidationService",
+  "case_name": "test_validate_configs_with_invalid_workspace",
+  "test_points": [
+    "测试验证无效工作空间",
+    "验证不存在的工作空间ID被拒绝"
+  ],
+  "inputs": {
+    "workspace_id": "invalid-workspace-id",
+    "model_config_id": "model-config-c2b6b59cd4ad"
+  },
+  "outputs": {
+    "valid": false
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [
+      {
+        "config_id": "model-config-c2b6b59cd4ad",
+        "name": "Test Model",
+        "model_name": "gpt-4",
+        "api_type": "openai",
+        "api_address": "http://localhost/v1",
+        "api_key": "test-key",
+        "parameters": {},
+        "created_at": "2026-05-19T17:09:00.622734",
+        "updated_at": "2026-05-19T17:09:00.622734"
+      }
+    ],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "model_configs",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\model_configs.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "config_id": "model-config-c2b6b59cd4ad",
+        "name": "Test Model",
+        "model_name": "gpt-4",
+        "api_type": "openai",
+        "api_address": "http://localhost/v1",
+        "api_key": "test-key",
+        "parameters": {},
+        "created_at": "2026-05-19T17:09:00.622734",
+        "updated_at": "2026-05-19T17:09:00.622734"
+      }
+    }
+  ]
+}

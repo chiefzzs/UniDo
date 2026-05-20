@@ -1,0 +1,22 @@
+{
+  "tool_id": "T15",
+  "name": "GetDiagnostics",
+  "category": "系统",
+  "parameters": {
+    "path": {
+      "type": "string",
+      "description": "可选的文件路径，用于读取诊断信息。如果不提供，返回所有文件的诊断。",
+      "required": false
+    }
+  },
+  "description_zh": "读取并显示来自当前工作区的linter错误和诊断信息。返回来自语言服务器和linter的错误、警告和提示。",
+  "description_en": "Read and display linter errors and diagnostics from the current workspace. Returns errors, warnings, and hints from language servers and linters.",
+  "examples_zh": [
+    "获取所有诊断: path=null或省略",
+    "获取文件诊断: path=\"/path/to/file.ts\""
+  ],
+  "examples_en": [
+    "Get all diagnostics: path=null or omit",
+    "Get file diagnostics: path=\"/path/to/file.ts\""
+  ]
+}

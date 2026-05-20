@@ -1,0 +1,16 @@
+[
+    {
+        "config_id": "model-config-8d6ddae1c860",
+        "name": "default",
+        "model_name": "demo",
+        "api_type": "openai",
+        "api_address": "http://localhost/v1",
+        "api_key": "",
+        "parameters": {
+            "temperature": 0.7,
+            "max_tokens": 4096
+        },
+        "created_at": "2026-05-19T18:27:51.520089",
+        "updated_at": "2026-05-19T19:46:38.396341"
+    }
+]

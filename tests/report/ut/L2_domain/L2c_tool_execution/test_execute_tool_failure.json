@@ -1,0 +1,140 @@
+{
+  "timestamp": "2026-05-19T17:09:01.596240",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2c_tool_execution",
+  "component": "ToolExecutor",
+  "case_name": "test_execute_tool_failure",
+  "test_points": [
+    "测试工具执行失败",
+    "验证failed状态"
+  ],
+  "inputs": {
+    "tool_name": "failing_tool"
+  },
+  "outputs": {
+    "success": false,
+    "status": "failed",
+    "error": "Intentional failure"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [
+      {
+        "call_id": "call-18a986458448",
+        "tool_id": "tool-12dd05bd3d4d",
+        "tool_name": "failing_tool",
+        "dialog_id": "dialog-005",
+        "task_id": "task-006",
+        "input_params": {
+          "input": "fail test"
+        },
+        "output_result": null,
+        "status": "failed",
+        "error_message": "Intentional failure",
+        "start_time": "2026-05-19T17:09:01.571550",
+        "end_time": "2026-05-19T17:09:01.573133",
+        "duration": 0.0
+      }
+    ],
+    "events": [
+      {
+        "record_id": "rec-0a4378db9b88",
+        "event_id": "evt-f495a5fe7205",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-19T17:09:01.570011",
+        "payload": {
+          "tool_id": "tool-12dd05bd3d4d",
+          "tool_name": "failing_tool"
+        },
+        "stored_at": "2026-05-19T17:09:01.570011",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "24e1691e-cbdd-4a89-b493-ee07f0eeb8f9",
+        "entity_id": "evt-53d1d31ec81f",
+        "created_at": "2026-05-19T17:09:01.570011",
+        "updated_at": "2026-05-19T17:09:01.570011"
+      },
+      {
+        "record_id": "rec-8c8751279a6b",
+        "event_id": "evt-cb184d657b5e",
+        "event_type": "tool.call_failed",
+        "timestamp": "2026-05-19T17:09:01.575173",
+        "payload": {
+          "call_id": "call-18a986458448",
+          "tool_name": "failing_tool",
+          "error": "Intentional failure"
+        },
+        "stored_at": "2026-05-19T17:09:01.575173",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "b4e0d6e0-c63b-48ff-880e-ef0c754608f7",
+        "entity_id": "evt-39d010529493",
+        "created_at": "2026-05-19T17:09:01.575173",
+        "updated_at": "2026-05-19T17:09:01.575173"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "tool_calls",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\tool_calls.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "call_id": "call-18a986458448",
+        "tool_id": "tool-12dd05bd3d4d",
+        "tool_name": "failing_tool",
+        "dialog_id": "dialog-005",
+        "task_id": "task-006",
+        "input_params": {
+          "input": "fail test"
+        },
+        "output_result": null,
+        "status": "failed",
+        "error_message": "Intentional failure",
+        "start_time": "2026-05-19T17:09:01.571550",
+        "end_time": "2026-05-19T17:09:01.573133",
+        "duration": 0.0
+      }
+    },
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 2,
+      "sample_data": {
+        "record_id": "rec-8c8751279a6b",
+        "event_id": "evt-cb184d657b5e",
+        "event_type": "tool.call_failed",
+        "timestamp": "2026-05-19T17:09:01.575173",
+        "payload": {
+          "call_id": "call-18a986458448",
+          "tool_name": "failing_tool",
+          "error": "Intentional failure"
+        },
+        "stored_at": "2026-05-19T17:09:01.575173",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "b4e0d6e0-c63b-48ff-880e-ef0c754608f7",
+        "entity_id": "evt-39d010529493",
+        "created_at": "2026-05-19T17:09:01.575173",
+        "updated_at": "2026-05-19T17:09:01.575173"
+      }
+    }
+  ]
+}

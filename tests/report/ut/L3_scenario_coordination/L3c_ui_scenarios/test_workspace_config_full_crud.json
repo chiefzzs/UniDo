@@ -1,0 +1,75 @@
+{
+  "timestamp": "2026-05-19T17:17:36.604998",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3c_ui_scenarios",
+  "component": "ConfigManager",
+  "case_name": "test_workspace_config_full_crud",
+  "test_points": [
+    "测试工作区配置CRUD",
+    "验证创建、读取、更新、删除"
+  ],
+  "inputs": {
+    "create": {
+      "name": "Test Workspace",
+      "root_path": "/workspace/test",
+      "type": "local"
+    },
+    "update": {
+      "name": "Updated Workspace"
+    },
+    "delete": {
+      "config_id": "ws-config-ea572be28920"
+    }
+  },
+  "outputs": {
+    "created": {
+      "config_id": "ws-config-ea572be28920",
+      "name": "Test Workspace",
+      "root_path": "/workspace/test",
+      "type": "local",
+      "created_at": "2026-05-19T17:17:36.571856",
+      "updated_at": "2026-05-19T17:17:36.571856"
+    },
+    "read": {
+      "config_id": "ws-config-ea572be28920",
+      "name": "Test Workspace",
+      "root_path": "/workspace/test",
+      "type": "local",
+      "created_at": "2026-05-19T17:17:36.571856",
+      "updated_at": "2026-05-19T17:17:36.571856"
+    },
+    "updated": {
+      "config_id": "ws-config-ea572be28920",
+      "name": "Updated Workspace",
+      "root_path": "/workspace/test",
+      "type": "local",
+      "created_at": "2026-05-19T17:17:36.571856",
+      "updated_at": "2026-05-19T17:17:36.574915"
+    },
+    "list_count": 1,
+    "deleted": {
+      "success": true
+    }
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": []
+}

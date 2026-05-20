@@ -1,0 +1,73 @@
+{
+  "tool_id": "T05",
+  "name": "Grep",
+  "category": "Search",
+  "parameters": {
+    "pattern": {
+      "type": "string",
+      "description": "The regular expression pattern to search for in file contents",
+      "required": true
+    },
+    "path": {
+      "type": "string",
+      "description": "File or directory to search in. Defaults to current working directory.",
+      "required": false
+    },
+    "glob": {
+      "type": "string",
+      "description": "Glob pattern to filter files (e.g. \"*.js\", \"*.{ts,tsx}\")",
+      "required": false
+    },
+    "output_mode": {
+      "type": "string",
+      "enum": ["content", "files_with_matches", "count"],
+      "description": "Output mode: content shows lines, files_with_matches shows paths, count shows counts",
+      "required": false
+    },
+    "type": {
+      "type": "string",
+      "description": "File type to search (e.g., js, py, rust)",
+      "required": false
+    },
+    "-i": {
+      "type": "boolean",
+      "description": "Case insensitive search",
+      "required": false
+    },
+    "-n": {
+      "type": "boolean",
+      "description": "Show line numbers in output",
+      "required": false
+    },
+    "-C": {
+      "type": "integer",
+      "description": "Number of lines to show before and after each match",
+      "required": false
+    },
+    "head_limit": {
+      "type": "integer",
+      "description": "Limit output to first N lines",
+      "required": false
+    }
+  },
+  "description": "A powerful search tool built on ripgrep. Supports full regex syntax. Can filter files by glob pattern or type.",
+  "description_zh": "基于ripgrep构建的强力搜索工具。支持完整正则表达式语法。可以按glob模式或类型过滤文件。",
+  "default_params": {
+    "pattern": "def\\s+\\w+",
+    "path": "",
+    "output_mode": "content",
+    "-i": false,
+    "-n": true,
+    "-C": 2
+  },
+  "examples": [
+    "Find function definitions: pattern=\"def\\\\s+\\\\w+\"",
+    "Case insensitive search: pattern=\"error\", -i=true",
+    "Search with context: pattern=\"class\", -C=3"
+  ],
+  "examples_zh": [
+    "查找函数定义: pattern=\"def\\\\s+\\\\w+\"",
+    "不区分大小写搜索: pattern=\"error\", -i=true",
+    "带上下文搜索: pattern=\"class\", -C=3"
+  ]
+}

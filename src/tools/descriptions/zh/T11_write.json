@@ -1,0 +1,27 @@
+{
+  "tool_id": "T11",
+  "name": "Write",
+  "category": "文件",
+  "parameters": {
+    "file_path": {
+      "type": "string",
+      "description": "要写入的文件的绝对路径。",
+      "required": true
+    },
+    "content": {
+      "type": "string",
+      "description": "要写入文件的内容。",
+      "required": true
+    }
+  },
+  "description_zh": "向文件写入内容。如果文件已存在会覆盖。如果需要，将创建父目录。",
+  "description_en": "Write content to a file. Will overwrite existing file if it exists. Parent directories will be created if needed.",
+  "examples_zh": [
+    "写入简单文件: file_path=\"/path/to/file.txt\", content=\"Hello World\"",
+    "写入代码文件: file_path=\"/path/to/main.py\", content=\"def main():\\n    pass\""
+  ],
+  "examples_en": [
+    "Write simple file: file_path=\"/path/to/file.txt\", content=\"Hello World\"",
+    "Write code file: file_path=\"/path/to/main.py\", content=\"def main():\\n    pass\""
+  ]
+}

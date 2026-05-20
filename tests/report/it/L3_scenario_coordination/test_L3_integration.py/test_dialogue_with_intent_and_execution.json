@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-05-19T12:03:18.300363",
+  "test_type": "it",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "test_L3_integration.py",
+  "component": "DialogueIntegration",
+  "case_name": "test_dialogue_with_intent_and_execution",
+  "test_points": [
+    "测试对话服务与意图分析集成",
+    "验证对话服务与任务执行集成",
+    "验证完整对话流程"
+  ],
+  "inputs": {
+    "user_input": "你好"
+  },
+  "outputs": {
+    "session_id": "test-session-1",
+    "status": "completed",
+    "content": "任务已直接完成",
+    "execution_path": "direct_completion"
+  },
+  "persistent_data": {},
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": []
+}

@@ -1,0 +1,24 @@
+{
+  "tool_id": "T01",
+  "name": "Skill",
+  "category": "系统",
+  "parameters": {
+    "name": {
+      "type": "string",
+      "description": "技能名称（无参数）。例如: \"pdf\" 或 \"xlsx\"",
+      "required": true
+    }
+  },
+  "description_zh": "在主对话中执行技能。技能提供专门的功能和领域知识。当技能相关时，应立即作为第一个操作调用。",
+  "description_en": "Execute a skill within the main conversation. Skills provide specialized capabilities and domain knowledge. When a skill is relevant, it should be invoked IMMEDIATELY as the first action.",
+  "examples_zh": [
+    "调用pdf技能: name=\"pdf\"",
+    "调用xlsx技能: name=\"xlsx\"",
+    "创建新技能: name=\"skill-creator\""
+  ],
+  "examples_en": [
+    "Invoke the pdf skill: name=\"pdf\"",
+    "Invoke the xlsx skill: name=\"xlsx\"",
+    "Create a new skill: name=\"skill-creator\""
+  ]
+}

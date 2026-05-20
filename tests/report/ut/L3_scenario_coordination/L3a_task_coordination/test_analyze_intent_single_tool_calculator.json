@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-05-19T17:17:28.221058",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3a_task_coordination",
+  "component": "IntentService",
+  "case_name": "test_analyze_intent_single_tool_calculator",
+  "test_points": [
+    "测试意图分析-单工具调用",
+    "验证计算器识别"
+  ],
+  "inputs": {
+    "user_input": "计算 100 + 200"
+  },
+  "outputs": {
+    "execution_path": "single_tool",
+    "tool_id": "calculator"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": []
+}

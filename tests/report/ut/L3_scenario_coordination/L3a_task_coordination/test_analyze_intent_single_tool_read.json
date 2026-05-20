@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-05-19T17:17:28.251966",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3a_task_coordination",
+  "component": "IntentService",
+  "case_name": "test_analyze_intent_single_tool_read",
+  "test_points": [
+    "测试意图分析-单工具调用",
+    "验证文件读取识别"
+  ],
+  "inputs": {
+    "user_input": "读取文件 /tmp/test.txt"
+  },
+  "outputs": {
+    "execution_path": "single_tool"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": []
+}

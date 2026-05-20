@@ -1,0 +1,26 @@
+{
+  "tool_id": "T08",
+  "name": "WebFetch",
+  "category": "Internet",
+  "parameters": {
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "The URL to fetch content from",
+      "required": true
+    }
+  },
+  "description": "Fetches content from a specified URL and processes it into markdown. Converts HTML to markdown and returns the content. Results may be truncated if the content is very large.",
+  "description_zh": "从指定URL获取内容并处理为markdown格式。将HTML转换为markdown并返回内容。如果内容非常大，结果可能会被截断。",
+  "default_params": {
+    "url": "https://www.example.com"
+  },
+  "examples": [
+    "Fetch documentation: url=\"https://docs.example.com/api\"",
+    "Fetch GitHub readme: url=\"https://github.com/user/repo\""
+  ],
+  "examples_zh": [
+    "获取文档: url=\"https://docs.example.com/api\"",
+    "获取GitHub说明: url=\"https://github.com/user/repo\""
+  ]
+}

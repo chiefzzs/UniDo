@@ -1,0 +1,43 @@
+{
+  "timestamp": "2026-05-19T17:17:36.501856",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3c_ui_scenarios",
+  "component": "DialogueOutputManager",
+  "case_name": "test_think_block_format",
+  "test_points": [
+    "测试思考块格式化",
+    "验证格式处理"
+  ],
+  "inputs": {
+    "content": "正在分析用户意图"
+  },
+  "outputs": {
+    "formatted": {
+      "type": "thinking",
+      "content": "正在分析用户意图",
+      "tool_info": {},
+      "is_visible": true
+    }
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": []
+}

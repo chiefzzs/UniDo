@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-05-19T17:17:28.188534",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3a_task_coordination",
+  "component": "IntentService",
+  "case_name": "test_analyze_intent_greeting",
+  "test_points": [
+    "测试意图分析-问候语",
+    "验证问候识别"
+  ],
+  "inputs": {
+    "user_input": "您好，很高兴认识你"
+  },
+  "outputs": {
+    "execution_path": "direct_completion"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": []
+}

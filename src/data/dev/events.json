@@ -1,0 +1,112 @@
+[
+    {
+        "record_id": "test",
+        "event_type": "test",
+        "payload": {},
+        "test": true,
+        "entity_id": "evt-090231049f54",
+        "created_at": "2026-05-20T14:52:09.594708",
+        "updated_at": "2026-05-20T14:52:09.594708"
+    },
+    {
+        "record_id": "rec-e07e46218a2e",
+        "event_id": "evt-29717ea3b91f",
+        "event_type": "session.created",
+        "timestamp": "2026-05-20T14:52:17.770185",
+        "payload": {
+            "session_id": "sess-7087ce5dfc20",
+            "project_id": "proj-7c63e388c0c5"
+        },
+        "stored_at": "2026-05-20T14:52:17.770185",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "0c2024b8-cbd9-45b8-b6b4-8772df627eff",
+        "entity_id": "evt-f9b1e562d327",
+        "created_at": "2026-05-20T14:52:17.770185",
+        "updated_at": "2026-05-20T14:52:17.770185"
+    },
+    {
+        "record_id": "rec-228ae67948e0",
+        "event_id": "evt-3567edc67e9d",
+        "event_type": "client.message_received",
+        "timestamp": "2026-05-20T14:52:18.928387",
+        "payload": {
+            "client_id": "client-8um099y45",
+            "session_id": "sess-7087ce5dfc20",
+            "message_type": "leave_session",
+            "message_length": 59,
+            "source_component": "L4_websocket_gateway",
+            "source_service": "WebSocketServer"
+        },
+        "stored_at": "2026-05-20T14:52:18.928387",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "366fe5ef-7a5a-4009-8ad9-d710890947bf",
+        "entity_id": "evt-55604c18a058",
+        "created_at": "2026-05-20T14:52:18.928387",
+        "updated_at": "2026-05-20T14:52:18.928387"
+    },
+    {
+        "record_id": "rec-a370e4577656",
+        "event_id": "evt-718f47a4178c",
+        "event_type": "client.message_sent",
+        "timestamp": "2026-05-20T14:52:18.931893",
+        "payload": {
+            "client_id": "client-8um099y45",
+            "session_id": "sess-7087ce5dfc20",
+            "message_type": "leave_session_response",
+            "message_length": 90,
+            "source_component": "L4_websocket_gateway",
+            "source_service": "WebSocketServer"
+        },
+        "stored_at": "2026-05-20T14:52:18.931893",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "ef079c6a-34cb-4771-b290-0398d6e4f7ec",
+        "entity_id": "evt-fa499038ca49",
+        "created_at": "2026-05-20T14:52:18.931893",
+        "updated_at": "2026-05-20T14:52:18.931893"
+    },
+    {
+        "record_id": "rec-95c2b649dd59",
+        "event_id": "evt-0e65937f6197",
+        "event_type": "client.message_received",
+        "timestamp": "2026-05-20T14:52:18.934677",
+        "payload": {
+            "client_id": "client-8um099y45",
+            "session_id": "sess-7087ce5dfc20",
+            "message_type": "join_session",
+            "message_length": 58,
+            "source_component": "L4_websocket_gateway",
+            "source_service": "WebSocketServer"
+        },
+        "stored_at": "2026-05-20T14:52:18.934677",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "4684d029-c03b-4252-985a-a03df0716020",
+        "entity_id": "evt-686802117f57",
+        "created_at": "2026-05-20T14:52:18.934677",
+        "updated_at": "2026-05-20T14:52:18.934677"
+    },
+    {
+        "record_id": "rec-231e002d83af",
+        "event_id": "evt-87b97726d119",
+        "event_type": "client.message_sent",
+        "timestamp": "2026-05-20T14:52:18.938734",
+        "payload": {
+            "client_id": "client-8um099y45",
+            "session_id": "sess-7087ce5dfc20",
+            "message_type": "join_session_response",
+            "message_length": 122,
+            "source_component": "L4_websocket_gateway",
+            "source_service": "WebSocketServer"
+        },
+        "stored_at": "2026-05-20T14:52:18.938734",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "e51a17b0-62f1-4ac5-a7a7-38b3294794f2",
+        "entity_id": "evt-3e539c6743be",
+        "created_at": "2026-05-20T14:52:18.938734",
+        "updated_at": "2026-05-20T14:52:18.938734"
+    }
+]

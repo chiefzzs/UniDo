@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-05-19T17:17:35.852319",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3a_task_coordination",
+  "component": "TaskExecutionService",
+  "case_name": "test_execute_task",
+  "test_points": [
+    "测试任务执行",
+    "验证执行流程"
+  ],
+  "inputs": {
+    "task_id": "test_task_exec_1",
+    "user_input": "你好"
+  },
+  "outputs": {
+    "task_id": "test_task_exec_1",
+    "status": "completed"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [
+      {
+        "task_id": "test_task_exec_1",
+        "parent_task_id": null,
+        "status": "completed",
+        "input_data": {
+          "user_input": "你好"
+        },
+        "output_data": {
+          "result": "任务执行完成",
+          "input": {
+            "user_input": "你好"
+          }
+        },
+        "entity_id": "task-05fe8b8a27b4",
+        "created_at": "2026-05-19T17:17:35.824518",
+        "updated_at": "2026-05-19T17:17:35.827760"
+      }
+    ],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "tasks",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\tasks.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "task_id": "test_task_exec_1",
+        "parent_task_id": null,
+        "status": "completed",
+        "input_data": {
+          "user_input": "你好"
+        },
+        "output_data": {
+          "result": "任务执行完成",
+          "input": {
+            "user_input": "你好"
+          }
+        },
+        "entity_id": "task-05fe8b8a27b4",
+        "created_at": "2026-05-19T17:17:35.824518",
+        "updated_at": "2026-05-19T17:17:35.827760"
+      }
+    }
+  ]
+}

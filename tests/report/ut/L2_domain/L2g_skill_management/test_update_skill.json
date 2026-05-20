@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-05-19T17:09:07.381780",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2g_skill_management",
+  "component": "SkillManagementService",
+  "case_name": "test_update_skill",
+  "test_points": [
+    "测试更新技能",
+    "验证skill_definitions更新"
+  ],
+  "inputs": {
+    "skill_id": "skill-b090563acfba",
+    "new_description": "Updated description"
+  },
+  "outputs": {
+    "updated": true,
+    "description": "Updated description"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [
+      {
+        "record_id": "rec-376da176ca69",
+        "event_id": "evt-0419420ea6a7",
+        "event_type": "skill.registered",
+        "timestamp": "2026-05-19T17:09:07.357898",
+        "payload": {
+          "skill_id": "skill-b090563acfba",
+          "skill_name": "update_test_skill"
+        },
+        "stored_at": "2026-05-19T17:09:07.357898",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "6a4125f2-5be5-4d3c-abcd-aaf7e7ae78d0",
+        "entity_id": "evt-8a6afb42826b",
+        "created_at": "2026-05-19T17:09:07.357898",
+        "updated_at": "2026-05-19T17:09:07.357898"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "record_id": "rec-376da176ca69",
+        "event_id": "evt-0419420ea6a7",
+        "event_type": "skill.registered",
+        "timestamp": "2026-05-19T17:09:07.357898",
+        "payload": {
+          "skill_id": "skill-b090563acfba",
+          "skill_name": "update_test_skill"
+        },
+        "stored_at": "2026-05-19T17:09:07.357898",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "6a4125f2-5be5-4d3c-abcd-aaf7e7ae78d0",
+        "entity_id": "evt-8a6afb42826b",
+        "created_at": "2026-05-19T17:09:07.357898",
+        "updated_at": "2026-05-19T17:09:07.357898"
+      }
+    }
+  ]
+}

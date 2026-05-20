@@ -1,0 +1,125 @@
+{
+  "timestamp": "2026-05-19T17:17:30.717578",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3a_task_coordination",
+  "component": "BaseExecutionService",
+  "case_name": "test_execute_task_single_tool",
+  "test_points": [
+    "测试基础执行-单工具",
+    "验证工具调用流程"
+  ],
+  "inputs": {
+    "task_id": "test-tool",
+    "user_input": "计算 5 + 5"
+  },
+  "outputs": {
+    "task_id": "test-tool",
+    "status": "completed"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [
+      {
+        "call_id": "call-55e24a205475",
+        "tool_id": "tool-calculator-test",
+        "tool_name": "calculator",
+        "dialog_id": "test-tool",
+        "task_id": "test-tool",
+        "input_params": {
+          "expression": "5 + 5"
+        },
+        "output_result": "10",
+        "status": "completed",
+        "error_message": null,
+        "start_time": "2026-05-19T17:17:30.692137",
+        "end_time": "2026-05-19T17:17:30.693652",
+        "duration": 0.0
+      }
+    ],
+    "events": [
+      {
+        "record_id": "rec-2029981111e7",
+        "event_id": "evt-61660aa771c6",
+        "event_type": "tool.call_completed",
+        "timestamp": "2026-05-19T17:17:30.696215",
+        "payload": {
+          "call_id": "call-55e24a205475",
+          "tool_name": "calculator",
+          "success": true,
+          "duration": 0.0
+        },
+        "stored_at": "2026-05-19T17:17:30.696215",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "ee5a6c8b-09c0-4cc7-8213-a78e31051050",
+        "entity_id": "evt-2ba5b377163f",
+        "created_at": "2026-05-19T17:17:30.696215",
+        "updated_at": "2026-05-19T17:17:30.696215"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "tool_calls",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\tool_calls.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "call_id": "call-55e24a205475",
+        "tool_id": "tool-calculator-test",
+        "tool_name": "calculator",
+        "dialog_id": "test-tool",
+        "task_id": "test-tool",
+        "input_params": {
+          "expression": "5 + 5"
+        },
+        "output_result": "10",
+        "status": "completed",
+        "error_message": null,
+        "start_time": "2026-05-19T17:17:30.692137",
+        "end_time": "2026-05-19T17:17:30.693652",
+        "duration": 0.0
+      }
+    },
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "record_id": "rec-2029981111e7",
+        "event_id": "evt-61660aa771c6",
+        "event_type": "tool.call_completed",
+        "timestamp": "2026-05-19T17:17:30.696215",
+        "payload": {
+          "call_id": "call-55e24a205475",
+          "tool_name": "calculator",
+          "success": true,
+          "duration": 0.0
+        },
+        "stored_at": "2026-05-19T17:17:30.696215",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "ee5a6c8b-09c0-4cc7-8213-a78e31051050",
+        "entity_id": "evt-2ba5b377163f",
+        "created_at": "2026-05-19T17:17:30.696215",
+        "updated_at": "2026-05-19T17:17:30.696215"
+      }
+    }
+  ]
+}

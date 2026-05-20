@@ -1,0 +1,218 @@
+{
+  "timestamp": "2026-05-19T17:08:50.978354",
+  "test_type": "ut",
+  "layer": "L1_infrastructure",
+  "sub_layer": "L1c_llm",
+  "component": "LLMClient",
+  "case_name": "test_adapter_selection",
+  "test_points": [
+    "测试适配器选择",
+    "验证适配器选择后自动持久化到llm_calls.json"
+  ],
+  "inputs": {
+    "api_types": [
+      "openai",
+      "qwen",
+      "anthropic"
+    ]
+  },
+  "outputs": {
+    "result": "all adapters selected correctly"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [
+      {
+        "call_id": "llm-2bfbddc18741",
+        "session_id": "test-adapter-session",
+        "model_config_id": null,
+        "request": {
+          "model": "test",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Hello"
+            }
+          ],
+          "temperature": 0.7,
+          "max_tokens": 2048
+        },
+        "response": {
+          "id": "chatcmpl-ee6030ab-7c85-9a68-bf33-09186fcb7dc3",
+          "object": "chat.completion",
+          "created": 1779165573,
+          "model": "Qwen/Qwen3.5-397B-A17B",
+          "system_fingerprint": "",
+          "choices": [
+            {
+              "index": 0,
+              "delta": {
+                "role": null,
+                "content": "",
+                "tool_calls": null,
+                "function_calls": null,
+                "reasoning_content": ""
+              },
+              "finish_reason": "stop",
+              "message": {
+                "role": "assistant",
+                "content": "Hello! How can I help you today?",
+                "tool_calls": null,
+                "function_calls": null,
+                "reasoning_content": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Input: \"Hello\"\n    *   Intent: Greeting/Initiation of conversation.\n    *   Tone: Friendly, helpful, neutral.\n\n2.  **Determine the appropriate response:**\n    *   Acknowledge the greeting.\n    *   Offer assistance.\n    *   Keep it concise and welcoming.\n\n3.  **Drafting options:**\n    *   Option 1: \"Hello! How can I help you today?\" (Standard)\n    *   Option 2: \"Hi there! What's on your mind?\" (Casual)\n    *   Option 3: \"Greetings! How may I assist you?\" (Formal)\n\n4.  **Select the best option:** Option 1 is a safe, friendly, and clear standard response for an AI assistant.\n\n5.  **Final Polish:** \"Hello! How can I help you today?\" or something similar.\n\n6.  **Output Generation:** (Matches the selected option)\n    \"Hello! How can I help you today?\""
+              }
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 11,
+            "completion_tokens": 248,
+            "total_tokens": 259
+          }
+        },
+        "status": "completed",
+        "duration_ms": 2337,
+        "created_at": "2026-05-19T17:08:50.957608",
+        "entity_id": "llm-e6b73f02aa8d",
+        "updated_at": "2026-05-19T17:08:50.957608"
+      }
+    ],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {
+    "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+    "call_count": 1,
+    "last_call": {
+      "call_id": "llm-2bfbddc18741",
+      "session_id": "test-adapter-session",
+      "model_config_id": null,
+      "request": {
+        "model": "test",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Hello"
+          }
+        ],
+        "temperature": 0.7,
+        "max_tokens": 2048
+      },
+      "response": {
+        "id": "chatcmpl-ee6030ab-7c85-9a68-bf33-09186fcb7dc3",
+        "object": "chat.completion",
+        "created": 1779165573,
+        "model": "Qwen/Qwen3.5-397B-A17B",
+        "system_fingerprint": "",
+        "choices": [
+          {
+            "index": 0,
+            "delta": {
+              "role": null,
+              "content": "",
+              "tool_calls": null,
+              "function_calls": null,
+              "reasoning_content": ""
+            },
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": "Hello! How can I help you today?",
+              "tool_calls": null,
+              "function_calls": null,
+              "reasoning_content": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Input: \"Hello\"\n    *   Intent: Greeting/Initiation of conversation.\n    *   Tone: Friendly, helpful, neutral.\n\n2.  **Determine the appropriate response:**\n    *   Acknowledge the greeting.\n    *   Offer assistance.\n    *   Keep it concise and welcoming.\n\n3.  **Drafting options:**\n    *   Option 1: \"Hello! How can I help you today?\" (Standard)\n    *   Option 2: \"Hi there! What's on your mind?\" (Casual)\n    *   Option 3: \"Greetings! How may I assist you?\" (Formal)\n\n4.  **Select the best option:** Option 1 is a safe, friendly, and clear standard response for an AI assistant.\n\n5.  **Final Polish:** \"Hello! How can I help you today?\" or something similar.\n\n6.  **Output Generation:** (Matches the selected option)\n    \"Hello! How can I help you today?\""
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 11,
+          "completion_tokens": 248,
+          "total_tokens": 259
+        }
+      },
+      "status": "completed",
+      "duration_ms": 2337,
+      "created_at": "2026-05-19T17:08:50.957608",
+      "entity_id": "llm-e6b73f02aa8d",
+      "updated_at": "2026-05-19T17:08:50.957608"
+    },
+    "validation": {
+      "valid": true,
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+      "record_count": 1,
+      "data_exists": true
+    }
+  },
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "llm_calls",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "call_id": "llm-2bfbddc18741",
+        "session_id": "test-adapter-session",
+        "model_config_id": null,
+        "request": {
+          "model": "test",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Hello"
+            }
+          ],
+          "temperature": 0.7,
+          "max_tokens": 2048
+        },
+        "response": {
+          "id": "chatcmpl-ee6030ab-7c85-9a68-bf33-09186fcb7dc3",
+          "object": "chat.completion",
+          "created": 1779165573,
+          "model": "Qwen/Qwen3.5-397B-A17B",
+          "system_fingerprint": "",
+          "choices": [
+            {
+              "index": 0,
+              "delta": {
+                "role": null,
+                "content": "",
+                "tool_calls": null,
+                "function_calls": null,
+                "reasoning_content": ""
+              },
+              "finish_reason": "stop",
+              "message": {
+                "role": "assistant",
+                "content": "Hello! How can I help you today?",
+                "tool_calls": null,
+                "function_calls": null,
+                "reasoning_content": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Input: \"Hello\"\n    *   Intent: Greeting/Initiation of conversation.\n    *   Tone: Friendly, helpful, neutral.\n\n2.  **Determine the appropriate response:**\n    *   Acknowledge the greeting.\n    *   Offer assistance.\n    *   Keep it concise and welcoming.\n\n3.  **Drafting options:**\n    *   Option 1: \"Hello! How can I help you today?\" (Standard)\n    *   Option 2: \"Hi there! What's on your mind?\" (Casual)\n    *   Option 3: \"Greetings! How may I assist you?\" (Formal)\n\n4.  **Select the best option:** Option 1 is a safe, friendly, and clear standard response for an AI assistant.\n\n5.  **Final Polish:** \"Hello! How can I help you today?\" or something similar.\n\n6.  **Output Generation:** (Matches the selected option)\n    \"Hello! How can I help you today?\""
+              }
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 11,
+            "completion_tokens": 248,
+            "total_tokens": 259
+          }
+        },
+        "status": "completed",
+        "duration_ms": 2337,
+        "created_at": "2026-05-19T17:08:50.957608",
+        "entity_id": "llm-e6b73f02aa8d",
+        "updated_at": "2026-05-19T17:08:50.957608"
+      }
+    }
+  ]
+}

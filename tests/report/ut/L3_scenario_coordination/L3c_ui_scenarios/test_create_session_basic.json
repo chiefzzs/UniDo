@@ -1,0 +1,106 @@
+{
+  "timestamp": "2026-05-19T17:17:36.205914",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3c_ui_scenarios",
+  "component": "SessionManager",
+  "case_name": "test_create_session_basic",
+  "test_points": [
+    "测试创建会话",
+    "验证会话持久化"
+  ],
+  "inputs": {
+    "name": "Basic Session",
+    "project_id": "proj-001"
+  },
+  "outputs": {
+    "session_id": "sess-cf53b0855aa4",
+    "name": "Basic Session",
+    "project_id": "proj-001"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [
+      {
+        "session_id": "sess-cf53b0855aa4",
+        "project_id": "proj-001",
+        "name": "Basic Session",
+        "status": "active",
+        "created_at": "2026-05-19T17:17:36.183501",
+        "updated_at": "2026-05-19T17:17:36.183501"
+      }
+    ],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [
+      {
+        "record_id": "rec-0d909a949bb7",
+        "event_id": "evt-124626c08897",
+        "event_type": "session.created",
+        "timestamp": "2026-05-19T17:17:36.186517",
+        "payload": {
+          "session_id": "sess-cf53b0855aa4",
+          "project_id": "proj-001"
+        },
+        "stored_at": "2026-05-19T17:17:36.186517",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "5c5a1615-ed5e-4b0e-8f60-cbf8d9f1d9f9",
+        "entity_id": "evt-6d272eb8f64e",
+        "created_at": "2026-05-19T17:17:36.186517",
+        "updated_at": "2026-05-19T17:17:36.186517"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "sessions",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\sessions.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "session_id": "sess-cf53b0855aa4",
+        "project_id": "proj-001",
+        "name": "Basic Session",
+        "status": "active",
+        "created_at": "2026-05-19T17:17:36.183501",
+        "updated_at": "2026-05-19T17:17:36.183501"
+      }
+    },
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "record_id": "rec-0d909a949bb7",
+        "event_id": "evt-124626c08897",
+        "event_type": "session.created",
+        "timestamp": "2026-05-19T17:17:36.186517",
+        "payload": {
+          "session_id": "sess-cf53b0855aa4",
+          "project_id": "proj-001"
+        },
+        "stored_at": "2026-05-19T17:17:36.186517",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "5c5a1615-ed5e-4b0e-8f60-cbf8d9f1d9f9",
+        "entity_id": "evt-6d272eb8f64e",
+        "created_at": "2026-05-19T17:17:36.186517",
+        "updated_at": "2026-05-19T17:17:36.186517"
+      }
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "timestamp": "2026-05-19T17:17:35.920722",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3a_task_coordination",
+  "component": "TaskGroupExecutor",
+  "case_name": "test_execute_task_group_sequential",
+  "test_points": [
+    "测试任务组执行-顺序",
+    "验证顺序执行模式"
+  ],
+  "inputs": {
+    "task_id": "test_group_task_1",
+    "execution_mode": "sequential"
+  },
+  "outputs": {
+    "task_id": "test_group_task_1",
+    "status": "completed",
+    "subtask_count": 3,
+    "execution_mode": "sequential"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [
+      {
+        "task_id": "group_test_group_task_1_sub1",
+        "parent_task_id": "test_group_task_1",
+        "status": "completed",
+        "input_data": {
+          "description": "分析任务"
+        },
+        "output_data": {
+          "result": "任务执行完成",
+          "input": {
+            "description": "分析任务"
+          }
+        },
+        "entity_id": "task-c9226ccd3160",
+        "created_at": "2026-05-19T17:17:35.892719",
+        "updated_at": "2026-05-19T17:17:35.895770"
+      },
+      {
+        "task_id": "group_test_group_task_1_sub2",
+        "parent_task_id": "test_group_task_1",
+        "status": "completed",
+        "input_data": {
+          "description": "执行操作"
+        },
+        "output_data": {
+          "result": "任务执行完成",
+          "input": {
+            "description": "执行操作"
+          }
+        },
+        "entity_id": "task-d77d32b5c2f7",
+        "created_at": "2026-05-19T17:17:35.897772",
+        "updated_at": "2026-05-19T17:17:35.899798"
+      },
+      {
+        "task_id": "group_test_group_task_1_sub3",
+        "parent_task_id": "test_group_task_1",
+        "status": "completed",
+        "input_data": {
+          "description": "汇总结果"
+        },
+        "output_data": {
+          "result": "任务执行完成",
+          "input": {
+            "description": "汇总结果"
+          }
+        },
+        "entity_id": "task-3588b1f71d73",
+        "created_at": "2026-05-19T17:17:35.900799",
+        "updated_at": "2026-05-19T17:17:35.901798"
+      }
+    ],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "tasks",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\tasks.json",
+      "operation": "write",
+      "record_count": 3,
+      "sample_data": {
+        "task_id": "group_test_group_task_1_sub3",
+        "parent_task_id": "test_group_task_1",
+        "status": "completed",
+        "input_data": {
+          "description": "汇总结果"
+        },
+        "output_data": {
+          "result": "任务执行完成",
+          "input": {
+            "description": "汇总结果"
+          }
+        },
+        "entity_id": "task-3588b1f71d73",
+        "created_at": "2026-05-19T17:17:35.900799",
+        "updated_at": "2026-05-19T17:17:35.901798"
+      }
+    }
+  ]
+}

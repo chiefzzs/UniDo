@@ -1,0 +1,25 @@
+{
+  "tool_id": "T17",
+  "name": "OpenPreview",
+  "category": "UI",
+  "parameters": {
+    "url": {
+      "type": "string",
+      "description": "A complete, valid HTTP/HTTPS URL to open.",
+      "required": true
+    }
+  },
+  "description": "Preview a web URL in the IDE's built-in browser. The URL must be a fully-formed valid HTTP/HTTPS URL.",
+  "description_zh": "在IDE的内置浏览器中预览网页URL。URL必须是完整有效的HTTP/HTTPS URL。",
+  "default_params": {
+    "url": "http://localhost:8000"
+  },
+  "examples": [
+    "Open documentation: url=\"https://docs.example.com\"",
+    "Open preview: url=\"http://localhost:3000\""
+  ],
+  "examples_zh": [
+    "打开文档: url=\"https://docs.example.com\"",
+    "打开预览: url=\"http://localhost:3000\""
+  ]
+}

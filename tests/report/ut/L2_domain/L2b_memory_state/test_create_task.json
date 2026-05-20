@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-05-19T17:09:01.283239",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2b_memory_state",
+  "component": "TaskService",
+  "case_name": "test_create_task",
+  "test_points": [
+    "测试创建任务",
+    "验证L2服务自动触发L1持久化到tasks.json"
+  ],
+  "inputs": {
+    "group_id": "group-001",
+    "name": "Test Task"
+  },
+  "outputs": {
+    "task_id": "task-0abf9032591d",
+    "status": "pending"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [
+      {
+        "task_id": "task-0abf9032591d",
+        "group_id": "group-001",
+        "name": "Test Task",
+        "status": "pending",
+        "result": null,
+        "created_at": "2026-05-19T17:09:01.259458",
+        "updated_at": "2026-05-19T17:09:01.259458"
+      }
+    ],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "tasks",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\tasks.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "task_id": "task-0abf9032591d",
+        "group_id": "group-001",
+        "name": "Test Task",
+        "status": "pending",
+        "result": null,
+        "created_at": "2026-05-19T17:09:01.259458",
+        "updated_at": "2026-05-19T17:09:01.259458"
+      }
+    }
+  ]
+}

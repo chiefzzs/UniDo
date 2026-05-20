@@ -1,0 +1,49 @@
+{
+  "timestamp": "2026-05-19T17:17:36.531716",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3c_ui_scenarios",
+  "component": "DialogueOutputManager",
+  "case_name": "test_tool_call_format",
+  "test_points": [
+    "测试工具调用格式化",
+    "验证工具信息展示"
+  ],
+  "inputs": {
+    "tool_name": "calculator",
+    "parameters": {
+      "expression": "2 + 3"
+    }
+  },
+  "outputs": {
+    "formatted": {
+      "type": "tool_call",
+      "tool_name": "calculator",
+      "parameters": {
+        "expression": "2 + 3"
+      },
+      "result": "",
+      "status": "pending"
+    }
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": []
+}

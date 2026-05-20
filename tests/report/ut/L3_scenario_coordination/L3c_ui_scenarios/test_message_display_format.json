@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-05-19T17:17:36.562704",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3c_ui_scenarios",
+  "component": "DialogueOutputManager",
+  "case_name": "test_message_display_format",
+  "test_points": [
+    "测试消息显示格式化",
+    "验证消息格式"
+  ],
+  "inputs": {
+    "role": "assistant",
+    "content": "这是助手回复"
+  },
+  "outputs": {
+    "formatted": {
+      "type": "message",
+      "role": "assistant",
+      "content": "这是助手回复",
+      "timestamp": null,
+      "message_id": null
+    }
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": []
+}

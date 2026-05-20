@@ -1,0 +1,17 @@
+*.pyc
+__pycache__/
+.pytest_cache/
+.vscode/
+*.log
+.env
+.DS_Store
+*.swp
+*.swo
+node_modules/
+dist/
+build/
+*.egg-info/
+.idea/
+*.bak
+*.tmp
+data/*.json

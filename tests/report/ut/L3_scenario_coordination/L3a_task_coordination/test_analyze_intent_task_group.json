@@ -1,0 +1,216 @@
+{
+  "timestamp": "2026-05-19T17:17:30.647422",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3a_task_coordination",
+  "component": "IntentService",
+  "case_name": "test_analyze_intent_task_group",
+  "test_points": [
+    "测试意图分析-任务组",
+    "验证多步骤任务识别"
+  ],
+  "inputs": {
+    "user_input": "先分析需求，然后执行操作，最后汇总结果"
+  },
+  "outputs": {
+    "execution_path": "task_group",
+    "execution_mode": "sequential"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [
+      {
+        "call_id": "call-ffebd5f91a25",
+        "dialog_id": "intent-analysis-default-session",
+        "model_config_id": "default",
+        "request": {
+          "model_name": "default",
+          "messages": [
+            {
+              "role": "system",
+              "content": "你是一个意图分析助手。请分析用户输入并返回JSON格式的结果：\n        \n{\n    \"intent_type\": \"direct_completion|single_tool|task_group\",\n    \"confidence\": 0.0-1.0,\n    \"reasoning\": \"分析理由\",\n    \"tool_info\": {\n        \"tool_name\": \"工具名称\",\n        \"parameters\": {\"参数名\": \"参数值\"}\n    },\n    \"task_info\": {\n        \"execution_mode\": \"sequential|parallel|dependency_based\",\n        \"subtasks\": [{\"description\": \"子任务描述\"}]\n    }\n}\n\n## 意图类型说明：\n1. direct_completion：简单问答（问候、介绍自己、闲聊等），无需工具\n2. single_tool：需要调用单个工具完成任务\n3. task_group：需要多个任务协作完成\n\n## 示例：\n- 用户：\"你好\" → intent_type: \"direct_completion\"\n- 用户：\"帮我读取README.md\" → intent_type: \"single_tool\", tool_name: \"Read\"\n- 用户：\"分析项目结构并生成文档\" → intent_type: \"task_group\"\n"
+            },
+            {
+              "role": "user",
+              "content": "先分析需求，然后执行操作，最后汇总结果"
+            }
+          ],
+          "temperature": 0.1,
+          "max_tokens": 1024,
+          "stream": false,
+          "api_type": "openai",
+          "api_address": "http://localhost/v1",
+          "api_key": "demo",
+          "tools": [],
+          "tool_choice": null
+        },
+        "response": {
+          "content": "{\n    \"intent_type\": \"task_group\",\n    \"confidence\": 0.95,\n    \"reasoning\": \"用户指令明确描述了一个包含三个步骤的顺序工作流程（分析、执行、汇总），涉及多个阶段的协作，符合 task_group 定义。\",\n    \"tool_info\": {\n        \"tool_name\": \"N/A\",\n        \"parameters\": {}\n    },\n    \"task_info\": {\n        \"execution_mode\": \"sequential\",\n        \"subtasks\": [\n            {\"description\": \"分析需求\"},\n            {\"description\": \"执行操作\"},\n            {\"description\": \"汇总结果\"}\n        ]\n    }\n}",
+          "finish_reason": "stop",
+          "tool_calls": null,
+          "usage": {
+            "prompt_tokens": 270,
+            "completion_tokens": 3197,
+            "total_tokens": 3467
+          }
+        },
+        "status": "completed",
+        "duration_ms": 2360,
+        "created_at": "2026-05-19T17:17:30.626497"
+      }
+    ],
+    "tool_calls": [],
+    "events": [
+      {
+        "record_id": "rec-f51ffa852c85",
+        "event_id": "evt-ee1f184cb2dd",
+        "event_type": "llm.call_completed",
+        "timestamp": "2026-05-19T17:17:30.627494",
+        "payload": {
+          "request_id": "req-73cb60d750b5",
+          "dialog_id": "intent-analysis-default-session",
+          "duration_ms": 2360
+        },
+        "stored_at": "2026-05-19T17:17:30.627494",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "1c480515-dc2e-4572-acb6-7da832bce3ab",
+        "entity_id": "evt-b51c9968ea86",
+        "created_at": "2026-05-19T17:17:30.627494",
+        "updated_at": "2026-05-19T17:17:30.627494"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {
+    "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+    "call_count": 1,
+    "last_call": {
+      "call_id": "call-ffebd5f91a25",
+      "dialog_id": "intent-analysis-default-session",
+      "model_config_id": "default",
+      "request": {
+        "model_name": "default",
+        "messages": [
+          {
+            "role": "system",
+            "content": "你是一个意图分析助手。请分析用户输入并返回JSON格式的结果：\n        \n{\n    \"intent_type\": \"direct_completion|single_tool|task_group\",\n    \"confidence\": 0.0-1.0,\n    \"reasoning\": \"分析理由\",\n    \"tool_info\": {\n        \"tool_name\": \"工具名称\",\n        \"parameters\": {\"参数名\": \"参数值\"}\n    },\n    \"task_info\": {\n        \"execution_mode\": \"sequential|parallel|dependency_based\",\n        \"subtasks\": [{\"description\": \"子任务描述\"}]\n    }\n}\n\n## 意图类型说明：\n1. direct_completion：简单问答（问候、介绍自己、闲聊等），无需工具\n2. single_tool：需要调用单个工具完成任务\n3. task_group：需要多个任务协作完成\n\n## 示例：\n- 用户：\"你好\" → intent_type: \"direct_completion\"\n- 用户：\"帮我读取README.md\" → intent_type: \"single_tool\", tool_name: \"Read\"\n- 用户：\"分析项目结构并生成文档\" → intent_type: \"task_group\"\n"
+          },
+          {
+            "role": "user",
+            "content": "先分析需求，然后执行操作，最后汇总结果"
+          }
+        ],
+        "temperature": 0.1,
+        "max_tokens": 1024,
+        "stream": false,
+        "api_type": "openai",
+        "api_address": "http://localhost/v1",
+        "api_key": "demo",
+        "tools": [],
+        "tool_choice": null
+      },
+      "response": {
+        "content": "{\n    \"intent_type\": \"task_group\",\n    \"confidence\": 0.95,\n    \"reasoning\": \"用户指令明确描述了一个包含三个步骤的顺序工作流程（分析、执行、汇总），涉及多个阶段的协作，符合 task_group 定义。\",\n    \"tool_info\": {\n        \"tool_name\": \"N/A\",\n        \"parameters\": {}\n    },\n    \"task_info\": {\n        \"execution_mode\": \"sequential\",\n        \"subtasks\": [\n            {\"description\": \"分析需求\"},\n            {\"description\": \"执行操作\"},\n            {\"description\": \"汇总结果\"}\n        ]\n    }\n}",
+        "finish_reason": "stop",
+        "tool_calls": null,
+        "usage": {
+          "prompt_tokens": 270,
+          "completion_tokens": 3197,
+          "total_tokens": 3467
+        }
+      },
+      "status": "completed",
+      "duration_ms": 2360,
+      "created_at": "2026-05-19T17:17:30.626497"
+    },
+    "validation": {
+      "valid": true,
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+      "record_count": 1,
+      "data_exists": true
+    }
+  },
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "llm_calls",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "call_id": "call-ffebd5f91a25",
+        "dialog_id": "intent-analysis-default-session",
+        "model_config_id": "default",
+        "request": {
+          "model_name": "default",
+          "messages": [
+            {
+              "role": "system",
+              "content": "你是一个意图分析助手。请分析用户输入并返回JSON格式的结果：\n        \n{\n    \"intent_type\": \"direct_completion|single_tool|task_group\",\n    \"confidence\": 0.0-1.0,\n    \"reasoning\": \"分析理由\",\n    \"tool_info\": {\n        \"tool_name\": \"工具名称\",\n        \"parameters\": {\"参数名\": \"参数值\"}\n    },\n    \"task_info\": {\n        \"execution_mode\": \"sequential|parallel|dependency_based\",\n        \"subtasks\": [{\"description\": \"子任务描述\"}]\n    }\n}\n\n## 意图类型说明：\n1. direct_completion：简单问答（问候、介绍自己、闲聊等），无需工具\n2. single_tool：需要调用单个工具完成任务\n3. task_group：需要多个任务协作完成\n\n## 示例：\n- 用户：\"你好\" → intent_type: \"direct_completion\"\n- 用户：\"帮我读取README.md\" → intent_type: \"single_tool\", tool_name: \"Read\"\n- 用户：\"分析项目结构并生成文档\" → intent_type: \"task_group\"\n"
+            },
+            {
+              "role": "user",
+              "content": "先分析需求，然后执行操作，最后汇总结果"
+            }
+          ],
+          "temperature": 0.1,
+          "max_tokens": 1024,
+          "stream": false,
+          "api_type": "openai",
+          "api_address": "http://localhost/v1",
+          "api_key": "demo",
+          "tools": [],
+          "tool_choice": null
+        },
+        "response": {
+          "content": "{\n    \"intent_type\": \"task_group\",\n    \"confidence\": 0.95,\n    \"reasoning\": \"用户指令明确描述了一个包含三个步骤的顺序工作流程（分析、执行、汇总），涉及多个阶段的协作，符合 task_group 定义。\",\n    \"tool_info\": {\n        \"tool_name\": \"N/A\",\n        \"parameters\": {}\n    },\n    \"task_info\": {\n        \"execution_mode\": \"sequential\",\n        \"subtasks\": [\n            {\"description\": \"分析需求\"},\n            {\"description\": \"执行操作\"},\n            {\"description\": \"汇总结果\"}\n        ]\n    }\n}",
+          "finish_reason": "stop",
+          "tool_calls": null,
+          "usage": {
+            "prompt_tokens": 270,
+            "completion_tokens": 3197,
+            "total_tokens": 3467
+          }
+        },
+        "status": "completed",
+        "duration_ms": 2360,
+        "created_at": "2026-05-19T17:17:30.626497"
+      }
+    },
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "record_id": "rec-f51ffa852c85",
+        "event_id": "evt-ee1f184cb2dd",
+        "event_type": "llm.call_completed",
+        "timestamp": "2026-05-19T17:17:30.627494",
+        "payload": {
+          "request_id": "req-73cb60d750b5",
+          "dialog_id": "intent-analysis-default-session",
+          "duration_ms": 2360
+        },
+        "stored_at": "2026-05-19T17:17:30.627494",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "1c480515-dc2e-4572-acb6-7da832bce3ab",
+        "entity_id": "evt-b51c9968ea86",
+        "created_at": "2026-05-19T17:17:30.627494",
+        "updated_at": "2026-05-19T17:17:30.627494"
+      }
+    }
+  ]
+}

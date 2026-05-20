@@ -1,0 +1,165 @@
+{
+  "timestamp": "2026-05-19T17:09:00.847416",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2a_project_config",
+  "component": "ProjectService",
+  "case_name": "test_list_projects",
+  "test_points": [
+    "测试列出项目",
+    "验证L2服务从L1持久化正确查询"
+  ],
+  "inputs": {
+    "expected_count": 3
+  },
+  "outputs": {
+    "actual_count": 3
+  },
+  "persistent_data": {
+    "projects": [
+      {
+        "project_id": "proj-385e12b16f0f",
+        "name": "List Test Project 0",
+        "description": "Project 0 for list test",
+        "workspace_config_id": "ws-config-0",
+        "model_config_id": "model-config-0",
+        "tool_config_ids": [],
+        "status": "active",
+        "created_at": "2026-05-19T17:09:00.819406",
+        "updated_at": "2026-05-19T17:09:00.819406"
+      },
+      {
+        "project_id": "proj-d0de6f8fa254",
+        "name": "List Test Project 1",
+        "description": "Project 1 for list test",
+        "workspace_config_id": "ws-config-1",
+        "model_config_id": "model-config-1",
+        "tool_config_ids": [],
+        "status": "active",
+        "created_at": "2026-05-19T17:09:00.823917",
+        "updated_at": "2026-05-19T17:09:00.823917"
+      },
+      {
+        "project_id": "proj-241d7f414ac7",
+        "name": "List Test Project 2",
+        "description": "Project 2 for list test",
+        "workspace_config_id": "ws-config-2",
+        "model_config_id": "model-config-2",
+        "tool_config_ids": [],
+        "status": "active",
+        "created_at": "2026-05-19T17:09:00.826916",
+        "updated_at": "2026-05-19T17:09:00.826916"
+      }
+    ],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [
+      {
+        "record_id": "rec-4cab4f4a7dd8",
+        "event_id": "evt-368cc5a77a11",
+        "event_type": "project.created",
+        "timestamp": "2026-05-19T17:09:00.821919",
+        "payload": {
+          "project_id": "proj-385e12b16f0f",
+          "name": "List Test Project 0"
+        },
+        "stored_at": "2026-05-19T17:09:00.821919",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "3cea1035-01c4-4e3c-89f3-e07a0e3f1ab4",
+        "entity_id": "evt-212800a30aae",
+        "created_at": "2026-05-19T17:09:00.821919",
+        "updated_at": "2026-05-19T17:09:00.821919"
+      },
+      {
+        "record_id": "rec-4361d7634653",
+        "event_id": "evt-cbc041fd85e9",
+        "event_type": "project.created",
+        "timestamp": "2026-05-19T17:09:00.825917",
+        "payload": {
+          "project_id": "proj-d0de6f8fa254",
+          "name": "List Test Project 1"
+        },
+        "stored_at": "2026-05-19T17:09:00.825917",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "32b8f06b-d887-4c7e-9648-36d63ddab1ee",
+        "entity_id": "evt-83d5fb591db9",
+        "created_at": "2026-05-19T17:09:00.825917",
+        "updated_at": "2026-05-19T17:09:00.825917"
+      },
+      {
+        "record_id": "rec-196ef548ba01",
+        "event_id": "evt-dec2ab44adf7",
+        "event_type": "project.created",
+        "timestamp": "2026-05-19T17:09:00.827419",
+        "payload": {
+          "project_id": "proj-241d7f414ac7",
+          "name": "List Test Project 2"
+        },
+        "stored_at": "2026-05-19T17:09:00.827419",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "925cc807-e509-48e1-b8ce-ab0c6aa84048",
+        "entity_id": "evt-1658fb1788ed",
+        "created_at": "2026-05-19T17:09:00.827419",
+        "updated_at": "2026-05-19T17:09:00.827419"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "projects",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\projects.json",
+      "operation": "write",
+      "record_count": 3,
+      "sample_data": {
+        "project_id": "proj-241d7f414ac7",
+        "name": "List Test Project 2",
+        "description": "Project 2 for list test",
+        "workspace_config_id": "ws-config-2",
+        "model_config_id": "model-config-2",
+        "tool_config_ids": [],
+        "status": "active",
+        "created_at": "2026-05-19T17:09:00.826916",
+        "updated_at": "2026-05-19T17:09:00.826916"
+      }
+    },
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 3,
+      "sample_data": {
+        "record_id": "rec-196ef548ba01",
+        "event_id": "evt-dec2ab44adf7",
+        "event_type": "project.created",
+        "timestamp": "2026-05-19T17:09:00.827419",
+        "payload": {
+          "project_id": "proj-241d7f414ac7",
+          "name": "List Test Project 2"
+        },
+        "stored_at": "2026-05-19T17:09:00.827419",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "925cc807-e509-48e1-b8ce-ab0c6aa84048",
+        "entity_id": "evt-1658fb1788ed",
+        "created_at": "2026-05-19T17:09:00.827419",
+        "updated_at": "2026-05-19T17:09:00.827419"
+      }
+    }
+  ]
+}

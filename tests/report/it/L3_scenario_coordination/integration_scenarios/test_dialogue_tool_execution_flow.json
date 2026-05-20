@@ -1,0 +1,156 @@
+{
+  "timestamp": "2026-05-19T17:19:08.499185",
+  "test_type": "it",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "integration_scenarios",
+  "component": "DialogueIntegration",
+  "case_name": "test_dialogue_tool_execution_flow",
+  "test_points": [
+    "测试对话工具执行流程",
+    "验证工具调用集成"
+  ],
+  "inputs": {
+    "user_input": "计算 2 + 3"
+  },
+  "outputs": {
+    "session_id": "test-session-tool",
+    "status": "completed"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [
+      {
+        "session_id": "test-session-tool",
+        "project_id": "",
+        "name": "New Session",
+        "status": "active",
+        "created_at": "2026-05-19T17:19:08.470152",
+        "updated_at": "2026-05-19T17:19:08.470152"
+      }
+    ],
+    "dialogs": [
+      {
+        "dialog_id": "dialog-ce80e6d06512",
+        "session_id": "test-session-tool",
+        "dialog_type": "text",
+        "status": "active",
+        "created_at": "2026-05-19T17:19:08.473712"
+      }
+    ],
+    "messages": [
+      {
+        "message_id": "msg-695c24795274",
+        "dialog_id": "dialog-ce80e6d06512",
+        "role": "user",
+        "content": "计算 2 + 3",
+        "metadata": {},
+        "created_at": "2026-05-19T17:19:08.475720"
+      },
+      {
+        "message_id": "msg-d15ca9f5545d",
+        "dialog_id": "dialog-ce80e6d06512",
+        "role": "assistant",
+        "content": "",
+        "metadata": {},
+        "created_at": "2026-05-19T17:19:08.478230"
+      }
+    ],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [
+      {
+        "record_id": "rec-c481d6e626dd",
+        "event_id": "evt-b04d62916161",
+        "event_type": "session.created",
+        "timestamp": "2026-05-19T17:19:08.470685",
+        "payload": {
+          "session_id": "test-session-tool",
+          "project_id": ""
+        },
+        "stored_at": "2026-05-19T17:19:08.470685",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "c638a09b-0cbf-437a-b90d-a4433dbe4c90",
+        "entity_id": "evt-64196ee4ea92",
+        "created_at": "2026-05-19T17:19:08.470685",
+        "updated_at": "2026-05-19T17:19:08.470685"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "sessions",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\sessions.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "session_id": "test-session-tool",
+        "project_id": "",
+        "name": "New Session",
+        "status": "active",
+        "created_at": "2026-05-19T17:19:08.470152",
+        "updated_at": "2026-05-19T17:19:08.470152"
+      }
+    },
+    {
+      "entity_type": "dialogs",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\dialogs.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "dialog_id": "dialog-ce80e6d06512",
+        "session_id": "test-session-tool",
+        "dialog_type": "text",
+        "status": "active",
+        "created_at": "2026-05-19T17:19:08.473712"
+      }
+    },
+    {
+      "entity_type": "messages",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\messages.json",
+      "operation": "write",
+      "record_count": 2,
+      "sample_data": {
+        "message_id": "msg-d15ca9f5545d",
+        "dialog_id": "dialog-ce80e6d06512",
+        "role": "assistant",
+        "content": "",
+        "metadata": {},
+        "created_at": "2026-05-19T17:19:08.478230"
+      }
+    },
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "record_id": "rec-c481d6e626dd",
+        "event_id": "evt-b04d62916161",
+        "event_type": "session.created",
+        "timestamp": "2026-05-19T17:19:08.470685",
+        "payload": {
+          "session_id": "test-session-tool",
+          "project_id": ""
+        },
+        "stored_at": "2026-05-19T17:19:08.470685",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "c638a09b-0cbf-437a-b90d-a4433dbe4c90",
+        "entity_id": "evt-64196ee4ea92",
+        "created_at": "2026-05-19T17:19:08.470685",
+        "updated_at": "2026-05-19T17:19:08.470685"
+      }
+    }
+  ]
+}

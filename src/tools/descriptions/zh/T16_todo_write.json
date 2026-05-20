@@ -1,0 +1,25 @@
+{
+  "tool_id": "T16",
+  "name": "TodoWrite",
+  "category": "任务",
+  "parameters": {
+    "merge": {
+      "type": "boolean",
+      "description": "是否与现有待办合并。",
+      "required": false
+    },
+    "todos": {
+      "type": "string",
+      "description": "待办项目数组的JSON字符串。每个项目有id、status和content。",
+      "required": true
+    }
+  },
+  "description_zh": "创建和管理结构化待办事项列表以跟踪进度。每个项目都有唯一ID、状态（pending/in_progress/completed/cancelled）和内容描述。",
+  "description_en": "Create and manage a structured todo list for tracking progress. Each item has a unique id, status (pending/in_progress/completed/cancelled), and content description.",
+  "examples_zh": [
+    "创建待办: todos=\"[{\\\"id\\\":\\\"1\\\",\\\"status\\\":\\\"in_progress\\\",\\\"content\\\":\\\"实现功能\\\"}]\""
+  ],
+  "examples_en": [
+    "Create todos: todos=\"[{\\\"id\\\":\\\"1\\\",\\\"status\\\":\\\"in_progress\\\",\\\"content\\\":\\\"Implement feature\\\"}]\""
+  ]
+}

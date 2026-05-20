@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-05-19T17:17:35.717798",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3a_task_coordination",
+  "component": "CheckTaskService",
+  "case_name": "test_execute_check_completed",
+  "test_points": [
+    "测试检查任务-已完成",
+    "验证检查逻辑"
+  ],
+  "inputs": {
+    "task_id": "test_check_task_1",
+    "status": "completed"
+  },
+  "outputs": {
+    "task_id": "test_check_task_1",
+    "status": "completed",
+    "check_count": 1
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": []
+}

@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-05-19T17:17:35.782506",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3a_task_coordination",
+  "component": "AdjustTaskService",
+  "case_name": "test_execute_adjust_completed",
+  "test_points": [
+    "测试调整任务-已完成",
+    "验证调整逻辑"
+  ],
+  "inputs": {
+    "task_id": "test_adjust_task_1",
+    "status": "completed"
+  },
+  "outputs": {
+    "task_id": "test_adjust_task_1",
+    "status": "completed"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": []
+}

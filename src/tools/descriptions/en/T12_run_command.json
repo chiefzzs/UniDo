@@ -1,0 +1,31 @@
+{
+  "tool_id": "T12",
+  "name": "RunCommand",
+  "category": "System",
+  "parameters": {
+    "command": {
+      "type": "string",
+      "description": "The CLI command to execute.",
+      "required": true
+    },
+    "requires_approval": {
+      "type": "boolean",
+      "description": "Set to true if the command requires user approval.",
+      "required": false
+    }
+  },
+  "description": "Execute shell commands on the system. For any commands that would require user interaction, assume the user is not available to interact and pass non-interactive flags.",
+  "description_zh": "在系统上执行shell命令。对于任何需要用户交互的命令，假定用户不可用并传递非交互标志。",
+  "default_params": {
+    "command": "echo \"Hello World\"",
+    "requires_approval": false
+  },
+  "examples": [
+    "Run npm install: command=\"npm install\"",
+    "Run with approval: command=\"rm -rf node_modules\", requires_approval=true"
+  ],
+  "examples_zh": [
+    "运行npm install: command=\"npm install\"",
+    "需要批准运行: command=\"rm -rf node_modules\", requires_approval=true"
+  ]
+}

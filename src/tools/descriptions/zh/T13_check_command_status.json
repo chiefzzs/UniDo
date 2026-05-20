@@ -1,0 +1,20 @@
+{
+  "tool_id": "T13",
+  "name": "CheckCommandStatus",
+  "category": "系统",
+  "parameters": {
+    "command_id": {
+      "type": "string",
+      "description": "要检查状态的命令ID。",
+      "required": true
+    }
+  },
+  "description_zh": "检查之前运行的命令的执行状态。返回命令是仍在运行、已完成还是失败。",
+  "description_en": "Check the execution status of a previously run command. Returns whether the command is still running, completed, or failed.",
+  "examples_zh": [
+    "检查状态: command_id=\"abc123\""
+  ],
+  "examples_en": [
+    "Check status: command_id=\"abc123\""
+  ]
+}

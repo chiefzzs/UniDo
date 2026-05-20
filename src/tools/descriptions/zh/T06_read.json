@@ -1,0 +1,34 @@
+{
+  "tool_id": "T06",
+  "name": "Read",
+  "category": "文件",
+  "parameters": {
+    "file_path": {
+      "type": "string",
+      "description": "要读取的文件的绝对路径。",
+      "required": true
+    },
+    "offset": {
+      "type": "integer",
+      "description": "开始读取的行号（必须至少为1）。",
+      "required": false
+    },
+    "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000,
+      "description": "要读取的行数（必须至少为1）。",
+      "required": true
+    }
+  },
+  "description_zh": "从本地文件系统读取文件。每次最多可读取1000行，至少1行。结果以从1开始的行号返回。",
+  "description_en": "Reads a file from the local filesystem. Can read at most 1000 lines at a time and at least 1 line minimum. Results are returned with line numbers starting at 1.",
+  "examples_zh": [
+    "读取前200行: file_path=\"/path/to/file\", limit=200",
+    "读取特定范围: file_path=\"/path/to/file\", offset=100, limit=100"
+  ],
+  "examples_en": [
+    "Read first 200 lines: file_path=\"/path/to/file\", limit=200",
+    "Read specific range: file_path=\"/path/to/file\", offset=100, limit=100"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "timestamp": "2026-05-19T17:09:00.612348",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2a_project_config",
+  "component": "ConfigValidationService",
+  "case_name": "test_validate_configs_with_valid_configs",
+  "test_points": [
+    "测试验证有效配置",
+    "验证存在的配置ID通过验证"
+  ],
+  "inputs": {
+    "workspace_id": "ws-config-78bf4305ad71",
+    "model_config_id": "model-config-7848c022a472"
+  },
+  "outputs": {
+    "valid": true
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [
+      {
+        "config_id": "ws-config-78bf4305ad71",
+        "name": "Test Workspace",
+        "root_path": "/workspace/test",
+        "type": "local",
+        "created_at": "2026-05-19T17:09:00.590796",
+        "updated_at": "2026-05-19T17:09:00.590796"
+      }
+    ],
+    "model_configs": [
+      {
+        "config_id": "model-config-7848c022a472",
+        "name": "Test Model",
+        "model_name": "gpt-4",
+        "api_type": "openai",
+        "api_address": "http://localhost/v1",
+        "api_key": "test-key",
+        "parameters": {},
+        "created_at": "2026-05-19T17:09:00.592302",
+        "updated_at": "2026-05-19T17:09:00.592302"
+      }
+    ],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "workspace_configs",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\workspace_configs.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "config_id": "ws-config-78bf4305ad71",
+        "name": "Test Workspace",
+        "root_path": "/workspace/test",
+        "type": "local",
+        "created_at": "2026-05-19T17:09:00.590796",
+        "updated_at": "2026-05-19T17:09:00.590796"
+      }
+    },
+    {
+      "entity_type": "model_configs",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\model_configs.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "config_id": "model-config-7848c022a472",
+        "name": "Test Model",
+        "model_name": "gpt-4",
+        "api_type": "openai",
+        "api_address": "http://localhost/v1",
+        "api_key": "test-key",
+        "parameters": {},
+        "created_at": "2026-05-19T17:09:00.592302",
+        "updated_at": "2026-05-19T17:09:00.592302"
+      }
+    }
+  ]
+}

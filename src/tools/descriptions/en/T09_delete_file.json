@@ -1,0 +1,26 @@
+{
+  "tool_id": "T09",
+  "name": "DeleteFile",
+  "category": "File",
+  "parameters": {
+    "file_paths": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "The list of file paths you want to delete. Must be absolute paths.",
+      "required": true
+    }
+  },
+  "description": "Delete files from the filesystem. You can delete multiple files in one call. Must ensure files exist before deleting.",
+  "description_zh": "从文件系统删除文件。您可以在一次调用中删除多个文件。删除前必须确保文件存在。",
+  "default_params": {
+    "file_paths": ["/tmp/test_file.txt"]
+  },
+  "examples": [
+    "Delete single file: file_paths=[\"/path/to/file.txt\"]",
+    "Delete multiple files: file_paths=[\"/path/to/file1.txt\", \"/path/to/file2.txt\"]"
+  ],
+  "examples_zh": [
+    "删除单个文件: file_paths=[\"/path/to/file.txt\"]",
+    "删除多个文件: file_paths=[\"/path/to/file1.txt\", \"/path/to/file2.txt\"]"
+  ]
+}

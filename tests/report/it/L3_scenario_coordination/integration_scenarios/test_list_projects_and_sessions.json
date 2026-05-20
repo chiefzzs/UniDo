@@ -1,0 +1,201 @@
+{
+  "timestamp": "2026-05-19T17:19:08.582514",
+  "test_type": "it",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "integration_scenarios",
+  "component": "ProjectSessionIntegration",
+  "case_name": "test_list_projects_and_sessions",
+  "test_points": [
+    "测试列出项目和会话",
+    "验证多项目多会话查询"
+  ],
+  "inputs": {},
+  "outputs": {
+    "project_count": 2,
+    "session_count": 2
+  },
+  "persistent_data": {
+    "projects": [
+      {
+        "project_id": "proj-c44760accbd4",
+        "name": "Project A",
+        "description": "",
+        "workspace_config_id": "ws-a",
+        "model_config_id": "mc-a",
+        "tool_config_ids": [],
+        "status": "active",
+        "created_at": "2026-05-19T17:19:08.550328",
+        "updated_at": "2026-05-19T17:19:08.550328"
+      },
+      {
+        "project_id": "proj-1462985c49fa",
+        "name": "Project B",
+        "description": "",
+        "workspace_config_id": "ws-b",
+        "model_config_id": "mc-b",
+        "tool_config_ids": [],
+        "status": "active",
+        "created_at": "2026-05-19T17:19:08.554435",
+        "updated_at": "2026-05-19T17:19:08.554435"
+      }
+    ],
+    "sessions": [
+      {
+        "session_id": "sess-d3b5e21ad570",
+        "project_id": "",
+        "name": "Session 1",
+        "status": "active",
+        "created_at": "2026-05-19T17:19:08.558408",
+        "updated_at": "2026-05-19T17:19:08.558408"
+      },
+      {
+        "session_id": "sess-8344761428bb",
+        "project_id": "",
+        "name": "Session 2",
+        "status": "active",
+        "created_at": "2026-05-19T17:19:08.560990",
+        "updated_at": "2026-05-19T17:19:08.560990"
+      }
+    ],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [
+      {
+        "record_id": "rec-62fa94ab8cea",
+        "event_id": "evt-6049f4ac6dfa",
+        "event_type": "project.created",
+        "timestamp": "2026-05-19T17:19:08.551841",
+        "payload": {
+          "project_id": "proj-c44760accbd4",
+          "name": "Project A"
+        },
+        "stored_at": "2026-05-19T17:19:08.551841",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "2b9eed0e-7067-4109-b4e0-675e4f707593",
+        "entity_id": "evt-51b62132b76c",
+        "created_at": "2026-05-19T17:19:08.551841",
+        "updated_at": "2026-05-19T17:19:08.551841"
+      },
+      {
+        "record_id": "rec-703369699d99",
+        "event_id": "evt-a5e43b9ed431",
+        "event_type": "project.created",
+        "timestamp": "2026-05-19T17:19:08.555436",
+        "payload": {
+          "project_id": "proj-1462985c49fa",
+          "name": "Project B"
+        },
+        "stored_at": "2026-05-19T17:19:08.556403",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "10365985-cd9a-457f-a77a-91ea33ce9a08",
+        "entity_id": "evt-9685725f80be",
+        "created_at": "2026-05-19T17:19:08.556403",
+        "updated_at": "2026-05-19T17:19:08.556403"
+      },
+      {
+        "record_id": "rec-c2cada2aa5ab",
+        "event_id": "evt-b4ef8995f345",
+        "event_type": "session.created",
+        "timestamp": "2026-05-19T17:19:08.560001",
+        "payload": {
+          "session_id": "sess-d3b5e21ad570",
+          "project_id": ""
+        },
+        "stored_at": "2026-05-19T17:19:08.560001",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "938476ac-33ad-49be-8870-deb69477e65a",
+        "entity_id": "evt-f095ab2fe70d",
+        "created_at": "2026-05-19T17:19:08.560001",
+        "updated_at": "2026-05-19T17:19:08.560001"
+      },
+      {
+        "record_id": "rec-ea914ffab106",
+        "event_id": "evt-fe94df84bcfb",
+        "event_type": "session.created",
+        "timestamp": "2026-05-19T17:19:08.561990",
+        "payload": {
+          "session_id": "sess-8344761428bb",
+          "project_id": ""
+        },
+        "stored_at": "2026-05-19T17:19:08.561990",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "4475c187-e59f-441f-9731-4df109021fa5",
+        "entity_id": "evt-08bf62ff1569",
+        "created_at": "2026-05-19T17:19:08.561990",
+        "updated_at": "2026-05-19T17:19:08.561990"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "projects",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\projects.json",
+      "operation": "write",
+      "record_count": 2,
+      "sample_data": {
+        "project_id": "proj-1462985c49fa",
+        "name": "Project B",
+        "description": "",
+        "workspace_config_id": "ws-b",
+        "model_config_id": "mc-b",
+        "tool_config_ids": [],
+        "status": "active",
+        "created_at": "2026-05-19T17:19:08.554435",
+        "updated_at": "2026-05-19T17:19:08.554435"
+      }
+    },
+    {
+      "entity_type": "sessions",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\sessions.json",
+      "operation": "write",
+      "record_count": 2,
+      "sample_data": {
+        "session_id": "sess-8344761428bb",
+        "project_id": "",
+        "name": "Session 2",
+        "status": "active",
+        "created_at": "2026-05-19T17:19:08.560990",
+        "updated_at": "2026-05-19T17:19:08.560990"
+      }
+    },
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 4,
+      "sample_data": {
+        "record_id": "rec-ea914ffab106",
+        "event_id": "evt-fe94df84bcfb",
+        "event_type": "session.created",
+        "timestamp": "2026-05-19T17:19:08.561990",
+        "payload": {
+          "session_id": "sess-8344761428bb",
+          "project_id": ""
+        },
+        "stored_at": "2026-05-19T17:19:08.561990",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "4475c187-e59f-441f-9731-4df109021fa5",
+        "entity_id": "evt-08bf62ff1569",
+        "created_at": "2026-05-19T17:19:08.561990",
+        "updated_at": "2026-05-19T17:19:08.561990"
+      }
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "timestamp": "2026-05-19T17:09:01.358339",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2c_tool_execution",
+  "component": "ToolExecutor",
+  "case_name": "test_execute_tool",
+  "test_points": [
+    "测试执行工具",
+    "验证L2服务自动触发L1持久化到tool_calls.json"
+  ],
+  "inputs": {
+    "tool_name": "test_tool",
+    "dialog_id": "dialog-001",
+    "task_id": "task-001",
+    "params": {
+      "input": "test input"
+    }
+  },
+  "outputs": {
+    "success": true,
+    "call_id": "call-6b98335c9c6c",
+    "status": "done"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [
+      {
+        "call_id": "call-6b98335c9c6c",
+        "tool_id": "tool-91356a11e85c",
+        "tool_name": "test_tool",
+        "dialog_id": "dialog-001",
+        "task_id": "task-001",
+        "input_params": {
+          "input": "test input"
+        },
+        "output_result": "Tool test_tool executed successfully with params: {'input': 'test input'}",
+        "status": "completed",
+        "error_message": null,
+        "start_time": "2026-05-19T17:09:01.333902",
+        "end_time": "2026-05-19T17:09:01.335425",
+        "duration": 0.0
+      }
+    ],
+    "events": [
+      {
+        "record_id": "rec-e755d3720049",
+        "event_id": "evt-8e085553f85e",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-19T17:09:01.332385",
+        "payload": {
+          "tool_id": "tool-91356a11e85c",
+          "tool_name": "test_tool"
+        },
+        "stored_at": "2026-05-19T17:09:01.332385",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "73696fa2-31bb-43c2-8979-81c9af4d550e",
+        "entity_id": "evt-58650ce6708a",
+        "created_at": "2026-05-19T17:09:01.332385",
+        "updated_at": "2026-05-19T17:09:01.332385"
+      },
+      {
+        "record_id": "rec-3ad01429af74",
+        "event_id": "evt-51b19672c895",
+        "event_type": "tool.call_completed",
+        "timestamp": "2026-05-19T17:09:01.338485",
+        "payload": {
+          "call_id": "call-6b98335c9c6c",
+          "tool_name": "test_tool",
+          "success": true,
+          "duration": 0.0
+        },
+        "stored_at": "2026-05-19T17:09:01.338485",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "8df2262f-149c-42c0-a174-c5347cfe5601",
+        "entity_id": "evt-b598bfdaaf94",
+        "created_at": "2026-05-19T17:09:01.338485",
+        "updated_at": "2026-05-19T17:09:01.338485"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "tool_calls",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\tool_calls.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "call_id": "call-6b98335c9c6c",
+        "tool_id": "tool-91356a11e85c",
+        "tool_name": "test_tool",
+        "dialog_id": "dialog-001",
+        "task_id": "task-001",
+        "input_params": {
+          "input": "test input"
+        },
+        "output_result": "Tool test_tool executed successfully with params: {'input': 'test input'}",
+        "status": "completed",
+        "error_message": null,
+        "start_time": "2026-05-19T17:09:01.333902",
+        "end_time": "2026-05-19T17:09:01.335425",
+        "duration": 0.0
+      }
+    },
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 2,
+      "sample_data": {
+        "record_id": "rec-3ad01429af74",
+        "event_id": "evt-51b19672c895",
+        "event_type": "tool.call_completed",
+        "timestamp": "2026-05-19T17:09:01.338485",
+        "payload": {
+          "call_id": "call-6b98335c9c6c",
+          "tool_name": "test_tool",
+          "success": true,
+          "duration": 0.0
+        },
+        "stored_at": "2026-05-19T17:09:01.338485",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "8df2262f-149c-42c0-a174-c5347cfe5601",
+        "entity_id": "evt-b598bfdaaf94",
+        "created_at": "2026-05-19T17:09:01.338485",
+        "updated_at": "2026-05-19T17:09:01.338485"
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "tool_id": "T14",
+  "name": "StopCommand",
+  "category": "系统",
+  "parameters": {
+    "command_id": {
+      "type": "string",
+      "description": "要停止的命令ID。",
+      "required": true
+    }
+  },
+  "description_zh": "通过ID停止正在运行的命令。先使用CheckCommandStatus获取命令ID。",
+  "description_en": "Stop a running command by its ID. Use CheckCommandStatus to get the command ID first.",
+  "examples_zh": [
+    "停止命令: command_id=\"abc123\""
+  ],
+  "examples_en": [
+    "Stop command: command_id=\"abc123\""
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "timestamp": "2026-05-19T17:09:01.428363",
+  "test_type": "ut",
+  "layer": "L2_domain",
+  "sub_layer": "L2c_tool_execution",
+  "component": "ToolExecutor",
+  "case_name": "test_execute_tool_invalid_params",
+  "test_points": [
+    "测试工具参数验证失败",
+    "验证invalid_params状态"
+  ],
+  "inputs": {
+    "tool_name": "test_tool_with_required",
+    "params": {
+      "input": "only one"
+    }
+  },
+  "outputs": {
+    "success": false,
+    "status": "invalid_params",
+    "error": "Missing required parameter: required_param"
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [
+      {
+        "record_id": "rec-03f07f196c7f",
+        "event_id": "evt-4cdb75b21eab",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-19T17:09:01.404678",
+        "payload": {
+          "tool_id": "tool-1875f96d3eb7",
+          "tool_name": "test_tool_with_required"
+        },
+        "stored_at": "2026-05-19T17:09:01.404678",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "b9e48fb7-5202-470c-bc54-b74586283458",
+        "entity_id": "evt-b0e923081bc0",
+        "created_at": "2026-05-19T17:09:01.404678",
+        "updated_at": "2026-05-19T17:09:01.404678"
+      }
+    ],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "record_id": "rec-03f07f196c7f",
+        "event_id": "evt-4cdb75b21eab",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-19T17:09:01.404678",
+        "payload": {
+          "tool_id": "tool-1875f96d3eb7",
+          "tool_name": "test_tool_with_required"
+        },
+        "stored_at": "2026-05-19T17:09:01.404678",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "b9e48fb7-5202-470c-bc54-b74586283458",
+        "entity_id": "evt-b0e923081bc0",
+        "created_at": "2026-05-19T17:09:01.404678",
+        "updated_at": "2026-05-19T17:09:01.404678"
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-05-19T17:08:43.626010",
+  "test_type": "ut",
+  "layer": "L1_infrastructure",
+  "sub_layer": "L1b_persistence",
+  "component": "PersistenceService",
+  "case_name": "test_list_entities",
+  "test_points": [
+    "测试列表功能"
+  ],
+  "inputs": {
+    "entity_type": "sessions",
+    "data": {
+      "name": "Test Session",
+      "entity_id": "sess-dca69c62b652",
+      "created_at": "2026-05-19T17:08:43.603646",
+      "updated_at": "2026-05-19T17:08:43.603646"
+    }
+  },
+  "outputs": {
+    "entity_count": 1
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [
+      {
+        "name": "Test Session",
+        "entity_id": "sess-dca69c62b652",
+        "created_at": "2026-05-19T17:08:43.603646",
+        "updated_at": "2026-05-19T17:08:43.603646"
+      }
+    ],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": [
+    {
+      "entity_type": "sessions",
+      "file_path": "D:\\learnning\\260518\\src\\data\\test\\sessions.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "name": "Test Session",
+        "entity_id": "sess-dca69c62b652",
+        "created_at": "2026-05-19T17:08:43.603646",
+        "updated_at": "2026-05-19T17:08:43.603646"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-05-19T17:17:30.679686",
+  "test_type": "ut",
+  "layer": "L3_scenario_coordination",
+  "sub_layer": "L3a_task_coordination",
+  "component": "BaseExecutionService",
+  "case_name": "test_execute_task_direct_completion",
+  "test_points": [
+    "测试基础执行-直接完成",
+    "验证任务状态转换"
+  ],
+  "inputs": {
+    "task_id": "test-direct",
+    "user_input": "你好"
+  },
+  "outputs": {
+    "task_id": "test-direct",
+    "status": "completed",
+    "output_data": {
+      "result": "任务已直接完成",
+      "reasoning": "简单问题，无需工具调用"
+    }
+  },
+  "persistent_data": {
+    "projects": [],
+    "sessions": [],
+    "dialogs": [],
+    "messages": [],
+    "task_groups": [],
+    "tasks": [],
+    "llm_calls": [],
+    "tool_calls": [],
+    "events": [],
+    "prompts": [],
+    "workspace_configs": [],
+    "model_configs": [],
+    "tool_configs": []
+  },
+  "events": [],
+  "llm_data": {},
+  "tool_calls": [],
+  "service_calls": [],
+  "file_operations": []
+}

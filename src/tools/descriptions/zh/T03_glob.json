@@ -1,0 +1,29 @@
+{
+  "tool_id": "T03",
+  "name": "Glob",
+  "category": "文件",
+  "parameters": {
+    "pattern": {
+      "type": "string",
+      "description": "要匹配文件的glob模式。",
+      "required": true
+    },
+    "path": {
+      "type": "string",
+      "description": "要搜索的目录。必须是绝对路径。",
+      "required": false
+    }
+  },
+  "description_zh": "适用于任何代码库大小的快速文件模式匹配工具。支持glob模式如\"/*.js\"或\"src/**/*.ts\"。返回按修改时间排序的匹配文件路径。",
+  "description_en": "Fast file pattern matching tool that works with any codebase size. Supports glob patterns like \"/*.js\" or \"src/**/*.ts\". Returns matching file paths sorted by modification time.",
+  "examples_zh": [
+    "查找所有JS文件: pattern=\"*.js\"",
+    "在src中查找TypeScript文件: pattern=\"src/**/*.ts\"",
+    "查找配置文件: pattern=\"**/config.*\""
+  ],
+  "examples_en": [
+    "Find all JS files: pattern=\"*.js\"",
+    "Find TypeScript files in src: pattern=\"src/**/*.ts\"",
+    "Find config files: pattern=\"**/config.*\""
+  ]
+}
