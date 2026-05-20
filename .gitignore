@@ -14,4 +14,6 @@ build/
 .idea/
 *.bak
 *.tmp
-data/*.json
+src/data/*.json
+workspace
+auto_commit.ps1
