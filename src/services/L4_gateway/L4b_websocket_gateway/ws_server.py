@@ -318,6 +318,8 @@ class MessageHandler:
             
             # 3. 处理工具调用（如果有）
             response_content = llm_response.content
+            tool_calls_data = []  # 新增：存储工具调用数据供前端显示
+            
             if llm_response.tool_calls:
                 # 发布工具调用开始事件
                 from services.L1_infrastructure.L1d_events.event_record import Event
@@ -349,6 +351,17 @@ class MessageHandler:
                 for tool_call in llm_response.tool_calls:
                     tool_result = self._execute_tool_call(tool_call, session_id)
                     tool_results.append(tool_result)
+                    
+                    # 构建工具调用数据结构供前端显示
+                    tool_call_info = {
+                        'tool_name': tool_result['tool_name'],
+                        'arguments': tool_call.get('function', {}).get('arguments', '') if 'function' in tool_call else tool_call.get('args', {}),
+                        'call_id': tool_result.get('call_id'),
+                        'status': 'completed' if tool_result['success'] else 'failed',
+                        'result': tool_result.get('result'),
+                        'error': tool_result.get('error')
+                    }
+                    tool_calls_data.append(tool_call_info)
                 
                 # 如果有工具结果，保存工具执行消息到对话历史
                 if tool_results:
@@ -396,11 +409,16 @@ class MessageHandler:
             # 5. 完成对话
             dialog_manager.finish_dialog(dialog_id, compress=False)
             
+            # 6. 返回分类型的响应数据
             return {
                 "type": "message_response",
                 "status": "success",
                 "session_id": session_id,
-                "data": {"content": response_content}
+                "data": {
+                    "content": response_content,
+                    "type": "text",  # 默认类型为文本
+                    "tool_calls": tool_calls_data  # 新增：工具调用数据
+                }
             }
             
         except Exception as e:

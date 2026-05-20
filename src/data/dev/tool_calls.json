@@ -1,18 +1,19 @@
 [
     {
-        "call_id": "call-bb58ee73010e",
+        "call_id": "call-616e839a338b",
         "tool_id": "T12",
         "tool_name": "RunCommand",
-        "dialog_id": "sess-7087ce5dfc20",
-        "task_id": "sess-7087ce5dfc20",
+        "dialog_id": "sess-a991141c6f68",
+        "task_id": "sess-a991141c6f68",
         "input_params": {
-            "command": "mkdir D:\\learnning\\260521\\workspace\\test_1"
+            "command": "mkdir D:\\learnning\\260521\\workspace\\test_10",
+            "requires_approval": false
         },
-        "output_result": "Tool RunCommand executed successfully with params: {'command': 'mkdir D:\\\\learnning\\\\260521\\\\workspace\\\\test_1', 'workspace': 'D:\\\\learnning\\\\260521\\\\workspace', 'output_callback': <function ToolExecutor.execute_tool.<locals>.<lambda> at 0x000002913D3EB6D0>}",
+        "output_result": "{'command_id': 'cmd_2705285018688', 'command': 'mkdir D:\\\\learnning\\\\260521\\\\workspace\\\\test_10', 'status': 'completed', 'return_code': 0, 'stdout': '\\n\\n    目录: D:\\\\learnning\\\\260521\\\\workspace\\n\\n\\nMode                 LastWriteTime         Length Name                       \\n----                 -------------         ------ ----                       \\nd-----         2026/5/20     15:27                test_10                    \\n\\n\\n', 'stderr': '', 'success': True, 'workspace': 'D:\\\\learnning\\\\260521\\\\workspace'}",
         "status": "completed",
         "error_message": null,
-        "start_time": "2026-05-20T14:53:51.363593",
-        "end_time": "2026-05-20T14:53:51.374115",
-        "duration": 0.008510589599609375
+        "start_time": "2026-05-20T15:26:59.113159",
+        "end_time": "2026-05-20T15:27:01.621273",
+        "duration": 2.5059549808502197
     }
 ]

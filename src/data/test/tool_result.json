@@ -1,7 +1,0 @@
-[
-    {
-        "role": "tool",
-        "content": "<toolcall_status>done</toolcall_status>\n<toolcall_result>\n{'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test', 'entries': [{'name': 'events.json', 'type': 'file', 'size': 935, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\events.json'}, {'name': 'tool_calls.json', 'type': 'file', 'size': 496, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_calls.json'}, {'name': 'tool_definitions.json', 'type': 'file', 'size': 2, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_definitions.json'}, {'name': 'workspace_configs.json', 'type': 'file', 'size': 2, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\workspace_configs.json'}], 'total': 4, 'directories': 0, 'files': 4}\n</toolcall_result>",
-        "tool_call_id": "call-bebf17726b85"
-    }
-]
