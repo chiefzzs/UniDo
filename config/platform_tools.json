@@ -1,118 +1,111 @@
 {
-  "auto_detect": {
-    "enabled": true,
-    "fallback_platform": "windows"
-  },
-  "default_platform": "auto",
-  "module_mapping": {
-    "SkillTool": "skill_tool",
-    "SearchCodebaseTool": "search_codebase_tool",
-    "GlobTool": "glob_tool",
-    "LsTool": "ls_tool",
-    "GrepTool": "grep_tool",
-    "ReadTool": "read_tool",
-    "WebSearchTool": "web_search_tool",
-    "WebFetchTool": "web_fetch_tool",
-    "DeleteFileTool": "delete_file_tool",
-    "SearchReplaceTool": "search_replace_tool",
-    "WriteTool": "write_tool",
-    "RunCommandTool": "run_command_tool",
-    "CheckCommandStatusTool": "check_command_status_tool",
-    "StopCommandTool": "stop_command_tool",
-    "GetDiagnosticsTool": "get_diagnostics_tool",
-    "TodoWriteTool": "todo_write_tool",
-    "OpenPreviewTool": "open_preview_tool",
-    "AskUserQuestionTool": "ask_user_question_tool",
-    "WindowsLsTool": "windows_ls_tool",
-    "WindowsGlobTool": "windows_glob_tool",
-    "WindowsDeleteFileTool": "windows_delete_file_tool",
-    "WindowsRunCommandTool": "windows_run_command_tool",
-    "LinuxLsTool": "linux_ls_tool",
-    "LinuxGlobTool": "linux_glob_tool",
-    "LinuxDeleteFileTool": "linux_delete_file_tool",
-    "LinuxRunCommandTool": "linux_run_command_tool"
-  },
-  "platforms": {
-    "windows": {
-      "name": "Windows",
-      "command_shell": ["powershell", "cmd"],
-      "path_separator": "\\",
-      "tool_mapping": {
-        "ls": "WindowsLsTool",
-        "glob": "WindowsGlobTool",
-        "delete_file": "WindowsDeleteFileTool",
-        "run_command": "WindowsRunCommandTool"
-      },
-      "common_tools": [
-        "SkillTool",
-        "SearchCodebaseTool",
-        "GrepTool",
-        "ReadTool",
-        "WebSearchTool",
-        "WebFetchTool",
-        "SearchReplaceTool",
-        "WriteTool",
-        "CheckCommandStatusTool",
-        "StopCommandTool",
-        "GetDiagnosticsTool",
-        "TodoWriteTool",
-        "OpenPreviewTool",
-        "AskUserQuestionTool"
-      ]
+    "auto_detect": {
+        "enabled": true,
+        "fallback_platform": "windows"
     },
-    "linux": {
-      "name": "Linux",
-      "command_shell": ["bash", "sh"],
-      "path_separator": "/",
-      "tool_mapping": {
-        "ls": "LinuxLsTool",
-        "glob": "LinuxGlobTool",
-        "delete_file": "LinuxDeleteFileTool",
-        "run_command": "LinuxRunCommandTool"
-      },
-      "common_tools": [
-        "SkillTool",
-        "SearchCodebaseTool",
-        "GrepTool",
-        "ReadTool",
-        "WebSearchTool",
-        "WebFetchTool",
-        "SearchReplaceTool",
-        "WriteTool",
-        "CheckCommandStatusTool",
-        "StopCommandTool",
-        "GetDiagnosticsTool",
-        "TodoWriteTool",
-        "OpenPreviewTool",
-        "AskUserQuestionTool"
-      ]
+    "default_platform": "auto",
+    "module_mapping": {
+        "WindowsLsTool": "windows_ls_tool",
+        "WindowsGlobTool": "windows_glob_tool",
+        "WindowsDeleteFileTool": "windows_delete_file_tool",
+        "WindowsRunCommandTool": "windows_run_command_tool",
+        "LsTool": "ls_tool",
+        "GlobTool": "glob_tool",
+        "DeleteFileTool": "delete_file_tool",
+        "RunCommandTool": "run_command_tool",
+        "ReadTool": "read_tool",
+        "WriteTool": "write_tool",
+        "GrepTool": "grep_tool",
+        "WebSearchTool": "web_search_tool",
+        "WebFetchTool": "web_fetch_tool",
+        "SearchCodebaseTool": "search_codebase_tool",
+        "SearchReplaceTool": "search_replace_tool",
+        "GetDiagnosticsTool": "get_diagnostics_tool",
+        "CheckCommandStatusTool": "check_command_status_tool",
+        "StopCommandTool": "stop_command_tool",
+        "TodoWriteTool": "todo_write_tool",
+        "OpenPreviewTool": "open_preview_tool",
+        "AskUserQuestionTool": "ask_user_question_tool",
+        "SkillTool": "skill_tool"
     },
-    "macos": {
-      "name": "macOS",
-      "command_shell": ["bash", "zsh"],
-      "path_separator": "/",
-      "tool_mapping": {
-        "ls": "LinuxLsTool",
-        "glob": "LinuxGlobTool",
-        "delete_file": "LinuxDeleteFileTool",
-        "run_command": "LinuxRunCommandTool"
-      },
-      "common_tools": [
-        "SkillTool",
-        "SearchCodebaseTool",
-        "GrepTool",
-        "ReadTool",
-        "WebSearchTool",
-        "WebFetchTool",
-        "SearchReplaceTool",
-        "WriteTool",
-        "CheckCommandStatusTool",
-        "StopCommandTool",
-        "GetDiagnosticsTool",
-        "TodoWriteTool",
-        "OpenPreviewTool",
-        "AskUserQuestionTool"
-      ]
+    "platforms": {
+        "windows": {
+            "name": "Windows",
+            "command_shell": ["powershell", "-Command"],
+            "path_separator": "\\",
+            "tool_mapping": {
+                "T01": "SkillTool",
+                "T02": "SearchCodebaseTool",
+                "T03": "WindowsGlobTool",
+                "T04": "WindowsLsTool",
+                "T05": "GrepTool",
+                "T06": "ReadTool",
+                "T07": "WebSearchTool",
+                "T08": "WebFetchTool",
+                "T09": "WindowsDeleteFileTool",
+                "T10": "SearchReplaceTool",
+                "T11": "WriteTool",
+                "T12": "WindowsRunCommandTool",
+                "T13": "CheckCommandStatusTool",
+                "T14": "StopCommandTool",
+                "T15": "GetDiagnosticsTool",
+                "T16": "TodoWriteTool",
+                "T17": "OpenPreviewTool",
+                "T18": "AskUserQuestionTool"
+            },
+            "common_tools": []
+        },
+        "linux": {
+            "name": "Linux",
+            "command_shell": ["bash", "-c"],
+            "path_separator": "/",
+            "tool_mapping": {
+                "T01": "SkillTool",
+                "T02": "SearchCodebaseTool",
+                "T03": "GlobTool",
+                "T04": "LsTool",
+                "T05": "GrepTool",
+                "T06": "ReadTool",
+                "T07": "WebSearchTool",
+                "T08": "WebFetchTool",
+                "T09": "DeleteFileTool",
+                "T10": "SearchReplaceTool",
+                "T11": "WriteTool",
+                "T12": "RunCommandTool",
+                "T13": "CheckCommandStatusTool",
+                "T14": "StopCommandTool",
+                "T15": "GetDiagnosticsTool",
+                "T16": "TodoWriteTool",
+                "T17": "OpenPreviewTool",
+                "T18": "AskUserQuestionTool"
+            },
+            "common_tools": []
+        },
+        "macos": {
+            "name": "macOS",
+            "command_shell": ["bash", "-c"],
+            "path_separator": "/",
+            "tool_mapping": {
+                "T01": "SkillTool",
+                "T02": "SearchCodebaseTool",
+                "T03": "GlobTool",
+                "T04": "LsTool",
+                "T05": "GrepTool",
+                "T06": "ReadTool",
+                "T07": "WebSearchTool",
+                "T08": "WebFetchTool",
+                "T09": "DeleteFileTool",
+                "T10": "SearchReplaceTool",
+                "T11": "WriteTool",
+                "T12": "RunCommandTool",
+                "T13": "CheckCommandStatusTool",
+                "T14": "StopCommandTool",
+                "T15": "GetDiagnosticsTool",
+                "T16": "TodoWriteTool",
+                "T17": "OpenPreviewTool",
+                "T18": "AskUserQuestionTool"
+            },
+            "common_tools": []
+        }
     }
-  }
 }

@@ -1,0 +1,7 @@
+[
+    {
+        "role": "tool",
+        "content": "<toolcall_status>done</toolcall_status>\n<toolcall_result>\nTool RunCommand executed successfully with params: {'command': 'mkdir D:\\\\learnning\\\\260521\\\\workspace\\\\test_1', 'workspace': 'D:\\\\learnning\\\\260521\\\\workspace', 'output_callback': <function ToolExecutor.execute_tool.<locals>.<lambda> at 0x000002913D3EB6D0>}\n</toolcall_result>",
+        "tool_call_id": "call-bb58ee73010e"
+    }
+]

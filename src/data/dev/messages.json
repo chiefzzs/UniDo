@@ -1,0 +1,37 @@
+[
+    {
+        "message_id": "msg-525f3c776365",
+        "dialog_id": "dialog-dd160b76ec07",
+        "role": "user",
+        "content": "创建test_1目录",
+        "metadata": {
+            "type": "user_input",
+            "source": "ui"
+        },
+        "created_at": "2026-05-20T14:53:46.543157"
+    },
+    {
+        "message_id": "msg-f0cbfbfcd1bc",
+        "dialog_id": "dialog-dd160b76ec07",
+        "role": "tool",
+        "content": "工具调用: None\n结果: 'ToolResult' object has no attribute 'content'",
+        "metadata": {
+            "type": "tool_execution",
+            "tool_name": null,
+            "success": false,
+            "call_id": null
+        },
+        "created_at": "2026-05-20T14:53:51.383459"
+    },
+    {
+        "message_id": "msg-5f417e707bc2",
+        "dialog_id": "dialog-dd160b76ec07",
+        "role": "assistant",
+        "content": "看起来之前的工具调用出现了错误。让我为您创建 test_1 目录：\n\n",
+        "metadata": {
+            "type": "assistant_response",
+            "source": "llm"
+        },
+        "created_at": "2026-05-20T14:53:56.918511"
+    }
+]

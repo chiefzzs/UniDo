@@ -46,5 +46,29 @@
         "created_at": "2026-05-20T14:52:18.936221",
         "entity_id": "ent-9e5bf326affd",
         "updated_at": "2026-05-20T14:52:18.936221"
+    },
+    {
+        "log_id": "ws-5a56639a72a9",
+        "client_id": "client-8um099y45",
+        "session_id": "sess-7087ce5dfc20",
+        "message_type": "send_message",
+        "direction": "inbound",
+        "payload": "{\"action\": \"send_message\", \"type\": \"message\", \"session_id\": \"sess-7087ce5dfc20\", \"content\": \"创建test_1目录\"}",
+        "error_message": null,
+        "created_at": "2026-05-20T14:53:46.521040",
+        "entity_id": "ent-9764e5f28c80",
+        "updated_at": "2026-05-20T14:53:46.521040"
+    },
+    {
+        "log_id": "ws-04fee9386ec3",
+        "client_id": "client-8um099y45",
+        "session_id": "sess-7087ce5dfc20",
+        "message_type": "message_response",
+        "direction": "outbound",
+        "payload": "{\"type\": \"message_response\", \"status\": \"success\", \"session_id\": \"sess-7087ce5dfc20\", \"data\": {\"content\": \"看起来之前的工具调用出现了错误。让我为您创建 test_1 目录：\\n\\n\"}}",
+        "error_message": null,
+        "created_at": "2026-05-20T14:53:56.924850",
+        "entity_id": "ent-04761bfb0843",
+        "updated_at": "2026-05-20T14:53:56.924850"
     }
 ]

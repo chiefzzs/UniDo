@@ -174,20 +174,20 @@ class ToolExecutor:
             
             print(f"[ToolExecutor] 执行工具 {tool_name}，workspace: {workspace_path}")
             
-            implementation = self.registry.get_implementation(tool.tool_id)
-
-            if implementation:
-                if tool.is_async:
-                    loop = asyncio.new_event_loop()
-                    asyncio.set_event_loop(loop)
-                    try:
-                        result = loop.run_until_complete(implementation(**params_with_workspace))
-                    finally:
-                        loop.close()
-                else:
-                    result = implementation(**params_with_workspace)
+            # 使用配置驱动的注册表获取真实工具实现
+            config_registry = self._get_config_driven_registry()
+            
+            if config_registry:
+                tool_instance = config_registry.get_tool(tool.tool_id)
+                if not tool_instance:
+                    tool_instance = config_registry.get_tool(tool_name)
             else:
-                result = f"Tool {tool_name} executed successfully with params: {params_with_workspace}"
+                tool_instance = None
+            
+            if tool_instance:
+                result = tool_instance.execute(params_with_workspace)
+            else:
+                raise Exception(f"Tool implementation not found for: {tool_name} (ID: {tool.tool_id})")
             
             # 发送输出结束事件
             self._publish_output_end(call.call_id, tool_name)
@@ -246,6 +246,20 @@ class ToolExecutor:
             ))
 
             return ToolResult.failed(str(e), call.call_id)
+    
+    def _get_config_driven_registry(self):
+        """
+        获取配置驱动的工具注册器实例
+        
+        Returns:
+            ConfigDrivenToolRegistry实例，如果加载失败则返回None
+        """
+        try:
+            from src.tools.implement.config_driven_registry import ConfigDrivenToolRegistry
+            return ConfigDrivenToolRegistry()
+        except Exception as e:
+            print(f"[ToolExecutor] 加载配置驱动注册器失败: {e}")
+            return None
     
     def _get_workspace_path(self) -> str:
         """
