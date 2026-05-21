@@ -142,7 +142,7 @@ class ToolExecutor:
                         tool_name=config_tool.name,
                         category=config_tool.category,
                         description=config_tool.description,
-                        parameters={}
+                        parameters=config_tool.parameters
                     )
 
         if not tool:
@@ -192,16 +192,28 @@ class ToolExecutor:
             
             # 使用配置驱动的注册表获取真实工具实现
             config_registry = self._get_config_driven_registry()
+            tool_instance = None
             
+            # 优先使用配置驱动的注册表
             if config_registry:
                 tool_instance = config_registry.get_tool(tool.tool_id)
                 if not tool_instance:
                     tool_instance = config_registry.get_tool(tool_name)
-            else:
-                tool_instance = None
+            
+            # 如果配置驱动注册表中找不到，回退到普通注册表获取实现
+            if not tool_instance:
+                # ToolRegistry的get_tool返回ToolDefinition，需要用get_implementation获取实际函数
+                tool_instance = self.registry.get_implementation(tool.tool_id)
+                if not tool_instance:
+                    tool_instance = self.registry.get_implementation(tool_name)
             
             if tool_instance:
-                result = tool_instance.execute(params_with_workspace)
+                # 检查是否有execute方法（配置驱动的工具）
+                if hasattr(tool_instance, 'execute'):
+                    result = tool_instance.execute(params_with_workspace)
+                else:
+                    # 直接调用工具函数（用于测试注册的函数）
+                    result = tool_instance(**params_with_workspace)
             else:
                 raise Exception(f"Tool implementation not found for: {tool_name} (ID: {tool.tool_id})")
             
@@ -262,6 +274,64 @@ class ToolExecutor:
             ))
 
             return ToolResult.failed(str(e), call.call_id)
+    
+    def execute_tool_with_message_format(self, tool_call: Dict, context: Dict) -> Dict:
+        """
+        执行工具调用并返回role: "tool"消息格式的结果
+        
+        Args:
+            tool_call: 工具调用定义，包含id、name、arguments
+            context: 执行上下文
+            
+        Returns:
+            工具执行结果，格式为role: "tool"的消息
+        """
+        tool_call_id = tool_call.get('id', '') or tool_call.get('call_id', '')
+        # 如果没有提供tool_call_id，则生成一个
+        if not tool_call_id:
+            tool_call_id = self._generate_call_id()
+        
+        tool_name = tool_call.get('name', '')
+        arguments = tool_call.get('arguments', {})
+        
+        # 解析arguments（可能是字符串或字典）
+        if isinstance(arguments, str):
+            try:
+                import json
+                arguments = json.loads(arguments)
+            except:
+                arguments = {}
+        
+        # 获取dialog_id和task_id
+        dialog_id = context.get('dialog_id', '')
+        task_id = context.get('task_id', '')
+        
+        # 执行工具
+        result = self.execute_tool(tool_name, dialog_id, task_id, arguments)
+        
+        # 封装为tool role消息
+        tool_message = {
+            "role": "tool",
+            "tool_call_id": tool_call_id,
+            "content": self._format_tool_result_for_message(result)
+        }
+        
+        return tool_message
+    
+    def _format_tool_result_for_message(self, result: ToolResult) -> str:
+        """
+        将工具执行结果格式化为消息内容
+        
+        Args:
+            result: 工具执行结果
+            
+        Returns:
+            格式化的工具结果内容
+        """
+        if result.success:
+            return f'<toolcall_status>done</toolcall_status>\n<toolcall_result>\n{result.result}\n</toolcall_result>'
+        else:
+            return f'<toolcall_status>failed</toolcall_status>\n<toolcall_result>\n{result.error}\n</toolcall_result>'
     
     def _get_config_driven_registry(self):
         """

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:19:08.454828",
+  "timestamp": "2026-05-21T12:32:54.538081",
   "test_type": "it",
   "layer": "L3_scenario_coordination",
   "sub_layer": "integration_scenarios",
@@ -27,35 +27,35 @@
         "project_id": "",
         "name": "New Session",
         "status": "active",
-        "created_at": "2026-05-19T17:19:08.426166",
-        "updated_at": "2026-05-19T17:19:08.426166"
+        "created_at": "2026-05-21T12:32:54.510450",
+        "updated_at": "2026-05-21T12:32:54.510450"
       }
     ],
     "dialogs": [
       {
-        "dialog_id": "dialog-8b0ef1d259b8",
+        "dialog_id": "dialog-7a560725b1eb",
         "session_id": "test-session-1",
         "dialog_type": "text",
         "status": "active",
-        "created_at": "2026-05-19T17:19:08.431196"
+        "created_at": "2026-05-21T12:32:54.514964"
       }
     ],
     "messages": [
       {
-        "message_id": "msg-eed44881df93",
-        "dialog_id": "dialog-8b0ef1d259b8",
+        "message_id": "msg-584e87079d80",
+        "dialog_id": "dialog-7a560725b1eb",
         "role": "user",
         "content": "你好",
         "metadata": {},
-        "created_at": "2026-05-19T17:19:08.431196"
+        "created_at": "2026-05-21T12:32:54.516280"
       },
       {
-        "message_id": "msg-3085bcbc1165",
-        "dialog_id": "dialog-8b0ef1d259b8",
+        "message_id": "msg-563b0305179f",
+        "dialog_id": "dialog-7a560725b1eb",
         "role": "assistant",
         "content": "任务已直接完成",
         "metadata": {},
-        "created_at": "2026-05-19T17:19:08.435232"
+        "created_at": "2026-05-21T12:32:54.518061"
       }
     ],
     "task_groups": [],
@@ -64,21 +64,327 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-034b415f5322",
-        "event_id": "evt-994b43d90de1",
+        "record_id": "rec-fe496b1bee39",
+        "event_id": "evt-c99555c088e0",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-21T12:32:54.305640",
+        "payload": {
+          "tool_id": "T01",
+          "tool_name": "Skill"
+        },
+        "stored_at": "2026-05-21T12:32:54.305640",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "5986e5b6-0436-4b90-89e4-7c0976bc09aa",
+        "entity_id": "evt-5200d37ec5aa",
+        "created_at": "2026-05-21T12:32:54.305640",
+        "updated_at": "2026-05-21T12:32:54.305640"
+      },
+      {
+        "record_id": "rec-d4a5410b3fe4",
+        "event_id": "evt-6d99be28a149",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-21T12:32:54.309252",
+        "payload": {
+          "tool_id": "T02",
+          "tool_name": "SearchCodebase"
+        },
+        "stored_at": "2026-05-21T12:32:54.309252",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "16a58646-f7b7-40fd-a171-08486e759f41",
+        "entity_id": "evt-ba8408b2af2a",
+        "created_at": "2026-05-21T12:32:54.309252",
+        "updated_at": "2026-05-21T12:32:54.309252"
+      },
+      {
+        "record_id": "rec-65baa3b52a16",
+        "event_id": "evt-93b07a20e9c9",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-21T12:32:54.311832",
+        "payload": {
+          "tool_id": "T03",
+          "tool_name": "Glob"
+        },
+        "stored_at": "2026-05-21T12:32:54.311832",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "86fda74a-5556-42d1-97eb-2d765fb05874",
+        "entity_id": "evt-9e723dc27534",
+        "created_at": "2026-05-21T12:32:54.311832",
+        "updated_at": "2026-05-21T12:32:54.311832"
+      },
+      {
+        "record_id": "rec-245d5b897873",
+        "event_id": "evt-5611710fea0a",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-21T12:32:54.314876",
+        "payload": {
+          "tool_id": "T04",
+          "tool_name": "LS"
+        },
+        "stored_at": "2026-05-21T12:32:54.314876",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "1d10891c-9cee-4ea0-96d4-85a234908d00",
+        "entity_id": "evt-4e197b8a56c7",
+        "created_at": "2026-05-21T12:32:54.314876",
+        "updated_at": "2026-05-21T12:32:54.314876"
+      },
+      {
+        "record_id": "rec-06d0f836a708",
+        "event_id": "evt-5fb30887045f",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-21T12:32:54.318060",
+        "payload": {
+          "tool_id": "T05",
+          "tool_name": "Grep"
+        },
+        "stored_at": "2026-05-21T12:32:54.318060",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "f3edd661-3e61-4699-ae07-7cd0f1e1c001",
+        "entity_id": "evt-27d6d934cd9e",
+        "created_at": "2026-05-21T12:32:54.318060",
+        "updated_at": "2026-05-21T12:32:54.318060"
+      },
+      {
+        "record_id": "rec-29ffa54abaa5",
+        "event_id": "evt-d779e579dc6a",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-21T12:32:54.321071",
+        "payload": {
+          "tool_id": "T06",
+          "tool_name": "Read"
+        },
+        "stored_at": "2026-05-21T12:32:54.321071",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "8284d40d-d7ab-4853-97c1-4fe407d328f1",
+        "entity_id": "evt-ecd0a31829fb",
+        "created_at": "2026-05-21T12:32:54.321071",
+        "updated_at": "2026-05-21T12:32:54.321071"
+      },
+      {
+        "record_id": "rec-b6803c3a9c40",
+        "event_id": "evt-01db4636b6a5",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-21T12:32:54.324091",
+        "payload": {
+          "tool_id": "T07",
+          "tool_name": "WebSearch"
+        },
+        "stored_at": "2026-05-21T12:32:54.324091",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "ea124067-1df9-48c6-955f-b1813173179a",
+        "entity_id": "evt-a563e8887cf1",
+        "created_at": "2026-05-21T12:32:54.324091",
+        "updated_at": "2026-05-21T12:32:54.324091"
+      },
+      {
+        "record_id": "rec-c34ef7e830c0",
+        "event_id": "evt-4ebf1ee04b99",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-21T12:32:54.325615",
+        "payload": {
+          "tool_id": "T08",
+          "tool_name": "WebFetch"
+        },
+        "stored_at": "2026-05-21T12:32:54.325615",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "6b8d8a40-193d-4285-bcc9-255d169c4d23",
+        "entity_id": "evt-545323c8d1f1",
+        "created_at": "2026-05-21T12:32:54.325615",
+        "updated_at": "2026-05-21T12:32:54.325615"
+      },
+      {
+        "record_id": "rec-36f0f01c4a91",
+        "event_id": "evt-283eb69fbd26",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-21T12:32:54.328716",
+        "payload": {
+          "tool_id": "T09",
+          "tool_name": "DeleteFile"
+        },
+        "stored_at": "2026-05-21T12:32:54.328716",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "04ea5d60-3294-4f3d-b661-9289f3cd7e2d",
+        "entity_id": "evt-7c07fac8658f",
+        "created_at": "2026-05-21T12:32:54.329715",
+        "updated_at": "2026-05-21T12:32:54.329715"
+      },
+      {
+        "record_id": "rec-27d93b15f9ce",
+        "event_id": "evt-fa46eecebcd0",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-21T12:32:54.332220",
+        "payload": {
+          "tool_id": "T10",
+          "tool_name": "SearchReplace"
+        },
+        "stored_at": "2026-05-21T12:32:54.332220",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "853082b1-ae44-43c5-83c6-78d27040fe2c",
+        "entity_id": "evt-1d839a8dcc2e",
+        "created_at": "2026-05-21T12:32:54.332220",
+        "updated_at": "2026-05-21T12:32:54.332220"
+      },
+      {
+        "record_id": "rec-59db8f1fbc51",
+        "event_id": "evt-25c9735cac74",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-21T12:32:54.335659",
+        "payload": {
+          "tool_id": "T11",
+          "tool_name": "Write"
+        },
+        "stored_at": "2026-05-21T12:32:54.335659",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "f2b167be-90f6-4811-83b9-e9308018a85d",
+        "entity_id": "evt-887a4f6c6fe5",
+        "created_at": "2026-05-21T12:32:54.335659",
+        "updated_at": "2026-05-21T12:32:54.335659"
+      },
+      {
+        "record_id": "rec-9b4f2693be06",
+        "event_id": "evt-b2f20003adbb",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-21T12:32:54.337714",
+        "payload": {
+          "tool_id": "T12",
+          "tool_name": "RunCommand"
+        },
+        "stored_at": "2026-05-21T12:32:54.337714",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "d7ba4830-6b08-4ec1-91b5-85e3224a92cf",
+        "entity_id": "evt-7d1dba8d1c2b",
+        "created_at": "2026-05-21T12:32:54.337714",
+        "updated_at": "2026-05-21T12:32:54.337714"
+      },
+      {
+        "record_id": "rec-e591510ef2e3",
+        "event_id": "evt-7bd85e6fc9a6",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-21T12:32:54.341817",
+        "payload": {
+          "tool_id": "T13",
+          "tool_name": "CheckCommandStatus"
+        },
+        "stored_at": "2026-05-21T12:32:54.341817",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "9d228859-c4d1-4b47-a2c5-19f1d9876cf7",
+        "entity_id": "evt-b9f5104605cc",
+        "created_at": "2026-05-21T12:32:54.341817",
+        "updated_at": "2026-05-21T12:32:54.341817"
+      },
+      {
+        "record_id": "rec-b1a1a090c0a2",
+        "event_id": "evt-be79ffd47d3f",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-21T12:32:54.342366",
+        "payload": {
+          "tool_id": "T14",
+          "tool_name": "StopCommand"
+        },
+        "stored_at": "2026-05-21T12:32:54.342366",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "27d6571f-1423-475e-9886-53b9dae8e48d",
+        "entity_id": "evt-e4fbbfae351e",
+        "created_at": "2026-05-21T12:32:54.342366",
+        "updated_at": "2026-05-21T12:32:54.342366"
+      },
+      {
+        "record_id": "rec-baac1af75d41",
+        "event_id": "evt-092c13a66f66",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-21T12:32:54.348051",
+        "payload": {
+          "tool_id": "T15",
+          "tool_name": "GetDiagnostics"
+        },
+        "stored_at": "2026-05-21T12:32:54.348051",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "8c4c8cd5-d954-4e74-9a81-91a1453dbfd6",
+        "entity_id": "evt-8ac15613ec57",
+        "created_at": "2026-05-21T12:32:54.348051",
+        "updated_at": "2026-05-21T12:32:54.348051"
+      },
+      {
+        "record_id": "rec-373b5113be03",
+        "event_id": "evt-22a2a29c07e0",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-21T12:32:54.352594",
+        "payload": {
+          "tool_id": "T16",
+          "tool_name": "TodoWrite"
+        },
+        "stored_at": "2026-05-21T12:32:54.352594",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "b4499fa6-a483-4ee0-bec1-a1359d4800ef",
+        "entity_id": "evt-c6f69729dedb",
+        "created_at": "2026-05-21T12:32:54.352594",
+        "updated_at": "2026-05-21T12:32:54.352594"
+      },
+      {
+        "record_id": "rec-0b133631471d",
+        "event_id": "evt-41454ff2a092",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-21T12:32:54.354636",
+        "payload": {
+          "tool_id": "T17",
+          "tool_name": "OpenPreview"
+        },
+        "stored_at": "2026-05-21T12:32:54.354636",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "54ce65a3-ba67-4844-afe5-f64092e92658",
+        "entity_id": "evt-b6c1a5034dd5",
+        "created_at": "2026-05-21T12:32:54.354636",
+        "updated_at": "2026-05-21T12:32:54.354636"
+      },
+      {
+        "record_id": "rec-14e703abb3e1",
+        "event_id": "evt-a4c061eb43c9",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-21T12:32:54.357831",
+        "payload": {
+          "tool_id": "T18",
+          "tool_name": "AskUserQuestion"
+        },
+        "stored_at": "2026-05-21T12:32:54.357831",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "5d6d5332-8f1a-4eeb-98ec-3ab59cae77bc",
+        "entity_id": "evt-324b31fc9c06",
+        "created_at": "2026-05-21T12:32:54.357831",
+        "updated_at": "2026-05-21T12:32:54.357831"
+      },
+      {
+        "record_id": "rec-f3258d6a0bf4",
+        "event_id": "evt-80d5de272386",
         "event_type": "session.created",
-        "timestamp": "2026-05-19T17:19:08.427675",
+        "timestamp": "2026-05-21T12:32:54.511956",
         "payload": {
           "session_id": "test-session-1",
           "project_id": ""
         },
-        "stored_at": "2026-05-19T17:19:08.427675",
+        "stored_at": "2026-05-21T12:32:54.511956",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "af8c88b8-9549-402d-85e7-8ed8ad92a3cd",
-        "entity_id": "evt-d444c17737d4",
-        "created_at": "2026-05-19T17:19:08.427675",
-        "updated_at": "2026-05-19T17:19:08.427675"
+        "correlation_id": "54fec6d0-18bf-44a7-8b3f-4f79974b4c09",
+        "entity_id": "evt-3eb363c58c56",
+        "created_at": "2026-05-21T12:32:54.511956",
+        "updated_at": "2026-05-21T12:32:54.511956"
       }
     ],
     "prompts": [],
@@ -93,7 +399,7 @@
   "file_operations": [
     {
       "entity_type": "sessions",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\sessions.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\sessions.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
@@ -101,58 +407,58 @@
         "project_id": "",
         "name": "New Session",
         "status": "active",
-        "created_at": "2026-05-19T17:19:08.426166",
-        "updated_at": "2026-05-19T17:19:08.426166"
+        "created_at": "2026-05-21T12:32:54.510450",
+        "updated_at": "2026-05-21T12:32:54.510450"
       }
     },
     {
       "entity_type": "dialogs",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\dialogs.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\dialogs.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "dialog_id": "dialog-8b0ef1d259b8",
+        "dialog_id": "dialog-7a560725b1eb",
         "session_id": "test-session-1",
         "dialog_type": "text",
         "status": "active",
-        "created_at": "2026-05-19T17:19:08.431196"
+        "created_at": "2026-05-21T12:32:54.514964"
       }
     },
     {
       "entity_type": "messages",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\messages.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\messages.json",
       "operation": "write",
       "record_count": 2,
       "sample_data": {
-        "message_id": "msg-3085bcbc1165",
-        "dialog_id": "dialog-8b0ef1d259b8",
+        "message_id": "msg-563b0305179f",
+        "dialog_id": "dialog-7a560725b1eb",
         "role": "assistant",
         "content": "任务已直接完成",
         "metadata": {},
-        "created_at": "2026-05-19T17:19:08.435232"
+        "created_at": "2026-05-21T12:32:54.518061"
       }
     },
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
-      "record_count": 1,
+      "record_count": 19,
       "sample_data": {
-        "record_id": "rec-034b415f5322",
-        "event_id": "evt-994b43d90de1",
+        "record_id": "rec-f3258d6a0bf4",
+        "event_id": "evt-80d5de272386",
         "event_type": "session.created",
-        "timestamp": "2026-05-19T17:19:08.427675",
+        "timestamp": "2026-05-21T12:32:54.511956",
         "payload": {
           "session_id": "test-session-1",
           "project_id": ""
         },
-        "stored_at": "2026-05-19T17:19:08.427675",
+        "stored_at": "2026-05-21T12:32:54.511956",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "af8c88b8-9549-402d-85e7-8ed8ad92a3cd",
-        "entity_id": "evt-d444c17737d4",
-        "created_at": "2026-05-19T17:19:08.427675",
-        "updated_at": "2026-05-19T17:19:08.427675"
+        "correlation_id": "54fec6d0-18bf-44a7-8b3f-4f79974b4c09",
+        "entity_id": "evt-3eb363c58c56",
+        "created_at": "2026-05-21T12:32:54.511956",
+        "updated_at": "2026-05-21T12:32:54.511956"
       }
     }
   ]

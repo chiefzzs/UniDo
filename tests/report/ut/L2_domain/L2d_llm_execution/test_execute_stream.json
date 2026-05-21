@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:05:45.399760",
+  "timestamp": "2026-05-21T12:33:31.692467",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2d_llm_execution",
@@ -13,7 +13,7 @@
     "session_id": "session-stream-001"
   },
   "outputs": {
-    "request_id": "req-a9d885c4da88",
+    "request_id": "req-eb71d28c46d3",
     "chunk_count": 0,
     "status": "failed"
   },
@@ -26,7 +26,7 @@
     "tasks": [],
     "llm_calls": [
       {
-        "call_id": "call-a4a762937e88",
+        "call_id": "call-0e431159bfec",
         "dialog_id": "session-stream-001",
         "model_config_id": "default",
         "request": {
@@ -51,7 +51,7 @@
         },
         "status": "failed",
         "duration_ms": 0,
-        "created_at": "2026-05-20T19:05:45.369000"
+        "created_at": "2026-05-21T12:33:31.672828"
       }
     ],
     "tool_calls": [],
@@ -66,7 +66,7 @@
     "file_path": "D:\\learnning\\260521\\src\\data\\test\\llm_calls.json",
     "call_count": 1,
     "last_call": {
-      "call_id": "call-a4a762937e88",
+      "call_id": "call-0e431159bfec",
       "dialog_id": "session-stream-001",
       "model_config_id": "default",
       "request": {
@@ -91,7 +91,7 @@
       },
       "status": "failed",
       "duration_ms": 0,
-      "created_at": "2026-05-20T19:05:45.369000"
+      "created_at": "2026-05-21T12:33:31.672828"
     },
     "validation": {
       "valid": true,
@@ -109,7 +109,7 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "call_id": "call-a4a762937e88",
+        "call_id": "call-0e431159bfec",
         "dialog_id": "session-stream-001",
         "model_config_id": "default",
         "request": {
@@ -134,7 +134,7 @@
         },
         "status": "failed",
         "duration_ms": 0,
-        "created_at": "2026-05-20T19:05:45.369000"
+        "created_at": "2026-05-21T12:33:31.672828"
       }
     }
   ]

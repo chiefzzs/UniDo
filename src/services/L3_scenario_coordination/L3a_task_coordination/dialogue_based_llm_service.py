@@ -109,6 +109,11 @@ class DialogueBasedLLMService:
         self.llm_executor = LLMExecutionService()
         self.memory_service = MemoryService()
         self.tool_management = ToolManagementService()
+        # 添加消息服务用于获取对话历史
+        from services.L2_domain.L2b_memory_state.message_service import MessageService
+        from services.L2_domain.L2b_memory_state.dialog_service import DialogService
+        self.message_service = MessageService()
+        self.dialog_service = DialogService()
         # 自动加载工具描述文件
         self._load_tool_descriptions()
     
@@ -144,35 +149,95 @@ class DialogueBasedLLMService:
         system_prompt = self._get_system_prompt(tools)
         messages.append({"role": MessageRole.SYSTEM.value, "content": system_prompt})
         
-        # 获取历史消息
-        history = self.memory_service.get_short_term_memory(session_id)
+        # 从 MessageService 获取对话历史
+        history = self._get_dialog_history(session_id)
         
         if history:
             for item in history:
                 role = item.get("role", "user")
                 content = item.get("content", "")
                 
-                # 处理工具调用消息
-                if item.get("tool_call"):
-                    messages.append({
-                        "role": role,
-                        "content": content,
-                        "tool_calls": [item["tool_call"]]
-                    })
-                # 处理工具结果消息
-                elif item.get("tool_result"):
-                    messages.append({
-                        "role": MessageRole.TOOL.value,
-                        "content": item["tool_result"]
-                    })
-                else:
-                    messages.append({"role": role, "content": content})
+                # 累积所有类型的消息：user、assistant、tool
+                message_dict = {"role": role, "content": content}
+                
+                # 如果是assistant消息，包含tool_calls
+                if role == MessageRole.ASSISTANT.value:
+                    # 优先使用 tool_calls（复数），否则使用 tool_call（单数）
+                    if item.get("tool_calls"):
+                        message_dict["tool_calls"] = item["tool_calls"]
+                    elif item.get("tool_call"):
+                        message_dict["tool_calls"] = [item["tool_call"]]
+                
+                # 如果是tool消息，包含tool_call_id
+                if role == MessageRole.TOOL.value:
+                    # 从tool_result中提取tool_call_id
+                    tool_result = item.get("tool_result", {})
+                    if isinstance(tool_result, dict) and tool_result.get("tool_call_id"):
+                        message_dict["tool_call_id"] = tool_result["tool_call_id"]
+                    elif item.get("tool_call_id"):
+                        message_dict["tool_call_id"] = item["tool_call_id"]
+                
+                messages.append(message_dict)
         
         # 添加当前用户输入（包含环境信息）
         user_message = self._build_user_message_with_context(user_input)
         messages.append(user_message)
         
         return messages
+    
+    def _get_dialog_history(self, session_id: str) -> List[Dict[str, Any]]:
+        """
+        从 MessageService 获取对话历史
+        
+        Args:
+            session_id: 会话ID
+            
+        Returns:
+            对话历史列表，每个元素包含 role, content 等字段
+        """
+        try:
+            # 获取会话下的所有 dialog
+            dialogs = self.dialog_service.list_dialogs(session_id)
+            if not dialogs:
+                print(f"[DialogueBasedLLMService] 会话 {session_id} 没有对话记录")
+                return []
+            
+            # 获取第一个 dialog 的消息
+            dialog_id = dialogs[0].dialog_id
+            messages = self.message_service.list_messages(dialog_id)
+            
+            print(f"[DialogueBasedLLMService] 从 dialog {dialog_id} 获取到 {len(messages)} 条历史消息")
+            
+            # 转换为字典格式
+            history = []
+            for msg in messages:
+                msg_dict = {
+                    "role": msg.role,
+                    "content": msg.content,
+                    "message_id": msg.message_id,
+                    "created_at": msg.created_at.isoformat() if msg.created_at else None
+                }
+                
+                # 如果有 metadata，检查是否包含 tool_call 或 tool_result
+                if msg.metadata:
+                    if "tool_call" in msg.metadata:
+                        msg_dict["tool_call"] = msg.metadata["tool_call"]
+                    if "tool_calls" in msg.metadata:
+                        msg_dict["tool_calls"] = msg.metadata["tool_calls"]
+                    if "tool_result" in msg.metadata:
+                        msg_dict["tool_result"] = msg.metadata["tool_result"]
+                    if "tool_call_id" in msg.metadata:
+                        msg_dict["tool_call_id"] = msg.metadata["tool_call_id"]
+                
+                history.append(msg_dict)
+            
+            return history
+            
+        except Exception as e:
+            print(f"[DialogueBasedLLMService] 获取对话历史失败: {e}")
+            import traceback
+            traceback.print_exc()
+            return []
     
     def _build_user_message_with_context(self, user_input: str) -> Dict[str, Any]:
         """
@@ -353,7 +418,7 @@ class DialogueBasedLLMService:
             return None
 
     def construct_llm_request(self, session_id: str, user_input: str, 
-                              include_tools: bool = True, **kwargs) -> LLMRequest:
+                              include_tools: bool = True, messages: list = None, **kwargs) -> LLMRequest:
         """
         构造完整的LLM请求
         
@@ -361,6 +426,7 @@ class DialogueBasedLLMService:
             session_id: 会话ID
             user_input: 用户输入
             include_tools: 是否包含工具定义
+            messages: 可选的消息列表，如果提供则使用它而不是重新构建
             **kwargs: 其他参数（max_tokens, temperature等）
             
         Returns:
@@ -369,8 +435,11 @@ class DialogueBasedLLMService:
         # 获取工具定义
         tools = self.get_tools_for_llm() if include_tools else None
         
-        # 构建messages（包含工具信息）
-        messages = self.build_messages_from_history(session_id, user_input, tools)
+        # 构建messages（包含工具信息），如果提供了messages参数则使用它
+        if messages is not None:
+            messages = messages.copy()
+        else:
+            messages = self.build_messages_from_history(session_id, user_input, tools)
         
         # 构造请求
         llm_request = LLMRequest(
@@ -414,13 +483,14 @@ class DialogueBasedLLMService:
         except Exception as e:
             print(f"❌ 发布LLM请求构造完毕事件失败: {e}")
 
-    def call_llm(self, session_id: str, user_input: str, **kwargs) -> LLMResponse:
+    def call_llm(self, session_id: str, user_input: str, messages: list = None, **kwargs) -> LLMResponse:
         """
         调用LLM执行服务
         
         Args:
             session_id: 会话ID
             user_input: 用户输入
+            messages: 可选的消息列表，如果提供则使用它而不是重新构建
             **kwargs: 额外参数
             
         Returns:
@@ -428,7 +498,7 @@ class DialogueBasedLLMService:
         """
         try:
             # 构造请求
-            llm_request = self.construct_llm_request(session_id, user_input, **kwargs)
+            llm_request = self.construct_llm_request(session_id, user_input, messages=messages, **kwargs)
             
             # 调用L2d LLM执行服务
             response = self.llm_executor.execute(

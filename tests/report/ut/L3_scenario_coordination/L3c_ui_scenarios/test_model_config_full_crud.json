@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:06:43.679927",
+  "timestamp": "2026-05-21T12:55:41.181321",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3c_ui_scenarios",
@@ -20,42 +20,42 @@
       "name": "Updated Model"
     },
     "delete": {
-      "config_id": "model-config-c2dd13d3d7fe"
+      "config_id": "model-config-cf9e9c31fe0e"
     }
   },
   "outputs": {
     "created": {
-      "config_id": "model-config-c2dd13d3d7fe",
+      "config_id": "model-config-cf9e9c31fe0e",
       "name": "Test Model",
       "model_name": "qwen-7b",
       "api_type": "cloud",
       "api_address": "https://api.example.com",
       "api_key": "",
       "parameters": {},
-      "created_at": "2026-05-20T19:06:43.657438",
-      "updated_at": "2026-05-20T19:06:43.657438"
+      "created_at": "2026-05-21T12:55:41.157816",
+      "updated_at": "2026-05-21T12:55:41.157816"
     },
     "read": {
-      "config_id": "model-config-c2dd13d3d7fe",
+      "config_id": "model-config-cf9e9c31fe0e",
       "name": "Test Model",
       "model_name": "qwen-7b",
       "api_type": "cloud",
       "api_address": "https://api.example.com",
       "api_key": "",
       "parameters": {},
-      "created_at": "2026-05-20T19:06:43.657438",
-      "updated_at": "2026-05-20T19:06:43.657438"
+      "created_at": "2026-05-21T12:55:41.157816",
+      "updated_at": "2026-05-21T12:55:41.157816"
     },
     "updated": {
-      "config_id": "model-config-c2dd13d3d7fe",
+      "config_id": "model-config-cf9e9c31fe0e",
       "name": "Updated Model",
       "model_name": "qwen-7b",
       "api_type": "cloud",
       "api_address": "https://api.example.com",
       "api_key": "",
       "parameters": {},
-      "created_at": "2026-05-20T19:06:43.657438",
-      "updated_at": "2026-05-20T19:06:43.658955"
+      "created_at": "2026-05-21T12:55:41.157816",
+      "updated_at": "2026-05-21T12:55:41.159631"
     },
     "list_count": 1,
     "deleted": {

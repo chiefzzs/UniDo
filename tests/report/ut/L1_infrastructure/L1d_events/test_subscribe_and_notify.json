@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:05:36.509105",
+  "timestamp": "2026-05-21T12:33:28.092778",
   "test_type": "ut",
   "layer": "L1_infrastructure",
   "sub_layer": "L1d_events",
@@ -11,7 +11,7 @@
     "验证事件自动持久化"
   ],
   "inputs": {
-    "subscription_id": "sub-b9b177b7",
+    "subscription_id": "sub-0998dfc1",
     "event_type": "session.created"
   },
   "outputs": {
@@ -28,20 +28,20 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-0b02cdc7cfbf",
-        "event_id": "evt-4598d8d7d6a8",
+        "record_id": "rec-a03584f7c6b6",
+        "event_id": "evt-6dcfccb4be22",
         "event_type": "session.created",
-        "timestamp": "2026-05-20T19:05:36.496970",
+        "timestamp": "2026-05-21T12:33:28.075582",
         "payload": {
           "session_id": "test-session"
         },
-        "stored_at": "2026-05-20T19:05:36.496970",
+        "stored_at": "2026-05-21T12:33:28.075582",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "17a34fc2-907d-4954-99f3-5d2337377baf",
-        "entity_id": "evt-8227ee0241aa",
-        "created_at": "2026-05-20T19:05:36.496970",
-        "updated_at": "2026-05-20T19:05:36.496970"
+        "correlation_id": "51ebed6d-bc95-4b64-85c5-4bb5557592af",
+        "entity_id": "evt-94678acb56af",
+        "created_at": "2026-05-21T12:33:28.075582",
+        "updated_at": "2026-05-21T12:33:28.075582"
       }
     ],
     "prompts": [],
@@ -60,20 +60,20 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "record_id": "rec-0b02cdc7cfbf",
-        "event_id": "evt-4598d8d7d6a8",
+        "record_id": "rec-a03584f7c6b6",
+        "event_id": "evt-6dcfccb4be22",
         "event_type": "session.created",
-        "timestamp": "2026-05-20T19:05:36.496970",
+        "timestamp": "2026-05-21T12:33:28.075582",
         "payload": {
           "session_id": "test-session"
         },
-        "stored_at": "2026-05-20T19:05:36.496970",
+        "stored_at": "2026-05-21T12:33:28.075582",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "17a34fc2-907d-4954-99f3-5d2337377baf",
-        "entity_id": "evt-8227ee0241aa",
-        "created_at": "2026-05-20T19:05:36.496970",
-        "updated_at": "2026-05-20T19:05:36.496970"
+        "correlation_id": "51ebed6d-bc95-4b64-85c5-4bb5557592af",
+        "entity_id": "evt-94678acb56af",
+        "created_at": "2026-05-21T12:33:28.075582",
+        "updated_at": "2026-05-21T12:33:28.075582"
       }
     }
   ]

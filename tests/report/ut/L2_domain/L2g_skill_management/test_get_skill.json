@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:06:00.412064",
+  "timestamp": "2026-05-21T12:33:34.408144",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2g_skill_management",
@@ -10,7 +10,7 @@
     "验证skill_definitions查询功能"
   ],
   "inputs": {
-    "skill_id": "skill-849fcd620f62"
+    "skill_id": "skill-699f20a68387"
   },
   "outputs": {
     "found": true,
@@ -27,21 +27,21 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-69dae666fa8b",
-        "event_id": "evt-03914020cfa5",
+        "record_id": "rec-f60aeece8b7c",
+        "event_id": "evt-8e715755d1b7",
         "event_type": "skill.registered",
-        "timestamp": "2026-05-20T19:06:00.395346",
+        "timestamp": "2026-05-21T12:33:34.389385",
         "payload": {
-          "skill_id": "skill-849fcd620f62",
+          "skill_id": "skill-699f20a68387",
           "skill_name": "get_test_skill"
         },
-        "stored_at": "2026-05-20T19:06:00.395346",
+        "stored_at": "2026-05-21T12:33:34.389385",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "fd798119-56ab-48c9-b022-95af3585666b",
-        "entity_id": "evt-7e8532de5ae6",
-        "created_at": "2026-05-20T19:06:00.395346",
-        "updated_at": "2026-05-20T19:06:00.395346"
+        "correlation_id": "a4c7ea16-1a03-4ca9-b75a-3843b2d3d222",
+        "entity_id": "evt-277c5bd1366b",
+        "created_at": "2026-05-21T12:33:34.389385",
+        "updated_at": "2026-05-21T12:33:34.389385"
       }
     ],
     "prompts": [],
@@ -60,21 +60,21 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "record_id": "rec-69dae666fa8b",
-        "event_id": "evt-03914020cfa5",
+        "record_id": "rec-f60aeece8b7c",
+        "event_id": "evt-8e715755d1b7",
         "event_type": "skill.registered",
-        "timestamp": "2026-05-20T19:06:00.395346",
+        "timestamp": "2026-05-21T12:33:34.389385",
         "payload": {
-          "skill_id": "skill-849fcd620f62",
+          "skill_id": "skill-699f20a68387",
           "skill_name": "get_test_skill"
         },
-        "stored_at": "2026-05-20T19:06:00.395346",
+        "stored_at": "2026-05-21T12:33:34.389385",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "fd798119-56ab-48c9-b022-95af3585666b",
-        "entity_id": "evt-7e8532de5ae6",
-        "created_at": "2026-05-20T19:06:00.395346",
-        "updated_at": "2026-05-20T19:06:00.395346"
+        "correlation_id": "a4c7ea16-1a03-4ca9-b75a-3843b2d3d222",
+        "entity_id": "evt-277c5bd1366b",
+        "created_at": "2026-05-21T12:33:34.389385",
+        "updated_at": "2026-05-21T12:33:34.389385"
       }
     }
   ]

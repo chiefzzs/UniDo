@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-21T07:49:55.539548",
+  "timestamp": "2026-05-21T13:08:27.438762",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3a_task_coordination",
@@ -17,8 +17,8 @@
   },
   "outputs": {
     "success": true,
-    "result": "{'command_id': 'cmd_2024683870944', 'command': 'mkdir d:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir', 'status': 'completed', 'return_code': 1, 'stdout': '', 'stderr': 'mkdir : ����ָ������ D:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir �����Ѵ��ڡ�\\n����λ�� ��:1 �ַ�: 1\\n+ mkdir d:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir\\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\n    + CategoryInfo          : ResourceExists: (D:\\\\learnning\\\\26...e\\\\tool_test_d \\n   ir:String) [New-Item], IOException\\n    + FullyQualifiedErrorId : DirectoryExist,Microsoft.PowerShell.Commands.New \\n   ItemCommand\\n \\n', 'success': False, 'workspace': 'D:\\\\learnning\\\\260521'}",
-    "call_id": "call-921a89ce2e76",
+    "result": "{'command_id': 'cmd_2243589736800', 'command': 'mkdir d:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir', 'status': 'completed', 'return_code': 1, 'stdout': '', 'stderr': 'mkdir : ����ָ������ D:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir �����Ѵ��ڡ�\\n����λ�� ��:1 �ַ�: 1\\n+ mkdir d:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir\\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\n    + CategoryInfo          : ResourceExists: (D:\\\\learnning\\\\26...e\\\\tool_test_d \\n   ir:String) [New-Item], IOException\\n    + FullyQualifiedErrorId : DirectoryExist,Microsoft.PowerShell.Commands.New \\n   ItemCommand\\n \\n', 'success': False, 'workspace': 'D:\\\\learnning\\\\260521'}",
+    "call_id": "call-fdd8557e4938",
     "tool_call_count": 1
   },
   "persistent_data": {
@@ -31,7 +31,7 @@
     "llm_calls": [],
     "tool_calls": [
       {
-        "call_id": "call-921a89ce2e76",
+        "call_id": "call-fdd8557e4938",
         "tool_id": "T12",
         "tool_name": "RunCommand",
         "dialog_id": "test-tool-exec-1",
@@ -40,22 +40,22 @@
           "command": "mkdir d:\\learnning\\260521\\workspace\\tool_test_dir",
           "workspace": "d:\\learnning\\260521\\workspace"
         },
-        "output_result": "{'command_id': 'cmd_2024683870944', 'command': 'mkdir d:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir', 'status': 'completed', 'return_code': 1, 'stdout': '', 'stderr': 'mkdir : ����ָ������ D:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir �����Ѵ��ڡ�\\n����λ�� ��:1 �ַ�: 1\\n+ mkdir d:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir\\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\n    + CategoryInfo          : ResourceExists: (D:\\\\learnning\\\\26...e\\\\tool_test_d \\n   ir:String) [New-Item], IOException\\n    + FullyQualifiedErrorId : DirectoryExist,Microsoft.PowerShell.Commands.New \\n   ItemCommand\\n \\n', 'success': False, 'workspace': 'D:\\\\learnning\\\\260521'}",
+        "output_result": "{'command_id': 'cmd_2243589736800', 'command': 'mkdir d:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir', 'status': 'completed', 'return_code': 1, 'stdout': '', 'stderr': 'mkdir : ����ָ������ D:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir �����Ѵ��ڡ�\\n����λ�� ��:1 �ַ�: 1\\n+ mkdir d:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir\\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\n    + CategoryInfo          : ResourceExists: (D:\\\\learnning\\\\26...e\\\\tool_test_d \\n   ir:String) [New-Item], IOException\\n    + FullyQualifiedErrorId : DirectoryExist,Microsoft.PowerShell.Commands.New \\n   ItemCommand\\n \\n', 'success': False, 'workspace': 'D:\\\\learnning\\\\260521'}",
         "status": "completed",
         "error_message": null,
-        "start_time": "2026-05-21T07:49:53.545487",
-        "end_time": "2026-05-21T07:49:55.512071",
-        "duration": 1.9632148742675781
+        "start_time": "2026-05-21T13:08:25.605326",
+        "end_time": "2026-05-21T13:08:27.410385",
+        "duration": 1.8024508953094482
       }
     ],
     "events": [
       {
-        "record_id": "rec-ea77e7744227",
-        "event_id": "evt-f1fce7feaa36",
+        "record_id": "rec-ef2344930f80",
+        "event_id": "evt-fe00a51383f4",
         "event_type": "tool.call_started",
-        "timestamp": "2026-05-21T07:49:53.547737",
+        "timestamp": "2026-05-21T13:08:25.607934",
         "payload": {
-          "call_id": "call-921a89ce2e76",
+          "call_id": "call-fdd8557e4938",
           "tool_name": "RunCommand",
           "dialog_id": "test-tool-exec-1",
           "task_id": "test-tool-exec-1",
@@ -66,54 +66,54 @@
           "source_component": "L2_tool_execution",
           "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-21T07:49:53.547737",
+        "stored_at": "2026-05-21T13:08:25.607934",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "4c7b9cd0-f981-4671-80c3-f3e2c2c90d84",
-        "entity_id": "evt-8e5f32c5dfd7",
-        "created_at": "2026-05-21T07:49:53.547737",
-        "updated_at": "2026-05-21T07:49:53.547737"
+        "correlation_id": "7cb4458c-c5a8-4d5a-a3b7-0b2f82d758d0",
+        "entity_id": "evt-626c2660fa3f",
+        "created_at": "2026-05-21T13:08:25.607934",
+        "updated_at": "2026-05-21T13:08:25.607934"
       },
       {
-        "record_id": "rec-796967afcaf5",
-        "event_id": "evt-dde5b828ce6b",
+        "record_id": "rec-7e1bb552d67f",
+        "event_id": "evt-e3eeefb654d4",
         "event_type": "tool.execution_output_end",
-        "timestamp": "2026-05-21T07:49:55.507656",
+        "timestamp": "2026-05-21T13:08:27.403421",
         "payload": {
-          "call_id": "call-921a89ce2e76",
+          "call_id": "call-fdd8557e4938",
           "tool_name": "RunCommand",
           "source_component": "L2_tool_execution",
           "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-21T07:49:55.507656",
+        "stored_at": "2026-05-21T13:08:27.403421",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "340a8bae-72b2-47bf-9578-c83060cd0b1d",
-        "entity_id": "evt-f77a54811b04",
-        "created_at": "2026-05-21T07:49:55.507656",
-        "updated_at": "2026-05-21T07:49:55.507656"
+        "correlation_id": "37732c59-d6f3-4e2b-b253-b81d18afee28",
+        "entity_id": "evt-5c89d38def93",
+        "created_at": "2026-05-21T13:08:27.403421",
+        "updated_at": "2026-05-21T13:08:27.403421"
       },
       {
-        "record_id": "rec-b55cef3fa4ba",
-        "event_id": "evt-fc85bfde7d95",
+        "record_id": "rec-d02aed21d5f5",
+        "event_id": "evt-2ad4bb8ae3bc",
         "event_type": "tool.call_completed",
-        "timestamp": "2026-05-21T07:49:55.516643",
+        "timestamp": "2026-05-21T13:08:27.414439",
         "payload": {
-          "call_id": "call-921a89ce2e76",
+          "call_id": "call-fdd8557e4938",
           "tool_name": "RunCommand",
           "success": true,
-          "duration": 1.9632148742675781,
+          "duration": 1.8024508953094482,
           "workspace": "D:\\learnning\\260521",
           "source_component": "L2_tool_execution",
           "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-21T07:49:55.516643",
+        "stored_at": "2026-05-21T13:08:27.414439",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "656e68df-37a6-4d4c-ae22-54d89d41e651",
-        "entity_id": "evt-23897d40965f",
-        "created_at": "2026-05-21T07:49:55.516643",
-        "updated_at": "2026-05-21T07:49:55.516643"
+        "correlation_id": "26fc2dbd-fae1-49c4-8272-96b3c05a6949",
+        "entity_id": "evt-18cc0fd92c4b",
+        "created_at": "2026-05-21T13:08:27.414439",
+        "updated_at": "2026-05-21T13:08:27.414439"
       }
     ],
     "prompts": [],
@@ -125,7 +125,7 @@
   "llm_data": {},
   "tool_calls": [
     {
-      "call_id": "call-921a89ce2e76",
+      "call_id": "call-fdd8557e4938",
       "tool_id": "T12",
       "tool_name": "RunCommand",
       "dialog_id": "test-tool-exec-1",
@@ -134,12 +134,12 @@
         "command": "mkdir d:\\learnning\\260521\\workspace\\tool_test_dir",
         "workspace": "d:\\learnning\\260521\\workspace"
       },
-      "output_result": "{'command_id': 'cmd_2024683870944', 'command': 'mkdir d:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir', 'status': 'completed', 'return_code': 1, 'stdout': '', 'stderr': 'mkdir : ����ָ������ D:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir �����Ѵ��ڡ�\\n����λ�� ��:1 �ַ�: 1\\n+ mkdir d:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir\\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\n    + CategoryInfo          : ResourceExists: (D:\\\\learnning\\\\26...e\\\\tool_test_d \\n   ir:String) [New-Item], IOException\\n    + FullyQualifiedErrorId : DirectoryExist,Microsoft.PowerShell.Commands.New \\n   ItemCommand\\n \\n', 'success': False, 'workspace': 'D:\\\\learnning\\\\260521'}",
+      "output_result": "{'command_id': 'cmd_2243589736800', 'command': 'mkdir d:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir', 'status': 'completed', 'return_code': 1, 'stdout': '', 'stderr': 'mkdir : ����ָ������ D:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir �����Ѵ��ڡ�\\n����λ�� ��:1 �ַ�: 1\\n+ mkdir d:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir\\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\n    + CategoryInfo          : ResourceExists: (D:\\\\learnning\\\\26...e\\\\tool_test_d \\n   ir:String) [New-Item], IOException\\n    + FullyQualifiedErrorId : DirectoryExist,Microsoft.PowerShell.Commands.New \\n   ItemCommand\\n \\n', 'success': False, 'workspace': 'D:\\\\learnning\\\\260521'}",
       "status": "completed",
       "error_message": null,
-      "start_time": "2026-05-21T07:49:53.545487",
-      "end_time": "2026-05-21T07:49:55.512071",
-      "duration": 1.9632148742675781
+      "start_time": "2026-05-21T13:08:25.605326",
+      "end_time": "2026-05-21T13:08:27.410385",
+      "duration": 1.8024508953094482
     }
   ],
   "service_calls": [],
@@ -150,7 +150,7 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "call_id": "call-921a89ce2e76",
+        "call_id": "call-fdd8557e4938",
         "tool_id": "T12",
         "tool_name": "RunCommand",
         "dialog_id": "test-tool-exec-1",
@@ -159,12 +159,12 @@
           "command": "mkdir d:\\learnning\\260521\\workspace\\tool_test_dir",
           "workspace": "d:\\learnning\\260521\\workspace"
         },
-        "output_result": "{'command_id': 'cmd_2024683870944', 'command': 'mkdir d:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir', 'status': 'completed', 'return_code': 1, 'stdout': '', 'stderr': 'mkdir : ����ָ������ D:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir �����Ѵ��ڡ�\\n����λ�� ��:1 �ַ�: 1\\n+ mkdir d:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir\\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\n    + CategoryInfo          : ResourceExists: (D:\\\\learnning\\\\26...e\\\\tool_test_d \\n   ir:String) [New-Item], IOException\\n    + FullyQualifiedErrorId : DirectoryExist,Microsoft.PowerShell.Commands.New \\n   ItemCommand\\n \\n', 'success': False, 'workspace': 'D:\\\\learnning\\\\260521'}",
+        "output_result": "{'command_id': 'cmd_2243589736800', 'command': 'mkdir d:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir', 'status': 'completed', 'return_code': 1, 'stdout': '', 'stderr': 'mkdir : ����ָ������ D:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir �����Ѵ��ڡ�\\n����λ�� ��:1 �ַ�: 1\\n+ mkdir d:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir\\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\n    + CategoryInfo          : ResourceExists: (D:\\\\learnning\\\\26...e\\\\tool_test_d \\n   ir:String) [New-Item], IOException\\n    + FullyQualifiedErrorId : DirectoryExist,Microsoft.PowerShell.Commands.New \\n   ItemCommand\\n \\n', 'success': False, 'workspace': 'D:\\\\learnning\\\\260521'}",
         "status": "completed",
         "error_message": null,
-        "start_time": "2026-05-21T07:49:53.545487",
-        "end_time": "2026-05-21T07:49:55.512071",
-        "duration": 1.9632148742675781
+        "start_time": "2026-05-21T13:08:25.605326",
+        "end_time": "2026-05-21T13:08:27.410385",
+        "duration": 1.8024508953094482
       }
     },
     {
@@ -173,26 +173,26 @@
       "operation": "write",
       "record_count": 3,
       "sample_data": {
-        "record_id": "rec-b55cef3fa4ba",
-        "event_id": "evt-fc85bfde7d95",
+        "record_id": "rec-d02aed21d5f5",
+        "event_id": "evt-2ad4bb8ae3bc",
         "event_type": "tool.call_completed",
-        "timestamp": "2026-05-21T07:49:55.516643",
+        "timestamp": "2026-05-21T13:08:27.414439",
         "payload": {
-          "call_id": "call-921a89ce2e76",
+          "call_id": "call-fdd8557e4938",
           "tool_name": "RunCommand",
           "success": true,
-          "duration": 1.9632148742675781,
+          "duration": 1.8024508953094482,
           "workspace": "D:\\learnning\\260521",
           "source_component": "L2_tool_execution",
           "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-21T07:49:55.516643",
+        "stored_at": "2026-05-21T13:08:27.414439",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "656e68df-37a6-4d4c-ae22-54d89d41e651",
-        "entity_id": "evt-23897d40965f",
-        "created_at": "2026-05-21T07:49:55.516643",
-        "updated_at": "2026-05-21T07:49:55.516643"
+        "correlation_id": "26fc2dbd-fae1-49c4-8272-96b3c05a6949",
+        "entity_id": "evt-18cc0fd92c4b",
+        "created_at": "2026-05-21T13:08:27.414439",
+        "updated_at": "2026-05-21T13:08:27.414439"
       }
     }
   ]

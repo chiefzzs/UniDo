@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:05:37.179250",
+  "timestamp": "2026-05-21T12:33:28.914302",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2b_memory_state",
@@ -14,7 +14,7 @@
     "name": "Test Task"
   },
   "outputs": {
-    "task_id": "task-3a7331587fde",
+    "task_id": "task-6043a15e2307",
     "status": "pending"
   },
   "persistent_data": {
@@ -25,13 +25,13 @@
     "task_groups": [],
     "tasks": [
       {
-        "task_id": "task-3a7331587fde",
+        "task_id": "task-6043a15e2307",
         "group_id": "group-001",
         "name": "Test Task",
         "status": "pending",
         "result": null,
-        "created_at": "2026-05-20T19:05:37.160642",
-        "updated_at": "2026-05-20T19:05:37.160642"
+        "created_at": "2026-05-21T12:33:28.896409",
+        "updated_at": "2026-05-21T12:33:28.896409"
       }
     ],
     "llm_calls": [],
@@ -53,13 +53,13 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "task_id": "task-3a7331587fde",
+        "task_id": "task-6043a15e2307",
         "group_id": "group-001",
         "name": "Test Task",
         "status": "pending",
         "result": null,
-        "created_at": "2026-05-20T19:05:37.160642",
-        "updated_at": "2026-05-20T19:05:37.160642"
+        "created_at": "2026-05-21T12:33:28.896409",
+        "updated_at": "2026-05-21T12:33:28.896409"
       }
     }
   ]

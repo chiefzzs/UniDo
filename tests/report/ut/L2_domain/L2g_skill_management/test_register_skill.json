@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:06:00.385523",
+  "timestamp": "2026-05-21T12:33:34.381204",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2g_skill_management",
@@ -14,7 +14,7 @@
     "category": "test"
   },
   "outputs": {
-    "skill_id": "skill-56bd0b2cf9ac",
+    "skill_id": "skill-c119365fcf2e",
     "skill_name": "test_skill_reg"
   },
   "persistent_data": {
@@ -28,21 +28,21 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-ded75e2bf150",
-        "event_id": "evt-0283628de262",
+        "record_id": "rec-2a510a06d943",
+        "event_id": "evt-0c252a2c2cef",
         "event_type": "skill.registered",
-        "timestamp": "2026-05-20T19:06:00.367084",
+        "timestamp": "2026-05-21T12:33:34.362753",
         "payload": {
-          "skill_id": "skill-56bd0b2cf9ac",
+          "skill_id": "skill-c119365fcf2e",
           "skill_name": "test_skill_reg"
         },
-        "stored_at": "2026-05-20T19:06:00.367084",
+        "stored_at": "2026-05-21T12:33:34.362753",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "f3ae860f-4a24-46af-a121-79616b2f172a",
-        "entity_id": "evt-b1d584089758",
-        "created_at": "2026-05-20T19:06:00.367084",
-        "updated_at": "2026-05-20T19:06:00.367084"
+        "correlation_id": "e02107b0-84cc-4b61-a388-eab1b5077283",
+        "entity_id": "evt-0d5f520a0d50",
+        "created_at": "2026-05-21T12:33:34.362753",
+        "updated_at": "2026-05-21T12:33:34.362753"
       }
     ],
     "prompts": [],
@@ -61,21 +61,21 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "record_id": "rec-ded75e2bf150",
-        "event_id": "evt-0283628de262",
+        "record_id": "rec-2a510a06d943",
+        "event_id": "evt-0c252a2c2cef",
         "event_type": "skill.registered",
-        "timestamp": "2026-05-20T19:06:00.367084",
+        "timestamp": "2026-05-21T12:33:34.362753",
         "payload": {
-          "skill_id": "skill-56bd0b2cf9ac",
+          "skill_id": "skill-c119365fcf2e",
           "skill_name": "test_skill_reg"
         },
-        "stored_at": "2026-05-20T19:06:00.367084",
+        "stored_at": "2026-05-21T12:33:34.362753",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "f3ae860f-4a24-46af-a121-79616b2f172a",
-        "entity_id": "evt-b1d584089758",
-        "created_at": "2026-05-20T19:06:00.367084",
-        "updated_at": "2026-05-20T19:06:00.367084"
+        "correlation_id": "e02107b0-84cc-4b61-a388-eab1b5077283",
+        "entity_id": "evt-0d5f520a0d50",
+        "created_at": "2026-05-21T12:33:34.362753",
+        "updated_at": "2026-05-21T12:33:34.362753"
       }
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:06:43.648032",
+  "timestamp": "2026-05-21T12:55:41.148934",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3c_ui_scenarios",
@@ -19,39 +19,39 @@
       "name": "Updated Workspace"
     },
     "delete": {
-      "config_id": "ws-config-d62cd90ed076"
+      "config_id": "ws-config-caa0f4aa8769"
     }
   },
   "outputs": {
     "created": {
-      "config_id": "ws-config-d62cd90ed076",
+      "config_id": "ws-config-caa0f4aa8769",
       "name": "Test Workspace",
       "root_path": "/workspace/test",
       "type": "local",
       "encoding": "utf-8",
       "excluded_patterns": [],
-      "created_at": "2026-05-20T19:06:43.627657",
-      "updated_at": "2026-05-20T19:06:43.627657"
+      "created_at": "2026-05-21T12:55:41.125949",
+      "updated_at": "2026-05-21T12:55:41.125949"
     },
     "read": {
-      "config_id": "ws-config-d62cd90ed076",
+      "config_id": "ws-config-caa0f4aa8769",
       "name": "Test Workspace",
       "root_path": "/workspace/test",
       "type": "local",
       "encoding": "utf-8",
       "excluded_patterns": [],
-      "created_at": "2026-05-20T19:06:43.627657",
-      "updated_at": "2026-05-20T19:06:43.627657"
+      "created_at": "2026-05-21T12:55:41.125949",
+      "updated_at": "2026-05-21T12:55:41.125949"
     },
     "updated": {
-      "config_id": "ws-config-d62cd90ed076",
+      "config_id": "ws-config-caa0f4aa8769",
       "name": "Updated Workspace",
       "root_path": "/workspace/test",
       "type": "local",
       "encoding": "utf-8",
       "excluded_patterns": [],
-      "created_at": "2026-05-20T19:06:43.627657",
-      "updated_at": "2026-05-20T19:06:43.629168"
+      "created_at": "2026-05-21T12:55:41.125949",
+      "updated_at": "2026-05-21T12:55:41.126948"
     },
     "list_count": 1,
     "deleted": {

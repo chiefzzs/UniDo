@@ -41,25 +41,37 @@ class DialogueService:
     def process_dialogue(self, session_id: str, user_input: str) -> DialogueResponse:
         self._ensure_session(session_id)
         dialog_id = self._ensure_dialog(session_id)
-        
+
+        # 保存用户消息
         self.message_service.create_message(
             dialog_id=dialog_id,
             role="user",
             content=user_input
         )
-        
+
+        # 创建任务
         from ..schemas import Task
-        task = Task(task_id=f"dialogue-{session_id}", input_data={"user_input": user_input})
-        execution_result = self.execution_service.execute_task(task)
-        
+        task = Task(task_id=f"dialogue-{session_id}", input_data={
+            "user_input": user_input,
+            "session_id": session_id
+        })
+
+        # 使用递归 LLM 调用执行任务（支持多轮工具调用）
+        execution_result = self.execution_service.execute_with_recursive_llm(
+            task=task,
+            session_id=session_id,
+            user_input=user_input
+        )
+
         response_content = execution_result.output_data.get("result", "") if execution_result else "任务执行完成"
-        
+
+        # 保存助手消息
         self.message_service.create_message(
             dialog_id=dialog_id,
             role="assistant",
             content=response_content
         )
-        
+
         return DialogueResponse(
             session_id=session_id,
             task_id=f"dialogue-{session_id}",

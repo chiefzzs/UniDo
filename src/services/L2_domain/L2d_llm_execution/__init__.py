@@ -112,6 +112,70 @@ class ToolCallContext:
         return cls(**data)
 
 
+@dataclass
+class StreamMerger:
+    """流式响应合并器"""
+    content: str = ""
+    reasoning_content: str = ""
+    tool_calls: List[Dict] = field(default_factory=list)
+    finish_reason: str = None
+    
+    def process_chunk(self, chunk: Dict) -> Optional[Dict]:
+        """处理单个chunk，返回需要实时转发的数据"""
+        delta = chunk.get('delta', {})
+        if not delta:
+            return None
+        
+        # 处理reasoning_content（思考数据）
+        if 'reasoning_content' in delta and delta['reasoning_content']:
+            self.reasoning_content += delta['reasoning_content']
+            # 实时转发思考数据给前端展示
+            return {"type": "thinking", "content": delta['reasoning_content']}
+        
+        # 处理content（文本数据）
+        if 'content' in delta and delta['content']:
+            self.content += delta['content']
+            # 实时转发文本内容
+            return {"type": "content", "content": delta['content']}
+        
+        # 处理tool_calls（工具数据）
+        if 'tool_calls' in delta:
+            self._merge_tool_calls(delta['tool_calls'])
+        
+        # 处理finish_reason
+        if 'finish_reason' in delta:
+            self.finish_reason = delta['finish_reason']
+        
+        return None
+    
+    def _merge_tool_calls(self, tool_calls: List[Dict]):
+        """合并tool_calls，特别是arguments的流式输出"""
+        for tool_call in tool_calls:
+            # 查找是否已存在相同index的tool_call
+            index = tool_call.get('index', 0)
+            existing = next((tc for tc in self.tool_calls 
+                           if tc.get('index') == index), None)
+            
+            if existing:
+                # 累积arguments
+                if 'function' in tool_call and 'arguments' in tool_call['function']:
+                    if 'function' in existing and 'arguments' in existing['function']:
+                        existing['function']['arguments'] += tool_call['function']['arguments']
+                    else:
+                        existing['function'] = {'arguments': tool_call['function']['arguments']}
+            else:
+                # 新增tool_call
+                self.tool_calls.append(tool_call)
+    
+    def get_final_message(self) -> Dict:
+        """返回合并后的assistant消息"""
+        return {
+            "role": "assistant",
+            "content": self.content,
+            "tool_calls": self.tool_calls if self.tool_calls else None
+        }
+
+
 class LLMExecutionService:
     def __init__(self, persistence_service=None, llm_client: LLMClient = None,
                  event_bus=None):
@@ -123,6 +187,12 @@ class LLMExecutionService:
         return f"req-{uuid.uuid4().hex[:12]}"
 
     def _generate_call_id(self) -> str:
+        """
+        生成工具调用ID（备用方法）
+        
+        注意：优先使用LLM返回的原始tool_call_id，此方法仅作为备用。
+        当LLM未返回tool_call_id时使用此方法生成。
+        """
         return f"call-{uuid.uuid4().hex[:12]}"
 
     def execute(self, session_id: str, model_config_id: str, messages: List[Dict],
@@ -285,26 +355,30 @@ class LLMExecutionService:
             max_tokens=max_tokens
         )
 
-        collected_content = []
+        # 使用StreamMerger处理流式响应
+        merger = StreamMerger()
         start_time = time.time()
 
         try:
             for chunk in self.llm_client.send_request_stream(llm_request, session_id=dialog_id):
                 if chunk:
-                    delta = chunk.get('delta', '')
-                    collected_content.append(delta)
-                    on_chunk(chunk)
+                    # 处理chunk并获取需要实时转发的数据
+                    forward_data = merger.process_chunk(chunk)
+                    if forward_data:
+                        on_chunk(forward_data)
 
             end_time = time.time()
             duration_ms = int((end_time - start_time) * 1000)
 
-            content = ''.join(collected_content)
+            # 获取合并后的最终消息
+            final_message = merger.get_final_message()
 
             response = LLMExecutionResponse(
                 request_id=request_id,
                 dialog_id=dialog_id,
-                content=content,
-                finish_reason="stop",
+                content=final_message['content'],
+                finish_reason=merger.finish_reason or "stop",
+                tool_calls=final_message.get('tool_calls'),
                 status="completed"
             )
 
@@ -313,7 +387,11 @@ class LLMExecutionService:
                 dialog_id=dialog_id,
                 model_config_id=model_config_id,
                 request=llm_request.to_dict(),
-                response={'content': content, 'finish_reason': 'stop'},
+                response={
+                    'content': final_message['content'],
+                    'finish_reason': merger.finish_reason,
+                    'tool_calls': final_message.get('tool_calls')
+                },
                 status="completed",
                 duration_ms=duration_ms
             )

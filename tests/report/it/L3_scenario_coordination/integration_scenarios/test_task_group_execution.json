@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:21:17.018685",
+  "timestamp": "2026-05-21T12:33:04.184291",
   "test_type": "it",
   "layer": "L3_scenario_coordination",
   "sub_layer": "integration_scenarios",
@@ -42,11 +42,12 @@
           "result": "任务执行完成",
           "input": {
             "description": "分析任务"
-          }
+          },
+          "messages_count": 0
         },
-        "entity_id": "task-e05dc3f3aa83",
-        "created_at": "2026-05-19T17:21:16.992248",
-        "updated_at": "2026-05-19T17:21:16.994514"
+        "entity_id": "task-a00dab6b8b60",
+        "created_at": "2026-05-21T12:33:04.159539",
+        "updated_at": "2026-05-21T12:33:04.162660"
       },
       {
         "task_id": "group_it-group-task_sub2",
@@ -59,11 +60,12 @@
           "result": "任务执行完成",
           "input": {
             "description": "执行操作"
-          }
+          },
+          "messages_count": 0
         },
-        "entity_id": "task-76af8cb9d3f2",
-        "created_at": "2026-05-19T17:21:16.995514",
-        "updated_at": "2026-05-19T17:21:16.996510"
+        "entity_id": "task-0ff9e0a128bd",
+        "created_at": "2026-05-21T12:33:04.164162",
+        "updated_at": "2026-05-21T12:33:04.165171"
       },
       {
         "task_id": "group_it-group-task_sub3",
@@ -76,16 +78,17 @@
           "result": "任务执行完成",
           "input": {
             "description": "汇总结果"
-          }
+          },
+          "messages_count": 0
         },
-        "entity_id": "task-8e1529702aaa",
-        "created_at": "2026-05-19T17:21:16.997513",
-        "updated_at": "2026-05-19T17:21:16.999020"
+        "entity_id": "task-fbaa43fdafd8",
+        "created_at": "2026-05-21T12:33:04.166704",
+        "updated_at": "2026-05-21T12:33:04.167714"
       }
     ],
     "llm_calls": [
       {
-        "call_id": "call-0fda19b53dbc",
+        "call_id": "call-686b9daa5f32",
         "dialog_id": "intent-analysis-default-session",
         "model_config_id": "default",
         "request": {
@@ -110,21 +113,17 @@
           "tool_choice": null
         },
         "response": {
-          "content": "{\n    \"intent_type\": \"task_group\",\n    \"confidence\": 0.95,\n    \"reasoning\": \"用户指令明确描述了一个包含三个步骤的顺序工作流程（分析、执行、汇总），涉及多个阶段的协作，符合 task_group 定义。\",\n    \"tool_info\": {\n        \"tool_name\": \"N/A\",\n        \"parameters\": {}\n    },\n    \"task_info\": {\n        \"execution_mode\": \"sequential\",\n        \"subtasks\": [\n            {\"description\": \"分析需求\"},\n            {\"description\": \"执行操作\"},\n            {\"description\": \"汇总结果\"}\n        ]\n    }\n}",
+          "content": "",
           "finish_reason": "stop",
-          "tool_calls": null,
-          "usage": {
-            "prompt_tokens": 270,
-            "completion_tokens": 3197,
-            "total_tokens": 3467
-          }
+          "tool_calls": [],
+          "usage": {}
         },
         "status": "completed",
-        "duration_ms": 2348,
-        "created_at": "2026-05-19T17:21:13.221898"
+        "duration_ms": 2284,
+        "created_at": "2026-05-21T12:33:01.858246"
       },
       {
-        "call_id": "call-4cfe1c7b77e5",
+        "call_id": "call-1d4ba4461e0a",
         "dialog_id": "intent-analysis-default-session",
         "model_config_id": "default",
         "request": {
@@ -149,53 +148,149 @@
           "tool_choice": null
         },
         "response": {
-          "content": "",
+          "content": "```json\n{\n    \"intent_type\": \"task_group\",\n    \"confidence\": 0.95,\n    \"reasoning\": \"用户明确要求执行任务组，涉及多个子任务的协作完成。\",\n    \"tool_info\": {},\n    \"task_info\": {\n        \"execution_mode\": \"sequential\",\n        \"subtasks\": [\n            {\"description\": \"执行预定义的任务序列\"}\n        ]\n    }\n}\n```",
           "finish_reason": "stop",
-          "tool_calls": null,
-          "usage": {}
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 262,
+            "completion_tokens": 2434,
+            "total_tokens": 2696
+          }
         },
         "status": "completed",
-        "duration_ms": 3761,
-        "created_at": "2026-05-19T17:21:16.988534"
+        "duration_ms": 2284,
+        "created_at": "2026-05-21T12:33:04.153369"
       }
     ],
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-addefe0ff36c",
-        "event_id": "evt-462cfece7ec0",
-        "event_type": "llm.call_completed",
-        "timestamp": "2026-05-19T17:21:13.224829",
+        "record_id": "rec-ca149222f4da",
+        "event_id": "evt-8b177e1d499e",
+        "event_type": "llm.request_sent",
+        "timestamp": "2026-05-21T12:32:59.573970",
         "payload": {
-          "request_id": "req-b85478611b1a",
+          "request_id": "req-f8e184565551",
           "dialog_id": "intent-analysis-default-session",
-          "duration_ms": 2348
+          "model_config_id": "default",
+          "num_messages": 2,
+          "num_tools": 0,
+          "stream": false,
+          "source_component": "L2_llm_execution",
+          "source_service": "LLMExecutionService"
         },
-        "stored_at": "2026-05-19T17:21:13.224829",
+        "stored_at": "2026-05-21T12:32:59.573970",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "e9c68c80-6568-4881-877b-47aca3600f5d",
-        "entity_id": "evt-94307de867ae",
-        "created_at": "2026-05-19T17:21:13.224829",
-        "updated_at": "2026-05-19T17:21:13.224829"
+        "correlation_id": "8f169002-15ee-42a3-9e74-75f5d33f45a9",
+        "entity_id": "evt-e1dc29db6149",
+        "created_at": "2026-05-21T12:32:59.573970",
+        "updated_at": "2026-05-21T12:32:59.573970"
       },
       {
-        "record_id": "rec-6d26aae62ca7",
-        "event_id": "evt-897950604a89",
-        "event_type": "llm.call_completed",
-        "timestamp": "2026-05-19T17:21:16.990702",
+        "record_id": "rec-0009f945a822",
+        "event_id": "evt-299e53b883b0",
+        "event_type": "llm.response_received",
+        "timestamp": "2026-05-21T12:33:01.853548",
         "payload": {
-          "request_id": "req-96174d29649b",
+          "request_id": "req-f8e184565551",
           "dialog_id": "intent-analysis-default-session",
-          "duration_ms": 3761
+          "has_content": false,
+          "has_tool_calls": false,
+          "source_component": "L2_llm_execution",
+          "source_service": "LLMExecutionService"
         },
-        "stored_at": "2026-05-19T17:21:16.990702",
+        "stored_at": "2026-05-21T12:33:01.853548",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "c27d2c57-f119-4dae-b41b-c576795b731b",
-        "entity_id": "evt-f4edde027e52",
-        "created_at": "2026-05-19T17:21:16.990702",
-        "updated_at": "2026-05-19T17:21:16.990702"
+        "correlation_id": "e4d6fc30-7cab-4f22-8664-f52e6d841229",
+        "entity_id": "evt-e988e58e5109",
+        "created_at": "2026-05-21T12:33:01.853548",
+        "updated_at": "2026-05-21T12:33:01.853548"
+      },
+      {
+        "record_id": "rec-8689242c5ce8",
+        "event_id": "evt-67ea62b460c5",
+        "event_type": "llm.call_completed",
+        "timestamp": "2026-05-21T12:33:01.865880",
+        "payload": {
+          "request_id": "req-f8e184565551",
+          "dialog_id": "intent-analysis-default-session",
+          "duration_ms": 2284,
+          "source_component": "L2_llm_execution",
+          "source_service": "LLMExecutionService"
+        },
+        "stored_at": "2026-05-21T12:33:01.865880",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "dfdf5fbf-f1d0-4334-9892-1131f1efcef0",
+        "entity_id": "evt-21625c3d46d4",
+        "created_at": "2026-05-21T12:33:01.865880",
+        "updated_at": "2026-05-21T12:33:01.865880"
+      },
+      {
+        "record_id": "rec-5231ada389c0",
+        "event_id": "evt-3d72508bff85",
+        "event_type": "llm.request_sent",
+        "timestamp": "2026-05-21T12:33:01.868623",
+        "payload": {
+          "request_id": "req-3c2b01cb3b07",
+          "dialog_id": "intent-analysis-default-session",
+          "model_config_id": "default",
+          "num_messages": 2,
+          "num_tools": 0,
+          "stream": false,
+          "source_component": "L2_llm_execution",
+          "source_service": "LLMExecutionService"
+        },
+        "stored_at": "2026-05-21T12:33:01.868623",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "b26c39d4-a3a4-4938-a45e-33c725ba3f7b",
+        "entity_id": "evt-3efb49e4a549",
+        "created_at": "2026-05-21T12:33:01.868623",
+        "updated_at": "2026-05-21T12:33:01.868623"
+      },
+      {
+        "record_id": "rec-e36b58d00ac1",
+        "event_id": "evt-e5fe3bcd2868",
+        "event_type": "llm.response_received",
+        "timestamp": "2026-05-21T12:33:04.151211",
+        "payload": {
+          "request_id": "req-3c2b01cb3b07",
+          "dialog_id": "intent-analysis-default-session",
+          "has_content": true,
+          "has_tool_calls": false,
+          "source_component": "L2_llm_execution",
+          "source_service": "LLMExecutionService"
+        },
+        "stored_at": "2026-05-21T12:33:04.151211",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "13fa908e-9214-47c2-9d52-98796dd5fe09",
+        "entity_id": "evt-3245dd666007",
+        "created_at": "2026-05-21T12:33:04.151211",
+        "updated_at": "2026-05-21T12:33:04.151211"
+      },
+      {
+        "record_id": "rec-1621610777b5",
+        "event_id": "evt-413595389f00",
+        "event_type": "llm.call_completed",
+        "timestamp": "2026-05-21T12:33:04.157311",
+        "payload": {
+          "request_id": "req-3c2b01cb3b07",
+          "dialog_id": "intent-analysis-default-session",
+          "duration_ms": 2284,
+          "source_component": "L2_llm_execution",
+          "source_service": "LLMExecutionService"
+        },
+        "stored_at": "2026-05-21T12:33:04.157311",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "54101e99-c895-4e50-867c-058498c448cb",
+        "entity_id": "evt-43e6455ab924",
+        "created_at": "2026-05-21T12:33:04.157311",
+        "updated_at": "2026-05-21T12:33:04.157311"
       }
     ],
     "prompts": [],
@@ -205,10 +300,10 @@
   },
   "events": [],
   "llm_data": {
-    "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+    "file_path": "D:\\learnning\\260521\\src\\data\\test\\llm_calls.json",
     "call_count": 2,
     "last_call": {
-      "call_id": "call-4cfe1c7b77e5",
+      "call_id": "call-1d4ba4461e0a",
       "dialog_id": "intent-analysis-default-session",
       "model_config_id": "default",
       "request": {
@@ -233,18 +328,22 @@
         "tool_choice": null
       },
       "response": {
-        "content": "",
+        "content": "```json\n{\n    \"intent_type\": \"task_group\",\n    \"confidence\": 0.95,\n    \"reasoning\": \"用户明确要求执行任务组，涉及多个子任务的协作完成。\",\n    \"tool_info\": {},\n    \"task_info\": {\n        \"execution_mode\": \"sequential\",\n        \"subtasks\": [\n            {\"description\": \"执行预定义的任务序列\"}\n        ]\n    }\n}\n```",
         "finish_reason": "stop",
-        "tool_calls": null,
-        "usage": {}
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 262,
+          "completion_tokens": 2434,
+          "total_tokens": 2696
+        }
       },
       "status": "completed",
-      "duration_ms": 3761,
-      "created_at": "2026-05-19T17:21:16.988534"
+      "duration_ms": 2284,
+      "created_at": "2026-05-21T12:33:04.153369"
     },
     "validation": {
       "valid": true,
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\llm_calls.json",
       "record_count": 2,
       "data_exists": true
     }
@@ -254,7 +353,7 @@
   "file_operations": [
     {
       "entity_type": "tasks",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\tasks.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\tasks.json",
       "operation": "write",
       "record_count": 3,
       "sample_data": {
@@ -268,20 +367,21 @@
           "result": "任务执行完成",
           "input": {
             "description": "汇总结果"
-          }
+          },
+          "messages_count": 0
         },
-        "entity_id": "task-8e1529702aaa",
-        "created_at": "2026-05-19T17:21:16.997513",
-        "updated_at": "2026-05-19T17:21:16.999020"
+        "entity_id": "task-fbaa43fdafd8",
+        "created_at": "2026-05-21T12:33:04.166704",
+        "updated_at": "2026-05-21T12:33:04.167714"
       }
     },
     {
       "entity_type": "llm_calls",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\llm_calls.json",
       "operation": "write",
       "record_count": 2,
       "sample_data": {
-        "call_id": "call-4cfe1c7b77e5",
+        "call_id": "call-1d4ba4461e0a",
         "dialog_id": "intent-analysis-default-session",
         "model_config_id": "default",
         "request": {
@@ -306,38 +406,44 @@
           "tool_choice": null
         },
         "response": {
-          "content": "",
+          "content": "```json\n{\n    \"intent_type\": \"task_group\",\n    \"confidence\": 0.95,\n    \"reasoning\": \"用户明确要求执行任务组，涉及多个子任务的协作完成。\",\n    \"tool_info\": {},\n    \"task_info\": {\n        \"execution_mode\": \"sequential\",\n        \"subtasks\": [\n            {\"description\": \"执行预定义的任务序列\"}\n        ]\n    }\n}\n```",
           "finish_reason": "stop",
-          "tool_calls": null,
-          "usage": {}
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 262,
+            "completion_tokens": 2434,
+            "total_tokens": 2696
+          }
         },
         "status": "completed",
-        "duration_ms": 3761,
-        "created_at": "2026-05-19T17:21:16.988534"
+        "duration_ms": 2284,
+        "created_at": "2026-05-21T12:33:04.153369"
       }
     },
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
-      "record_count": 2,
+      "record_count": 6,
       "sample_data": {
-        "record_id": "rec-6d26aae62ca7",
-        "event_id": "evt-897950604a89",
+        "record_id": "rec-1621610777b5",
+        "event_id": "evt-413595389f00",
         "event_type": "llm.call_completed",
-        "timestamp": "2026-05-19T17:21:16.990702",
+        "timestamp": "2026-05-21T12:33:04.157311",
         "payload": {
-          "request_id": "req-96174d29649b",
+          "request_id": "req-3c2b01cb3b07",
           "dialog_id": "intent-analysis-default-session",
-          "duration_ms": 3761
+          "duration_ms": 2284,
+          "source_component": "L2_llm_execution",
+          "source_service": "LLMExecutionService"
         },
-        "stored_at": "2026-05-19T17:21:16.990702",
+        "stored_at": "2026-05-21T12:33:04.157311",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "c27d2c57-f119-4dae-b41b-c576795b731b",
-        "entity_id": "evt-f4edde027e52",
-        "created_at": "2026-05-19T17:21:16.990702",
-        "updated_at": "2026-05-19T17:21:16.990702"
+        "correlation_id": "54101e99-c895-4e50-867c-058498c448cb",
+        "entity_id": "evt-43e6455ab924",
+        "created_at": "2026-05-21T12:33:04.157311",
+        "updated_at": "2026-05-21T12:33:04.157311"
       }
     }
   ]

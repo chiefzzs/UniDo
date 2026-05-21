@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:19:08.621994",
+  "timestamp": "2026-05-21T12:32:54.817726",
   "test_type": "it",
   "layer": "L3_scenario_coordination",
   "sub_layer": "integration_scenarios",
@@ -22,7 +22,7 @@
     }
   },
   "outputs": {
-    "workspace_config_id": "ws-config-09af25e2b07f",
+    "workspace_config_id": "ws-config-0045b431b923",
     "tool_name": "IT Test Tool"
   },
   "persistent_data": {
@@ -36,32 +36,34 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-11f480e8a136",
-        "event_id": "evt-ae8bc959eaf1",
+        "record_id": "rec-8cbb29074fb5",
+        "event_id": "evt-3affffed2987",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-19T17:19:08.598638",
+        "timestamp": "2026-05-21T12:32:54.799200",
         "payload": {
-          "tool_id": "tool-ee48086184a9",
+          "tool_id": "tool-9e59561c603a",
           "tool_name": "IT Test Tool"
         },
-        "stored_at": "2026-05-19T17:19:08.598638",
+        "stored_at": "2026-05-21T12:32:54.799200",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "ecfff3bd-3c5b-4b0b-863a-909ebc1e9ba3",
-        "entity_id": "evt-0d945bd7fed0",
-        "created_at": "2026-05-19T17:19:08.598638",
-        "updated_at": "2026-05-19T17:19:08.598638"
+        "correlation_id": "1b705590-75cb-448f-a8af-f313adf7bf48",
+        "entity_id": "evt-0fa77744db40",
+        "created_at": "2026-05-21T12:32:54.799200",
+        "updated_at": "2026-05-21T12:32:54.799200"
       }
     ],
     "prompts": [],
     "workspace_configs": [
       {
-        "config_id": "ws-config-09af25e2b07f",
+        "config_id": "ws-config-0045b431b923",
         "name": "IT Test Workspace",
         "root_path": "/workspace/it-test",
         "type": "local",
-        "created_at": "2026-05-19T17:19:08.595322",
-        "updated_at": "2026-05-19T17:19:08.595322"
+        "encoding": "utf-8",
+        "excluded_patterns": [],
+        "created_at": "2026-05-21T12:32:54.795550",
+        "updated_at": "2026-05-21T12:32:54.795550"
       }
     ],
     "model_configs": [],
@@ -74,39 +76,41 @@
   "file_operations": [
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "record_id": "rec-11f480e8a136",
-        "event_id": "evt-ae8bc959eaf1",
+        "record_id": "rec-8cbb29074fb5",
+        "event_id": "evt-3affffed2987",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-19T17:19:08.598638",
+        "timestamp": "2026-05-21T12:32:54.799200",
         "payload": {
-          "tool_id": "tool-ee48086184a9",
+          "tool_id": "tool-9e59561c603a",
           "tool_name": "IT Test Tool"
         },
-        "stored_at": "2026-05-19T17:19:08.598638",
+        "stored_at": "2026-05-21T12:32:54.799200",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "ecfff3bd-3c5b-4b0b-863a-909ebc1e9ba3",
-        "entity_id": "evt-0d945bd7fed0",
-        "created_at": "2026-05-19T17:19:08.598638",
-        "updated_at": "2026-05-19T17:19:08.598638"
+        "correlation_id": "1b705590-75cb-448f-a8af-f313adf7bf48",
+        "entity_id": "evt-0fa77744db40",
+        "created_at": "2026-05-21T12:32:54.799200",
+        "updated_at": "2026-05-21T12:32:54.799200"
       }
     },
     {
       "entity_type": "workspace_configs",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\workspace_configs.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\workspace_configs.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "config_id": "ws-config-09af25e2b07f",
+        "config_id": "ws-config-0045b431b923",
         "name": "IT Test Workspace",
         "root_path": "/workspace/it-test",
         "type": "local",
-        "created_at": "2026-05-19T17:19:08.595322",
-        "updated_at": "2026-05-19T17:19:08.595322"
+        "encoding": "utf-8",
+        "excluded_patterns": [],
+        "created_at": "2026-05-21T12:32:54.795550",
+        "updated_at": "2026-05-21T12:32:54.795550"
       }
     }
   ]

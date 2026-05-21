@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:05:38.160264",
+  "timestamp": "2026-05-21T12:13:34.907720",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2c_tool_execution",
@@ -10,11 +10,11 @@
     "验证cancelled状态"
   ],
   "inputs": {
-    "call_id": "call-d3177dc133ed"
+    "call_id": "call-d90a1682b970"
   },
   "outputs": {
     "cancelled": true,
-    "status": "cancelled"
+    "status": "executing"
   },
   "persistent_data": {
     "projects": [],
@@ -26,8 +26,8 @@
     "llm_calls": [],
     "tool_calls": [
       {
-        "call_id": "call-d3177dc133ed",
-        "tool_id": "tool-2d3972809d0d",
+        "call_id": "call-d90a1682b970",
+        "tool_id": "tool-68dd045dadc0",
         "tool_name": "async_tool",
         "dialog_id": "dialog-004",
         "task_id": "task-005",
@@ -35,15 +35,15 @@
           "input": "async test"
         },
         "output_result": null,
-        "status": "cancelled",
+        "status": "executing",
         "error_message": null,
-        "start_time": "2026-05-20T19:05:38.129503",
-        "end_time": "2026-05-20T19:05:38.132546",
+        "start_time": "2026-05-21T12:13:34.884302",
+        "end_time": "",
         "duration": 0.0
       },
       {
-        "call_id": "call-ff52e49633e5",
-        "tool_id": "tool-2d3972809d0d",
+        "call_id": "call-5208dfc5e145",
+        "tool_id": "tool-68dd045dadc0",
         "tool_name": "async_tool",
         "dialog_id": "dialog-004",
         "task_id": "task-005",
@@ -51,54 +51,38 @@
           "input": "async test"
         },
         "output_result": null,
-        "status": "failed",
-        "error_message": "Tool implementation not found for: async_tool (ID: tool-2d3972809d0d)",
-        "start_time": "2026-05-20T19:05:38.132546",
-        "end_time": "2026-05-20T19:05:38.144628",
-        "duration": 0.007660388946533203
+        "status": "executing",
+        "error_message": null,
+        "start_time": "2026-05-21T12:13:34.889138",
+        "end_time": "",
+        "duration": 0.0
       }
     ],
     "events": [
       {
-        "record_id": "rec-5f57810dbe30",
-        "event_id": "evt-65280a5b81fa",
+        "record_id": "rec-342fb0f73e7f",
+        "event_id": "evt-7a208dbf3e39",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-20T19:05:38.126958",
+        "timestamp": "2026-05-21T12:13:34.881757",
         "payload": {
-          "tool_id": "tool-2d3972809d0d",
+          "tool_id": "tool-68dd045dadc0",
           "tool_name": "async_tool"
         },
-        "stored_at": "2026-05-20T19:05:38.126958",
+        "stored_at": "2026-05-21T12:13:34.881757",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "a1c28ae6-65e1-46f6-ad5c-f2ec438a8615",
-        "entity_id": "evt-e117d6d3846f",
-        "created_at": "2026-05-20T19:05:38.126958",
-        "updated_at": "2026-05-20T19:05:38.126958"
+        "correlation_id": "a607d5c3-4c40-49ce-966f-61c773ba029d",
+        "entity_id": "evt-710e765bafa8",
+        "created_at": "2026-05-21T12:13:34.881757",
+        "updated_at": "2026-05-21T12:13:34.881757"
       },
       {
-        "record_id": "rec-df4c381f6520",
-        "event_id": "evt-3a6f434abf57",
-        "event_type": "tool.call_cancelled",
-        "timestamp": "2026-05-20T19:05:38.132546",
-        "payload": {
-          "call_id": "call-d3177dc133ed"
-        },
-        "stored_at": "2026-05-20T19:05:38.132546",
-        "source_component": "",
-        "source_service": "",
-        "correlation_id": "baa4e457-aed9-44c3-9900-daed6f508d7c",
-        "entity_id": "evt-ef2633d99692",
-        "created_at": "2026-05-20T19:05:38.132546",
-        "updated_at": "2026-05-20T19:05:38.132546"
-      },
-      {
-        "record_id": "rec-6f126a8f49bc",
-        "event_id": "evt-1bfb0cfcb520",
+        "record_id": "rec-33c14d4d4123",
+        "event_id": "evt-b7b156a78a88",
         "event_type": "tool.call_started",
-        "timestamp": "2026-05-20T19:05:38.136967",
+        "timestamp": "2026-05-21T12:13:34.890143",
         "payload": {
-          "call_id": "call-ff52e49633e5",
+          "call_id": "call-5208dfc5e145",
           "tool_name": "async_tool",
           "dialog_id": "dialog-004",
           "task_id": "task-005",
@@ -108,13 +92,13 @@
           "source_component": "L2_tool_execution",
           "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-20T19:05:38.136967",
+        "stored_at": "2026-05-21T12:13:34.890143",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "782195b5-491d-4a5e-ba81-5eb87a87a8b2",
-        "entity_id": "evt-cb05b065e144",
-        "created_at": "2026-05-20T19:05:38.136967",
-        "updated_at": "2026-05-20T19:05:38.136967"
+        "correlation_id": "5aafef09-f408-4a61-b42a-39870cb37f19",
+        "entity_id": "evt-048fb8ac5f86",
+        "created_at": "2026-05-21T12:13:34.890143",
+        "updated_at": "2026-05-21T12:13:34.890143"
       }
     ],
     "prompts": [],
@@ -133,8 +117,8 @@
       "operation": "write",
       "record_count": 2,
       "sample_data": {
-        "call_id": "call-ff52e49633e5",
-        "tool_id": "tool-2d3972809d0d",
+        "call_id": "call-5208dfc5e145",
+        "tool_id": "tool-68dd045dadc0",
         "tool_name": "async_tool",
         "dialog_id": "dialog-004",
         "task_id": "task-005",
@@ -142,39 +126,41 @@
           "input": "async test"
         },
         "output_result": null,
-        "status": "failed",
-        "error_message": "Tool implementation not found for: async_tool (ID: tool-2d3972809d0d)",
-        "start_time": "2026-05-20T19:05:38.132546",
-        "end_time": "2026-05-20T19:05:38.144628",
-        "duration": 0.007660388946533203
+        "status": "executing",
+        "error_message": null,
+        "start_time": "2026-05-21T12:13:34.889138",
+        "end_time": "",
+        "duration": 0.0
       }
     },
     {
       "entity_type": "events",
       "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
-      "record_count": 4,
+      "record_count": 2,
       "sample_data": {
-        "record_id": "rec-a7f497edee1f",
-        "event_id": "evt-47e9222fb11a",
-        "event_type": "tool.call_failed",
-        "timestamp": "2026-05-20T19:05:38.149342",
+        "record_id": "rec-33c14d4d4123",
+        "event_id": "evt-b7b156a78a88",
+        "event_type": "tool.call_started",
+        "timestamp": "2026-05-21T12:13:34.890143",
         "payload": {
-          "call_id": "call-ff52e49633e5",
+          "call_id": "call-5208dfc5e145",
           "tool_name": "async_tool",
-          "success": false,
-          "error": "Tool implementation not found for: async_tool (ID: tool-2d3972809d0d)",
-          "duration": 0.007660388946533203,
+          "dialog_id": "dialog-004",
+          "task_id": "task-005",
+          "params": {
+            "input": "async test"
+          },
           "source_component": "L2_tool_execution",
           "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-20T19:05:38.149342",
+        "stored_at": "2026-05-21T12:13:34.890143",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "e24d608e-1f5c-4ad1-81f2-f91dcb5e8798",
-        "entity_id": "evt-f2f317aa982b",
-        "created_at": "2026-05-20T19:05:38.149342",
-        "updated_at": "2026-05-20T19:05:38.149342"
+        "correlation_id": "5aafef09-f408-4a61-b42a-39870cb37f19",
+        "entity_id": "evt-048fb8ac5f86",
+        "created_at": "2026-05-21T12:13:34.890143",
+        "updated_at": "2026-05-21T12:13:34.890143"
       }
     }
   ]

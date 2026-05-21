@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:06:43.404889",
+  "timestamp": "2026-05-21T12:55:40.868354",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3c_ui_scenarios",
@@ -10,7 +10,7 @@
     "验证名称修改"
   ],
   "inputs": {
-    "session_id": "sess-9906e5e08034",
+    "session_id": "sess-e97fe863eeb8",
     "name": "Updated Session"
   },
   "outputs": {
@@ -20,12 +20,12 @@
     "projects": [],
     "sessions": [
       {
-        "session_id": "sess-9906e5e08034",
+        "session_id": "sess-e97fe863eeb8",
         "project_id": "",
         "name": "Updated Session",
         "status": "active",
-        "created_at": "2026-05-20T19:06:43.384675",
-        "updated_at": "2026-05-20T19:06:43.388156"
+        "created_at": "2026-05-21T12:55:40.846062",
+        "updated_at": "2026-05-21T12:55:40.849726"
       }
     ],
     "dialogs": [],
@@ -36,21 +36,21 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-3789be758c29",
-        "event_id": "evt-1d149b29a3af",
+        "record_id": "rec-ac5533e3c1e4",
+        "event_id": "evt-498a68597182",
         "event_type": "session.created",
-        "timestamp": "2026-05-20T19:06:43.385682",
+        "timestamp": "2026-05-21T12:55:40.848064",
         "payload": {
-          "session_id": "sess-9906e5e08034",
+          "session_id": "sess-e97fe863eeb8",
           "project_id": ""
         },
-        "stored_at": "2026-05-20T19:06:43.385682",
+        "stored_at": "2026-05-21T12:55:40.848064",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "2e812735-0613-4316-9187-6e438356c2dd",
-        "entity_id": "evt-55c6947d5bed",
-        "created_at": "2026-05-20T19:06:43.385682",
-        "updated_at": "2026-05-20T19:06:43.385682"
+        "correlation_id": "9aedc83f-1bb6-4910-bdc2-af4202eb4671",
+        "entity_id": "evt-0f852b065816",
+        "created_at": "2026-05-21T12:55:40.848064",
+        "updated_at": "2026-05-21T12:55:40.848064"
       }
     ],
     "prompts": [],
@@ -69,12 +69,12 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "session_id": "sess-9906e5e08034",
+        "session_id": "sess-e97fe863eeb8",
         "project_id": "",
         "name": "Updated Session",
         "status": "active",
-        "created_at": "2026-05-20T19:06:43.384675",
-        "updated_at": "2026-05-20T19:06:43.388156"
+        "created_at": "2026-05-21T12:55:40.846062",
+        "updated_at": "2026-05-21T12:55:40.849726"
       }
     },
     {
@@ -83,21 +83,21 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "record_id": "rec-3789be758c29",
-        "event_id": "evt-1d149b29a3af",
+        "record_id": "rec-ac5533e3c1e4",
+        "event_id": "evt-498a68597182",
         "event_type": "session.created",
-        "timestamp": "2026-05-20T19:06:43.385682",
+        "timestamp": "2026-05-21T12:55:40.848064",
         "payload": {
-          "session_id": "sess-9906e5e08034",
+          "session_id": "sess-e97fe863eeb8",
           "project_id": ""
         },
-        "stored_at": "2026-05-20T19:06:43.385682",
+        "stored_at": "2026-05-21T12:55:40.848064",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "2e812735-0613-4316-9187-6e438356c2dd",
-        "entity_id": "evt-55c6947d5bed",
-        "created_at": "2026-05-20T19:06:43.385682",
-        "updated_at": "2026-05-20T19:06:43.385682"
+        "correlation_id": "9aedc83f-1bb6-4910-bdc2-af4202eb4671",
+        "entity_id": "evt-0f852b065816",
+        "created_at": "2026-05-21T12:55:40.848064",
+        "updated_at": "2026-05-21T12:55:40.848064"
       }
     }
   ]

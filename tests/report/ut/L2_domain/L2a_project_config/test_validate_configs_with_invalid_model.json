@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:05:36.647016",
+  "timestamp": "2026-05-21T12:33:28.244221",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2a_project_config",
@@ -10,7 +10,7 @@
     "验证不存在的模型ID被拒绝"
   ],
   "inputs": {
-    "workspace_id": "ws-config-75236ffc7483",
+    "workspace_id": "ws-config-63d555ef9b97",
     "model_config_id": "invalid-model-id"
   },
   "outputs": {
@@ -29,14 +29,14 @@
     "prompts": [],
     "workspace_configs": [
       {
-        "config_id": "ws-config-75236ffc7483",
+        "config_id": "ws-config-63d555ef9b97",
         "name": "Test Workspace",
         "root_path": "/workspace/test",
         "type": "local",
         "encoding": "utf-8",
         "excluded_patterns": [],
-        "created_at": "2026-05-20T19:05:36.629111",
-        "updated_at": "2026-05-20T19:05:36.629111"
+        "created_at": "2026-05-21T12:33:28.214409",
+        "updated_at": "2026-05-21T12:33:28.214409"
       }
     ],
     "model_configs": [],
@@ -53,14 +53,14 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "config_id": "ws-config-75236ffc7483",
+        "config_id": "ws-config-63d555ef9b97",
         "name": "Test Workspace",
         "root_path": "/workspace/test",
         "type": "local",
         "encoding": "utf-8",
         "excluded_patterns": [],
-        "created_at": "2026-05-20T19:05:36.629111",
-        "updated_at": "2026-05-20T19:05:36.629111"
+        "created_at": "2026-05-21T12:33:28.214409",
+        "updated_at": "2026-05-21T12:33:28.214409"
       }
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:05:45.355468",
+  "timestamp": "2026-05-21T12:33:31.665045",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2d_llm_execution",
@@ -15,7 +15,7 @@
     "message_count": 2
   },
   "outputs": {
-    "request_id": "req-bf256c1071c2",
+    "request_id": "req-0855631d943f",
     "status": "completed",
     "content": "Hello! I'm doing well, thank you for asking. How a"
   },
@@ -28,7 +28,7 @@
     "tasks": [],
     "llm_calls": [
       {
-        "call_id": "call-d420f6e6bd17",
+        "call_id": "call-318cb0444b20",
         "dialog_id": "session-llm-001",
         "model_config_id": "default",
         "request": {
@@ -58,24 +58,24 @@
           "tool_calls": [],
           "usage": {
             "prompt_tokens": 27,
-            "completion_tokens": 375,
-            "total_tokens": 402
+            "completion_tokens": 371,
+            "total_tokens": 398
           }
         },
         "status": "completed",
-        "duration_ms": 7000,
-        "created_at": "2026-05-20T19:05:45.326929"
+        "duration_ms": 2278,
+        "created_at": "2026-05-21T12:33:31.645165"
       }
     ],
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-9a4e0173ca08",
-        "event_id": "evt-f807cfd264c0",
+        "record_id": "rec-c8626bb3d649",
+        "event_id": "evt-f3c7ccba2e0d",
         "event_type": "llm.request_sent",
-        "timestamp": "2026-05-20T19:05:38.326801",
+        "timestamp": "2026-05-21T12:33:29.366644",
         "payload": {
-          "request_id": "req-bf256c1071c2",
+          "request_id": "req-0855631d943f",
           "dialog_id": "session-llm-001",
           "model_config_id": "default",
           "num_messages": 2,
@@ -84,54 +84,54 @@
           "source_component": "L2_llm_execution",
           "source_service": "LLMExecutionService"
         },
-        "stored_at": "2026-05-20T19:05:38.326801",
+        "stored_at": "2026-05-21T12:33:29.366644",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "eeb27d28-8b9b-4fe7-a34e-dbd1917b1305",
-        "entity_id": "evt-c368d01a0aec",
-        "created_at": "2026-05-20T19:05:38.326801",
-        "updated_at": "2026-05-20T19:05:38.326801"
+        "correlation_id": "9fa4fc85-8511-41a8-ba4d-df2d9d1dac08",
+        "entity_id": "evt-5906cf853f1f",
+        "created_at": "2026-05-21T12:33:29.366644",
+        "updated_at": "2026-05-21T12:33:29.366644"
       },
       {
-        "record_id": "rec-56b179b0f661",
-        "event_id": "evt-1dd9a37045a8",
+        "record_id": "rec-0b8b2137e05a",
+        "event_id": "evt-da430aa1d1d3",
         "event_type": "llm.response_received",
-        "timestamp": "2026-05-20T19:05:45.324922",
+        "timestamp": "2026-05-21T12:33:31.644132",
         "payload": {
-          "request_id": "req-bf256c1071c2",
+          "request_id": "req-0855631d943f",
           "dialog_id": "session-llm-001",
           "has_content": true,
           "has_tool_calls": false,
           "source_component": "L2_llm_execution",
           "source_service": "LLMExecutionService"
         },
-        "stored_at": "2026-05-20T19:05:45.324922",
+        "stored_at": "2026-05-21T12:33:31.644132",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "423e8a59-8860-4728-87c6-380b3f9030a2",
-        "entity_id": "evt-31d99ffe3c0b",
-        "created_at": "2026-05-20T19:05:45.324922",
-        "updated_at": "2026-05-20T19:05:45.324922"
+        "correlation_id": "5774b0b2-c2a5-4917-ab10-544239ce724e",
+        "entity_id": "evt-2746a00bc93b",
+        "created_at": "2026-05-21T12:33:31.644132",
+        "updated_at": "2026-05-21T12:33:31.644132"
       },
       {
-        "record_id": "rec-0e37a32c65d6",
-        "event_id": "evt-78539096353b",
+        "record_id": "rec-fd59aec18026",
+        "event_id": "evt-9e03b1aa9af1",
         "event_type": "llm.call_completed",
-        "timestamp": "2026-05-20T19:05:45.330053",
+        "timestamp": "2026-05-21T12:33:31.647135",
         "payload": {
-          "request_id": "req-bf256c1071c2",
+          "request_id": "req-0855631d943f",
           "dialog_id": "session-llm-001",
-          "duration_ms": 7000,
+          "duration_ms": 2278,
           "source_component": "L2_llm_execution",
           "source_service": "LLMExecutionService"
         },
-        "stored_at": "2026-05-20T19:05:45.330053",
+        "stored_at": "2026-05-21T12:33:31.647135",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "1dc3526b-f357-44a0-b2be-8ca25aa4f4c0",
-        "entity_id": "evt-919fcb1103e3",
-        "created_at": "2026-05-20T19:05:45.330053",
-        "updated_at": "2026-05-20T19:05:45.330053"
+        "correlation_id": "265bff58-b7e2-4ebf-84b7-c617a994da39",
+        "entity_id": "evt-dfe3948bf223",
+        "created_at": "2026-05-21T12:33:31.647135",
+        "updated_at": "2026-05-21T12:33:31.647135"
       }
     ],
     "prompts": [],
@@ -144,7 +144,7 @@
     "file_path": "D:\\learnning\\260521\\src\\data\\test\\llm_calls.json",
     "call_count": 1,
     "last_call": {
-      "call_id": "call-d420f6e6bd17",
+      "call_id": "call-318cb0444b20",
       "dialog_id": "session-llm-001",
       "model_config_id": "default",
       "request": {
@@ -174,13 +174,13 @@
         "tool_calls": [],
         "usage": {
           "prompt_tokens": 27,
-          "completion_tokens": 375,
-          "total_tokens": 402
+          "completion_tokens": 371,
+          "total_tokens": 398
         }
       },
       "status": "completed",
-      "duration_ms": 7000,
-      "created_at": "2026-05-20T19:05:45.326929"
+      "duration_ms": 2278,
+      "created_at": "2026-05-21T12:33:31.645165"
     },
     "validation": {
       "valid": true,
@@ -198,7 +198,7 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "call_id": "call-d420f6e6bd17",
+        "call_id": "call-318cb0444b20",
         "dialog_id": "session-llm-001",
         "model_config_id": "default",
         "request": {
@@ -228,13 +228,13 @@
           "tool_calls": [],
           "usage": {
             "prompt_tokens": 27,
-            "completion_tokens": 375,
-            "total_tokens": 402
+            "completion_tokens": 371,
+            "total_tokens": 398
           }
         },
         "status": "completed",
-        "duration_ms": 7000,
-        "created_at": "2026-05-20T19:05:45.326929"
+        "duration_ms": 2278,
+        "created_at": "2026-05-21T12:33:31.645165"
       }
     },
     {
@@ -243,24 +243,24 @@
       "operation": "write",
       "record_count": 3,
       "sample_data": {
-        "record_id": "rec-0e37a32c65d6",
-        "event_id": "evt-78539096353b",
+        "record_id": "rec-fd59aec18026",
+        "event_id": "evt-9e03b1aa9af1",
         "event_type": "llm.call_completed",
-        "timestamp": "2026-05-20T19:05:45.330053",
+        "timestamp": "2026-05-21T12:33:31.647135",
         "payload": {
-          "request_id": "req-bf256c1071c2",
+          "request_id": "req-0855631d943f",
           "dialog_id": "session-llm-001",
-          "duration_ms": 7000,
+          "duration_ms": 2278,
           "source_component": "L2_llm_execution",
           "source_service": "LLMExecutionService"
         },
-        "stored_at": "2026-05-20T19:05:45.330053",
+        "stored_at": "2026-05-21T12:33:31.647135",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "1dc3526b-f357-44a0-b2be-8ca25aa4f4c0",
-        "entity_id": "evt-919fcb1103e3",
-        "created_at": "2026-05-20T19:05:45.330053",
-        "updated_at": "2026-05-20T19:05:45.330053"
+        "correlation_id": "265bff58-b7e2-4ebf-84b7-c617a994da39",
+        "entity_id": "evt-dfe3948bf223",
+        "created_at": "2026-05-21T12:33:31.647135",
+        "updated_at": "2026-05-21T12:33:31.647135"
       }
     }
   ]

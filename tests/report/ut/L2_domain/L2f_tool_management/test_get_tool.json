@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:06:00.268475",
+  "timestamp": "2026-05-21T12:33:34.260482",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2f_tool_management",
@@ -10,7 +10,7 @@
     "验证tool_definitions查询功能"
   ],
   "inputs": {
-    "tool_id": "tool-7f3fed8dfd52"
+    "tool_id": "tool-bc4e98b709ab"
   },
   "outputs": {
     "found": true,
@@ -27,21 +27,21 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-ee637ae6c5f8",
-        "event_id": "evt-864be2c6e493",
+        "record_id": "rec-72ea0ed88aac",
+        "event_id": "evt-2a4a61fc645a",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-20T19:06:00.251972",
+        "timestamp": "2026-05-21T12:33:34.244383",
         "payload": {
-          "tool_id": "tool-7f3fed8dfd52",
+          "tool_id": "tool-bc4e98b709ab",
           "tool_name": "get_test_tool"
         },
-        "stored_at": "2026-05-20T19:06:00.251972",
+        "stored_at": "2026-05-21T12:33:34.244383",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "9ae55092-5e95-400a-874c-964c2e2b1de8",
-        "entity_id": "evt-7c2a39341eed",
-        "created_at": "2026-05-20T19:06:00.251972",
-        "updated_at": "2026-05-20T19:06:00.251972"
+        "correlation_id": "5335520a-668b-42e4-9873-0b94d5ef6975",
+        "entity_id": "evt-da554846214b",
+        "created_at": "2026-05-21T12:33:34.244383",
+        "updated_at": "2026-05-21T12:33:34.244383"
       }
     ],
     "prompts": [],
@@ -60,21 +60,21 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "record_id": "rec-ee637ae6c5f8",
-        "event_id": "evt-864be2c6e493",
+        "record_id": "rec-72ea0ed88aac",
+        "event_id": "evt-2a4a61fc645a",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-20T19:06:00.251972",
+        "timestamp": "2026-05-21T12:33:34.244383",
         "payload": {
-          "tool_id": "tool-7f3fed8dfd52",
+          "tool_id": "tool-bc4e98b709ab",
           "tool_name": "get_test_tool"
         },
-        "stored_at": "2026-05-20T19:06:00.251972",
+        "stored_at": "2026-05-21T12:33:34.244383",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "9ae55092-5e95-400a-874c-964c2e2b1de8",
-        "entity_id": "evt-7c2a39341eed",
-        "created_at": "2026-05-20T19:06:00.251972",
-        "updated_at": "2026-05-20T19:06:00.251972"
+        "correlation_id": "5335520a-668b-42e4-9873-0b94d5ef6975",
+        "entity_id": "evt-da554846214b",
+        "created_at": "2026-05-21T12:33:34.244383",
+        "updated_at": "2026-05-21T12:33:34.244383"
       }
     }
   ]

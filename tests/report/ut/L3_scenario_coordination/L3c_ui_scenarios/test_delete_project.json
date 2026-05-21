@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:06:43.261025",
+  "timestamp": "2026-05-21T12:55:40.722596",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3c_ui_scenarios",
@@ -10,7 +10,7 @@
     "验证项目删除"
   ],
   "inputs": {
-    "project_id": "proj-d58c9e0f589d"
+    "project_id": "proj-a81a95be146f"
   },
   "outputs": {
     "success": true
@@ -29,20 +29,20 @@
       "operation": "write",
       "record_count": 2,
       "sample_data": {
-        "record_id": "rec-fc36aae543cc",
-        "event_id": "evt-4d302b03c4ba",
+        "record_id": "rec-4108b72b7f60",
+        "event_id": "evt-22fe0057ce0f",
         "event_type": "project.deleted",
-        "timestamp": "2026-05-20T19:06:43.255222",
+        "timestamp": "2026-05-21T12:55:40.716706",
         "payload": {
-          "project_id": "proj-d58c9e0f589d"
+          "project_id": "proj-a81a95be146f"
         },
-        "stored_at": "2026-05-20T19:06:43.255222",
+        "stored_at": "2026-05-21T12:55:40.716706",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "ef296202-f4f1-4b83-9b8e-13fb1dad374f",
-        "entity_id": "evt-0e58e637d043",
-        "created_at": "2026-05-20T19:06:43.255222",
-        "updated_at": "2026-05-20T19:06:43.255222"
+        "correlation_id": "d5a08901-5932-4cd6-9c34-d24a0f72abcb",
+        "entity_id": "evt-f217cb1e7581",
+        "created_at": "2026-05-21T12:55:40.716706",
+        "updated_at": "2026-05-21T12:55:40.716706"
       }
     }
   ]

@@ -8,7 +8,8 @@
 |-------|------|---------|
 | **DialogueService** | 对话管理，调用基础执行服务 | BaseExecutionService |
 | **IntentService** | 意图分析，选择执行路径 | DialogueBasedLLMService |
-| **BaseExecutionService** | 任务编排核心入口，协调执行 | IntentService + ToolTaskExecutor + TaskGroupExecutor |
+| **BaseExecutionService** | 任务编排核心入口，协调执行 | IntentService + ToolGroupExecutor + TaskGroupExecutor |
+| **ToolGroupExecutor** | 工具组执行服务 | ToolTaskExecutor |
 | **ToolTaskExecutor** | 工具任务执行服务 | L2c工具执行服务 + CheckTaskService + AdjustTaskService |
 | **CheckTaskService** | 工具任务检测服务 | BaseExecutionService（递归） |
 | **AdjustTaskService** | 工具任务调整服务 | BaseExecutionService（递归） |
@@ -31,7 +32,7 @@
          + 发布意图分析完成消息（填充哪种类型） 
          + 对话类型：  调用messageManager：发布助手历史消息，   返回任务结束。 
          + 任务组类型： 依据信息创建任务组执行器，   调用TaskGroupExecutor：执行任务组，   返回任务结束。 
-         + 其他工具选择类型： ,依据信息创建工具执行器,  调用ToolTaskExecutor：执行其他工具，   返回任务结束。 
+         + 其他工具选择类型： 依据信息创建工具组对象，调用ToolGroupExecutor：执行工具组， 返回任务结束。 
 
    
    3） 调用DialogueBasedLLMService 进行大模型调用
@@ -42,9 +43,9 @@
           + 发布LLM请求构造完毕消息
         + 调用L2d LLM执行服务执行实际的LLM调用，得到LLM响应
         +  得到三种类型的反应
-           +  文本对话返回
-           +  选中任务组工具类型
-           +  其他工具选择类型
+           +  文本对话返回：将assistant消息（含文本content）添加到对话历史中
+           +  选中任务组工具类型：将assistant消息（含工具调用说明）添加到对话历史中，然后执行任务组
+           +  其他工具选择类型（包含多个工具调用）：将assistant消息（含tool_calls数组和可选文本）添加到对话历史中，然后执行工具组
    
    4） TaskGroupExecutor： 
      + 创建（ 依据对话对象， 任务组工具选择信息）
@@ -62,13 +63,26 @@
        +  发布任务执行完成消息
         
             
-   6） 调用ToolTaskExecutor：执行其他工具，   返回任务结束。 
-     + 执行工具
-        +  利用大模型返回的信息，调用L2 工具执行服务 ，得到工具执行返回信息
-        +  发布工具执行完成消息
-        +  添加工具执行结果消息到对话历史中
-    +  检查任务： 可选 （当前不实现）
-    +  调整任务： 可选（当前不实现）
+   6） **ToolGroupExecutor**：执行工具组，返回任务结束。 
+     + 创建：依据大模型返回的tool_calls信息创建工具组对象
+        + 解析LLM返回的多个工具调用定义
+        + 保留每个工具调用的原始ID（不修改）
+        + 发布工具组创建消息
+     + 执行工具组：
+        + 遍历工具组中的每个工具调用
+        + 利用大模型返回的信息，调用ToolTaskExecutor：执行工具执行服务
+      
+     + 完成：所有工具执行完毕后，发布工具组执行完成消息
+  
+   7) ToolTaskExecutor：
+      + 发布工具任务创建消息 ，前台创建工具任务卡片
+      + 工具执行中，捕获输出, 发布工具执行中消息 ，前台更新工具任务卡片内容
+      + 每个工具执行完成后，收集工具结束状态，如果出错，收集出错信息， 发布工具执行完成消息 ，前台更新工具任务卡片内容
+      + 将工具执行结果封装为role="tool"消息，添加到对话历史中（通过tool_call_id关联）
+  
+      +  检查任务： 可选 （当前不实现）
+      +  调整任务： 可选（当前不实现）
+      +    
 
 
 

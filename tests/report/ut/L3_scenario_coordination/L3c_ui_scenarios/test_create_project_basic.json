@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:06:43.127605",
+  "timestamp": "2026-05-21T12:55:40.611877",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3c_ui_scenarios",
@@ -15,7 +15,7 @@
     "model_config_id": "mc-test-001"
   },
   "outputs": {
-    "project_id": "proj-f61840538cc4",
+    "project_id": "proj-722251e0625a",
     "name": "Basic Project"
   },
   "persistent_data": {
@@ -33,15 +33,15 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "project_id": "proj-f61840538cc4",
+        "project_id": "proj-722251e0625a",
         "name": "Basic Project",
         "description": "",
         "workspace_config_id": "ws-test-001",
         "model_config_id": "mc-test-001",
         "tool_config_ids": [],
         "status": "active",
-        "created_at": "2026-05-20T19:06:43.120421",
-        "updated_at": "2026-05-20T19:06:43.120421"
+        "created_at": "2026-05-21T12:55:40.601675",
+        "updated_at": "2026-05-21T12:55:40.601675"
       }
     },
     {
@@ -50,21 +50,21 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "record_id": "rec-82e14b30f332",
-        "event_id": "evt-5bbbaa29da40",
+        "record_id": "rec-2309a9cfd4ac",
+        "event_id": "evt-466eb9ab2157",
         "event_type": "project.created",
-        "timestamp": "2026-05-20T19:06:43.122502",
+        "timestamp": "2026-05-21T12:55:40.604255",
         "payload": {
-          "project_id": "proj-f61840538cc4",
+          "project_id": "proj-722251e0625a",
           "name": "Basic Project"
         },
-        "stored_at": "2026-05-20T19:06:43.122502",
+        "stored_at": "2026-05-21T12:55:40.604255",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "545e9041-a52c-4fc3-a609-8374fe96c960",
-        "entity_id": "evt-b891abd1a3ab",
-        "created_at": "2026-05-20T19:06:43.122502",
-        "updated_at": "2026-05-20T19:06:43.122502"
+        "correlation_id": "421d2c3c-dd13-4ddb-b282-37457e84dcb5",
+        "entity_id": "evt-86b62536a528",
+        "created_at": "2026-05-21T12:55:40.604255",
+        "updated_at": "2026-05-21T12:55:40.604255"
       }
     }
   ]

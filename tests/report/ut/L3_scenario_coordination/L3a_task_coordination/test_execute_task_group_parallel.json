@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:06:41.655815",
+  "timestamp": "2026-05-21T13:08:25.592814",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3a_task_coordination",
@@ -37,11 +37,12 @@
           "result": "任务执行完成",
           "input": {
             "description": "分析任务"
-          }
+          },
+          "messages_count": 0
         },
-        "entity_id": "task-ef929a32e051",
-        "created_at": "2026-05-20T19:06:41.630381",
-        "updated_at": "2026-05-20T19:06:41.633401"
+        "entity_id": "task-981c5eca8f29",
+        "created_at": "2026-05-21T13:08:25.563797",
+        "updated_at": "2026-05-21T13:08:25.566737"
       },
       {
         "task_id": "group_test_group_task_2_sub2",
@@ -54,11 +55,12 @@
           "result": "任务执行完成",
           "input": {
             "description": "执行操作"
-          }
+          },
+          "messages_count": 0
         },
-        "entity_id": "task-12aee5a038af",
-        "created_at": "2026-05-20T19:06:41.634406",
-        "updated_at": "2026-05-20T19:06:41.635406"
+        "entity_id": "task-9c71a4be7340",
+        "created_at": "2026-05-21T13:08:25.567743",
+        "updated_at": "2026-05-21T13:08:25.568743"
       },
       {
         "task_id": "group_test_group_task_2_sub3",
@@ -71,11 +73,12 @@
           "result": "任务执行完成",
           "input": {
             "description": "汇总结果"
-          }
+          },
+          "messages_count": 0
         },
-        "entity_id": "task-641c80ec763d",
-        "created_at": "2026-05-20T19:06:41.636913",
-        "updated_at": "2026-05-20T19:06:41.638547"
+        "entity_id": "task-d3d05a170b41",
+        "created_at": "2026-05-21T13:08:25.570346",
+        "updated_at": "2026-05-21T13:08:25.571402"
       }
     ],
     "llm_calls": [],
@@ -107,11 +110,12 @@
           "result": "任务执行完成",
           "input": {
             "description": "汇总结果"
-          }
+          },
+          "messages_count": 0
         },
-        "entity_id": "task-641c80ec763d",
-        "created_at": "2026-05-20T19:06:41.636913",
-        "updated_at": "2026-05-20T19:06:41.638547"
+        "entity_id": "task-d3d05a170b41",
+        "created_at": "2026-05-21T13:08:25.570346",
+        "updated_at": "2026-05-21T13:08:25.571402"
       }
     }
   ]

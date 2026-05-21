@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:05:36.539959",
+  "timestamp": "2026-05-21T12:33:28.119601",
   "test_type": "ut",
   "layer": "L1_infrastructure",
   "sub_layer": "L1d_events",
@@ -13,7 +13,7 @@
     "events_published": 2
   },
   "outputs": {
-    "events_retrieved": 4
+    "events_retrieved": 79
   },
   "persistent_data": {
     "projects": [],
@@ -26,36 +26,36 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-5d13b5c91436",
-        "event_id": "evt-440f78e58249",
+        "record_id": "rec-7fb1defb85ee",
+        "event_id": "evt-a2724667bbc8",
         "event_type": "llm.request_sent",
-        "timestamp": "2026-05-20T19:05:36.522696",
+        "timestamp": "2026-05-21T12:33:28.101060",
         "payload": {
           "content": "Hello"
         },
-        "stored_at": "2026-05-20T19:05:36.522696",
+        "stored_at": "2026-05-21T12:33:28.101060",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "c0ec0c3d-e406-44aa-b28b-fa6d78ed3e14",
-        "entity_id": "evt-beb83c52d4aa",
-        "created_at": "2026-05-20T19:05:36.522696",
-        "updated_at": "2026-05-20T19:05:36.522696"
+        "correlation_id": "e10bdc5b-2362-4870-bcde-7fb30cc90bcc",
+        "entity_id": "evt-89668fd697c0",
+        "created_at": "2026-05-21T12:33:28.101060",
+        "updated_at": "2026-05-21T12:33:28.101060"
       },
       {
-        "record_id": "rec-c0a381f74767",
-        "event_id": "evt-ee968411b75c",
+        "record_id": "rec-e2dfc84bddef",
+        "event_id": "evt-4edec6b50d94",
         "event_type": "task.completed",
-        "timestamp": "2026-05-20T19:05:36.522696",
+        "timestamp": "2026-05-21T12:33:28.101060",
         "payload": {
           "task_id": "task-1"
         },
-        "stored_at": "2026-05-20T19:05:36.524702",
+        "stored_at": "2026-05-21T12:33:28.101674",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "22d39954-d4b1-48ac-8982-be04db1f512e",
-        "entity_id": "evt-0da6dbacbabe",
-        "created_at": "2026-05-20T19:05:36.524702",
-        "updated_at": "2026-05-20T19:05:36.524702"
+        "correlation_id": "d45a2d4a-e04b-4094-915c-e729d068b252",
+        "entity_id": "evt-9392b6a4a078",
+        "created_at": "2026-05-21T12:33:28.101674",
+        "updated_at": "2026-05-21T12:33:28.101674"
       }
     ],
     "prompts": [],
@@ -74,20 +74,20 @@
       "operation": "write",
       "record_count": 2,
       "sample_data": {
-        "record_id": "rec-c0a381f74767",
-        "event_id": "evt-ee968411b75c",
+        "record_id": "rec-e2dfc84bddef",
+        "event_id": "evt-4edec6b50d94",
         "event_type": "task.completed",
-        "timestamp": "2026-05-20T19:05:36.522696",
+        "timestamp": "2026-05-21T12:33:28.101060",
         "payload": {
           "task_id": "task-1"
         },
-        "stored_at": "2026-05-20T19:05:36.524702",
+        "stored_at": "2026-05-21T12:33:28.101674",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "22d39954-d4b1-48ac-8982-be04db1f512e",
-        "entity_id": "evt-0da6dbacbabe",
-        "created_at": "2026-05-20T19:05:36.524702",
-        "updated_at": "2026-05-20T19:05:36.524702"
+        "correlation_id": "d45a2d4a-e04b-4094-915c-e729d068b252",
+        "entity_id": "evt-9392b6a4a078",
+        "created_at": "2026-05-21T12:33:28.101674",
+        "updated_at": "2026-05-21T12:33:28.101674"
       }
     }
   ]

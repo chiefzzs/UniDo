@@ -78,11 +78,25 @@ class DialogManager:
             }
         ))
         
-        # 3. 调用通用任务协调流程（这里暂时返回用户消息，实际应该调用L3a的BaseExecutionService）
+        # 3. 调用通用任务协调流程
+        from services.L3_scenario_coordination.L3a_task_coordination.dialogue_service import DialogueService
+        dialogue_service = DialogueService()
+        dialogue_result = dialogue_service.process_dialogue(session_id, user_input)
+        
+        # 4. 获取助手回复消息
+        messages = self.message_service.list_messages(dialog_id)
+        assistant_message = None
+        for msg in reversed(messages):
+            if msg.role == 'assistant':
+                assistant_message = msg
+                break
+        
         result = {
             'dialog_id': dialog_id,
             'user_message': user_message.to_dict(),
-            'status': 'processing'
+            'assistant_message': assistant_message.to_dict() if assistant_message else None,
+            'status': 'completed',
+            'content': dialogue_result.content
         }
         
         return result

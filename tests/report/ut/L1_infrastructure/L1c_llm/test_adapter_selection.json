@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:05:36.459747",
+  "timestamp": "2026-05-21T12:33:28.039843",
   "test_type": "ut",
   "layer": "L1_infrastructure",
   "sub_layer": "L1c_llm",
@@ -28,7 +28,7 @@
     "tasks": [],
     "llm_calls": [
       {
-        "call_id": "llm-aa372f8e3ca4",
+        "call_id": "llm-9bfc0b37593f",
         "session_id": "test-adapter-session",
         "model_config_id": null,
         "request": {
@@ -43,13 +43,42 @@
           "max_tokens": 2048
         },
         "response": {
-          "error": "Expecting value: line 1 column 1 (char 0)"
+          "id": "chatcmpl-c86d94ef-3b6b-9269-a402-19a7a5766f61",
+          "object": "chat.completion",
+          "created": 1779336325,
+          "model": "Qwen/Qwen3.5-122B-A10B",
+          "system_fingerprint": "",
+          "choices": [
+            {
+              "index": 0,
+              "delta": {
+                "role": null,
+                "content": "",
+                "tool_calls": null,
+                "function_calls": null,
+                "reasoning_content": ""
+              },
+              "finish_reason": "stop",
+              "message": {
+                "role": "assistant",
+                "content": "Hello! 👋 How can I help you today?",
+                "tool_calls": null,
+                "function_calls": null,
+                "reasoning_content": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   Input: \"Hello\"\n    *   Intent: Greeting/Starting a conversation.\n    *   Tone: Friendly, neutral.\n\n2.  **Determine the Appropriate Response:**\n    *   Acknowledge the greeting.\n    *   Offer assistance.\n    *   Keep it friendly and open-ended.\n    *   Avoid overcomplicating (since it's just \"Hello\").\n\n3.  **Drafting Options:**\n    *   Option 1 (Simple): Hello! How can I help you?\n    *   Option 2 (Friendly): Hi there! How's your day going?\n    *   Option 3 (Professional): Hello. What can I do for you today?\n    *   Option 4 (AI-specific): Hello! I'm an AI assistant. What would you like to chat about?\n\n4.  **Selecting the Best Option:**\n    *   A blend of friendly and helpful is usually best.\n    *   \"Hello! How can I help you today?\" is standard and effective.\n    *   Adding a bit of warmth makes it better. \"Hello! 👋 How's your day going? Is there anything I can help you with?\"\n\n5.  **Final Polish:**\n    *   Keep it concise.\n    *   Ensure clarity.\n\n    *Selected:* \"Hello! How can I help you today?\" (Simple and direct) or \"Hello! 👋 How are you doing? Is there anything specific you'd like to chat about or work on?\" (More engaging).\n\n    Let's go with a friendly, open offer of help.\n\n    *Revised:* \"Hello! How can I help you today? Whether you have a question, need some advice, or just want to chat, feel free to ask.\"\n\n6.  **Final Output Generation:** (Matching the selected tone)\n    \"Hello! How can I help you today?\" (Keep it simple for now).\n\n    *Wait, let's make it slightly more personable.*\n    \"Hello! 👋 How's it going? Is there anything I can help you with today?\"\n\n    *Actually, standard AI response:*\n    \"Hello! How can I assist you today?\"\n\n    Let's stick to a balanced approach.\n\n    \"Hello! How can I help you today?\"\n\n    (Self-Correction: Just \"Hello\" often warrants a warm welcome.)\n\n    \"Hello! 👋 How are you doing? Is there anything I can help you with today?\"\n\n7.  **Final Decision:**\n    \"Hello! How can I help you today?\" (Safe, professional, friendly).\n    Or maybe add an emoji for warmth.\n    \"Hello! 👋 How can I help you today?\"\n\n    Let's go with that.cw"
+              }
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 11,
+            "completion_tokens": 623,
+            "total_tokens": 634
+          }
         },
-        "status": "failed",
-        "duration_ms": 2279,
-        "created_at": "2026-05-20T19:05:36.439826",
-        "entity_id": "llm-711998fb390c",
-        "updated_at": "2026-05-20T19:05:36.439826"
+        "status": "completed",
+        "duration_ms": 2238,
+        "created_at": "2026-05-21T12:33:28.014096",
+        "entity_id": "llm-31e738fb8332",
+        "updated_at": "2026-05-21T12:33:28.014096"
       }
     ],
     "tool_calls": [],
@@ -64,7 +93,7 @@
     "file_path": "D:\\learnning\\260521\\src\\data\\test\\llm_calls.json",
     "call_count": 1,
     "last_call": {
-      "call_id": "llm-aa372f8e3ca4",
+      "call_id": "llm-9bfc0b37593f",
       "session_id": "test-adapter-session",
       "model_config_id": null,
       "request": {
@@ -79,13 +108,42 @@
         "max_tokens": 2048
       },
       "response": {
-        "error": "Expecting value: line 1 column 1 (char 0)"
+        "id": "chatcmpl-c86d94ef-3b6b-9269-a402-19a7a5766f61",
+        "object": "chat.completion",
+        "created": 1779336325,
+        "model": "Qwen/Qwen3.5-122B-A10B",
+        "system_fingerprint": "",
+        "choices": [
+          {
+            "index": 0,
+            "delta": {
+              "role": null,
+              "content": "",
+              "tool_calls": null,
+              "function_calls": null,
+              "reasoning_content": ""
+            },
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": "Hello! 👋 How can I help you today?",
+              "tool_calls": null,
+              "function_calls": null,
+              "reasoning_content": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   Input: \"Hello\"\n    *   Intent: Greeting/Starting a conversation.\n    *   Tone: Friendly, neutral.\n\n2.  **Determine the Appropriate Response:**\n    *   Acknowledge the greeting.\n    *   Offer assistance.\n    *   Keep it friendly and open-ended.\n    *   Avoid overcomplicating (since it's just \"Hello\").\n\n3.  **Drafting Options:**\n    *   Option 1 (Simple): Hello! How can I help you?\n    *   Option 2 (Friendly): Hi there! How's your day going?\n    *   Option 3 (Professional): Hello. What can I do for you today?\n    *   Option 4 (AI-specific): Hello! I'm an AI assistant. What would you like to chat about?\n\n4.  **Selecting the Best Option:**\n    *   A blend of friendly and helpful is usually best.\n    *   \"Hello! How can I help you today?\" is standard and effective.\n    *   Adding a bit of warmth makes it better. \"Hello! 👋 How's your day going? Is there anything I can help you with?\"\n\n5.  **Final Polish:**\n    *   Keep it concise.\n    *   Ensure clarity.\n\n    *Selected:* \"Hello! How can I help you today?\" (Simple and direct) or \"Hello! 👋 How are you doing? Is there anything specific you'd like to chat about or work on?\" (More engaging).\n\n    Let's go with a friendly, open offer of help.\n\n    *Revised:* \"Hello! How can I help you today? Whether you have a question, need some advice, or just want to chat, feel free to ask.\"\n\n6.  **Final Output Generation:** (Matching the selected tone)\n    \"Hello! How can I help you today?\" (Keep it simple for now).\n\n    *Wait, let's make it slightly more personable.*\n    \"Hello! 👋 How's it going? Is there anything I can help you with today?\"\n\n    *Actually, standard AI response:*\n    \"Hello! How can I assist you today?\"\n\n    Let's stick to a balanced approach.\n\n    \"Hello! How can I help you today?\"\n\n    (Self-Correction: Just \"Hello\" often warrants a warm welcome.)\n\n    \"Hello! 👋 How are you doing? Is there anything I can help you with today?\"\n\n7.  **Final Decision:**\n    \"Hello! How can I help you today?\" (Safe, professional, friendly).\n    Or maybe add an emoji for warmth.\n    \"Hello! 👋 How can I help you today?\"\n\n    Let's go with that.cw"
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 11,
+          "completion_tokens": 623,
+          "total_tokens": 634
+        }
       },
-      "status": "failed",
-      "duration_ms": 2279,
-      "created_at": "2026-05-20T19:05:36.439826",
-      "entity_id": "llm-711998fb390c",
-      "updated_at": "2026-05-20T19:05:36.439826"
+      "status": "completed",
+      "duration_ms": 2238,
+      "created_at": "2026-05-21T12:33:28.014096",
+      "entity_id": "llm-31e738fb8332",
+      "updated_at": "2026-05-21T12:33:28.014096"
     },
     "validation": {
       "valid": true,
@@ -103,7 +161,7 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "call_id": "llm-aa372f8e3ca4",
+        "call_id": "llm-9bfc0b37593f",
         "session_id": "test-adapter-session",
         "model_config_id": null,
         "request": {
@@ -118,13 +176,42 @@
           "max_tokens": 2048
         },
         "response": {
-          "error": "Expecting value: line 1 column 1 (char 0)"
+          "id": "chatcmpl-c86d94ef-3b6b-9269-a402-19a7a5766f61",
+          "object": "chat.completion",
+          "created": 1779336325,
+          "model": "Qwen/Qwen3.5-122B-A10B",
+          "system_fingerprint": "",
+          "choices": [
+            {
+              "index": 0,
+              "delta": {
+                "role": null,
+                "content": "",
+                "tool_calls": null,
+                "function_calls": null,
+                "reasoning_content": ""
+              },
+              "finish_reason": "stop",
+              "message": {
+                "role": "assistant",
+                "content": "Hello! 👋 How can I help you today?",
+                "tool_calls": null,
+                "function_calls": null,
+                "reasoning_content": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   Input: \"Hello\"\n    *   Intent: Greeting/Starting a conversation.\n    *   Tone: Friendly, neutral.\n\n2.  **Determine the Appropriate Response:**\n    *   Acknowledge the greeting.\n    *   Offer assistance.\n    *   Keep it friendly and open-ended.\n    *   Avoid overcomplicating (since it's just \"Hello\").\n\n3.  **Drafting Options:**\n    *   Option 1 (Simple): Hello! How can I help you?\n    *   Option 2 (Friendly): Hi there! How's your day going?\n    *   Option 3 (Professional): Hello. What can I do for you today?\n    *   Option 4 (AI-specific): Hello! I'm an AI assistant. What would you like to chat about?\n\n4.  **Selecting the Best Option:**\n    *   A blend of friendly and helpful is usually best.\n    *   \"Hello! How can I help you today?\" is standard and effective.\n    *   Adding a bit of warmth makes it better. \"Hello! 👋 How's your day going? Is there anything I can help you with?\"\n\n5.  **Final Polish:**\n    *   Keep it concise.\n    *   Ensure clarity.\n\n    *Selected:* \"Hello! How can I help you today?\" (Simple and direct) or \"Hello! 👋 How are you doing? Is there anything specific you'd like to chat about or work on?\" (More engaging).\n\n    Let's go with a friendly, open offer of help.\n\n    *Revised:* \"Hello! How can I help you today? Whether you have a question, need some advice, or just want to chat, feel free to ask.\"\n\n6.  **Final Output Generation:** (Matching the selected tone)\n    \"Hello! How can I help you today?\" (Keep it simple for now).\n\n    *Wait, let's make it slightly more personable.*\n    \"Hello! 👋 How's it going? Is there anything I can help you with today?\"\n\n    *Actually, standard AI response:*\n    \"Hello! How can I assist you today?\"\n\n    Let's stick to a balanced approach.\n\n    \"Hello! How can I help you today?\"\n\n    (Self-Correction: Just \"Hello\" often warrants a warm welcome.)\n\n    \"Hello! 👋 How are you doing? Is there anything I can help you with today?\"\n\n7.  **Final Decision:**\n    \"Hello! How can I help you today?\" (Safe, professional, friendly).\n    Or maybe add an emoji for warmth.\n    \"Hello! 👋 How can I help you today?\"\n\n    Let's go with that.cw"
+              }
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 11,
+            "completion_tokens": 623,
+            "total_tokens": 634
+          }
         },
-        "status": "failed",
-        "duration_ms": 2279,
-        "created_at": "2026-05-20T19:05:36.439826",
-        "entity_id": "llm-711998fb390c",
-        "updated_at": "2026-05-20T19:05:36.439826"
+        "status": "completed",
+        "duration_ms": 2238,
+        "created_at": "2026-05-21T12:33:28.014096",
+        "entity_id": "llm-31e738fb8332",
+        "updated_at": "2026-05-21T12:33:28.014096"
       }
     }
   ]

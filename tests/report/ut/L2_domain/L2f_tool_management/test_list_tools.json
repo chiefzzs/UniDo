@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:06:00.297950",
+  "timestamp": "2026-05-21T12:33:34.290585",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2f_tool_management",
@@ -13,7 +13,7 @@
     "filter_category": "category_a"
   },
   "outputs": {
-    "all_count": 10,
+    "all_count": 23,
     "category_a_count": 1
   },
   "persistent_data": {
@@ -27,38 +27,38 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-ca07b27f8b75",
-        "event_id": "evt-43208a60dec3",
+        "record_id": "rec-785e51544471",
+        "event_id": "evt-3cd440a89d8f",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-20T19:06:00.276713",
+        "timestamp": "2026-05-21T12:33:34.270192",
         "payload": {
-          "tool_id": "tool-13e9b17c7fd0",
+          "tool_id": "tool-32d332e3bcbe",
           "tool_name": "list_tool_1"
         },
-        "stored_at": "2026-05-20T19:06:00.276713",
+        "stored_at": "2026-05-21T12:33:34.270192",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "21588f31-fdc6-437c-8593-81a65a43ca5d",
-        "entity_id": "evt-b78c966601c5",
-        "created_at": "2026-05-20T19:06:00.276713",
-        "updated_at": "2026-05-20T19:06:00.276713"
+        "correlation_id": "90d80092-c0e8-42a0-9dbc-7c0ed9c9e75e",
+        "entity_id": "evt-2634193d8ee3",
+        "created_at": "2026-05-21T12:33:34.270192",
+        "updated_at": "2026-05-21T12:33:34.270192"
       },
       {
-        "record_id": "rec-d1481e673660",
-        "event_id": "evt-ba0233506e58",
+        "record_id": "rec-7b3c588d0bb3",
+        "event_id": "evt-e8fcdc08ebdb",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-20T19:06:00.280505",
+        "timestamp": "2026-05-21T12:33:34.273801",
         "payload": {
-          "tool_id": "tool-a5928361ed1c",
+          "tool_id": "tool-8e9338264dc0",
           "tool_name": "list_tool_2"
         },
-        "stored_at": "2026-05-20T19:06:00.280505",
+        "stored_at": "2026-05-21T12:33:34.273801",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "17148c4b-1f18-4de2-b678-ce861d5ff22c",
-        "entity_id": "evt-30c95f5c7f02",
-        "created_at": "2026-05-20T19:06:00.280505",
-        "updated_at": "2026-05-20T19:06:00.280505"
+        "correlation_id": "c030a3df-3e40-4c15-a27f-7431cd8ff982",
+        "entity_id": "evt-06130fa07a5f",
+        "created_at": "2026-05-21T12:33:34.273801",
+        "updated_at": "2026-05-21T12:33:34.273801"
       }
     ],
     "prompts": [],
@@ -77,21 +77,21 @@
       "operation": "write",
       "record_count": 2,
       "sample_data": {
-        "record_id": "rec-d1481e673660",
-        "event_id": "evt-ba0233506e58",
+        "record_id": "rec-7b3c588d0bb3",
+        "event_id": "evt-e8fcdc08ebdb",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-20T19:06:00.280505",
+        "timestamp": "2026-05-21T12:33:34.273801",
         "payload": {
-          "tool_id": "tool-a5928361ed1c",
+          "tool_id": "tool-8e9338264dc0",
           "tool_name": "list_tool_2"
         },
-        "stored_at": "2026-05-20T19:06:00.280505",
+        "stored_at": "2026-05-21T12:33:34.273801",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "17148c4b-1f18-4de2-b678-ce861d5ff22c",
-        "entity_id": "evt-30c95f5c7f02",
-        "created_at": "2026-05-20T19:06:00.280505",
-        "updated_at": "2026-05-20T19:06:00.280505"
+        "correlation_id": "c030a3df-3e40-4c15-a27f-7431cd8ff982",
+        "entity_id": "evt-06130fa07a5f",
+        "created_at": "2026-05-21T12:33:34.273801",
+        "updated_at": "2026-05-21T12:33:34.273801"
       }
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:05:36.619680",
+  "timestamp": "2026-05-21T12:33:28.203862",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2a_project_config",
@@ -11,7 +11,7 @@
   ],
   "inputs": {
     "workspace_id": "invalid-workspace-id",
-    "model_config_id": "model-config-b49553da8e63"
+    "model_config_id": "model-config-211be1b47d0e"
   },
   "outputs": {
     "valid": false
@@ -30,15 +30,15 @@
     "workspace_configs": [],
     "model_configs": [
       {
-        "config_id": "model-config-b49553da8e63",
+        "config_id": "model-config-211be1b47d0e",
         "name": "Test Model",
         "model_name": "gpt-4",
         "api_type": "openai",
         "api_address": "http://localhost/v1",
         "api_key": "test-key",
         "parameters": {},
-        "created_at": "2026-05-20T19:05:36.602855",
-        "updated_at": "2026-05-20T19:05:36.602855"
+        "created_at": "2026-05-21T12:33:28.185185",
+        "updated_at": "2026-05-21T12:33:28.185185"
       }
     ],
     "tool_configs": []
@@ -54,15 +54,15 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "config_id": "model-config-b49553da8e63",
+        "config_id": "model-config-211be1b47d0e",
         "name": "Test Model",
         "model_name": "gpt-4",
         "api_type": "openai",
         "api_address": "http://localhost/v1",
         "api_key": "test-key",
         "parameters": {},
-        "created_at": "2026-05-20T19:05:36.602855",
-        "updated_at": "2026-05-20T19:05:36.602855"
+        "created_at": "2026-05-21T12:33:28.185185",
+        "updated_at": "2026-05-21T12:33:28.185185"
       }
     }
   ]

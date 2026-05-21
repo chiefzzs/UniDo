@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:06:00.326071",
+  "timestamp": "2026-05-21T12:33:34.319716",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2f_tool_management",
@@ -10,7 +10,7 @@
     "验证tool_definitions更新"
   ],
   "inputs": {
-    "tool_id": "tool-7ab9dfa1cb39",
+    "tool_id": "tool-b9f09a1a5f22",
     "new_description": "Updated description"
   },
   "outputs": {
@@ -28,21 +28,21 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-6d66970fbf75",
-        "event_id": "evt-ba562e342c02",
+        "record_id": "rec-7983cf53ff2c",
+        "event_id": "evt-6b6d0d684463",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-20T19:06:00.307722",
+        "timestamp": "2026-05-21T12:33:34.299873",
         "payload": {
-          "tool_id": "tool-7ab9dfa1cb39",
+          "tool_id": "tool-b9f09a1a5f22",
           "tool_name": "update_test_tool"
         },
-        "stored_at": "2026-05-20T19:06:00.307722",
+        "stored_at": "2026-05-21T12:33:34.299873",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "7dbdd7bb-1a81-40b9-ad9b-ca8dc6db5b8b",
-        "entity_id": "evt-ca77cc365d68",
-        "created_at": "2026-05-20T19:06:00.307722",
-        "updated_at": "2026-05-20T19:06:00.307722"
+        "correlation_id": "90f5962b-8fdd-4eab-a441-a92d7d2f8ef4",
+        "entity_id": "evt-1c81251bca5c",
+        "created_at": "2026-05-21T12:33:34.299873",
+        "updated_at": "2026-05-21T12:33:34.299873"
       }
     ],
     "prompts": [],
@@ -61,21 +61,21 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "record_id": "rec-6d66970fbf75",
-        "event_id": "evt-ba562e342c02",
+        "record_id": "rec-7983cf53ff2c",
+        "event_id": "evt-6b6d0d684463",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-20T19:06:00.307722",
+        "timestamp": "2026-05-21T12:33:34.299873",
         "payload": {
-          "tool_id": "tool-7ab9dfa1cb39",
+          "tool_id": "tool-b9f09a1a5f22",
           "tool_name": "update_test_tool"
         },
-        "stored_at": "2026-05-20T19:06:00.307722",
+        "stored_at": "2026-05-21T12:33:34.299873",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "7dbdd7bb-1a81-40b9-ad9b-ca8dc6db5b8b",
-        "entity_id": "evt-ca77cc365d68",
-        "created_at": "2026-05-20T19:06:00.307722",
-        "updated_at": "2026-05-20T19:06:00.307722"
+        "correlation_id": "90f5962b-8fdd-4eab-a441-a92d7d2f8ef4",
+        "entity_id": "evt-1c81251bca5c",
+        "created_at": "2026-05-21T12:33:34.299873",
+        "updated_at": "2026-05-21T12:33:34.299873"
       }
     }
   ]

@@ -1350,3 +1350,118 @@ class TaskExecutionService:
 | L2b MessageService | 负责消息的创建和查询，接口设计合理，无需修改 |
 | 前端缓存机制 | 前端适配不需要修改，保持现有实现 |
 | L1c LLMClient | 负责实际的网络通信，不涉及业务逻辑 |
+
+---
+
+### 8.7 L3a工具组执行器修改（ToolGroupExecutor）
+
+**文件**: `src/services/L3_scenario_coordination/L3a_task_coordination/tool_group_executor.py`
+
+**新增组件**: ToolGroupExecutor
+
+**设计说明**:
+```python
+class ToolGroupExecutor:
+    """工具组执行器 - 管理和执行大模型返回的多个工具调用"""
+    
+    def __init__(self, tool_execution_service: ToolExecutionService):
+        self.tool_execution_service = tool_execution_service
+    
+    def execute(self, tool_calls: List[Dict], session_id: str) -> List[Dict]:
+        """
+        执行工具组
+        
+        Args:
+            tool_calls: LLM返回的工具调用列表（保留原始ID）
+            session_id: 当前会话ID
+        
+        Returns:
+            工具执行结果列表，格式为role="tool"消息
+        """
+        results = []
+        
+        for tool_call in tool_calls:
+            # 使用LLM生成的原始ID，不修改
+            tool_call_id = tool_call['id']
+            tool_name = tool_call['function']['name']
+            arguments = tool_call['function']['arguments']
+            
+            # 执行工具
+            result = self.tool_execution_service.execute_tool(
+                tool_call={
+                    'id': tool_call_id,
+                    'name': tool_name,
+                    'arguments': arguments
+                },
+                context={'session_id': session_id}
+            )
+            
+            results.append(result)
+        
+        return results
+```
+
+**修改目的**: 支持大模型返回多个工具调用的场景，统一管理工具组的执行流程
+
+---
+
+### 8.8 L3a调度流程修改
+
+**文件**: `src/services/L3_scenario_coordination/L3a_task_coordination/intent_service.py`
+
+**修改内容**:
+```python
+class IntentService:
+    def process_intent(self, dialogue: Dialogue) -> IntentAnalysisResult:
+        # ... 意图分析逻辑 ...
+        
+        # 根据意图类型处理
+        if intent_type == IntentType.DIALOGUE:
+            # 文本对话：直接发布助手消息
+            self.message_manager.publish_assistant_message(assistant_message)
+            
+        elif intent_type == IntentType.TASK_GROUP:
+            # 任务组：先添加assistant消息到历史，再执行任务组
+            self.message_manager.add_to_history(assistant_message)
+            task_group_executor = TaskGroupExecutor(...)
+            task_group_executor.execute(task_group_info)
+            
+        elif intent_type == IntentType.TOOL:
+            # 工具调用：先添加assistant消息到历史，再执行工具组
+            self.message_manager.add_to_history(assistant_message)
+            tool_group_executor = ToolGroupExecutor(...)
+            tool_group_executor.execute(assistant_message.get('tool_calls', []))
+```
+
+**关键修改点**:
+
+| 意图类型 | 修改前 | 修改后 |
+|---------|--------|--------|
+| **文本对话** | 直接发布消息 | 直接发布消息 |
+| **任务组** | 执行任务组 | 先添加assistant消息到历史，再执行任务组 |
+| **工具调用** | 执行单个工具 | 先添加assistant消息到历史，再执行工具组 |
+
+**修改目的**: 确保所有类型的assistant消息都被正确添加到对话历史中，实现完整的上下文传递
+
+---
+
+### 8.9 历史消息累积时机规范
+
+根据专业数据流分析，历史消息累积应遵循以下时机规范：
+
+| 阶段 | 触发时机 | 负责组件 | 添加内容 |
+|------|---------|---------|---------|
+| **阶段1** | LLM返回响应后 | DialogueBasedLLMService | assistant消息（含content、tool_calls） |
+| **阶段2** | 工具执行完成后 | ToolGroupExecutor | tool消息（含tool_call_id、content） |
+| **阶段3** | 用户输入后 | IntentService | user消息 |
+
+**数据流示例**:
+```
+用户输入 → user消息添加到历史
+            ↓
+        LLM调用 → assistant消息添加到历史（含tool_calls）
+                    ↓
+            工具执行 → tool消息添加到历史（每个工具完成后）
+                    ↓
+            下一轮LLM调用（携带完整历史）
+```

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:06:29.076201",
+  "timestamp": "2026-05-21T13:08:20.509798",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3a_task_coordination",
@@ -15,7 +15,7 @@
   },
   "outputs": {
     "task_id": "test-tool",
-    "status": "failed"
+    "status": "completed"
   },
   "persistent_data": {
     "projects": [],
@@ -27,7 +27,7 @@
     "llm_calls": [],
     "tool_calls": [
       {
-        "call_id": "call-d9be7be4b8be",
+        "call_id": "call-b56f8fece6fa",
         "tool_id": "tool-calculator-test",
         "tool_name": "calculator",
         "dialog_id": "test-tool",
@@ -35,22 +35,22 @@
         "input_params": {
           "expression": "5 + 5"
         },
-        "output_result": null,
-        "status": "failed",
-        "error_message": "Tool implementation not found for: calculator (ID: tool-calculator-test)",
-        "start_time": "2026-05-20T19:06:29.050748",
-        "end_time": "2026-05-20T19:06:29.057188",
-        "duration": 0.002537250518798828
+        "output_result": "10",
+        "status": "completed",
+        "error_message": null,
+        "start_time": "2026-05-21T13:08:20.474991",
+        "end_time": "2026-05-21T13:08:20.488447",
+        "duration": 0.011416196823120117
       }
     ],
     "events": [
       {
-        "record_id": "rec-e3b3602d3ade",
-        "event_id": "evt-2b4d0d1049da",
+        "record_id": "rec-883cfcab227f",
+        "event_id": "evt-cd11af5594ac",
         "event_type": "tool.call_started",
-        "timestamp": "2026-05-20T19:06:29.054651",
+        "timestamp": "2026-05-21T13:08:20.477031",
         "payload": {
-          "call_id": "call-d9be7be4b8be",
+          "call_id": "call-b56f8fece6fa",
           "tool_name": "calculator",
           "dialog_id": "test-tool",
           "task_id": "test-tool",
@@ -60,35 +60,54 @@
           "source_component": "L2_tool_execution",
           "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-20T19:06:29.054651",
+        "stored_at": "2026-05-21T13:08:20.477031",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "e1955629-2b4f-4c01-86b0-7b1eb6e01764",
-        "entity_id": "evt-840cab5d815a",
-        "created_at": "2026-05-20T19:06:29.054651",
-        "updated_at": "2026-05-20T19:06:29.054651"
+        "correlation_id": "e18817f2-8d52-4700-a17c-bd0f60292c59",
+        "entity_id": "evt-d0879aae46a0",
+        "created_at": "2026-05-21T13:08:20.477031",
+        "updated_at": "2026-05-21T13:08:20.477031"
       },
       {
-        "record_id": "rec-fd0b6d07263d",
-        "event_id": "evt-e90351f82452",
-        "event_type": "tool.call_failed",
-        "timestamp": "2026-05-20T19:06:29.061713",
+        "record_id": "rec-c84e2bff2d85",
+        "event_id": "evt-3c4825f2c065",
+        "event_type": "tool.execution_output_end",
+        "timestamp": "2026-05-21T13:08:20.487430",
         "payload": {
-          "call_id": "call-d9be7be4b8be",
+          "call_id": "call-b56f8fece6fa",
           "tool_name": "calculator",
-          "success": false,
-          "error": "Tool implementation not found for: calculator (ID: tool-calculator-test)",
-          "duration": 0.002537250518798828,
           "source_component": "L2_tool_execution",
           "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-20T19:06:29.061713",
+        "stored_at": "2026-05-21T13:08:20.487430",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "ab17c59e-1661-45ad-b034-5ecf088b3795",
-        "entity_id": "evt-6b1970e54658",
-        "created_at": "2026-05-20T19:06:29.062717",
-        "updated_at": "2026-05-20T19:06:29.062717"
+        "correlation_id": "97ad82a5-1f94-4a1a-8674-3cb84c0bbf04",
+        "entity_id": "evt-9cab27a9921a",
+        "created_at": "2026-05-21T13:08:20.487430",
+        "updated_at": "2026-05-21T13:08:20.487430"
+      },
+      {
+        "record_id": "rec-bdf1aef7bc20",
+        "event_id": "evt-85684aaa3724",
+        "event_type": "tool.call_completed",
+        "timestamp": "2026-05-21T13:08:20.491328",
+        "payload": {
+          "call_id": "call-b56f8fece6fa",
+          "tool_name": "calculator",
+          "success": true,
+          "duration": 0.011416196823120117,
+          "workspace": "D:\\learnning\\260521",
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
+        },
+        "stored_at": "2026-05-21T13:08:20.491328",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "58cff08a-82ff-49e9-9142-d984375ea4e4",
+        "entity_id": "evt-99f24946570f",
+        "created_at": "2026-05-21T13:08:20.491328",
+        "updated_at": "2026-05-21T13:08:20.491328"
       }
     ],
     "prompts": [],
@@ -107,7 +126,7 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "call_id": "call-d9be7be4b8be",
+        "call_id": "call-b56f8fece6fa",
         "tool_id": "tool-calculator-test",
         "tool_name": "calculator",
         "dialog_id": "test-tool",
@@ -115,40 +134,40 @@
         "input_params": {
           "expression": "5 + 5"
         },
-        "output_result": null,
-        "status": "failed",
-        "error_message": "Tool implementation not found for: calculator (ID: tool-calculator-test)",
-        "start_time": "2026-05-20T19:06:29.050748",
-        "end_time": "2026-05-20T19:06:29.057188",
-        "duration": 0.002537250518798828
+        "output_result": "10",
+        "status": "completed",
+        "error_message": null,
+        "start_time": "2026-05-21T13:08:20.474991",
+        "end_time": "2026-05-21T13:08:20.488447",
+        "duration": 0.011416196823120117
       }
     },
     {
       "entity_type": "events",
       "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
-      "record_count": 2,
+      "record_count": 3,
       "sample_data": {
-        "record_id": "rec-fd0b6d07263d",
-        "event_id": "evt-e90351f82452",
-        "event_type": "tool.call_failed",
-        "timestamp": "2026-05-20T19:06:29.061713",
+        "record_id": "rec-bdf1aef7bc20",
+        "event_id": "evt-85684aaa3724",
+        "event_type": "tool.call_completed",
+        "timestamp": "2026-05-21T13:08:20.491328",
         "payload": {
-          "call_id": "call-d9be7be4b8be",
+          "call_id": "call-b56f8fece6fa",
           "tool_name": "calculator",
-          "success": false,
-          "error": "Tool implementation not found for: calculator (ID: tool-calculator-test)",
-          "duration": 0.002537250518798828,
+          "success": true,
+          "duration": 0.011416196823120117,
+          "workspace": "D:\\learnning\\260521",
           "source_component": "L2_tool_execution",
           "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-20T19:06:29.061713",
+        "stored_at": "2026-05-21T13:08:20.491328",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "ab17c59e-1661-45ad-b034-5ecf088b3795",
-        "entity_id": "evt-6b1970e54658",
-        "created_at": "2026-05-20T19:06:29.062717",
-        "updated_at": "2026-05-20T19:06:29.062717"
+        "correlation_id": "58cff08a-82ff-49e9-9142-d984375ea4e4",
+        "entity_id": "evt-99f24946570f",
+        "created_at": "2026-05-21T13:08:20.491328",
+        "updated_at": "2026-05-21T13:08:20.491328"
       }
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:05:59.993155",
+  "timestamp": "2026-05-21T12:33:33.963837",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2d_llm_execution",
@@ -24,7 +24,7 @@
     "tasks": [],
     "llm_calls": [
       {
-        "call_id": "call-a0674b35aae6",
+        "call_id": "call-7224529c5208",
         "dialog_id": "session-record-001",
         "model_config_id": "default",
         "request": {
@@ -45,29 +45,29 @@
           "tool_choice": null
         },
         "response": {
-          "content": "To assist you effectively with **test record retrieval**, could you clarify a few details? For example:  \n- What system/database/API are you testing (e.g., SQL, MongoDB, REST API)?  \n- Are you validating functionality, performance, or error handling?  \n- Any specific errors or unexpected behavior you're encountering?  \n\nIn the meantime, here's a general checklist for testing record retrieval:  \n\n### 1. **Verify Data Source**  \n   - Ensure test data exists (e.g., seed a database with known records).  \n   - Confirm permissions/access rights for the querying user/service.  \n\n### 2. **Test Query/API Logic**  \n   - **SQL Example**:  \n     ```sql\n     SELECT * FROM users WHERE id = 1; -- Check if expected record returns\n     ```  \n   - **API Example**:  \n     ```bash\n     curl http://api.example.com/users/1 -- Verify HTTP 200 + JSON response\n     ```  \n\n### 3. **Edge Cases**  \n   - Retrieve non-existent records (expect `404` or empty results).  \n   - Test filters, pagination, sorting, and large datasets.  \n\n### 4. **Common Issues**  \n   - ❌ Incorrect query syntax (typos, wrong column names).  \n   - ❌ Indexes missing for slow/failing lookups.  \n   - ❌ Authentication/token expiration blocking access.  \n   - ❌ Data mismatch between test and production environments.  \n\n### 5. **Tools**  \n   - **Databases**: `pgAdmin`, `MongoDB Compass`, `MySQL Workbench`.  \n   - **APIs**: Postman, Insomnia, or `curl`.  \n   - **Automation**: Jest (JS), pytest (Python), JUnit (Java) for regression tests.  \n\nLet me know your specific setup, and I'll tailor further! 🔍",
+          "content": "It seems you're asking about **test record retrieval**, but I need a bit more clarity to assist effectively! Could you please specify:  \n\n1. **Context**: Are these medical/lab records, software test logs, academic exam results, or something else?  \n2. **System/Platform**: Is this related to a specific tool (e.g., EHR systems, CI/CD pipelines, LMS)?  \n3. **Goal**: Do you need help with *accessing*, *exporting*, *troubleshooting*, or *automating* retrieval?  \n\nLet me know so I can provide targeted guidance! 🔍",
           "finish_reason": "stop",
           "tool_calls": [],
           "usage": {
             "prompt_tokens": 13,
-            "completion_tokens": 801,
-            "total_tokens": 814
+            "completion_tokens": 304,
+            "total_tokens": 317
           }
         },
         "status": "completed",
-        "duration_ms": 14564,
-        "created_at": "2026-05-20T19:05:59.976392"
+        "duration_ms": 2243,
+        "created_at": "2026-05-21T12:33:33.943009"
       }
     ],
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-7f7cda676bc7",
-        "event_id": "evt-9f503f00f070",
+        "record_id": "rec-dd212fbc538e",
+        "event_id": "evt-34e695d4a8f0",
         "event_type": "llm.request_sent",
-        "timestamp": "2026-05-20T19:05:45.411956",
+        "timestamp": "2026-05-21T12:33:31.699591",
         "payload": {
-          "request_id": "req-4a2001ea6766",
+          "request_id": "req-935b6c8f77af",
           "dialog_id": "session-record-001",
           "model_config_id": "default",
           "num_messages": 1,
@@ -76,54 +76,54 @@
           "source_component": "L2_llm_execution",
           "source_service": "LLMExecutionService"
         },
-        "stored_at": "2026-05-20T19:05:45.411956",
+        "stored_at": "2026-05-21T12:33:31.699591",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "b0545118-2aed-473b-a818-ae310dcf169b",
-        "entity_id": "evt-9d2aa5e02299",
-        "created_at": "2026-05-20T19:05:45.411956",
-        "updated_at": "2026-05-20T19:05:45.411956"
+        "correlation_id": "6042bab5-25cb-40e3-9865-7e124deb4c5c",
+        "entity_id": "evt-3e9ae69a355d",
+        "created_at": "2026-05-21T12:33:31.699591",
+        "updated_at": "2026-05-21T12:33:31.699591"
       },
       {
-        "record_id": "rec-63879422b35d",
-        "event_id": "evt-40f0133da372",
+        "record_id": "rec-a3529fbaed2d",
+        "event_id": "evt-1ba7685c047f",
         "event_type": "llm.response_received",
-        "timestamp": "2026-05-20T19:05:59.975343",
+        "timestamp": "2026-05-21T12:33:33.939556",
         "payload": {
-          "request_id": "req-4a2001ea6766",
+          "request_id": "req-935b6c8f77af",
           "dialog_id": "session-record-001",
           "has_content": true,
           "has_tool_calls": false,
           "source_component": "L2_llm_execution",
           "source_service": "LLMExecutionService"
         },
-        "stored_at": "2026-05-20T19:05:59.975343",
+        "stored_at": "2026-05-21T12:33:33.939556",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "395934de-3b3e-49a1-8b6d-fab150735123",
-        "entity_id": "evt-7cd7aada8ef8",
-        "created_at": "2026-05-20T19:05:59.975343",
-        "updated_at": "2026-05-20T19:05:59.975343"
+        "correlation_id": "28011261-fffe-46f9-a438-9fca6d6e61a1",
+        "entity_id": "evt-1ce6111340db",
+        "created_at": "2026-05-21T12:33:33.939556",
+        "updated_at": "2026-05-21T12:33:33.939556"
       },
       {
-        "record_id": "rec-17d801d349a9",
-        "event_id": "evt-d3218ded9526",
+        "record_id": "rec-a24f2a99e199",
+        "event_id": "evt-487bb3d99906",
         "event_type": "llm.call_completed",
-        "timestamp": "2026-05-20T19:05:59.977960",
+        "timestamp": "2026-05-21T12:33:33.945168",
         "payload": {
-          "request_id": "req-4a2001ea6766",
+          "request_id": "req-935b6c8f77af",
           "dialog_id": "session-record-001",
-          "duration_ms": 14564,
+          "duration_ms": 2243,
           "source_component": "L2_llm_execution",
           "source_service": "LLMExecutionService"
         },
-        "stored_at": "2026-05-20T19:05:59.977960",
+        "stored_at": "2026-05-21T12:33:33.945168",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "7ec986ea-e92d-46e8-9d48-e5643eb81e80",
-        "entity_id": "evt-5752e6df7ada",
-        "created_at": "2026-05-20T19:05:59.977960",
-        "updated_at": "2026-05-20T19:05:59.977960"
+        "correlation_id": "8cf94349-fe64-42c5-82bc-f6590b1d87da",
+        "entity_id": "evt-f7c548577eea",
+        "created_at": "2026-05-21T12:33:33.945168",
+        "updated_at": "2026-05-21T12:33:33.945168"
       }
     ],
     "prompts": [],
@@ -136,7 +136,7 @@
     "file_path": "D:\\learnning\\260521\\src\\data\\test\\llm_calls.json",
     "call_count": 1,
     "last_call": {
-      "call_id": "call-a0674b35aae6",
+      "call_id": "call-7224529c5208",
       "dialog_id": "session-record-001",
       "model_config_id": "default",
       "request": {
@@ -157,18 +157,18 @@
         "tool_choice": null
       },
       "response": {
-        "content": "To assist you effectively with **test record retrieval**, could you clarify a few details? For example:  \n- What system/database/API are you testing (e.g., SQL, MongoDB, REST API)?  \n- Are you validating functionality, performance, or error handling?  \n- Any specific errors or unexpected behavior you're encountering?  \n\nIn the meantime, here's a general checklist for testing record retrieval:  \n\n### 1. **Verify Data Source**  \n   - Ensure test data exists (e.g., seed a database with known records).  \n   - Confirm permissions/access rights for the querying user/service.  \n\n### 2. **Test Query/API Logic**  \n   - **SQL Example**:  \n     ```sql\n     SELECT * FROM users WHERE id = 1; -- Check if expected record returns\n     ```  \n   - **API Example**:  \n     ```bash\n     curl http://api.example.com/users/1 -- Verify HTTP 200 + JSON response\n     ```  \n\n### 3. **Edge Cases**  \n   - Retrieve non-existent records (expect `404` or empty results).  \n   - Test filters, pagination, sorting, and large datasets.  \n\n### 4. **Common Issues**  \n   - ❌ Incorrect query syntax (typos, wrong column names).  \n   - ❌ Indexes missing for slow/failing lookups.  \n   - ❌ Authentication/token expiration blocking access.  \n   - ❌ Data mismatch between test and production environments.  \n\n### 5. **Tools**  \n   - **Databases**: `pgAdmin`, `MongoDB Compass`, `MySQL Workbench`.  \n   - **APIs**: Postman, Insomnia, or `curl`.  \n   - **Automation**: Jest (JS), pytest (Python), JUnit (Java) for regression tests.  \n\nLet me know your specific setup, and I'll tailor further! 🔍",
+        "content": "It seems you're asking about **test record retrieval**, but I need a bit more clarity to assist effectively! Could you please specify:  \n\n1. **Context**: Are these medical/lab records, software test logs, academic exam results, or something else?  \n2. **System/Platform**: Is this related to a specific tool (e.g., EHR systems, CI/CD pipelines, LMS)?  \n3. **Goal**: Do you need help with *accessing*, *exporting*, *troubleshooting*, or *automating* retrieval?  \n\nLet me know so I can provide targeted guidance! 🔍",
         "finish_reason": "stop",
         "tool_calls": [],
         "usage": {
           "prompt_tokens": 13,
-          "completion_tokens": 801,
-          "total_tokens": 814
+          "completion_tokens": 304,
+          "total_tokens": 317
         }
       },
       "status": "completed",
-      "duration_ms": 14564,
-      "created_at": "2026-05-20T19:05:59.976392"
+      "duration_ms": 2243,
+      "created_at": "2026-05-21T12:33:33.943009"
     },
     "validation": {
       "valid": true,
@@ -186,7 +186,7 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "call_id": "call-a0674b35aae6",
+        "call_id": "call-7224529c5208",
         "dialog_id": "session-record-001",
         "model_config_id": "default",
         "request": {
@@ -207,18 +207,18 @@
           "tool_choice": null
         },
         "response": {
-          "content": "To assist you effectively with **test record retrieval**, could you clarify a few details? For example:  \n- What system/database/API are you testing (e.g., SQL, MongoDB, REST API)?  \n- Are you validating functionality, performance, or error handling?  \n- Any specific errors or unexpected behavior you're encountering?  \n\nIn the meantime, here's a general checklist for testing record retrieval:  \n\n### 1. **Verify Data Source**  \n   - Ensure test data exists (e.g., seed a database with known records).  \n   - Confirm permissions/access rights for the querying user/service.  \n\n### 2. **Test Query/API Logic**  \n   - **SQL Example**:  \n     ```sql\n     SELECT * FROM users WHERE id = 1; -- Check if expected record returns\n     ```  \n   - **API Example**:  \n     ```bash\n     curl http://api.example.com/users/1 -- Verify HTTP 200 + JSON response\n     ```  \n\n### 3. **Edge Cases**  \n   - Retrieve non-existent records (expect `404` or empty results).  \n   - Test filters, pagination, sorting, and large datasets.  \n\n### 4. **Common Issues**  \n   - ❌ Incorrect query syntax (typos, wrong column names).  \n   - ❌ Indexes missing for slow/failing lookups.  \n   - ❌ Authentication/token expiration blocking access.  \n   - ❌ Data mismatch between test and production environments.  \n\n### 5. **Tools**  \n   - **Databases**: `pgAdmin`, `MongoDB Compass`, `MySQL Workbench`.  \n   - **APIs**: Postman, Insomnia, or `curl`.  \n   - **Automation**: Jest (JS), pytest (Python), JUnit (Java) for regression tests.  \n\nLet me know your specific setup, and I'll tailor further! 🔍",
+          "content": "It seems you're asking about **test record retrieval**, but I need a bit more clarity to assist effectively! Could you please specify:  \n\n1. **Context**: Are these medical/lab records, software test logs, academic exam results, or something else?  \n2. **System/Platform**: Is this related to a specific tool (e.g., EHR systems, CI/CD pipelines, LMS)?  \n3. **Goal**: Do you need help with *accessing*, *exporting*, *troubleshooting*, or *automating* retrieval?  \n\nLet me know so I can provide targeted guidance! 🔍",
           "finish_reason": "stop",
           "tool_calls": [],
           "usage": {
             "prompt_tokens": 13,
-            "completion_tokens": 801,
-            "total_tokens": 814
+            "completion_tokens": 304,
+            "total_tokens": 317
           }
         },
         "status": "completed",
-        "duration_ms": 14564,
-        "created_at": "2026-05-20T19:05:59.976392"
+        "duration_ms": 2243,
+        "created_at": "2026-05-21T12:33:33.943009"
       }
     },
     {
@@ -227,24 +227,24 @@
       "operation": "write",
       "record_count": 3,
       "sample_data": {
-        "record_id": "rec-17d801d349a9",
-        "event_id": "evt-d3218ded9526",
+        "record_id": "rec-a24f2a99e199",
+        "event_id": "evt-487bb3d99906",
         "event_type": "llm.call_completed",
-        "timestamp": "2026-05-20T19:05:59.977960",
+        "timestamp": "2026-05-21T12:33:33.945168",
         "payload": {
-          "request_id": "req-4a2001ea6766",
+          "request_id": "req-935b6c8f77af",
           "dialog_id": "session-record-001",
-          "duration_ms": 14564,
+          "duration_ms": 2243,
           "source_component": "L2_llm_execution",
           "source_service": "LLMExecutionService"
         },
-        "stored_at": "2026-05-20T19:05:59.977960",
+        "stored_at": "2026-05-21T12:33:33.945168",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "7ec986ea-e92d-46e8-9d48-e5643eb81e80",
-        "entity_id": "evt-5752e6df7ada",
-        "created_at": "2026-05-20T19:05:59.977960",
-        "updated_at": "2026-05-20T19:05:59.977960"
+        "correlation_id": "8cf94349-fe64-42c5-82bc-f6590b1d87da",
+        "entity_id": "evt-f7c548577eea",
+        "created_at": "2026-05-21T12:33:33.945168",
+        "updated_at": "2026-05-21T12:33:33.945168"
       }
     }
   ]

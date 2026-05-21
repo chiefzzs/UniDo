@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:05:36.699441",
+  "timestamp": "2026-05-21T12:33:28.351822",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2a_project_config",
@@ -21,14 +21,14 @@
     ]
   },
   "outputs": {
-    "project_id": "proj-f07b4f4eacb8",
+    "project_id": "proj-00cce2ea5211",
     "name": "Test Project",
     "status": "active"
   },
   "persistent_data": {
     "projects": [
       {
-        "project_id": "proj-f07b4f4eacb8",
+        "project_id": "proj-00cce2ea5211",
         "name": "Test Project",
         "description": "A test project",
         "workspace_config_id": "ws-config-001",
@@ -38,8 +38,8 @@
           "tool-2"
         ],
         "status": "active",
-        "created_at": "2026-05-20T19:05:36.681808",
-        "updated_at": "2026-05-20T19:05:36.681808"
+        "created_at": "2026-05-21T12:33:28.319388",
+        "updated_at": "2026-05-21T12:33:28.319388"
       }
     ],
     "sessions": [],
@@ -51,21 +51,21 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-ec1abc826b60",
-        "event_id": "evt-1e7a7b3b3af6",
+        "record_id": "rec-467fe4e5c3ff",
+        "event_id": "evt-a313993307de",
         "event_type": "project.created",
-        "timestamp": "2026-05-20T19:05:36.684320",
+        "timestamp": "2026-05-21T12:33:28.322917",
         "payload": {
-          "project_id": "proj-f07b4f4eacb8",
+          "project_id": "proj-00cce2ea5211",
           "name": "Test Project"
         },
-        "stored_at": "2026-05-20T19:05:36.684320",
+        "stored_at": "2026-05-21T12:33:28.322917",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "ed0e45f4-133e-4760-b0c0-f640a0f3d253",
-        "entity_id": "evt-55cf7179512b",
-        "created_at": "2026-05-20T19:05:36.684320",
-        "updated_at": "2026-05-20T19:05:36.684320"
+        "correlation_id": "6158f949-1cd8-4b2f-a62c-8de2305ff03a",
+        "entity_id": "evt-9399ef17ba81",
+        "created_at": "2026-05-21T12:33:28.322917",
+        "updated_at": "2026-05-21T12:33:28.322917"
       }
     ],
     "prompts": [],
@@ -84,7 +84,7 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "project_id": "proj-f07b4f4eacb8",
+        "project_id": "proj-00cce2ea5211",
         "name": "Test Project",
         "description": "A test project",
         "workspace_config_id": "ws-config-001",
@@ -94,8 +94,8 @@
           "tool-2"
         ],
         "status": "active",
-        "created_at": "2026-05-20T19:05:36.681808",
-        "updated_at": "2026-05-20T19:05:36.681808"
+        "created_at": "2026-05-21T12:33:28.319388",
+        "updated_at": "2026-05-21T12:33:28.319388"
       }
     },
     {
@@ -104,21 +104,21 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "record_id": "rec-ec1abc826b60",
-        "event_id": "evt-1e7a7b3b3af6",
+        "record_id": "rec-467fe4e5c3ff",
+        "event_id": "evt-a313993307de",
         "event_type": "project.created",
-        "timestamp": "2026-05-20T19:05:36.684320",
+        "timestamp": "2026-05-21T12:33:28.322917",
         "payload": {
-          "project_id": "proj-f07b4f4eacb8",
+          "project_id": "proj-00cce2ea5211",
           "name": "Test Project"
         },
-        "stored_at": "2026-05-20T19:05:36.684320",
+        "stored_at": "2026-05-21T12:33:28.322917",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "ed0e45f4-133e-4760-b0c0-f640a0f3d253",
-        "entity_id": "evt-55cf7179512b",
-        "created_at": "2026-05-20T19:05:36.684320",
-        "updated_at": "2026-05-20T19:05:36.684320"
+        "correlation_id": "6158f949-1cd8-4b2f-a62c-8de2305ff03a",
+        "entity_id": "evt-9399ef17ba81",
+        "created_at": "2026-05-21T12:33:28.322917",
+        "updated_at": "2026-05-21T12:33:28.322917"
       }
     }
   ]

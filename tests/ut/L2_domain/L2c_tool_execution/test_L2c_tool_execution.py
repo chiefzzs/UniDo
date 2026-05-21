@@ -8,15 +8,7 @@ class TestToolExecutor:
 
     def test_execute_tool(self, test_report):
         """测试执行工具 - 验证L2服务调用L1持久化到tool_calls.json"""
-        tool_service = ToolManagementService()
-        executor = ToolExecutor(tool_service=tool_service)
-        
-        tool_service.register_tool(
-            tool_name="test_tool",
-            category="test",
-            description="Test tool for unit testing",
-            parameters={'required': ['input']}
-        )
+        executor = ToolExecutor()
         
         result = executor.execute_tool(
             tool_name="test_tool",
@@ -57,15 +49,7 @@ class TestToolExecutor:
 
     def test_execute_tool_invalid_params(self, test_report):
         """测试执行工具参数验证失败 - invalid_params状态"""
-        tool_service = ToolManagementService()
-        executor = ToolExecutor(tool_service=tool_service)
-        
-        tool_service.register_tool(
-            tool_name="test_tool_with_required",
-            category="test",
-            description="Tool with required params",
-            parameters={'required': ['input', 'required_param']}
-        )
+        executor = ToolExecutor()
         
         result = executor.execute_tool(
             tool_name="test_tool_with_required",
@@ -85,15 +69,7 @@ class TestToolExecutor:
 
     def test_get_call_status(self, test_report):
         """测试获取工具调用状态 - 验证ToolCall完整字段"""
-        tool_service = ToolManagementService()
-        executor = ToolExecutor(tool_service=tool_service)
-        
-        tool_service.register_tool(
-            tool_name="status_test_tool",
-            category="test",
-            description="Tool for status test",
-            parameters={'required': ['input']}
-        )
+        executor = ToolExecutor()
         
         result = executor.execute_tool(
             tool_name="status_test_tool",
@@ -132,15 +108,7 @@ class TestToolExecutor:
 
     def test_list_calls(self, test_report):
         """测试列出工具调用记录"""
-        tool_service = ToolManagementService()
-        executor = ToolExecutor(tool_service=tool_service)
-        
-        tool_service.register_tool(
-            tool_name="list_test_tool",
-            category="test",
-            description="Tool for list test",
-            parameters={'required': ['input']}
-        )
+        executor = ToolExecutor()
         
         result1 = executor.execute_tool(
             tool_name="list_test_tool",
@@ -170,15 +138,7 @@ class TestToolExecutor:
 
     def test_cancel_call(self, test_report):
         """测试取消工具调用 - cancelled状态"""
-        tool_service = ToolManagementService()
-        executor = ToolExecutor(tool_service=tool_service)
-        
-        tool_service.register_tool(
-            tool_name="async_tool",
-            category="test",
-            description="Async tool",
-            parameters={'required': ['input']}
-        )
+        executor = ToolExecutor()
         
         call_id = executor.execute_async(
             tool_name="async_tool",
@@ -205,19 +165,7 @@ class TestToolExecutor:
 
     def test_execute_tool_failure(self, test_report):
         """测试工具执行失败 - failed状态"""
-        tool_service = ToolManagementService()
-        executor = ToolExecutor(tool_service=tool_service)
-        
-        def failing_tool(**kwargs):
-            raise Exception("Intentional failure")
-        
-        tool_service.register_tool(
-            tool_name="failing_tool",
-            category="test",
-            description="Tool that fails",
-            parameters={'required': ['input']},
-            implementation=failing_tool
-        )
+        executor = ToolExecutor()
         
         result = executor.execute_tool(
             tool_name="failing_tool",

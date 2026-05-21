@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:19:08.539096",
+  "timestamp": "2026-05-21T12:32:54.753372",
   "test_type": "it",
   "layer": "L3_scenario_coordination",
   "sub_layer": "integration_scenarios",
@@ -17,36 +17,36 @@
     },
     "session": {
       "name": "Integration Test Session",
-      "project_id": "proj-9f3cf49c5fe4"
+      "project_id": "proj-98b4f1f1590e"
     }
   },
   "outputs": {
-    "project_id": "proj-9f3cf49c5fe4",
-    "session_id": "sess-229519b79bde",
-    "session_project_id": "proj-9f3cf49c5fe4"
+    "project_id": "proj-98b4f1f1590e",
+    "session_id": "sess-968152391bc5",
+    "session_project_id": "proj-98b4f1f1590e"
   },
   "persistent_data": {
     "projects": [
       {
-        "project_id": "proj-9f3cf49c5fe4",
+        "project_id": "proj-98b4f1f1590e",
         "name": "Integration Test Project",
         "description": "",
         "workspace_config_id": "ws-test-it",
         "model_config_id": "mc-test-it",
         "tool_config_ids": [],
         "status": "active",
-        "created_at": "2026-05-19T17:19:08.508821",
-        "updated_at": "2026-05-19T17:19:08.508821"
+        "created_at": "2026-05-21T12:32:54.732940",
+        "updated_at": "2026-05-21T12:32:54.732940"
       }
     ],
     "sessions": [
       {
-        "session_id": "sess-229519b79bde",
-        "project_id": "proj-9f3cf49c5fe4",
+        "session_id": "sess-968152391bc5",
+        "project_id": "proj-98b4f1f1590e",
         "name": "Integration Test Session",
         "status": "active",
-        "created_at": "2026-05-19T17:19:08.514352",
-        "updated_at": "2026-05-19T17:19:08.514352"
+        "created_at": "2026-05-21T12:32:54.735378",
+        "updated_at": "2026-05-21T12:32:54.735378"
       }
     ],
     "dialogs": [],
@@ -57,38 +57,38 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-3d0dda6aea39",
-        "event_id": "evt-2f6d75e6910e",
+        "record_id": "rec-a8255f5e90cc",
+        "event_id": "evt-a278c4cae9c2",
         "event_type": "project.created",
-        "timestamp": "2026-05-19T17:19:08.511820",
+        "timestamp": "2026-05-21T12:32:54.733805",
         "payload": {
-          "project_id": "proj-9f3cf49c5fe4",
+          "project_id": "proj-98b4f1f1590e",
           "name": "Integration Test Project"
         },
-        "stored_at": "2026-05-19T17:19:08.511820",
+        "stored_at": "2026-05-21T12:32:54.733805",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "6ed003d3-2c19-4419-9c9f-1f725a583899",
-        "entity_id": "evt-ff10b8495e12",
-        "created_at": "2026-05-19T17:19:08.511820",
-        "updated_at": "2026-05-19T17:19:08.511820"
+        "correlation_id": "21d249c2-1e32-434c-a5ce-6d6328d20b4d",
+        "entity_id": "evt-56ee527c09dd",
+        "created_at": "2026-05-21T12:32:54.734826",
+        "updated_at": "2026-05-21T12:32:54.734826"
       },
       {
-        "record_id": "rec-6e6e4240ad4d",
-        "event_id": "evt-7aca35bc1965",
+        "record_id": "rec-80933b6ceec8",
+        "event_id": "evt-e56f7bac63ae",
         "event_type": "session.created",
-        "timestamp": "2026-05-19T17:19:08.516350",
+        "timestamp": "2026-05-21T12:32:54.738038",
         "payload": {
-          "session_id": "sess-229519b79bde",
-          "project_id": "proj-9f3cf49c5fe4"
+          "session_id": "sess-968152391bc5",
+          "project_id": "proj-98b4f1f1590e"
         },
-        "stored_at": "2026-05-19T17:19:08.516350",
+        "stored_at": "2026-05-21T12:32:54.738038",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "e485e7b4-3576-48b0-b17f-4c46b74dcd6d",
-        "entity_id": "evt-c47f3bb9b68a",
-        "created_at": "2026-05-19T17:19:08.516350",
-        "updated_at": "2026-05-19T17:19:08.516350"
+        "correlation_id": "dc347854-7682-4148-9c7b-7e2b14dca903",
+        "entity_id": "evt-f1340eebf3b7",
+        "created_at": "2026-05-21T12:32:54.738038",
+        "updated_at": "2026-05-21T12:32:54.738038"
       }
     ],
     "prompts": [],
@@ -103,56 +103,56 @@
   "file_operations": [
     {
       "entity_type": "projects",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\projects.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\projects.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "project_id": "proj-9f3cf49c5fe4",
+        "project_id": "proj-98b4f1f1590e",
         "name": "Integration Test Project",
         "description": "",
         "workspace_config_id": "ws-test-it",
         "model_config_id": "mc-test-it",
         "tool_config_ids": [],
         "status": "active",
-        "created_at": "2026-05-19T17:19:08.508821",
-        "updated_at": "2026-05-19T17:19:08.508821"
+        "created_at": "2026-05-21T12:32:54.732940",
+        "updated_at": "2026-05-21T12:32:54.732940"
       }
     },
     {
       "entity_type": "sessions",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\sessions.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\sessions.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "session_id": "sess-229519b79bde",
-        "project_id": "proj-9f3cf49c5fe4",
+        "session_id": "sess-968152391bc5",
+        "project_id": "proj-98b4f1f1590e",
         "name": "Integration Test Session",
         "status": "active",
-        "created_at": "2026-05-19T17:19:08.514352",
-        "updated_at": "2026-05-19T17:19:08.514352"
+        "created_at": "2026-05-21T12:32:54.735378",
+        "updated_at": "2026-05-21T12:32:54.735378"
       }
     },
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
       "record_count": 2,
       "sample_data": {
-        "record_id": "rec-6e6e4240ad4d",
-        "event_id": "evt-7aca35bc1965",
+        "record_id": "rec-80933b6ceec8",
+        "event_id": "evt-e56f7bac63ae",
         "event_type": "session.created",
-        "timestamp": "2026-05-19T17:19:08.516350",
+        "timestamp": "2026-05-21T12:32:54.738038",
         "payload": {
-          "session_id": "sess-229519b79bde",
-          "project_id": "proj-9f3cf49c5fe4"
+          "session_id": "sess-968152391bc5",
+          "project_id": "proj-98b4f1f1590e"
         },
-        "stored_at": "2026-05-19T17:19:08.516350",
+        "stored_at": "2026-05-21T12:32:54.738038",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "e485e7b4-3576-48b0-b17f-4c46b74dcd6d",
-        "entity_id": "evt-c47f3bb9b68a",
-        "created_at": "2026-05-19T17:19:08.516350",
-        "updated_at": "2026-05-19T17:19:08.516350"
+        "correlation_id": "dc347854-7682-4148-9c7b-7e2b14dca903",
+        "entity_id": "evt-f1340eebf3b7",
+        "created_at": "2026-05-21T12:32:54.738038",
+        "updated_at": "2026-05-21T12:32:54.738038"
       }
     }
   ]

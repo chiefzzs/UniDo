@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:05:37.979388",
+  "timestamp": "2026-05-21T12:53:59.237741",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2c_tool_execution",
@@ -29,25 +29,7 @@
     "tasks": [],
     "llm_calls": [],
     "tool_calls": [],
-    "events": [
-      {
-        "record_id": "rec-ca3b488dec50",
-        "event_id": "evt-6734346ace79",
-        "event_type": "tool.registered",
-        "timestamp": "2026-05-20T19:05:37.959959",
-        "payload": {
-          "tool_id": "tool-fb1831337a79",
-          "tool_name": "test_tool_with_required"
-        },
-        "stored_at": "2026-05-20T19:05:37.959959",
-        "source_component": "",
-        "source_service": "",
-        "correlation_id": "f334706f-00b2-4e6d-9c04-074baac9b903",
-        "entity_id": "evt-93d7796e2eee",
-        "created_at": "2026-05-20T19:05:37.959959",
-        "updated_at": "2026-05-20T19:05:37.959959"
-      }
-    ],
+    "events": [],
     "prompts": [],
     "workspace_configs": [],
     "model_configs": [],
@@ -57,29 +39,5 @@
   "llm_data": {},
   "tool_calls": [],
   "service_calls": [],
-  "file_operations": [
-    {
-      "entity_type": "events",
-      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
-      "operation": "write",
-      "record_count": 1,
-      "sample_data": {
-        "record_id": "rec-ca3b488dec50",
-        "event_id": "evt-6734346ace79",
-        "event_type": "tool.registered",
-        "timestamp": "2026-05-20T19:05:37.959959",
-        "payload": {
-          "tool_id": "tool-fb1831337a79",
-          "tool_name": "test_tool_with_required"
-        },
-        "stored_at": "2026-05-20T19:05:37.959959",
-        "source_component": "",
-        "source_service": "",
-        "correlation_id": "f334706f-00b2-4e6d-9c04-074baac9b903",
-        "entity_id": "evt-93d7796e2eee",
-        "created_at": "2026-05-20T19:05:37.959959",
-        "updated_at": "2026-05-20T19:05:37.959959"
-      }
-    }
-  ]
+  "file_operations": []
 }

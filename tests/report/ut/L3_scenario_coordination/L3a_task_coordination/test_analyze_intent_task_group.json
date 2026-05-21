@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:06:28.998732",
+  "timestamp": "2026-05-21T13:08:20.413157",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3a_task_coordination",
@@ -25,7 +25,7 @@
     "tasks": [],
     "llm_calls": [
       {
-        "call_id": "call-03674d71a604",
+        "call_id": "call-75aa09130d35",
         "dialog_id": "intent-analysis-default-session",
         "model_config_id": "default",
         "request": {
@@ -50,29 +50,25 @@
           "tool_choice": null
         },
         "response": {
-          "content": "```json\n{\n    \"intent_type\": \"task_group\",\n    \"confidence\": 0.95,\n    \"reasoning\": \"用户明确要求按顺序执行三个独立步骤（分析→执行→汇总），需多任务协作完成且存在依赖关系\",\n    \"tool_info\": {\n        \"tool_name\": \"\",\n        \"parameters\": {}\n    },\n    \"task_info\": {\n        \"execution_mode\": \"sequential\",\n        \"subtasks\": [\n            {\"description\": \"分析用户需求\"},\n            {\"description\": \"执行相关操作\"},\n            {\"description\": \"汇总并呈现结果\"}\n        ]\n    }\n}\n```",
+          "content": "",
           "finish_reason": "stop",
           "tool_calls": [],
-          "usage": {
-            "prompt_tokens": 270,
-            "completion_tokens": 1083,
-            "total_tokens": 1353
-          }
+          "usage": {}
         },
         "status": "completed",
-        "duration_ms": 17918,
-        "created_at": "2026-05-20T19:06:28.982584"
+        "duration_ms": 2318,
+        "created_at": "2026-05-21T13:08:20.392670"
       }
     ],
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-cbcbe19b6a8c",
-        "event_id": "evt-b44921c519f4",
+        "record_id": "rec-df51190c2665",
+        "event_id": "evt-461821739efd",
         "event_type": "llm.request_sent",
-        "timestamp": "2026-05-20T19:06:11.063673",
+        "timestamp": "2026-05-21T13:08:18.073914",
         "payload": {
-          "request_id": "req-12778e983956",
+          "request_id": "req-5ca89c8080ba",
           "dialog_id": "intent-analysis-default-session",
           "model_config_id": "default",
           "num_messages": 2,
@@ -81,54 +77,54 @@
           "source_component": "L2_llm_execution",
           "source_service": "LLMExecutionService"
         },
-        "stored_at": "2026-05-20T19:06:11.063673",
+        "stored_at": "2026-05-21T13:08:18.073914",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "ddee8e8b-9448-403c-b372-2b4c59ec3352",
-        "entity_id": "evt-b0fc168df9b7",
-        "created_at": "2026-05-20T19:06:11.063673",
-        "updated_at": "2026-05-20T19:06:11.063673"
+        "correlation_id": "6a94350c-cef4-4f76-ace7-e5b3fa46aece",
+        "entity_id": "evt-a701a3c27efd",
+        "created_at": "2026-05-21T13:08:18.073914",
+        "updated_at": "2026-05-21T13:08:18.073914"
       },
       {
-        "record_id": "rec-788e3a0bc5e4",
-        "event_id": "evt-cfef6c375bbf",
+        "record_id": "rec-1b0c09292129",
+        "event_id": "evt-bd0d4ca8b816",
         "event_type": "llm.response_received",
-        "timestamp": "2026-05-20T19:06:28.982039",
+        "timestamp": "2026-05-21T13:08:20.391142",
         "payload": {
-          "request_id": "req-12778e983956",
+          "request_id": "req-5ca89c8080ba",
           "dialog_id": "intent-analysis-default-session",
-          "has_content": true,
+          "has_content": false,
           "has_tool_calls": false,
           "source_component": "L2_llm_execution",
           "source_service": "LLMExecutionService"
         },
-        "stored_at": "2026-05-20T19:06:28.982039",
+        "stored_at": "2026-05-21T13:08:20.391142",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "f8680e3d-b6b4-461d-af0a-f27ddbdef109",
-        "entity_id": "evt-e511371f3d72",
-        "created_at": "2026-05-20T19:06:28.982039",
-        "updated_at": "2026-05-20T19:06:28.982039"
+        "correlation_id": "7684b76b-892a-480a-955a-8b558c80f670",
+        "entity_id": "evt-f330e5ed50f1",
+        "created_at": "2026-05-21T13:08:20.391142",
+        "updated_at": "2026-05-21T13:08:20.391142"
       },
       {
-        "record_id": "rec-0adb4cf1e9f5",
-        "event_id": "evt-86f5745c3b3d",
+        "record_id": "rec-391fd51acaf0",
+        "event_id": "evt-a903bfe4a9b4",
         "event_type": "llm.call_completed",
-        "timestamp": "2026-05-20T19:06:28.984646",
+        "timestamp": "2026-05-21T13:08:20.394202",
         "payload": {
-          "request_id": "req-12778e983956",
+          "request_id": "req-5ca89c8080ba",
           "dialog_id": "intent-analysis-default-session",
-          "duration_ms": 17918,
+          "duration_ms": 2318,
           "source_component": "L2_llm_execution",
           "source_service": "LLMExecutionService"
         },
-        "stored_at": "2026-05-20T19:06:28.984646",
+        "stored_at": "2026-05-21T13:08:20.394202",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "a0f2212e-5f15-4647-9085-4df9be9bcfd5",
-        "entity_id": "evt-646038b0b3fd",
-        "created_at": "2026-05-20T19:06:28.984646",
-        "updated_at": "2026-05-20T19:06:28.984646"
+        "correlation_id": "5a5c57ec-c256-451a-a948-e034267100a2",
+        "entity_id": "evt-cbd419b9f718",
+        "created_at": "2026-05-21T13:08:20.394202",
+        "updated_at": "2026-05-21T13:08:20.394202"
       }
     ],
     "prompts": [],
@@ -141,7 +137,7 @@
     "file_path": "D:\\learnning\\260521\\src\\data\\test\\llm_calls.json",
     "call_count": 1,
     "last_call": {
-      "call_id": "call-03674d71a604",
+      "call_id": "call-75aa09130d35",
       "dialog_id": "intent-analysis-default-session",
       "model_config_id": "default",
       "request": {
@@ -166,18 +162,14 @@
         "tool_choice": null
       },
       "response": {
-        "content": "```json\n{\n    \"intent_type\": \"task_group\",\n    \"confidence\": 0.95,\n    \"reasoning\": \"用户明确要求按顺序执行三个独立步骤（分析→执行→汇总），需多任务协作完成且存在依赖关系\",\n    \"tool_info\": {\n        \"tool_name\": \"\",\n        \"parameters\": {}\n    },\n    \"task_info\": {\n        \"execution_mode\": \"sequential\",\n        \"subtasks\": [\n            {\"description\": \"分析用户需求\"},\n            {\"description\": \"执行相关操作\"},\n            {\"description\": \"汇总并呈现结果\"}\n        ]\n    }\n}\n```",
+        "content": "",
         "finish_reason": "stop",
         "tool_calls": [],
-        "usage": {
-          "prompt_tokens": 270,
-          "completion_tokens": 1083,
-          "total_tokens": 1353
-        }
+        "usage": {}
       },
       "status": "completed",
-      "duration_ms": 17918,
-      "created_at": "2026-05-20T19:06:28.982584"
+      "duration_ms": 2318,
+      "created_at": "2026-05-21T13:08:20.392670"
     },
     "validation": {
       "valid": true,
@@ -195,7 +187,7 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "call_id": "call-03674d71a604",
+        "call_id": "call-75aa09130d35",
         "dialog_id": "intent-analysis-default-session",
         "model_config_id": "default",
         "request": {
@@ -220,18 +212,14 @@
           "tool_choice": null
         },
         "response": {
-          "content": "```json\n{\n    \"intent_type\": \"task_group\",\n    \"confidence\": 0.95,\n    \"reasoning\": \"用户明确要求按顺序执行三个独立步骤（分析→执行→汇总），需多任务协作完成且存在依赖关系\",\n    \"tool_info\": {\n        \"tool_name\": \"\",\n        \"parameters\": {}\n    },\n    \"task_info\": {\n        \"execution_mode\": \"sequential\",\n        \"subtasks\": [\n            {\"description\": \"分析用户需求\"},\n            {\"description\": \"执行相关操作\"},\n            {\"description\": \"汇总并呈现结果\"}\n        ]\n    }\n}\n```",
+          "content": "",
           "finish_reason": "stop",
           "tool_calls": [],
-          "usage": {
-            "prompt_tokens": 270,
-            "completion_tokens": 1083,
-            "total_tokens": 1353
-          }
+          "usage": {}
         },
         "status": "completed",
-        "duration_ms": 17918,
-        "created_at": "2026-05-20T19:06:28.982584"
+        "duration_ms": 2318,
+        "created_at": "2026-05-21T13:08:20.392670"
       }
     },
     {
@@ -240,24 +228,24 @@
       "operation": "write",
       "record_count": 3,
       "sample_data": {
-        "record_id": "rec-0adb4cf1e9f5",
-        "event_id": "evt-86f5745c3b3d",
+        "record_id": "rec-391fd51acaf0",
+        "event_id": "evt-a903bfe4a9b4",
         "event_type": "llm.call_completed",
-        "timestamp": "2026-05-20T19:06:28.984646",
+        "timestamp": "2026-05-21T13:08:20.394202",
         "payload": {
-          "request_id": "req-12778e983956",
+          "request_id": "req-5ca89c8080ba",
           "dialog_id": "intent-analysis-default-session",
-          "duration_ms": 17918,
+          "duration_ms": 2318,
           "source_component": "L2_llm_execution",
           "source_service": "LLMExecutionService"
         },
-        "stored_at": "2026-05-20T19:06:28.984646",
+        "stored_at": "2026-05-21T13:08:20.394202",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "a0f2212e-5f15-4647-9085-4df9be9bcfd5",
-        "entity_id": "evt-646038b0b3fd",
-        "created_at": "2026-05-20T19:06:28.984646",
-        "updated_at": "2026-05-20T19:06:28.984646"
+        "correlation_id": "5a5c57ec-c256-451a-a948-e034267100a2",
+        "entity_id": "evt-cbd419b9f718",
+        "created_at": "2026-05-21T13:08:20.394202",
+        "updated_at": "2026-05-21T13:08:20.394202"
       }
     }
   ]

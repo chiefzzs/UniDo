@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:05:36.959174",
+  "timestamp": "2026-05-21T12:33:28.711866",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2b_memory_state",
@@ -10,11 +10,11 @@
     "验证L2服务自动触发L1持久化到long_term_memory"
   ],
   "inputs": {
-    "short_term_id": "mem-10ba81df2f0b"
+    "short_term_id": "mem-0bf66f3b015f"
   },
   "outputs": {
-    "long_term_id": "lterm-4affee0c6bc0",
-    "moved_at": "2026-05-20T19:05:36.939891"
+    "long_term_id": "lterm-2ad086a77c04",
+    "moved_at": "2026-05-21T12:33:28.686851"
   },
   "persistent_data": {
     "projects": [],

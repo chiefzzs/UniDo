@@ -102,7 +102,7 @@ class ConfigDrivenToolRegistry:
         """
         注册所有工具
         
-        根据配置自动加载平台特定工具和通用工具
+        根据配置自动加载平台特定工具和通用工具，同时自动扫描工具目录
         """
         if self._registered:
             return
@@ -122,8 +122,57 @@ class ConfigDrivenToolRegistry:
         for class_name in common_tools:
             self._register_tool(class_name, module_mapping.get(class_name))
         
+        # 自动扫描工具目录中的所有工具类
+        self._scan_and_register_tools()
+        
         self._registered = True
         print(f"[ConfigDrivenRegistry] 注册完成，共 {len(self._tools)} 个工具")
+    
+    def _scan_and_register_tools(self) -> None:
+        """
+        自动扫描工具目录，注册所有BaseTool子类
+        
+        扫描 src/tools/implement 目录中的所有模块，自动发现并注册工具类
+        """
+        import inspect
+        
+        # 获取工具实现目录路径
+        tools_dir = os.path.dirname(os.path.abspath(__file__))
+        
+        # 遍历目录中的所有Python文件
+        for filename in os.listdir(tools_dir):
+            if filename.endswith('.py') and not filename.startswith('_'):
+                module_name = filename[:-3]  # 去掉 .py
+                full_module_path = f"src.tools.implement.{module_name}"
+                
+                try:
+                    # 导入模块
+                    module = __import__(full_module_path, fromlist=[''])
+                    
+                    # 遍历模块中的所有成员
+                    for name, obj in inspect.getmembers(module):
+                        # 检查是否是BaseTool的子类且不是抽象类
+                        if (inspect.isclass(obj) and 
+                            issubclass(obj, BaseTool) and 
+                            obj != BaseTool and
+                            not inspect.isabstract(obj)):
+                            # 尝试注册工具
+                            try:
+                                tool_instance = obj()
+                                tool_id = str(tool_instance.tool_id)
+                                
+                                # 只有在工具ID或名称不存在时才注册
+                                if tool_id not in self._tools and tool_instance.name.lower() not in self._tools:
+                                    self._tools[tool_id] = tool_instance
+                                    self._tools[tool_instance.name.lower()] = tool_instance
+                                    print(f"[ConfigDrivenRegistry] ✓ 自动扫描注册: {name} (ID: {tool_id})")
+                            except Exception as e:
+                                print(f"[ConfigDrivenRegistry] ✗ 自动扫描注册失败 {name}: {e}")
+                                
+                except ImportError as e:
+                    print(f"[ConfigDrivenRegistry] ✗ 导入模块失败 {module_name}: {e}")
+                except Exception as e:
+                    print(f"[ConfigDrivenRegistry] ✗ 扫描模块异常 {module_name}: {e}")
     
     def _register_tool(self, class_name: str, module_name: Optional[str] = None) -> bool:
         """

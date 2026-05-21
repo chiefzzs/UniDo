@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T19:06:43.494672",
+  "timestamp": "2026-05-21T12:55:40.970920",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3c_ui_scenarios",
@@ -17,20 +17,20 @@
     "projects": [],
     "sessions": [
       {
-        "session_id": "sess-f27580f98024",
+        "session_id": "sess-3235e7cb0885",
         "project_id": "",
         "name": "Session 1",
         "status": "active",
-        "created_at": "2026-05-20T19:06:43.473203",
-        "updated_at": "2026-05-20T19:06:43.473203"
+        "created_at": "2026-05-21T12:55:40.941440",
+        "updated_at": "2026-05-21T12:55:40.941440"
       },
       {
-        "session_id": "sess-af5783f6be17",
+        "session_id": "sess-f75a56a44ece",
         "project_id": "",
         "name": "Session 2",
         "status": "active",
-        "created_at": "2026-05-20T19:06:43.477025",
-        "updated_at": "2026-05-20T19:06:43.477025"
+        "created_at": "2026-05-21T12:55:40.946111",
+        "updated_at": "2026-05-21T12:55:40.946111"
       }
     ],
     "dialogs": [],
@@ -41,38 +41,38 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-0f70560515aa",
-        "event_id": "evt-dbdb1653b7f3",
+        "record_id": "rec-1c9428db6b72",
+        "event_id": "evt-1091ba790563",
         "event_type": "session.created",
-        "timestamp": "2026-05-20T19:06:43.474888",
+        "timestamp": "2026-05-21T12:55:40.944052",
         "payload": {
-          "session_id": "sess-f27580f98024",
+          "session_id": "sess-3235e7cb0885",
           "project_id": ""
         },
-        "stored_at": "2026-05-20T19:06:43.474888",
+        "stored_at": "2026-05-21T12:55:40.944573",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "3293a661-7d2e-44d8-8516-ae9c2016283e",
-        "entity_id": "evt-d609632e5706",
-        "created_at": "2026-05-20T19:06:43.474888",
-        "updated_at": "2026-05-20T19:06:43.474888"
+        "correlation_id": "a70a38d0-cd51-4cfc-b1bc-ffe12a6aba06",
+        "entity_id": "evt-387a504c123e",
+        "created_at": "2026-05-21T12:55:40.944573",
+        "updated_at": "2026-05-21T12:55:40.944573"
       },
       {
-        "record_id": "rec-dfae9f9a9c97",
-        "event_id": "evt-231e9e969644",
+        "record_id": "rec-2d5cb6dced6e",
+        "event_id": "evt-579a56ec2dfa",
         "event_type": "session.created",
-        "timestamp": "2026-05-20T19:06:43.477025",
+        "timestamp": "2026-05-21T12:55:40.948110",
         "payload": {
-          "session_id": "sess-af5783f6be17",
+          "session_id": "sess-f75a56a44ece",
           "project_id": ""
         },
-        "stored_at": "2026-05-20T19:06:43.477025",
+        "stored_at": "2026-05-21T12:55:40.948110",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "b1f0ec37-0528-4f42-94f5-8339299d6d21",
-        "entity_id": "evt-956e1a14a147",
-        "created_at": "2026-05-20T19:06:43.477025",
-        "updated_at": "2026-05-20T19:06:43.477025"
+        "correlation_id": "d42562ed-f99a-4924-975d-a849e5cc9748",
+        "entity_id": "evt-e46c169c22c7",
+        "created_at": "2026-05-21T12:55:40.948110",
+        "updated_at": "2026-05-21T12:55:40.948110"
       }
     ],
     "prompts": [],
@@ -91,12 +91,12 @@
       "operation": "write",
       "record_count": 2,
       "sample_data": {
-        "session_id": "sess-af5783f6be17",
+        "session_id": "sess-f75a56a44ece",
         "project_id": "",
         "name": "Session 2",
         "status": "active",
-        "created_at": "2026-05-20T19:06:43.477025",
-        "updated_at": "2026-05-20T19:06:43.477025"
+        "created_at": "2026-05-21T12:55:40.946111",
+        "updated_at": "2026-05-21T12:55:40.946111"
       }
     },
     {
@@ -105,21 +105,21 @@
       "operation": "write",
       "record_count": 2,
       "sample_data": {
-        "record_id": "rec-dfae9f9a9c97",
-        "event_id": "evt-231e9e969644",
+        "record_id": "rec-2d5cb6dced6e",
+        "event_id": "evt-579a56ec2dfa",
         "event_type": "session.created",
-        "timestamp": "2026-05-20T19:06:43.477025",
+        "timestamp": "2026-05-21T12:55:40.948110",
         "payload": {
-          "session_id": "sess-af5783f6be17",
+          "session_id": "sess-f75a56a44ece",
           "project_id": ""
         },
-        "stored_at": "2026-05-20T19:06:43.477025",
+        "stored_at": "2026-05-21T12:55:40.948110",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "b1f0ec37-0528-4f42-94f5-8339299d6d21",
-        "entity_id": "evt-956e1a14a147",
-        "created_at": "2026-05-20T19:06:43.477025",
-        "updated_at": "2026-05-20T19:06:43.477025"
+        "correlation_id": "d42562ed-f99a-4924-975d-a849e5cc9748",
+        "entity_id": "evt-e46c169c22c7",
+        "created_at": "2026-05-21T12:55:40.948110",
+        "updated_at": "2026-05-21T12:55:40.948110"
       }
     }
   ]
