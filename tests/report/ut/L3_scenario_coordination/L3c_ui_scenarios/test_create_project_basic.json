@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:17:35.976678",
+  "timestamp": "2026-05-20T19:06:43.127605",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3c_ui_scenarios",
@@ -15,7 +15,7 @@
     "model_config_id": "mc-test-001"
   },
   "outputs": {
-    "project_id": "proj-5580a30e9bf1",
+    "project_id": "proj-f61840538cc4",
     "name": "Basic Project"
   },
   "persistent_data": {
@@ -29,42 +29,42 @@
   "file_operations": [
     {
       "entity_type": "projects",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\projects.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\projects.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "project_id": "proj-5580a30e9bf1",
+        "project_id": "proj-f61840538cc4",
         "name": "Basic Project",
         "description": "",
         "workspace_config_id": "ws-test-001",
         "model_config_id": "mc-test-001",
         "tool_config_ids": [],
         "status": "active",
-        "created_at": "2026-05-19T17:17:35.970402",
-        "updated_at": "2026-05-19T17:17:35.970402"
+        "created_at": "2026-05-20T19:06:43.120421",
+        "updated_at": "2026-05-20T19:06:43.120421"
       }
     },
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "record_id": "rec-3c519fd0829b",
-        "event_id": "evt-bb2f4c4affb9",
+        "record_id": "rec-82e14b30f332",
+        "event_id": "evt-5bbbaa29da40",
         "event_type": "project.created",
-        "timestamp": "2026-05-19T17:17:35.971983",
+        "timestamp": "2026-05-20T19:06:43.122502",
         "payload": {
-          "project_id": "proj-5580a30e9bf1",
+          "project_id": "proj-f61840538cc4",
           "name": "Basic Project"
         },
-        "stored_at": "2026-05-19T17:17:35.971983",
+        "stored_at": "2026-05-20T19:06:43.122502",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "05f907c2-c596-4935-b9a5-c7ff90ad77d3",
-        "entity_id": "evt-b7b976182472",
-        "created_at": "2026-05-19T17:17:35.971983",
-        "updated_at": "2026-05-19T17:17:35.971983"
+        "correlation_id": "545e9041-a52c-4fc3-a609-8374fe96c960",
+        "entity_id": "evt-b891abd1a3ab",
+        "created_at": "2026-05-20T19:06:43.122502",
+        "updated_at": "2026-05-20T19:06:43.122502"
       }
     }
   ]

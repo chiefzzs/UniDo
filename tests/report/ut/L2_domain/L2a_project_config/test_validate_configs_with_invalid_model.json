@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:09:00.676081",
+  "timestamp": "2026-05-20T19:05:36.647016",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2a_project_config",
@@ -10,7 +10,7 @@
     "验证不存在的模型ID被拒绝"
   ],
   "inputs": {
-    "workspace_id": "ws-config-9963fd9edb26",
+    "workspace_id": "ws-config-75236ffc7483",
     "model_config_id": "invalid-model-id"
   },
   "outputs": {
@@ -29,12 +29,14 @@
     "prompts": [],
     "workspace_configs": [
       {
-        "config_id": "ws-config-9963fd9edb26",
+        "config_id": "ws-config-75236ffc7483",
         "name": "Test Workspace",
         "root_path": "/workspace/test",
         "type": "local",
-        "created_at": "2026-05-19T17:09:00.653845",
-        "updated_at": "2026-05-19T17:09:00.653845"
+        "encoding": "utf-8",
+        "excluded_patterns": [],
+        "created_at": "2026-05-20T19:05:36.629111",
+        "updated_at": "2026-05-20T19:05:36.629111"
       }
     ],
     "model_configs": [],
@@ -47,16 +49,18 @@
   "file_operations": [
     {
       "entity_type": "workspace_configs",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\workspace_configs.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\workspace_configs.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "config_id": "ws-config-9963fd9edb26",
+        "config_id": "ws-config-75236ffc7483",
         "name": "Test Workspace",
         "root_path": "/workspace/test",
         "type": "local",
-        "created_at": "2026-05-19T17:09:00.653845",
-        "updated_at": "2026-05-19T17:09:00.653845"
+        "encoding": "utf-8",
+        "excluded_patterns": [],
+        "created_at": "2026-05-20T19:05:36.629111",
+        "updated_at": "2026-05-20T19:05:36.629111"
       }
     }
   ]

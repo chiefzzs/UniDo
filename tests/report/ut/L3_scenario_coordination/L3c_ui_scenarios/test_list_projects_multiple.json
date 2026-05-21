@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:17:36.173321",
+  "timestamp": "2026-05-20T19:06:43.323419",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3c_ui_scenarios",
@@ -16,37 +16,37 @@
   "persistent_data": {
     "projects": [
       {
-        "project_id": "proj-eb09268d1690",
+        "project_id": "proj-37cf522dc2b6",
         "name": "Project Alpha",
         "description": "",
         "workspace_config_id": "ws-test-001",
         "model_config_id": "mc-test-001",
         "tool_config_ids": [],
         "status": "active",
-        "created_at": "2026-05-19T17:17:36.142108",
-        "updated_at": "2026-05-19T17:17:36.142108"
+        "created_at": "2026-05-20T19:06:43.298276",
+        "updated_at": "2026-05-20T19:06:43.298276"
       },
       {
-        "project_id": "proj-463300be790c",
+        "project_id": "proj-e657c6166839",
         "name": "Project Beta",
         "description": "",
         "workspace_config_id": "ws-test-001",
         "model_config_id": "mc-test-001",
         "tool_config_ids": [],
         "status": "active",
-        "created_at": "2026-05-19T17:17:36.145626",
-        "updated_at": "2026-05-19T17:17:36.145626"
+        "created_at": "2026-05-20T19:06:43.302910",
+        "updated_at": "2026-05-20T19:06:43.302910"
       },
       {
-        "project_id": "proj-a3601bd65e04",
+        "project_id": "proj-757db7d7c865",
         "name": "Project Gamma",
         "description": "",
         "workspace_config_id": "ws-test-001",
         "model_config_id": "mc-test-001",
         "tool_config_ids": [],
         "status": "active",
-        "created_at": "2026-05-19T17:17:36.148568",
-        "updated_at": "2026-05-19T17:17:36.148568"
+        "created_at": "2026-05-20T19:06:43.305046",
+        "updated_at": "2026-05-20T19:06:43.305046"
       }
     ],
     "sessions": [],
@@ -58,55 +58,55 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-1359fe531eae",
-        "event_id": "evt-c1862bf78ec9",
+        "record_id": "rec-3ba0a4c210d1",
+        "event_id": "evt-9eb84f6a4546",
         "event_type": "project.created",
-        "timestamp": "2026-05-19T17:17:36.143616",
+        "timestamp": "2026-05-20T19:06:43.300625",
         "payload": {
-          "project_id": "proj-eb09268d1690",
+          "project_id": "proj-37cf522dc2b6",
           "name": "Project Alpha"
         },
-        "stored_at": "2026-05-19T17:17:36.143616",
+        "stored_at": "2026-05-20T19:06:43.300625",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "85f30998-719e-41d5-b638-db3aaa8864f9",
-        "entity_id": "evt-187bb60095f3",
-        "created_at": "2026-05-19T17:17:36.143616",
-        "updated_at": "2026-05-19T17:17:36.143616"
+        "correlation_id": "9d575c99-0550-4623-a22e-f5233b477466",
+        "entity_id": "evt-2fac2f30e035",
+        "created_at": "2026-05-20T19:06:43.300625",
+        "updated_at": "2026-05-20T19:06:43.300625"
       },
       {
-        "record_id": "rec-29606a48549a",
-        "event_id": "evt-8b2c3f8dad87",
+        "record_id": "rec-73906a52c29b",
+        "event_id": "evt-4293bf3c7738",
         "event_type": "project.created",
-        "timestamp": "2026-05-19T17:17:36.147055",
+        "timestamp": "2026-05-20T19:06:43.303993",
         "payload": {
-          "project_id": "proj-463300be790c",
+          "project_id": "proj-e657c6166839",
           "name": "Project Beta"
         },
-        "stored_at": "2026-05-19T17:17:36.147055",
+        "stored_at": "2026-05-20T19:06:43.303993",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "3522e4a9-3b12-4a42-ab60-331f50dca35f",
-        "entity_id": "evt-dffda07aa6f9",
-        "created_at": "2026-05-19T17:17:36.147055",
-        "updated_at": "2026-05-19T17:17:36.147055"
+        "correlation_id": "7e751498-c0ca-46c6-8d02-d53e71982f2b",
+        "entity_id": "evt-3bb84c521541",
+        "created_at": "2026-05-20T19:06:43.303993",
+        "updated_at": "2026-05-20T19:06:43.303993"
       },
       {
-        "record_id": "rec-e7dea544822d",
-        "event_id": "evt-43679029afcc",
+        "record_id": "rec-72c1ca5a333a",
+        "event_id": "evt-7c319dc45850",
         "event_type": "project.created",
-        "timestamp": "2026-05-19T17:17:36.148568",
+        "timestamp": "2026-05-20T19:06:43.306656",
         "payload": {
-          "project_id": "proj-a3601bd65e04",
+          "project_id": "proj-757db7d7c865",
           "name": "Project Gamma"
         },
-        "stored_at": "2026-05-19T17:17:36.148568",
+        "stored_at": "2026-05-20T19:06:43.306656",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "35b2c4c2-ae12-48af-b915-6c056ce6e7c0",
-        "entity_id": "evt-4849d632f635",
-        "created_at": "2026-05-19T17:17:36.148568",
-        "updated_at": "2026-05-19T17:17:36.148568"
+        "correlation_id": "e5441a97-8fd6-4cc4-bea6-6bb957517533",
+        "entity_id": "evt-5a45ca4d7826",
+        "created_at": "2026-05-20T19:06:43.306656",
+        "updated_at": "2026-05-20T19:06:43.306656"
       }
     ],
     "prompts": [],
@@ -121,42 +121,42 @@
   "file_operations": [
     {
       "entity_type": "projects",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\projects.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\projects.json",
       "operation": "write",
       "record_count": 3,
       "sample_data": {
-        "project_id": "proj-a3601bd65e04",
+        "project_id": "proj-757db7d7c865",
         "name": "Project Gamma",
         "description": "",
         "workspace_config_id": "ws-test-001",
         "model_config_id": "mc-test-001",
         "tool_config_ids": [],
         "status": "active",
-        "created_at": "2026-05-19T17:17:36.148568",
-        "updated_at": "2026-05-19T17:17:36.148568"
+        "created_at": "2026-05-20T19:06:43.305046",
+        "updated_at": "2026-05-20T19:06:43.305046"
       }
     },
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
       "record_count": 3,
       "sample_data": {
-        "record_id": "rec-e7dea544822d",
-        "event_id": "evt-43679029afcc",
+        "record_id": "rec-72c1ca5a333a",
+        "event_id": "evt-7c319dc45850",
         "event_type": "project.created",
-        "timestamp": "2026-05-19T17:17:36.148568",
+        "timestamp": "2026-05-20T19:06:43.306656",
         "payload": {
-          "project_id": "proj-a3601bd65e04",
+          "project_id": "proj-757db7d7c865",
           "name": "Project Gamma"
         },
-        "stored_at": "2026-05-19T17:17:36.148568",
+        "stored_at": "2026-05-20T19:06:43.306656",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "35b2c4c2-ae12-48af-b915-6c056ce6e7c0",
-        "entity_id": "evt-4849d632f635",
-        "created_at": "2026-05-19T17:17:36.148568",
-        "updated_at": "2026-05-19T17:17:36.148568"
+        "correlation_id": "e5441a97-8fd6-4cc4-bea6-6bb957517533",
+        "entity_id": "evt-5a45ca4d7826",
+        "created_at": "2026-05-20T19:06:43.306656",
+        "updated_at": "2026-05-20T19:06:43.306656"
       }
     }
   ]

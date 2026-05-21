@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:09:04.228750",
+  "timestamp": "2026-05-20T19:05:45.355468",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2d_llm_execution",
@@ -15,7 +15,7 @@
     "message_count": 2
   },
   "outputs": {
-    "request_id": "req-261a6cfbbe43",
+    "request_id": "req-bf256c1071c2",
     "status": "completed",
     "content": "Hello! I'm doing well, thank you for asking. How a"
   },
@@ -28,7 +28,7 @@
     "tasks": [],
     "llm_calls": [
       {
-        "call_id": "call-1e070e65e0f1",
+        "call_id": "call-d420f6e6bd17",
         "dialog_id": "session-llm-001",
         "model_config_id": "default",
         "request": {
@@ -53,39 +53,85 @@
           "tool_choice": null
         },
         "response": {
-          "content": "Hello! I'm doing well, thank you for asking. How about you? How's your day going? Is there anything I can help you with?",
+          "content": "Hello! I'm doing well, thank you for asking. How about you? Is there anything I can help you with today?",
           "finish_reason": "stop",
-          "tool_calls": null,
+          "tool_calls": [],
           "usage": {
             "prompt_tokens": 27,
-            "completion_tokens": 418,
-            "total_tokens": 445
+            "completion_tokens": 375,
+            "total_tokens": 402
           }
         },
         "status": "completed",
-        "duration_ms": 2497,
-        "created_at": "2026-05-19T17:09:04.200757"
+        "duration_ms": 7000,
+        "created_at": "2026-05-20T19:05:45.326929"
       }
     ],
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-3fce8480cf41",
-        "event_id": "evt-c697e3b919c4",
-        "event_type": "llm.call_completed",
-        "timestamp": "2026-05-19T17:09:04.202972",
+        "record_id": "rec-9a4e0173ca08",
+        "event_id": "evt-f807cfd264c0",
+        "event_type": "llm.request_sent",
+        "timestamp": "2026-05-20T19:05:38.326801",
         "payload": {
-          "request_id": "req-261a6cfbbe43",
+          "request_id": "req-bf256c1071c2",
           "dialog_id": "session-llm-001",
-          "duration_ms": 2497
+          "model_config_id": "default",
+          "num_messages": 2,
+          "num_tools": 0,
+          "stream": false,
+          "source_component": "L2_llm_execution",
+          "source_service": "LLMExecutionService"
         },
-        "stored_at": "2026-05-19T17:09:04.202972",
+        "stored_at": "2026-05-20T19:05:38.326801",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "7f93564d-8cc3-42b1-ac6c-93d56c51e5a6",
-        "entity_id": "evt-2d02a620365e",
-        "created_at": "2026-05-19T17:09:04.202972",
-        "updated_at": "2026-05-19T17:09:04.202972"
+        "correlation_id": "eeb27d28-8b9b-4fe7-a34e-dbd1917b1305",
+        "entity_id": "evt-c368d01a0aec",
+        "created_at": "2026-05-20T19:05:38.326801",
+        "updated_at": "2026-05-20T19:05:38.326801"
+      },
+      {
+        "record_id": "rec-56b179b0f661",
+        "event_id": "evt-1dd9a37045a8",
+        "event_type": "llm.response_received",
+        "timestamp": "2026-05-20T19:05:45.324922",
+        "payload": {
+          "request_id": "req-bf256c1071c2",
+          "dialog_id": "session-llm-001",
+          "has_content": true,
+          "has_tool_calls": false,
+          "source_component": "L2_llm_execution",
+          "source_service": "LLMExecutionService"
+        },
+        "stored_at": "2026-05-20T19:05:45.324922",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "423e8a59-8860-4728-87c6-380b3f9030a2",
+        "entity_id": "evt-31d99ffe3c0b",
+        "created_at": "2026-05-20T19:05:45.324922",
+        "updated_at": "2026-05-20T19:05:45.324922"
+      },
+      {
+        "record_id": "rec-0e37a32c65d6",
+        "event_id": "evt-78539096353b",
+        "event_type": "llm.call_completed",
+        "timestamp": "2026-05-20T19:05:45.330053",
+        "payload": {
+          "request_id": "req-bf256c1071c2",
+          "dialog_id": "session-llm-001",
+          "duration_ms": 7000,
+          "source_component": "L2_llm_execution",
+          "source_service": "LLMExecutionService"
+        },
+        "stored_at": "2026-05-20T19:05:45.330053",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "1dc3526b-f357-44a0-b2be-8ca25aa4f4c0",
+        "entity_id": "evt-919fcb1103e3",
+        "created_at": "2026-05-20T19:05:45.330053",
+        "updated_at": "2026-05-20T19:05:45.330053"
       }
     ],
     "prompts": [],
@@ -95,10 +141,10 @@
   },
   "events": [],
   "llm_data": {
-    "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+    "file_path": "D:\\learnning\\260521\\src\\data\\test\\llm_calls.json",
     "call_count": 1,
     "last_call": {
-      "call_id": "call-1e070e65e0f1",
+      "call_id": "call-d420f6e6bd17",
       "dialog_id": "session-llm-001",
       "model_config_id": "default",
       "request": {
@@ -123,22 +169,22 @@
         "tool_choice": null
       },
       "response": {
-        "content": "Hello! I'm doing well, thank you for asking. How about you? How's your day going? Is there anything I can help you with?",
+        "content": "Hello! I'm doing well, thank you for asking. How about you? Is there anything I can help you with today?",
         "finish_reason": "stop",
-        "tool_calls": null,
+        "tool_calls": [],
         "usage": {
           "prompt_tokens": 27,
-          "completion_tokens": 418,
-          "total_tokens": 445
+          "completion_tokens": 375,
+          "total_tokens": 402
         }
       },
       "status": "completed",
-      "duration_ms": 2497,
-      "created_at": "2026-05-19T17:09:04.200757"
+      "duration_ms": 7000,
+      "created_at": "2026-05-20T19:05:45.326929"
     },
     "validation": {
       "valid": true,
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\llm_calls.json",
       "record_count": 1,
       "data_exists": true
     }
@@ -148,11 +194,11 @@
   "file_operations": [
     {
       "entity_type": "llm_calls",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\llm_calls.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "call_id": "call-1e070e65e0f1",
+        "call_id": "call-d420f6e6bd17",
         "dialog_id": "session-llm-001",
         "model_config_id": "default",
         "request": {
@@ -177,42 +223,44 @@
           "tool_choice": null
         },
         "response": {
-          "content": "Hello! I'm doing well, thank you for asking. How about you? How's your day going? Is there anything I can help you with?",
+          "content": "Hello! I'm doing well, thank you for asking. How about you? Is there anything I can help you with today?",
           "finish_reason": "stop",
-          "tool_calls": null,
+          "tool_calls": [],
           "usage": {
             "prompt_tokens": 27,
-            "completion_tokens": 418,
-            "total_tokens": 445
+            "completion_tokens": 375,
+            "total_tokens": 402
           }
         },
         "status": "completed",
-        "duration_ms": 2497,
-        "created_at": "2026-05-19T17:09:04.200757"
+        "duration_ms": 7000,
+        "created_at": "2026-05-20T19:05:45.326929"
       }
     },
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
-      "record_count": 1,
+      "record_count": 3,
       "sample_data": {
-        "record_id": "rec-3fce8480cf41",
-        "event_id": "evt-c697e3b919c4",
+        "record_id": "rec-0e37a32c65d6",
+        "event_id": "evt-78539096353b",
         "event_type": "llm.call_completed",
-        "timestamp": "2026-05-19T17:09:04.202972",
+        "timestamp": "2026-05-20T19:05:45.330053",
         "payload": {
-          "request_id": "req-261a6cfbbe43",
+          "request_id": "req-bf256c1071c2",
           "dialog_id": "session-llm-001",
-          "duration_ms": 2497
+          "duration_ms": 7000,
+          "source_component": "L2_llm_execution",
+          "source_service": "LLMExecutionService"
         },
-        "stored_at": "2026-05-19T17:09:04.202972",
+        "stored_at": "2026-05-20T19:05:45.330053",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "7f93564d-8cc3-42b1-ac6c-93d56c51e5a6",
-        "entity_id": "evt-2d02a620365e",
-        "created_at": "2026-05-19T17:09:04.202972",
-        "updated_at": "2026-05-19T17:09:04.202972"
+        "correlation_id": "1dc3526b-f357-44a0-b2be-8ca25aa4f4c0",
+        "entity_id": "evt-919fcb1103e3",
+        "created_at": "2026-05-20T19:05:45.330053",
+        "updated_at": "2026-05-20T19:05:45.330053"
       }
     }
   ]

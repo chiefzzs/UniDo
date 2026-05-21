@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:09:01.142122",
+  "timestamp": "2026-05-20T19:05:37.053578",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2b_memory_state",
@@ -14,19 +14,19 @@
     "name": "Test Session"
   },
   "outputs": {
-    "session_id": "sess-cd02dec0f894",
+    "session_id": "sess-1ba4caafbf35",
     "status": "active"
   },
   "persistent_data": {
     "projects": [],
     "sessions": [
       {
-        "session_id": "sess-cd02dec0f894",
+        "session_id": "sess-1ba4caafbf35",
         "project_id": "proj-001",
         "name": "Test Session",
         "status": "active",
-        "created_at": "2026-05-19T17:09:01.120745",
-        "updated_at": "2026-05-19T17:09:01.120745"
+        "created_at": "2026-05-20T19:05:37.034469",
+        "updated_at": "2026-05-20T19:05:37.034469"
       }
     ],
     "dialogs": [],
@@ -37,21 +37,21 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-569da75a3eb2",
-        "event_id": "evt-b2125f44fccc",
+        "record_id": "rec-20afd704410f",
+        "event_id": "evt-7f404eb8e4a0",
         "event_type": "session.created",
-        "timestamp": "2026-05-19T17:09:01.122745",
+        "timestamp": "2026-05-20T19:05:37.036929",
         "payload": {
-          "session_id": "sess-cd02dec0f894",
+          "session_id": "sess-1ba4caafbf35",
           "project_id": "proj-001"
         },
-        "stored_at": "2026-05-19T17:09:01.122745",
+        "stored_at": "2026-05-20T19:05:37.036929",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "91d2c114-fecc-4118-85aa-c09272cb2e1e",
-        "entity_id": "evt-464d7d9b2cf3",
-        "created_at": "2026-05-19T17:09:01.122745",
-        "updated_at": "2026-05-19T17:09:01.122745"
+        "correlation_id": "cb73f027-3397-4aff-8e12-8a2f1dfffa27",
+        "entity_id": "evt-e6410c306616",
+        "created_at": "2026-05-20T19:05:37.036929",
+        "updated_at": "2026-05-20T19:05:37.036929"
       }
     ],
     "prompts": [],
@@ -66,39 +66,39 @@
   "file_operations": [
     {
       "entity_type": "sessions",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\sessions.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\sessions.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "session_id": "sess-cd02dec0f894",
+        "session_id": "sess-1ba4caafbf35",
         "project_id": "proj-001",
         "name": "Test Session",
         "status": "active",
-        "created_at": "2026-05-19T17:09:01.120745",
-        "updated_at": "2026-05-19T17:09:01.120745"
+        "created_at": "2026-05-20T19:05:37.034469",
+        "updated_at": "2026-05-20T19:05:37.034469"
       }
     },
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "record_id": "rec-569da75a3eb2",
-        "event_id": "evt-b2125f44fccc",
+        "record_id": "rec-20afd704410f",
+        "event_id": "evt-7f404eb8e4a0",
         "event_type": "session.created",
-        "timestamp": "2026-05-19T17:09:01.122745",
+        "timestamp": "2026-05-20T19:05:37.036929",
         "payload": {
-          "session_id": "sess-cd02dec0f894",
+          "session_id": "sess-1ba4caafbf35",
           "project_id": "proj-001"
         },
-        "stored_at": "2026-05-19T17:09:01.122745",
+        "stored_at": "2026-05-20T19:05:37.036929",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "91d2c114-fecc-4118-85aa-c09272cb2e1e",
-        "entity_id": "evt-464d7d9b2cf3",
-        "created_at": "2026-05-19T17:09:01.122745",
-        "updated_at": "2026-05-19T17:09:01.122745"
+        "correlation_id": "cb73f027-3397-4aff-8e12-8a2f1dfffa27",
+        "entity_id": "evt-e6410c306616",
+        "created_at": "2026-05-20T19:05:37.036929",
+        "updated_at": "2026-05-20T19:05:37.036929"
       }
     }
   ]

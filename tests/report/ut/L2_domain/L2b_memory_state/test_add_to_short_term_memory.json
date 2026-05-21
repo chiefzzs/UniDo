@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:09:00.938353",
+  "timestamp": "2026-05-20T19:05:36.873142",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2b_memory_state",
@@ -14,7 +14,7 @@
     "content": "Test memory content"
   },
   "outputs": {
-    "memory_id": "mem-3c582eddb50f",
+    "memory_id": "mem-97838b505d34",
     "type": "working"
   },
   "persistent_data": {

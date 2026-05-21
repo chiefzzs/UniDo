@@ -6,6 +6,7 @@ WebSocket Server - WebSocket服务器实现
 
 import asyncio
 import json
+import datetime
 from typing import Dict, Any, Set
 from fastapi import WebSocket, WebSocketDisconnect
 
@@ -29,6 +30,19 @@ def get_event_bus():
 
 
 class WebSocketServer:
+    # 不推送到前端的事件类型（内部管理事件）
+    # 注意：工具执行状态事件（如 tool.execution_started, tool.call_completed）需要保留用于前端显示
+    INTERNAL_EVENTS = {
+        'tool.registered',       # 工具注册 - 内部事件
+        'tool.unregistered',     # 工具注销 - 内部事件
+        'tool.updated',          # 工具更新 - 内部事件
+        'tool.loaded',           # 工具加载 - 内部事件
+        'client.message_received',  # 客户端消息接收 - 内部事件
+        'client.message_sent',      # 客户端消息发送 - 内部事件
+        'memory.compressed',     # 记忆压缩 - 内部事件
+        'memory.cleared',        # 记忆清除 - 内部事件
+    }
+    
     def __init__(self):
         self.active_connections: Dict[str, WebSocket] = {}
         self.connection_subscriptions: Dict[str, Set[str]] = {}  # client_id -> set of event types
@@ -52,13 +66,19 @@ class WebSocketServer:
     
     def _on_event_received(self, event):
         """事件总线回调，将事件推送到所有订阅的客户端"""
+        # 过滤掉内部事件，不推送到前端
+        if event.event_type in self.INTERNAL_EVENTS:
+            return
+
+        print(f"[EVENT DEBUG] 接收到事件: {event.event_type}")
+
         event_data = {
             'type': 'event',
             'event_type': event.event_type,
             'payload': event.payload,
             'timestamp': event.timestamp.isoformat() if hasattr(event.timestamp, 'isoformat') else str(event.timestamp)
         }
-        
+
         # 异步发送事件到所有客户端
         asyncio.create_task(self._broadcast_event(event_data))
     
@@ -295,14 +315,16 @@ class MessageHandler:
         """处理发送消息请求"""
         session_id = message.get("session_id")
         content = message.get("content", "")
+        dialog_id = None
         
         try:
             # 1. 使用DialogManager处理用户输入
             from services.L3_scenario_coordination.L3c_ui_scenarios.DialogManager.dialog_manager import DialogManager
             dialog_manager = DialogManager()
             dialog_result = dialog_manager.process_user_input(session_id, content)
+            dialog_id = dialog_result['dialog_id']
             
-            # 2. 调用LLM服务获取响应
+            # 2. 调用LLM服务获取响应（带超时）
             from services.L3_scenario_coordination.L3a_task_coordination.dialogue_based_llm_service import DialogueBasedLLMService
             llm_service = DialogueBasedLLMService()
             
@@ -310,7 +332,7 @@ class MessageHandler:
             tools = llm_service.get_tools_for_llm()
             
             # 调用LLM执行服务
-            llm_response = llm_service.call_llm(session_id, content, tools=tools, stream=False)
+            llm_response = await self._call_llm_with_timeout(llm_service, session_id, content, tools, timeout=60)
             
             # 检查LLM响应是否成功
             if not llm_response.success:
@@ -327,19 +349,23 @@ class MessageHandler:
                 from services.L1_infrastructure import get_event_bus
                 
                 event_bus = get_event_bus()
-                dialog_id = dialog_result['dialog_id']
+                
+                # 为每个工具调用生成call_id，确保与后续事件匹配
+                tool_calls_with_ids = []
+                for tc in llm_response.tool_calls:
+                    call_id = tc.get('call_id', f'call-{hash(str(tc))}')
+                    tool_calls_with_ids.append({
+                        'name': tc.get('function', {}).get('name', tc.get('name', '')),
+                        'arguments': tc.get('function', {}).get('arguments', tc.get('arguments', '{}')),
+                        'call_id': call_id
+                    })
                 
                 event_bus.publish(Event(
                     event_type=EventTypes.TOOL_EXECUTION_STARTED,
                     payload={
                         'dialog_id': dialog_id,
                         'session_id': session_id,
-                        'tool_calls': [
-                            {
-                                'name': tc.get('function', {}).get('name', tc.get('name', '')),
-                                'arguments': tc.get('function', {}).get('arguments', tc.get('arguments', '{}'))
-                            } for tc in llm_response.tool_calls
-                        ],
+                        'tool_calls': tool_calls_with_ids,
                         'message': f'LLM选择了 {len(llm_response.tool_calls)} 个工具开始执行',
                         'source_component': 'L4_websocket_gateway',
                         'source_service': 'WebSocketServer'
@@ -349,14 +375,65 @@ class MessageHandler:
                 # 如果LLM返回了工具调用，执行工具调用
                 tool_results = []
                 for tool_call in llm_response.tool_calls:
-                    tool_result = self._execute_tool_call(tool_call, session_id)
+                    # 获取工具名称和参数
+                    tool_name = tool_call.get('function', {}).get('name', tool_call.get('name', ''))
+                    tool_args = tool_call.get('function', {}).get('arguments', tool_call.get('args', {}))
+                    call_id = tool_call.get('call_id', f'call-{hash(str(tool_call))}')
+                    
+                    # 发布工具调用开始事件
+                    print(f"[EVENT DEBUG] 发布事件: {EventTypes.TOOL_CALL_STARTED}, call_id={call_id}")
+                    event_bus.publish(Event(
+                        event_type=EventTypes.TOOL_CALL_STARTED,
+                        payload={
+                            'tool_name': tool_name,
+                            'tool_id': tool_name,
+                            'arguments': tool_args,
+                            'call_id': call_id,
+                            'session_id': session_id,
+                            'timestamp': datetime.datetime.now().isoformat()
+                        }
+                    ))
+                    
+                    # 执行工具调用
+                    tool_result = await self._execute_tool_call_async(tool_call, session_id)
                     tool_results.append(tool_result)
                     
-                    # 构建工具调用数据结构供前端显示
+                    # 发布工具执行输出事件（如果有输出）
+                    if tool_result.get('result') or tool_result.get('error'):
+                        output_content = tool_result.get('result') or tool_result.get('error', '')
+                        event_bus.publish(Event(
+                            event_type=EventTypes.TOOL_EXECUTION_OUTPUT,
+                            payload={
+                                'call_id': call_id,
+                                'tool_name': tool_name,
+                                'output': output_content,
+                                'session_id': session_id,
+                                'timestamp': datetime.datetime.now().isoformat()
+                            }
+                        ))
+                    
+                    # 发布工具调用完成事件
+                    print(f"[TOOL RESULT DEBUG] 发布tool.call_completed事件: tool_result['success']={tool_result['success']}, type={type(tool_result['success'])}")
+                    event_bus.publish(Event(
+                        event_type=EventTypes.TOOL_CALL_COMPLETED if tool_result['success'] else EventTypes.TOOL_CALL_FAILED,
+                        payload={
+                            'tool_name': tool_result['tool_name'],
+                            'tool_id': tool_name,
+                            'call_id': call_id,
+                            'success': tool_result['success'],  # 添加 success 字段供前端判断
+                            'status': 'completed' if tool_result['success'] else 'failed',
+                            'result': tool_result.get('result'),
+                            'error': tool_result.get('error'),
+                            'session_id': session_id,
+                            'timestamp': datetime.datetime.now().isoformat()
+                        }
+                    ))
+                    
+                    # 构建工具调用数据结构供前端显示（保留批量数据）
                     tool_call_info = {
                         'tool_name': tool_result['tool_name'],
-                        'arguments': tool_call.get('function', {}).get('arguments', '') if 'function' in tool_call else tool_call.get('args', {}),
-                        'call_id': tool_result.get('call_id'),
+                        'arguments': tool_args,
+                        'call_id': call_id,
                         'status': 'completed' if tool_result['success'] else 'failed',
                         'result': tool_result.get('result'),
                         'error': tool_result.get('error')
@@ -389,11 +466,10 @@ class MessageHandler:
                         {"role": "system", "content": "请用Markdown格式总结工具执行结果并回答用户问题。代码请使用```语言名 ```包裹。"},
                         {"role": "user", "content": summary_prompt}
                     ]
-                    summary_response = llm_service.call_llm(session_id, summary_messages, stream=False)
+                    summary_response = await self._call_llm_with_timeout(llm_service, session_id, summary_messages, tools=None, timeout=60)
                     response_content = summary_response.content
             
             # 4. 保存助手消息到对话
-            dialog_id = dialog_result['dialog_id']
             from services.L2_domain.L2b_memory_state.message_service import MessageService
             message_service = MessageService()
             message_service.create_message(
@@ -426,62 +502,106 @@ class MessageHandler:
             error_trace = traceback.format_exc()
             print(f"[ERROR] _handle_send_message failed: {error_trace}")
             
-            # 如果LLM调用失败，提供模拟响应以保持对话流程正常
-            mock_response = self._generate_mock_response(content)
-            
-            # 保存模拟响应到对话
-            try:
-                from services.L2_domain.L2b_memory_state.message_service import MessageService
-                message_service = MessageService()
-                message_service.create_message(
-                    dialog_id=dialog_result.get('dialog_id', f"dialog-{uuid.uuid4().hex[:12]}"),
-                    role='assistant',
-                    content=mock_response,
-                    metadata={
-                        'type': 'assistant_response',
-                        'source': 'mock'
-                    }
-                )
-            except:
-                pass
-            
+            # 返回错误响应，不再提供模拟响应
             return {
                 "type": "message_response",
-                "status": "success",
+                "status": "error",
                 "session_id": session_id,
-                "data": {"content": mock_response}
+                "data": {"content": f"服务暂时不可用，请稍后重试。错误信息：{str(e)[:100]}"}
             }
     
-    def _generate_mock_response(self, user_input: str) -> str:
+    async def _call_llm_with_timeout(self, llm_service, session_id: str, content_or_messages, 
+                                      tools: list = None, timeout: int = 60) -> Any:
         """
-        生成模拟响应（当LLM服务不可用时使用）
+        异步调用LLM并带有超时保护
         
         Args:
-            user_input: 用户输入
+            llm_service: LLM服务实例
+            session_id: 会话ID
+            content_or_messages: 用户内容或消息列表
+            tools: 工具定义列表
+            timeout: 超时时间(秒)
             
         Returns:
-            模拟响应内容
+            LLM响应
         """
-        # 检测用户意图并生成相应的模拟响应
-        if any(keyword in user_input.lower() for keyword in ['文件', '目录', '查看', '列表']):
-            return "我已收到您的请求，正在查看工作区文件目录...\n\n当前工作区包含以下内容：\n- src/ (源代码目录)\n- data/ (数据存储目录)\n- tools/ (工具定义目录)\n- static/ (前端静态文件)"
+        import asyncio
+        from concurrent.futures import ThreadPoolExecutor
         
-        elif any(keyword in user_input.lower() for keyword in ['帮助', '功能', '能做什么']):
-            return "我是一个智能助手，可以帮助您：\n\n1. 查看和管理工作区文件\n2. 搜索代码库\n3. 执行命令\n4. 读取和编辑文件\n5. 回答问题\n\n请问您需要什么帮助？"
+        def _call_llm():
+            if isinstance(content_or_messages, str):
+                return llm_service.call_llm(session_id, content_or_messages, tools=tools, stream=False)
+            else:
+                return llm_service.call_llm(session_id, content_or_messages, tools=tools, stream=False)
         
-        elif any(keyword in user_input.lower() for keyword in ['项目', '创建', '新建']):
-            return "好的，我可以帮助您创建新项目。请告诉我项目名称和所需的配置，我会为您创建。"
+        try:
+            loop = asyncio.get_running_loop()
+            with ThreadPoolExecutor() as executor:
+                result = await asyncio.wait_for(
+                    loop.run_in_executor(executor, _call_llm),
+                    timeout=timeout
+                )
+            return result
+        except asyncio.TimeoutError:
+            from services.L3_scenario_coordination.L3a_task_coordination.dialogue_based_llm_service import LLMResponse
+            return LLMResponse(
+                success=False,
+                error=f"LLM调用超时({timeout}秒)"
+            )
+        except Exception as e:
+            from services.L3_scenario_coordination.L3a_task_coordination.dialogue_based_llm_service import LLMResponse
+            return LLMResponse(
+                success=False,
+                error=f"LLM调用异常: {str(e)}"
+            )
+    
+    async def _execute_tool_call_async(self, tool_call: Dict[str, Any], session_id: str) -> Dict[str, Any]:
+        """
+        异步执行工具调用
         
-        elif any(keyword in user_input.lower() for keyword in ['保存', '保存项目', '修改']):
-            return "项目已保存成功！您的更改已持久化到本地存储。"
+        Args:
+            tool_call: 工具调用信息
+            session_id: 会话ID
+            
+        Returns:
+            工具执行结果
+        """
+        import asyncio
+        from concurrent.futures import ThreadPoolExecutor
         
-        elif any(keyword in user_input.lower() for keyword in ['删除', '移除']):
-            return "已删除成功！"
+        def _execute():
+            return self._execute_tool_call(tool_call, session_id)
         
-        else:
-            # 默认响应
-            return f"收到您的消息：\"{user_input}\"\n\n这是一个模拟响应。在实际部署中，此消息将由LLM生成。\n\n如果您需要特定功能，请告诉我！"
-
+        try:
+            loop = asyncio.get_running_loop()
+            with ThreadPoolExecutor() as executor:
+                result = await asyncio.wait_for(
+                    loop.run_in_executor(executor, _execute),
+                    timeout=120  # 工具执行超时120秒
+                )
+            return result
+        except asyncio.TimeoutError:
+            tool_name = None
+            if "function" in tool_call:
+                tool_name = tool_call["function"].get("name")
+            else:
+                tool_name = tool_call.get("name")
+            return {
+                "tool_name": tool_name or "未知工具",
+                "success": False,
+                "error": "工具执行超时(120秒)"
+            }
+        except Exception as e:
+            tool_name = None
+            if "function" in tool_call:
+                tool_name = tool_call["function"].get("name")
+            else:
+                tool_name = tool_call.get("name")
+            return {
+                "tool_name": tool_name or "未知工具",
+                "success": False,
+                "error": f"工具执行异常: {str(e)}"
+            }
     
     def _execute_tool_call(self, tool_call: Dict[str, Any], session_id: str) -> Dict[str, Any]:
         """执行工具调用"""
@@ -520,7 +640,9 @@ class MessageHandler:
                 task_id=session_id,
                 params=tool_args
             )
-            
+
+            print(f"[TOOL EXECUTE DEBUG] 工具执行完成: tool_name={tool_name}, result.success={result.success}, result.result={result.result}")
+
             return {
                 "tool_name": tool_name,
                 "success": result.success,
@@ -530,7 +652,12 @@ class MessageHandler:
             }
             
         except Exception as e:
-            return {"tool_name": tool_call.get("name"), "success": False, "error": str(e)}
+            tool_name = None
+            if "function" in tool_call:
+                tool_name = tool_call["function"].get("name")
+            else:
+                tool_name = tool_call.get("name")
+            return {"tool_name": tool_name or "未知工具", "success": False, "error": str(e)}
     
     async def _handle_ping(self, message: Dict[str, Any], client_id: str) -> Dict[str, Any]:
         """处理心跳消息"""

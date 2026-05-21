@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:17:35.596274",
+  "timestamp": "2026-05-20T19:06:41.312898",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3a_task_coordination",
@@ -22,10 +22,62 @@
     "dialogs": [],
     "messages": [],
     "task_groups": [],
-    "tasks": [],
+    "tasks": [
+      {
+        "task_id": "group_test-status_sub1",
+        "parent_task_id": "test-status",
+        "status": "completed",
+        "input_data": {
+          "description": "分析任务"
+        },
+        "output_data": {
+          "result": "任务执行完成",
+          "input": {
+            "description": "分析任务"
+          }
+        },
+        "entity_id": "task-a6b5c5dca8da",
+        "created_at": "2026-05-20T19:06:41.286902",
+        "updated_at": "2026-05-20T19:06:41.288968"
+      },
+      {
+        "task_id": "group_test-status_sub2",
+        "parent_task_id": "test-status",
+        "status": "completed",
+        "input_data": {
+          "description": "执行操作"
+        },
+        "output_data": {
+          "result": "任务执行完成",
+          "input": {
+            "description": "执行操作"
+          }
+        },
+        "entity_id": "task-7f8f22e7a896",
+        "created_at": "2026-05-20T19:06:41.289967",
+        "updated_at": "2026-05-20T19:06:41.291996"
+      },
+      {
+        "task_id": "group_test-status_sub3",
+        "parent_task_id": "test-status",
+        "status": "completed",
+        "input_data": {
+          "description": "汇总结果"
+        },
+        "output_data": {
+          "result": "任务执行完成",
+          "input": {
+            "description": "汇总结果"
+          }
+        },
+        "entity_id": "task-ebe4c1f9ca75",
+        "created_at": "2026-05-20T19:06:41.293079",
+        "updated_at": "2026-05-20T19:06:41.295045"
+      }
+    ],
     "llm_calls": [
       {
-        "call_id": "call-f495879ff2bf",
+        "call_id": "call-e06806cc4f3d",
         "dialog_id": "intent-analysis-default-session",
         "model_config_id": "default",
         "request": {
@@ -50,39 +102,81 @@
           "tool_choice": null
         },
         "response": {
-          "content": "{\n    \"intent_type\": \"direct_completion\",\n    \"confidence\": 0.95,\n    \"reasoning\": \"用户输入“测试”通常是为了验证系统是否正常运行或响应，属于简单的交互行为（类似问候或 Ping），不需要调用特定工具或执行复杂任务序列。\",\n    \"tool_info\": {\n        \"tool_name\": \"\",\n        \"parameters\": {}\n    },\n    \"task_info\": {\n        \"execution_mode\": \"sequential\",\n        \"subtasks\": []\n    }\n}",
+          "content": "",
           "finish_reason": "stop",
-          "tool_calls": null,
-          "usage": {
-            "prompt_tokens": 260,
-            "completion_tokens": 2069,
-            "total_tokens": 2329
-          }
+          "tool_calls": [],
+          "usage": {}
         },
         "status": "completed",
-        "duration_ms": 2397,
-        "created_at": "2026-05-19T17:17:35.572330"
+        "duration_ms": 4257,
+        "created_at": "2026-05-20T19:06:41.283904"
       }
     ],
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-1ff587c94d07",
-        "event_id": "evt-9a8b926f5763",
-        "event_type": "llm.call_completed",
-        "timestamp": "2026-05-19T17:17:35.573375",
+        "record_id": "rec-bc3af6bea4f1",
+        "event_id": "evt-931f30f93627",
+        "event_type": "llm.request_sent",
+        "timestamp": "2026-05-20T19:06:37.026744",
         "payload": {
-          "request_id": "req-b98e45ffe926",
+          "request_id": "req-ebdb6c941a33",
           "dialog_id": "intent-analysis-default-session",
-          "duration_ms": 2397
+          "model_config_id": "default",
+          "num_messages": 2,
+          "num_tools": 0,
+          "stream": false,
+          "source_component": "L2_llm_execution",
+          "source_service": "LLMExecutionService"
         },
-        "stored_at": "2026-05-19T17:17:35.573375",
+        "stored_at": "2026-05-20T19:06:37.026744",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "b421e9ed-7fea-4456-bc57-c3d3d3b0930e",
-        "entity_id": "evt-f948be3c3e51",
-        "created_at": "2026-05-19T17:17:35.573375",
-        "updated_at": "2026-05-19T17:17:35.573375"
+        "correlation_id": "a7f1aa0c-dc2f-4680-a194-c21db6a26822",
+        "entity_id": "evt-2334662c63fe",
+        "created_at": "2026-05-20T19:06:37.026744",
+        "updated_at": "2026-05-20T19:06:37.026744"
+      },
+      {
+        "record_id": "rec-e2cdf67c1e2b",
+        "event_id": "evt-e0209c0cd8c2",
+        "event_type": "llm.response_received",
+        "timestamp": "2026-05-20T19:06:41.281896",
+        "payload": {
+          "request_id": "req-ebdb6c941a33",
+          "dialog_id": "intent-analysis-default-session",
+          "has_content": false,
+          "has_tool_calls": false,
+          "source_component": "L2_llm_execution",
+          "source_service": "LLMExecutionService"
+        },
+        "stored_at": "2026-05-20T19:06:41.281896",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "1658a4d9-908c-46e1-947b-5ed4f3549670",
+        "entity_id": "evt-d6543ed39e04",
+        "created_at": "2026-05-20T19:06:41.281896",
+        "updated_at": "2026-05-20T19:06:41.281896"
+      },
+      {
+        "record_id": "rec-7b13cc228e2d",
+        "event_id": "evt-86f87271770f",
+        "event_type": "llm.call_completed",
+        "timestamp": "2026-05-20T19:06:41.285902",
+        "payload": {
+          "request_id": "req-ebdb6c941a33",
+          "dialog_id": "intent-analysis-default-session",
+          "duration_ms": 4257,
+          "source_component": "L2_llm_execution",
+          "source_service": "LLMExecutionService"
+        },
+        "stored_at": "2026-05-20T19:06:41.285902",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "5a640f02-0cf6-470e-82c7-7390ff06bc9e",
+        "entity_id": "evt-dfb77c6a5cb6",
+        "created_at": "2026-05-20T19:06:41.285902",
+        "updated_at": "2026-05-20T19:06:41.285902"
       }
     ],
     "prompts": [],
@@ -92,10 +186,10 @@
   },
   "events": [],
   "llm_data": {
-    "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+    "file_path": "D:\\learnning\\260521\\src\\data\\test\\llm_calls.json",
     "call_count": 1,
     "last_call": {
-      "call_id": "call-f495879ff2bf",
+      "call_id": "call-e06806cc4f3d",
       "dialog_id": "intent-analysis-default-session",
       "model_config_id": "default",
       "request": {
@@ -120,22 +214,18 @@
         "tool_choice": null
       },
       "response": {
-        "content": "{\n    \"intent_type\": \"direct_completion\",\n    \"confidence\": 0.95,\n    \"reasoning\": \"用户输入“测试”通常是为了验证系统是否正常运行或响应，属于简单的交互行为（类似问候或 Ping），不需要调用特定工具或执行复杂任务序列。\",\n    \"tool_info\": {\n        \"tool_name\": \"\",\n        \"parameters\": {}\n    },\n    \"task_info\": {\n        \"execution_mode\": \"sequential\",\n        \"subtasks\": []\n    }\n}",
+        "content": "",
         "finish_reason": "stop",
-        "tool_calls": null,
-        "usage": {
-          "prompt_tokens": 260,
-          "completion_tokens": 2069,
-          "total_tokens": 2329
-        }
+        "tool_calls": [],
+        "usage": {}
       },
       "status": "completed",
-      "duration_ms": 2397,
-      "created_at": "2026-05-19T17:17:35.572330"
+      "duration_ms": 4257,
+      "created_at": "2026-05-20T19:06:41.283904"
     },
     "validation": {
       "valid": true,
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\llm_calls.json",
       "record_count": 1,
       "data_exists": true
     }
@@ -144,12 +234,35 @@
   "service_calls": [],
   "file_operations": [
     {
+      "entity_type": "tasks",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\tasks.json",
+      "operation": "write",
+      "record_count": 3,
+      "sample_data": {
+        "task_id": "group_test-status_sub3",
+        "parent_task_id": "test-status",
+        "status": "completed",
+        "input_data": {
+          "description": "汇总结果"
+        },
+        "output_data": {
+          "result": "任务执行完成",
+          "input": {
+            "description": "汇总结果"
+          }
+        },
+        "entity_id": "task-ebe4c1f9ca75",
+        "created_at": "2026-05-20T19:06:41.293079",
+        "updated_at": "2026-05-20T19:06:41.295045"
+      }
+    },
+    {
       "entity_type": "llm_calls",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\llm_calls.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\llm_calls.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "call_id": "call-f495879ff2bf",
+        "call_id": "call-e06806cc4f3d",
         "dialog_id": "intent-analysis-default-session",
         "model_config_id": "default",
         "request": {
@@ -174,42 +287,40 @@
           "tool_choice": null
         },
         "response": {
-          "content": "{\n    \"intent_type\": \"direct_completion\",\n    \"confidence\": 0.95,\n    \"reasoning\": \"用户输入“测试”通常是为了验证系统是否正常运行或响应，属于简单的交互行为（类似问候或 Ping），不需要调用特定工具或执行复杂任务序列。\",\n    \"tool_info\": {\n        \"tool_name\": \"\",\n        \"parameters\": {}\n    },\n    \"task_info\": {\n        \"execution_mode\": \"sequential\",\n        \"subtasks\": []\n    }\n}",
+          "content": "",
           "finish_reason": "stop",
-          "tool_calls": null,
-          "usage": {
-            "prompt_tokens": 260,
-            "completion_tokens": 2069,
-            "total_tokens": 2329
-          }
+          "tool_calls": [],
+          "usage": {}
         },
         "status": "completed",
-        "duration_ms": 2397,
-        "created_at": "2026-05-19T17:17:35.572330"
+        "duration_ms": 4257,
+        "created_at": "2026-05-20T19:06:41.283904"
       }
     },
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
-      "record_count": 1,
+      "record_count": 3,
       "sample_data": {
-        "record_id": "rec-1ff587c94d07",
-        "event_id": "evt-9a8b926f5763",
+        "record_id": "rec-7b13cc228e2d",
+        "event_id": "evt-86f87271770f",
         "event_type": "llm.call_completed",
-        "timestamp": "2026-05-19T17:17:35.573375",
+        "timestamp": "2026-05-20T19:06:41.285902",
         "payload": {
-          "request_id": "req-b98e45ffe926",
+          "request_id": "req-ebdb6c941a33",
           "dialog_id": "intent-analysis-default-session",
-          "duration_ms": 2397
+          "duration_ms": 4257,
+          "source_component": "L2_llm_execution",
+          "source_service": "LLMExecutionService"
         },
-        "stored_at": "2026-05-19T17:17:35.573375",
+        "stored_at": "2026-05-20T19:06:41.285902",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "b421e9ed-7fea-4456-bc57-c3d3d3b0930e",
-        "entity_id": "evt-f948be3c3e51",
-        "created_at": "2026-05-19T17:17:35.573375",
-        "updated_at": "2026-05-19T17:17:35.573375"
+        "correlation_id": "5a640f02-0cf6-470e-82c7-7390ff06bc9e",
+        "entity_id": "evt-dfb77c6a5cb6",
+        "created_at": "2026-05-20T19:06:41.285902",
+        "updated_at": "2026-05-20T19:06:41.285902"
       }
     }
   ]

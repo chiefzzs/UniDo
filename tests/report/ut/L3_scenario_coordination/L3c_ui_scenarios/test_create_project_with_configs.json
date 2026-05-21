@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:17:36.007880",
+  "timestamp": "2026-05-20T19:06:43.159976",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3c_ui_scenarios",
@@ -16,21 +16,21 @@
     "description": "Test project"
   },
   "outputs": {
-    "project_id": "proj-f830a871266c",
+    "project_id": "proj-e8917b934623",
     "name": "Project with Configs"
   },
   "persistent_data": {
     "projects": [
       {
-        "project_id": "proj-f830a871266c",
+        "project_id": "proj-e8917b934623",
         "name": "Project with Configs",
         "description": "Test project",
         "workspace_config_id": "ws-test-002",
         "model_config_id": "mc-test-002",
         "tool_config_ids": [],
         "status": "active",
-        "created_at": "2026-05-19T17:17:35.986460",
-        "updated_at": "2026-05-19T17:17:35.986460"
+        "created_at": "2026-05-20T19:06:43.135602",
+        "updated_at": "2026-05-20T19:06:43.135602"
       }
     ],
     "sessions": [],
@@ -42,21 +42,21 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-02d969d42299",
-        "event_id": "evt-4b4f793d9532",
+        "record_id": "rec-470c81c30e7a",
+        "event_id": "evt-8155c667c35a",
         "event_type": "project.created",
-        "timestamp": "2026-05-19T17:17:35.987965",
+        "timestamp": "2026-05-20T19:06:43.138087",
         "payload": {
-          "project_id": "proj-f830a871266c",
+          "project_id": "proj-e8917b934623",
           "name": "Project with Configs"
         },
-        "stored_at": "2026-05-19T17:17:35.987965",
+        "stored_at": "2026-05-20T19:06:43.138087",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "30902cc7-fc61-45cd-9877-35bb8af4cbf1",
-        "entity_id": "evt-a3c591253897",
-        "created_at": "2026-05-19T17:17:35.987965",
-        "updated_at": "2026-05-19T17:17:35.987965"
+        "correlation_id": "fd54d6e0-01de-4991-8898-93eb36d901e2",
+        "entity_id": "evt-f5710e3c9107",
+        "created_at": "2026-05-20T19:06:43.138087",
+        "updated_at": "2026-05-20T19:06:43.138087"
       }
     ],
     "prompts": [],
@@ -71,42 +71,42 @@
   "file_operations": [
     {
       "entity_type": "projects",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\projects.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\projects.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "project_id": "proj-f830a871266c",
+        "project_id": "proj-e8917b934623",
         "name": "Project with Configs",
         "description": "Test project",
         "workspace_config_id": "ws-test-002",
         "model_config_id": "mc-test-002",
         "tool_config_ids": [],
         "status": "active",
-        "created_at": "2026-05-19T17:17:35.986460",
-        "updated_at": "2026-05-19T17:17:35.986460"
+        "created_at": "2026-05-20T19:06:43.135602",
+        "updated_at": "2026-05-20T19:06:43.135602"
       }
     },
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "record_id": "rec-02d969d42299",
-        "event_id": "evt-4b4f793d9532",
+        "record_id": "rec-470c81c30e7a",
+        "event_id": "evt-8155c667c35a",
         "event_type": "project.created",
-        "timestamp": "2026-05-19T17:17:35.987965",
+        "timestamp": "2026-05-20T19:06:43.138087",
         "payload": {
-          "project_id": "proj-f830a871266c",
+          "project_id": "proj-e8917b934623",
           "name": "Project with Configs"
         },
-        "stored_at": "2026-05-19T17:17:35.987965",
+        "stored_at": "2026-05-20T19:06:43.138087",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "30902cc7-fc61-45cd-9877-35bb8af4cbf1",
-        "entity_id": "evt-a3c591253897",
-        "created_at": "2026-05-19T17:17:35.987965",
-        "updated_at": "2026-05-19T17:17:35.987965"
+        "correlation_id": "fd54d6e0-01de-4991-8898-93eb36d901e2",
+        "entity_id": "evt-f5710e3c9107",
+        "created_at": "2026-05-20T19:06:43.138087",
+        "updated_at": "2026-05-20T19:06:43.138087"
       }
     }
   ]

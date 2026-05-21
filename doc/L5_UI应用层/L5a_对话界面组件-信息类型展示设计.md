@@ -71,8 +71,9 @@
 ```
 AssistantResponseBlock (容器组件)
     │
-    ├─► ThinkBlock (思考过程)
-    │       └─► 折叠/展开按钮
+    ├─► ThinkBlock (可折叠思考过程)
+    │       ├─► Header (标题栏 + 折叠/展开按钮)
+    │       └─► Content (思考内容区域)
     │
     ├─► TextBlock (文本回复)
     │       ├─► 普通文本段落
@@ -87,18 +88,18 @@ AssistantResponseBlock (容器组件)
     ├─► TableBlock (表格)
     │       └─► 响应式表格展示
     │
-    ├─► ToolCallBlock (工具调用)
-    │       ├─► 工具图标
-    │       ├─► 工具名称
-    │       └─► 参数展示
-    │
-    ├─► ToolOutputBlock (工具输出)
-    │       ├─► 实时输出区域
-    │       └─► 滚动控制
-    │
-    └─► ToolResultBlock (工具结果)
-            ├─► 状态图标（成功/失败）
-            └─► 结果摘要
+    └─► ToolExecutionCard[] (独立工具执行卡片 - 顺序排布)
+            ├─► ToolCallSection (工具调用信息)
+            │       ├─► 工具图标
+            │       ├─► 工具名称
+            │       └─► 参数展示
+            │
+            ├─► ToolOutputSection (工具输出)
+            │       └─► 实时输出区域
+            │
+            └─► ToolResultSection (工具结果)
+                    ├─► 状态图标（成功/失败）
+                    └─► 结果摘要
 ```
 
 ### 3.2 组件职责说明
@@ -106,13 +107,14 @@ AssistantResponseBlock (容器组件)
 | 组件 | 职责 | 数据属性 |
 |-----|------|---------|
 | `AssistantResponseBlock` | 容器组件，管理整体布局和状态 | `responseId`, `status` |
-| `ThinkBlock` | 展示思考过程，支持折叠 | `thought`, `expanded` |
-| `TextBlock` | 展示纯文本内容 | `content` |
+| `ThinkBlock` | 展示思考过程，支持折叠/展开 | `thought`, `expanded`, `toggle()` |
+| `TextBlock` | 展示纯文本内容（支持Markdown） | `content` |
 | `CodeBlock` | 展示代码片段，支持语法高亮 | `code`, `language`, `filename` |
 | `TableBlock` | 展示表格数据 | `headers`, `rows` |
-| `ToolCallBlock` | 展示工具调用信息 | `toolName`, `arguments`, `callId` |
-| `ToolOutputBlock` | 展示工具实时输出 | `output`, `isStreaming` |
-| `ToolResultBlock` | 展示工具执行结果 | `success`, `result`, `error` |
+| `ToolExecutionCard` | 独立的工具执行卡片容器 | `callId`, `toolName`, `status` |
+| `ToolCallSection` | 展示工具调用信息 | `toolName`, `arguments`, `callId` |
+| `ToolOutputSection` | 展示工具实时输出 | `output`, `isStreaming` |
+| `ToolResultSection` | 展示工具执行结果 | `success`, `result`, `error` |
 
 ---
 
@@ -224,32 +226,139 @@ interface LinkData {
 </div>
 ```
 
-### 5.2 思考过程 (ThinkBlock)
+### 5.2 思考过程 (ThinkBlock - 可折叠文本块)
 
 **样式规范**：
-- 背景色：浅色背景（#f8f9fa）
-- 边框：虚线边框（#e9ecef）
-- 图标：🧠 思考图标
-- 可折叠设计
+- 背景色：浅色背景（#f0f4f8）
+- 边框：1px solid #e2e8f0（浅灰色边框）
+- 圆角：8px（与卡片风格统一）
+- 图标：🧠 思考图标（左侧）
+- 标题栏高度：40px
+- 内容区域内边距：16px
 
 **交互规范**：
-- 默认折叠状态（可配置）
-- 点击展开/折叠
-- 支持复制思考内容
+- 默认折叠状态（可配置为默认展开）
+- 点击标题栏切换展开/折叠
+- 展开时显示完整思考内容
+- 折叠时仅显示标题栏
+- 支持一键复制思考内容
+
+**动画效果**：
+- 展开/折叠使用平滑过渡动画（0.3s）
+- 高度变化使用CSS transition
 
 **HTML结构**：
 ```html
 <div class="think-block" id="think-msg-xxx">
-    <button class="think-toggle" onclick="toggleThink(this)">
+    <!-- 标题栏 - 可点击切换折叠状态 -->
+    <div class="think-header" onclick="toggleThink(this.parentElement)">
         <span class="think-icon">🧠</span>
         <span class="think-label">思考过程</span>
-        <span class="think-arrow">▼</span>
-    </button>
-    <div class="think-content" style="display: none;">
-        <p>用户需要创建目录，我应该调用RunCommand工具执行mkdir命令...</p>
-        <button class="think-copy" onclick="copyContent(this)">复制</button>
+        <span class="think-meta">分析用户意图并规划执行步骤</span>
+        <button class="think-copy-btn" onclick="event.stopPropagation(); copyContent(this)" title="复制">
+            <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M16 1H4a2 2 0 0 0-2 2v14h2m16 0h2a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zM4 1v4h4M4 17h16M4 8h16"/>
+            </svg>
+        </button>
+        <span class="think-arrow" aria-hidden="true">▼</span>
+    </div>
+    <!-- 内容区域 - 默认隐藏 -->
+    <div class="think-content" hidden>
+        <p class="think-text">用户需要创建目录，我需要分析意图：用户输入"创建test_10目录"，这是一个工具调用需求。可用工具包括RunCommand，可以执行mkdir命令。参数需要包含command和workspace。调用RunCommand工具执行mkdir命令...</p>
     </div>
 </div>
+```
+
+**CSS样式示例**：
+```css
+.think-block {
+    background: #f0f4f8;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.think-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+.think-header:hover {
+    background-color: #e2e8f0;
+}
+
+.think-icon {
+    font-size: 16px;
+}
+
+.think-label {
+    font-weight: 500;
+    color: #334155;
+    font-size: 14px;
+}
+
+.think-meta {
+    font-size: 12px;
+    color: #64748b;
+    margin-left: auto;
+    margin-right: 8px;
+}
+
+.think-copy-btn {
+    background: transparent;
+    border: none;
+    color: #64748b;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.think-copy-btn:hover {
+    background: #cbd5e1;
+    color: #1e293b;
+}
+
+.think-arrow {
+    font-size: 12px;
+    color: #94a3b8;
+    transition: transform 0.3s ease;
+}
+
+.think-block.expanded .think-arrow {
+    transform: rotate(180deg);
+}
+
+.think-content {
+    padding: 0 16px 16px;
+    animation: slideDown 0.3s ease;
+}
+
+.think-text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #475569;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 ```
 
 ### 5.3 代码块 (CodeBlock)
@@ -281,32 +390,319 @@ interface LinkData {
 </div>
 ```
 
-### 5.4 工具调用 (ToolCallBlock)
+### 5.4 工具执行卡片 (ToolExecutionCard)
 
 **样式规范**：
 - 背景色：白色背景
-- 边框：1px solid #e5e7eb（灰色边框）
-- 图标：🔧 工具图标
-- 分隔线：浅灰色虚线
+- 边框：1px solid #e2e8f0（灰色边框）
+- 圆角：8px
+- 阴影：hover时有轻微阴影效果
+- 卡片间距：12px（与其他卡片保持一致）
 
 **交互规范**：
-- 参数可展开/折叠
-- 显示工具执行状态
-- 支持点击查看详情
+- 卡片内部各区域可独立展开/折叠
+- 显示工具执行完整状态
+- 支持点击复制参数和结果
+- 支持查看详细输出日志
 
 **HTML结构**：
 ```html
-<div class="tool-call-block" id="tool-call-xxx">
-    <div class="tool-header">
-        <span class="tool-icon">🔧</span>
-        <span class="tool-name">RunCommand</span>
-        <span class="tool-status completed">✓ 已完成</span>
+<!-- 工具执行卡片容器 -->
+<div class="tool-execution-card" id="tool-card-xxx">
+    <!-- 卡片头部 - 工具基本信息 -->
+    <div class="tool-card-header">
+        <div class="tool-icon-wrapper">
+            <span class="tool-icon">🔧</span>
+        </div>
+        <div class="tool-info">
+            <span class="tool-name">RunCommand</span>
+            <span class="tool-status-badge completed">✓ 已完成</span>
+        </div>
+        <div class="tool-timestamp">2026-05-20 15:27:30</div>
     </div>
-    <div class="tool-arguments">
-        <div class="arg-label">参数：</div>
-        <pre class="arg-value">{"command": "mkdir test_10", "workspace": "..."}</pre>
+    
+    <!-- 工具调用信息区域 -->
+    <div class="tool-section">
+        <div class="section-header" onclick="toggleSection(this)">
+            <span class="section-title">工具调用</span>
+            <span class="section-arrow">▼</span>
+        </div>
+        <div class="section-content">
+            <div class="tool-arguments">
+                <div class="arg-label">执行命令：</div>
+                <pre class="arg-value">mkdir D:\learnning\260521\workspace\test_10</pre>
+                <button class="copy-args-btn" onclick="copyContent(this)">复制参数</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 工具输出区域（如有） -->
+    <div class="tool-section">
+        <div class="section-header" onclick="toggleSection(this)">
+            <span class="section-title">执行输出</span>
+            <span class="section-arrow">▼</span>
+        </div>
+        <div class="section-content">
+            <div class="tool-output">
+                <pre class="output-content">mkdir: created directory 'test_10'</pre>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 工具结果区域 -->
+    <div class="tool-section">
+        <div class="section-header" onclick="toggleSection(this)">
+            <span class="section-title">执行结果</span>
+            <span class="section-arrow">▼</span>
+        </div>
+        <div class="section-content">
+            <div class="tool-result success">
+                <div class="result-icon">✅</div>
+                <div class="result-info">
+                    <div class="result-title">执行成功</div>
+                    <div class="result-message">目录 test_10 已成功创建</div>
+                    <div class="result-details">
+                        <span class="detail-item">返回码: <code>0</code></span>
+                        <span class="detail-item">耗时: <code>0.5s</code></span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+```
+
+**CSS样式示例**：
+```css
+/* 工具执行卡片 */
+.tool-execution-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+}
+
+.tool-execution-card:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* 卡片头部 */
+.tool-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.tool-icon-wrapper {
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tool-icon {
+    font-size: 18px;
+}
+
+.tool-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+}
+
+.tool-name {
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.tool-status-badge {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.tool-status-badge.completed {
+    background: rgba(34, 197, 94, 0.3);
+    color: #86efac;
+}
+
+.tool-status-badge.failed {
+    background: rgba(239, 68, 68, 0.3);
+    color: #fca5a5;
+}
+
+.tool-status-badge.executing {
+    background: rgba(59, 130, 246, 0.3);
+    color: #93c5fd;
+}
+
+.tool-timestamp {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* 工具区域 */
+.tool-section {
+    border-top: 1px solid #e2e8f0;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.section-header:hover {
+    background-color: #f8fafc;
+}
+
+.section-title {
+    font-weight: 500;
+    color: #334155;
+    font-size: 13px;
+}
+
+.section-arrow {
+    font-size: 10px;
+    color: #94a3b8;
+    transition: transform 0.2s;
+}
+
+.tool-section.expanded .section-arrow {
+    transform: rotate(180deg);
+}
+
+.section-content {
+    padding: 0 16px 12px;
+    animation: slideDown 0.2s ease;
+}
+
+/* 工具参数 */
+.tool-arguments {
+    background: #f8fafc;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.arg-label {
+    font-size: 12px;
+    color: #64748b;
+    margin-bottom: 4px;
+}
+
+.arg-value {
+    margin: 0;
+    font-size: 13px;
+    color: #1e293b;
+    font-family: 'Consolas', 'Monaco', monospace;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.copy-args-btn {
+    margin-top: 8px;
+    padding: 4px 10px;
+    background: #e2e8f0;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.copy-args-btn:hover {
+    background: #cbd5e1;
+    color: #334155;
+}
+
+/* 工具输出 */
+.tool-output {
+    background: #0d1117;
+    border-radius: 6px;
+    padding: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.output-content {
+    margin: 0;
+    font-size: 12px;
+    color: #c9d1d9;
+    font-family: 'Consolas', 'Monaco', monospace;
+    white-space: pre-wrap;
+}
+
+/* 工具结果 */
+.tool-result {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.tool-result.success {
+    background: #ecfdf5;
+    border: 1px solid #86efac;
+}
+
+.tool-result.failed {
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+}
+
+.result-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.result-info {
+    flex: 1;
+}
+
+.result-title {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.result-message {
+    font-size: 13px;
+    color: #475569;
+    margin-bottom: 8px;
+}
+
+.result-details {
+    display: flex;
+    gap: 16px;
+}
+
+.detail-item {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.detail-item code {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: #334155;
+}
 ```
 
 ### 5.5 工具输出 (ToolOutputBlock)
@@ -414,7 +810,7 @@ interface LinkData {
     │
     ├─► 检查 tool_calls 数组
     │       │
-    │       └─► 非空 → 遍历创建 ToolCallBlock + ToolOutputBlock + ToolResultBlock
+    │       └─► 非空 → 遍历创建 ToolExecutionCard（独立卡片，顺序排布）
     │
     └─► 检查 status 字段
             │
@@ -427,15 +823,13 @@ interface LinkData {
 renderResponse(response) {
     1. 创建 AssistantResponseBlock 容器
     2. 解析数据类型
-    3. 按顺序创建子组件：
-       ├─► ThinkBlock（如果有思考内容）
+    3. 按顺序创建子组件（自上而下排布）：
+       ├─► ThinkBlock（如果有思考内容 - 可折叠）
        ├─► TextBlock（文本内容）
        ├─► CodeBlock（代码块）
        ├─► TableBlock（表格）
        ├─► LinkCard（链接）
-       ├─► ToolCallBlock（工具调用信息）
-       ├─► ToolOutputBlock（工具输出）
-       └─► ToolResultBlock（工具结果）
+       └─► ToolExecutionCard[]（工具执行卡片 - 顺序排布，独立卡片）
     4. 将子组件挂载到容器
     5. 渲染到DOM
 }
@@ -450,10 +844,10 @@ renderResponse(response) {
 | 事件类型 | 目标组件 | 更新动作 |
 |---------|---------|---------|
 | `llm.stream_chunk` | TextBlock | 追加文本内容 |
-| `tool.call_started` | ToolCallBlock | 创建工具调用卡片 |
-| `tool.execution_output` | ToolOutputBlock | 追加输出内容 |
-| `tool.execution_output_end` | ToolOutputBlock | 标记输出完成 |
-| `tool.call_completed` | ToolResultBlock | 更新工具结果状态 |
+| `tool.call_started` | ToolExecutionCard | 创建工具执行卡片（包含调用信息） |
+| `tool.execution_output` | ToolExecutionCard | 追加输出内容到卡片 |
+| `tool.execution_output_end` | ToolExecutionCard | 标记输出完成 |
+| `tool.call_completed` | ToolExecutionCard | 更新工具执行结果 |
 | `message.updated` | 各组件 | 更新内容 |
 
 ### 7.2 实时输出处理流程
@@ -464,23 +858,29 @@ renderResponse(response) {
         ▼
 收到 tool.call_started 事件
         │
-        ├─► 创建 ToolCallBlock（显示工具名称和参数）
-        │
-        └─► 创建 ToolOutputBlock（准备接收输出）
+        └─► 创建 ToolExecutionCard（独立卡片）
                 │
-                ▼
-收到 tool.execution_output 事件（多次）
+                ├─► 显示卡片头部（工具图标、名称、状态）
                 │
-                ├─► 追加输出内容到 ToolOutputBlock
-                │
-                └─► 自动滚动到底部
+                └─► 显示工具调用区域（参数）
                         │
                         ▼
+收到 tool.execution_output 事件（多次）
+                        │
+                        └─► 更新 ToolExecutionCard
+                                │
+                                ├─► 追加输出内容到输出区域
+                                │
+                                └─► 自动滚动到底部
+                                        │
+                                        ▼
 收到 tool.call_completed 事件
-                │
-                ├─► 创建 ToolResultBlock（显示成功/失败）
-                │
-                └─► 更新 ToolCallBlock 状态
+                                        │
+                                        └─► 更新 ToolExecutionCard
+                                                │
+                                                ├─► 更新卡片头部状态（成功/失败）
+                                                │
+                                                └─► 显示结果区域（状态图标、消息、详情）
 ```
 
 ---

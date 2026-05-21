@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:17:25.689670",
+  "timestamp": "2026-05-20T19:06:00.651223",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3a_task_coordination",
@@ -26,35 +26,35 @@
         "project_id": "",
         "name": "New Session",
         "status": "active",
-        "created_at": "2026-05-19T17:17:25.665782",
-        "updated_at": "2026-05-19T17:17:25.665782"
+        "created_at": "2026-05-20T19:06:00.625838",
+        "updated_at": "2026-05-20T19:06:00.625838"
       }
     ],
     "dialogs": [
       {
-        "dialog_id": "dialog-ede4c6513506",
+        "dialog_id": "dialog-ea418f6d51a4",
         "session_id": "test-session-tool",
         "dialog_type": "text",
         "status": "active",
-        "created_at": "2026-05-19T17:17:25.669507"
+        "created_at": "2026-05-20T19:06:00.629381"
       }
     ],
     "messages": [
       {
-        "message_id": "msg-b6504308fe24",
-        "dialog_id": "dialog-ede4c6513506",
+        "message_id": "msg-e1d5fa7b30b2",
+        "dialog_id": "dialog-ea418f6d51a4",
         "role": "user",
         "content": "计算 2 + 3",
         "metadata": {},
-        "created_at": "2026-05-19T17:17:25.671010"
+        "created_at": "2026-05-20T19:06:00.630416"
       },
       {
-        "message_id": "msg-2419b97e9387",
-        "dialog_id": "dialog-ede4c6513506",
+        "message_id": "msg-d5009154cf7b",
+        "dialog_id": "dialog-ea418f6d51a4",
         "role": "assistant",
         "content": "",
         "metadata": {},
-        "created_at": "2026-05-19T17:17:25.673519"
+        "created_at": "2026-05-20T19:06:00.634077"
       }
     ],
     "task_groups": [],
@@ -63,21 +63,21 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-12f97ca2624b",
-        "event_id": "evt-0ba95151288c",
+        "record_id": "rec-76ad2da61188",
+        "event_id": "evt-1c72f3a6a593",
         "event_type": "session.created",
-        "timestamp": "2026-05-19T17:17:25.667498",
+        "timestamp": "2026-05-20T19:06:00.627374",
         "payload": {
           "session_id": "test-session-tool",
           "project_id": ""
         },
-        "stored_at": "2026-05-19T17:17:25.667498",
+        "stored_at": "2026-05-20T19:06:00.627374",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "a739b115-7a3f-4c02-9221-b9912b266248",
-        "entity_id": "evt-b261cf72c04c",
-        "created_at": "2026-05-19T17:17:25.667498",
-        "updated_at": "2026-05-19T17:17:25.667498"
+        "correlation_id": "3c718455-e328-4a9f-b485-3425b1fceee1",
+        "entity_id": "evt-334f6a616f7e",
+        "created_at": "2026-05-20T19:06:00.627374",
+        "updated_at": "2026-05-20T19:06:00.627374"
       }
     ],
     "prompts": [],
@@ -92,7 +92,7 @@
   "file_operations": [
     {
       "entity_type": "sessions",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\sessions.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\sessions.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
@@ -100,58 +100,58 @@
         "project_id": "",
         "name": "New Session",
         "status": "active",
-        "created_at": "2026-05-19T17:17:25.665782",
-        "updated_at": "2026-05-19T17:17:25.665782"
+        "created_at": "2026-05-20T19:06:00.625838",
+        "updated_at": "2026-05-20T19:06:00.625838"
       }
     },
     {
       "entity_type": "dialogs",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\dialogs.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\dialogs.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "dialog_id": "dialog-ede4c6513506",
+        "dialog_id": "dialog-ea418f6d51a4",
         "session_id": "test-session-tool",
         "dialog_type": "text",
         "status": "active",
-        "created_at": "2026-05-19T17:17:25.669507"
+        "created_at": "2026-05-20T19:06:00.629381"
       }
     },
     {
       "entity_type": "messages",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\messages.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\messages.json",
       "operation": "write",
       "record_count": 2,
       "sample_data": {
-        "message_id": "msg-2419b97e9387",
-        "dialog_id": "dialog-ede4c6513506",
+        "message_id": "msg-d5009154cf7b",
+        "dialog_id": "dialog-ea418f6d51a4",
         "role": "assistant",
         "content": "",
         "metadata": {},
-        "created_at": "2026-05-19T17:17:25.673519"
+        "created_at": "2026-05-20T19:06:00.634077"
       }
     },
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "record_id": "rec-12f97ca2624b",
-        "event_id": "evt-0ba95151288c",
+        "record_id": "rec-76ad2da61188",
+        "event_id": "evt-1c72f3a6a593",
         "event_type": "session.created",
-        "timestamp": "2026-05-19T17:17:25.667498",
+        "timestamp": "2026-05-20T19:06:00.627374",
         "payload": {
           "session_id": "test-session-tool",
           "project_id": ""
         },
-        "stored_at": "2026-05-19T17:17:25.667498",
+        "stored_at": "2026-05-20T19:06:00.627374",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "a739b115-7a3f-4c02-9221-b9912b266248",
-        "entity_id": "evt-b261cf72c04c",
-        "created_at": "2026-05-19T17:17:25.667498",
-        "updated_at": "2026-05-19T17:17:25.667498"
+        "correlation_id": "3c718455-e328-4a9f-b485-3425b1fceee1",
+        "entity_id": "evt-334f6a616f7e",
+        "created_at": "2026-05-20T19:06:00.627374",
+        "updated_at": "2026-05-20T19:06:00.627374"
       }
     }
   ]

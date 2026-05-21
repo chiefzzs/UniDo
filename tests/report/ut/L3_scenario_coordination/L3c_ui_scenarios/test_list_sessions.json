@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:17:36.397104",
+  "timestamp": "2026-05-20T19:06:43.494672",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3c_ui_scenarios",
@@ -17,20 +17,20 @@
     "projects": [],
     "sessions": [
       {
-        "session_id": "sess-b3c3b9dced6b",
+        "session_id": "sess-f27580f98024",
         "project_id": "",
         "name": "Session 1",
         "status": "active",
-        "created_at": "2026-05-19T17:17:36.371925",
-        "updated_at": "2026-05-19T17:17:36.371925"
+        "created_at": "2026-05-20T19:06:43.473203",
+        "updated_at": "2026-05-20T19:06:43.473203"
       },
       {
-        "session_id": "sess-8ef8ccad4c8d",
+        "session_id": "sess-af5783f6be17",
         "project_id": "",
         "name": "Session 2",
         "status": "active",
-        "created_at": "2026-05-19T17:17:36.375462",
-        "updated_at": "2026-05-19T17:17:36.375462"
+        "created_at": "2026-05-20T19:06:43.477025",
+        "updated_at": "2026-05-20T19:06:43.477025"
       }
     ],
     "dialogs": [],
@@ -41,38 +41,38 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-756f3de8a7b5",
-        "event_id": "evt-84fcf233fb91",
+        "record_id": "rec-0f70560515aa",
+        "event_id": "evt-dbdb1653b7f3",
         "event_type": "session.created",
-        "timestamp": "2026-05-19T17:17:36.373432",
+        "timestamp": "2026-05-20T19:06:43.474888",
         "payload": {
-          "session_id": "sess-b3c3b9dced6b",
+          "session_id": "sess-f27580f98024",
           "project_id": ""
         },
-        "stored_at": "2026-05-19T17:17:36.373432",
+        "stored_at": "2026-05-20T19:06:43.474888",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "f8f5d9c3-b745-487f-afd5-bd42a324f9fd",
-        "entity_id": "evt-426e26e7de58",
-        "created_at": "2026-05-19T17:17:36.373432",
-        "updated_at": "2026-05-19T17:17:36.373432"
+        "correlation_id": "3293a661-7d2e-44d8-8516-ae9c2016283e",
+        "entity_id": "evt-d609632e5706",
+        "created_at": "2026-05-20T19:06:43.474888",
+        "updated_at": "2026-05-20T19:06:43.474888"
       },
       {
-        "record_id": "rec-e7a86deae395",
-        "event_id": "evt-0a77e045f8c8",
+        "record_id": "rec-dfae9f9a9c97",
+        "event_id": "evt-231e9e969644",
         "event_type": "session.created",
-        "timestamp": "2026-05-19T17:17:36.375462",
+        "timestamp": "2026-05-20T19:06:43.477025",
         "payload": {
-          "session_id": "sess-8ef8ccad4c8d",
+          "session_id": "sess-af5783f6be17",
           "project_id": ""
         },
-        "stored_at": "2026-05-19T17:17:36.375462",
+        "stored_at": "2026-05-20T19:06:43.477025",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "91c0eb45-d840-4316-8ce7-102e67a086ec",
-        "entity_id": "evt-afea6f741eb5",
-        "created_at": "2026-05-19T17:17:36.375462",
-        "updated_at": "2026-05-19T17:17:36.375462"
+        "correlation_id": "b1f0ec37-0528-4f42-94f5-8339299d6d21",
+        "entity_id": "evt-956e1a14a147",
+        "created_at": "2026-05-20T19:06:43.477025",
+        "updated_at": "2026-05-20T19:06:43.477025"
       }
     ],
     "prompts": [],
@@ -87,39 +87,39 @@
   "file_operations": [
     {
       "entity_type": "sessions",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\sessions.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\sessions.json",
       "operation": "write",
       "record_count": 2,
       "sample_data": {
-        "session_id": "sess-8ef8ccad4c8d",
+        "session_id": "sess-af5783f6be17",
         "project_id": "",
         "name": "Session 2",
         "status": "active",
-        "created_at": "2026-05-19T17:17:36.375462",
-        "updated_at": "2026-05-19T17:17:36.375462"
+        "created_at": "2026-05-20T19:06:43.477025",
+        "updated_at": "2026-05-20T19:06:43.477025"
       }
     },
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
       "record_count": 2,
       "sample_data": {
-        "record_id": "rec-e7a86deae395",
-        "event_id": "evt-0a77e045f8c8",
+        "record_id": "rec-dfae9f9a9c97",
+        "event_id": "evt-231e9e969644",
         "event_type": "session.created",
-        "timestamp": "2026-05-19T17:17:36.375462",
+        "timestamp": "2026-05-20T19:06:43.477025",
         "payload": {
-          "session_id": "sess-8ef8ccad4c8d",
+          "session_id": "sess-af5783f6be17",
           "project_id": ""
         },
-        "stored_at": "2026-05-19T17:17:36.375462",
+        "stored_at": "2026-05-20T19:06:43.477025",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "91c0eb45-d840-4316-8ce7-102e67a086ec",
-        "entity_id": "evt-afea6f741eb5",
-        "created_at": "2026-05-19T17:17:36.375462",
-        "updated_at": "2026-05-19T17:17:36.375462"
+        "correlation_id": "b1f0ec37-0528-4f42-94f5-8339299d6d21",
+        "entity_id": "evt-956e1a14a147",
+        "created_at": "2026-05-20T19:06:43.477025",
+        "updated_at": "2026-05-20T19:06:43.477025"
       }
     }
   ]

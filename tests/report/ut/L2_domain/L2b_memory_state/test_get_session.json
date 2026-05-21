@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:09:01.176053",
+  "timestamp": "2026-05-20T19:05:37.087604",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2b_memory_state",
@@ -10,7 +10,7 @@
     "验证从L1持久化正确读取"
   ],
   "inputs": {
-    "session_id": "sess-508587a24499"
+    "session_id": "sess-ef1133f28e47"
   },
   "outputs": {
     "found": true
@@ -19,12 +19,12 @@
     "projects": [],
     "sessions": [
       {
-        "session_id": "sess-508587a24499",
+        "session_id": "sess-ef1133f28e47",
         "project_id": "proj-002",
         "name": "Test Get Session",
         "status": "active",
-        "created_at": "2026-05-19T17:09:01.153530",
-        "updated_at": "2026-05-19T17:09:01.153530"
+        "created_at": "2026-05-20T19:05:37.064110",
+        "updated_at": "2026-05-20T19:05:37.064110"
       }
     ],
     "dialogs": [],
@@ -35,21 +35,21 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-25083ea02282",
-        "event_id": "evt-122b870f56dd",
+        "record_id": "rec-746831d4e5d8",
+        "event_id": "evt-2f54f8594c62",
         "event_type": "session.created",
-        "timestamp": "2026-05-19T17:09:01.155069",
+        "timestamp": "2026-05-20T19:05:37.065613",
         "payload": {
-          "session_id": "sess-508587a24499",
+          "session_id": "sess-ef1133f28e47",
           "project_id": "proj-002"
         },
-        "stored_at": "2026-05-19T17:09:01.155069",
+        "stored_at": "2026-05-20T19:05:37.065613",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "b5f36bba-dd8f-4c21-b2db-9457e30f9cfd",
-        "entity_id": "evt-c45ebef15bce",
-        "created_at": "2026-05-19T17:09:01.155069",
-        "updated_at": "2026-05-19T17:09:01.155069"
+        "correlation_id": "8dbe3899-c4ff-44cf-b07b-d6d98a9287cf",
+        "entity_id": "evt-b22efbf5065d",
+        "created_at": "2026-05-20T19:05:37.065613",
+        "updated_at": "2026-05-20T19:05:37.065613"
       }
     ],
     "prompts": [],
@@ -64,39 +64,39 @@
   "file_operations": [
     {
       "entity_type": "sessions",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\sessions.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\sessions.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "session_id": "sess-508587a24499",
+        "session_id": "sess-ef1133f28e47",
         "project_id": "proj-002",
         "name": "Test Get Session",
         "status": "active",
-        "created_at": "2026-05-19T17:09:01.153530",
-        "updated_at": "2026-05-19T17:09:01.153530"
+        "created_at": "2026-05-20T19:05:37.064110",
+        "updated_at": "2026-05-20T19:05:37.064110"
       }
     },
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "record_id": "rec-25083ea02282",
-        "event_id": "evt-122b870f56dd",
+        "record_id": "rec-746831d4e5d8",
+        "event_id": "evt-2f54f8594c62",
         "event_type": "session.created",
-        "timestamp": "2026-05-19T17:09:01.155069",
+        "timestamp": "2026-05-20T19:05:37.065613",
         "payload": {
-          "session_id": "sess-508587a24499",
+          "session_id": "sess-ef1133f28e47",
           "project_id": "proj-002"
         },
-        "stored_at": "2026-05-19T17:09:01.155069",
+        "stored_at": "2026-05-20T19:05:37.065613",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "b5f36bba-dd8f-4c21-b2db-9457e30f9cfd",
-        "entity_id": "evt-c45ebef15bce",
-        "created_at": "2026-05-19T17:09:01.155069",
-        "updated_at": "2026-05-19T17:09:01.155069"
+        "correlation_id": "8dbe3899-c4ff-44cf-b07b-d6d98a9287cf",
+        "entity_id": "evt-b22efbf5065d",
+        "created_at": "2026-05-20T19:05:37.065613",
+        "updated_at": "2026-05-20T19:05:37.065613"
       }
     }
   ]

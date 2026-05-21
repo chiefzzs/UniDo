@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:09:01.358339",
+  "timestamp": "2026-05-20T19:05:37.448149",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2c_tool_execution",
@@ -18,9 +18,9 @@
     }
   },
   "outputs": {
-    "success": true,
-    "call_id": "call-6b98335c9c6c",
-    "status": "done"
+    "success": false,
+    "call_id": "call-01c3f09c85ef",
+    "status": "failed"
   },
   "persistent_data": {
     "projects": [],
@@ -32,58 +32,85 @@
     "llm_calls": [],
     "tool_calls": [
       {
-        "call_id": "call-6b98335c9c6c",
-        "tool_id": "tool-91356a11e85c",
+        "call_id": "call-01c3f09c85ef",
+        "tool_id": "tool-158df9cf3403",
         "tool_name": "test_tool",
         "dialog_id": "dialog-001",
         "task_id": "task-001",
         "input_params": {
           "input": "test input"
         },
-        "output_result": "Tool test_tool executed successfully with params: {'input': 'test input'}",
-        "status": "completed",
-        "error_message": null,
-        "start_time": "2026-05-19T17:09:01.333902",
-        "end_time": "2026-05-19T17:09:01.335425",
-        "duration": 0.0
+        "output_result": null,
+        "status": "failed",
+        "error_message": "Tool implementation not found for: test_tool (ID: tool-158df9cf3403)",
+        "start_time": "2026-05-20T19:05:37.223296",
+        "end_time": "2026-05-20T19:05:37.425306",
+        "duration": 0.20000815391540527
       }
     ],
     "events": [
       {
-        "record_id": "rec-e755d3720049",
-        "event_id": "evt-8e085553f85e",
+        "record_id": "rec-3c0e3fa4a47f",
+        "event_id": "evt-0044298c175b",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-19T17:09:01.332385",
+        "timestamp": "2026-05-20T19:05:37.222296",
         "payload": {
-          "tool_id": "tool-91356a11e85c",
+          "tool_id": "tool-158df9cf3403",
           "tool_name": "test_tool"
         },
-        "stored_at": "2026-05-19T17:09:01.332385",
+        "stored_at": "2026-05-20T19:05:37.222296",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "73696fa2-31bb-43c2-8979-81c9af4d550e",
-        "entity_id": "evt-58650ce6708a",
-        "created_at": "2026-05-19T17:09:01.332385",
-        "updated_at": "2026-05-19T17:09:01.332385"
+        "correlation_id": "8eef1848-29ab-4620-b41a-74b300f6525f",
+        "entity_id": "evt-22d88d997595",
+        "created_at": "2026-05-20T19:05:37.222296",
+        "updated_at": "2026-05-20T19:05:37.222296"
       },
       {
-        "record_id": "rec-3ad01429af74",
-        "event_id": "evt-51b19672c895",
-        "event_type": "tool.call_completed",
-        "timestamp": "2026-05-19T17:09:01.338485",
+        "record_id": "rec-371186f899a5",
+        "event_id": "evt-59ed6784586a",
+        "event_type": "tool.call_started",
+        "timestamp": "2026-05-20T19:05:37.225297",
         "payload": {
-          "call_id": "call-6b98335c9c6c",
+          "call_id": "call-01c3f09c85ef",
           "tool_name": "test_tool",
-          "success": true,
-          "duration": 0.0
+          "dialog_id": "dialog-001",
+          "task_id": "task-001",
+          "params": {
+            "input": "test input"
+          },
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-19T17:09:01.338485",
+        "stored_at": "2026-05-20T19:05:37.225297",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "8df2262f-149c-42c0-a174-c5347cfe5601",
-        "entity_id": "evt-b598bfdaaf94",
-        "created_at": "2026-05-19T17:09:01.338485",
-        "updated_at": "2026-05-19T17:09:01.338485"
+        "correlation_id": "17c31ede-0ad5-43cd-8749-9041298f90d9",
+        "entity_id": "evt-461ece2b25a3",
+        "created_at": "2026-05-20T19:05:37.225297",
+        "updated_at": "2026-05-20T19:05:37.225297"
+      },
+      {
+        "record_id": "rec-7d456c76fa6d",
+        "event_id": "evt-c4ff0ae26ebf",
+        "event_type": "tool.call_failed",
+        "timestamp": "2026-05-20T19:05:37.428331",
+        "payload": {
+          "call_id": "call-01c3f09c85ef",
+          "tool_name": "test_tool",
+          "success": false,
+          "error": "Tool implementation not found for: test_tool (ID: tool-158df9cf3403)",
+          "duration": 0.20000815391540527,
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
+        },
+        "stored_at": "2026-05-20T19:05:37.428331",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "8586da6f-ac70-46af-9c1c-5c3231554ae2",
+        "entity_id": "evt-1981e60d9deb",
+        "created_at": "2026-05-20T19:05:37.428331",
+        "updated_at": "2026-05-20T19:05:37.428331"
       }
     ],
     "prompts": [],
@@ -98,49 +125,52 @@
   "file_operations": [
     {
       "entity_type": "tool_calls",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\tool_calls.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\tool_calls.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "call_id": "call-6b98335c9c6c",
-        "tool_id": "tool-91356a11e85c",
+        "call_id": "call-01c3f09c85ef",
+        "tool_id": "tool-158df9cf3403",
         "tool_name": "test_tool",
         "dialog_id": "dialog-001",
         "task_id": "task-001",
         "input_params": {
           "input": "test input"
         },
-        "output_result": "Tool test_tool executed successfully with params: {'input': 'test input'}",
-        "status": "completed",
-        "error_message": null,
-        "start_time": "2026-05-19T17:09:01.333902",
-        "end_time": "2026-05-19T17:09:01.335425",
-        "duration": 0.0
+        "output_result": null,
+        "status": "failed",
+        "error_message": "Tool implementation not found for: test_tool (ID: tool-158df9cf3403)",
+        "start_time": "2026-05-20T19:05:37.223296",
+        "end_time": "2026-05-20T19:05:37.425306",
+        "duration": 0.20000815391540527
       }
     },
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
-      "record_count": 2,
+      "record_count": 3,
       "sample_data": {
-        "record_id": "rec-3ad01429af74",
-        "event_id": "evt-51b19672c895",
-        "event_type": "tool.call_completed",
-        "timestamp": "2026-05-19T17:09:01.338485",
+        "record_id": "rec-7d456c76fa6d",
+        "event_id": "evt-c4ff0ae26ebf",
+        "event_type": "tool.call_failed",
+        "timestamp": "2026-05-20T19:05:37.428331",
         "payload": {
-          "call_id": "call-6b98335c9c6c",
+          "call_id": "call-01c3f09c85ef",
           "tool_name": "test_tool",
-          "success": true,
-          "duration": 0.0
+          "success": false,
+          "error": "Tool implementation not found for: test_tool (ID: tool-158df9cf3403)",
+          "duration": 0.20000815391540527,
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-19T17:09:01.338485",
+        "stored_at": "2026-05-20T19:05:37.428331",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "8df2262f-149c-42c0-a174-c5347cfe5601",
-        "entity_id": "evt-b598bfdaaf94",
-        "created_at": "2026-05-19T17:09:01.338485",
-        "updated_at": "2026-05-19T17:09:01.338485"
+        "correlation_id": "8586da6f-ac70-46af-9c1c-5c3231554ae2",
+        "entity_id": "evt-1981e60d9deb",
+        "created_at": "2026-05-20T19:05:37.428331",
+        "updated_at": "2026-05-20T19:05:37.428331"
       }
     }
   ]

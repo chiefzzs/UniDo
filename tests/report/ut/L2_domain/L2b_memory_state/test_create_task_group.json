@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:09:01.314976",
+  "timestamp": "2026-05-20T19:05:37.208600",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2b_memory_state",
@@ -14,7 +14,7 @@
     "name": "Test Task Group"
   },
   "outputs": {
-    "group_id": "group-c2d19642711a",
+    "group_id": "group-5c8ad8e7c8e4",
     "status": "pending"
   },
   "persistent_data": {
@@ -24,11 +24,11 @@
     "messages": [],
     "task_groups": [
       {
-        "group_id": "group-c2d19642711a",
+        "group_id": "group-5c8ad8e7c8e4",
         "session_id": "session-001",
         "name": "Test Task Group",
         "status": "pending",
-        "created_at": "2026-05-19T17:09:01.293780"
+        "created_at": "2026-05-20T19:05:37.190416"
       }
     ],
     "tasks": [],
@@ -47,15 +47,15 @@
   "file_operations": [
     {
       "entity_type": "task_groups",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\task_groups.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\task_groups.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "group_id": "group-c2d19642711a",
+        "group_id": "group-5c8ad8e7c8e4",
         "session_id": "session-001",
         "name": "Test Task Group",
         "status": "pending",
-        "created_at": "2026-05-19T17:09:01.293780"
+        "created_at": "2026-05-20T19:05:37.190416"
       }
     }
   ]

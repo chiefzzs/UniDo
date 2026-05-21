@@ -26,8 +26,8 @@ class TestToolExecutionService:
         # 使用真实的工具执行器
         executor = get_tool_executor()
         
-        # 创建测试目录
-        test_dir = "d:\\learnning\\260521\\src\\data\\test\\tool_test_dir"
+        # 创建测试目录 - 使用workspace目录
+        test_dir = "d:\\learnning\\260521\\workspace\\tool_test_dir"
         
         inputs = {
             "tool_name": "RunCommand",
@@ -38,7 +38,7 @@ class TestToolExecutionService:
             tool_name=inputs["tool_name"],
             dialog_id="test-tool-exec-1",
             task_id="test-tool-exec-1",
-            params={"command": inputs["command"], "workspace": "d:\\learnning\\260521"}
+            params={"command": inputs["command"], "workspace": "d:\\learnning\\260521\\workspace"}
         )
         
         # 验证工具调用结果
@@ -73,7 +73,8 @@ class TestToolExecutionService:
         """测试执行Write和Read工具 - 真实文件操作"""
         executor = get_tool_executor()
         
-        test_file = "d:\\learnning\\260521\\src\\data\\test\\tool_test_file.txt"
+        # 使用workspace目录
+        test_file = "d:\\learnning\\260521\\workspace\\tool_test_file.txt"
         test_content = "测试工具执行内容"
         
         # 第一步：写入文件
@@ -81,7 +82,7 @@ class TestToolExecutionService:
             tool_name="Write",
             dialog_id="test-tool-exec-2",
             task_id="test-tool-exec-2",
-            params={"file_path": test_file, "content": test_content}
+            params={"file_path": test_file, "content": test_content, "workspace": "d:\\learnning\\260521\\workspace"}
         )
         
         assert write_result.success, f"写入文件失败: {write_result.error}"
@@ -91,7 +92,7 @@ class TestToolExecutionService:
             tool_name="Read",
             dialog_id="test-tool-exec-2",
             task_id="test-tool-exec-2",
-            params={"file_path": test_file}
+            params={"file_path": test_file, "workspace": "d:\\learnning\\260521\\workspace"}
         )
         
         # 验证读取结果
@@ -133,13 +134,14 @@ class TestToolExecutionService:
         """测试执行LS工具 - 真实目录列表"""
         executor = get_tool_executor()
         
-        test_path = "d:\\learnning\\260521\\src\\data\\test"
+        # 使用workspace目录
+        test_path = "d:\\learnning\\260521\\workspace"
         
         result = executor.execute_tool(
             tool_name="LS",
             dialog_id="test-tool-exec-3",
             task_id="test-tool-exec-3",
-            params={"path": test_path}
+            params={"path": test_path, "workspace": "d:\\learnning\\260521\\workspace"}
         )
         
         # 验证工具调用结果
@@ -190,7 +192,7 @@ class TestToolExecutionService:
             single_tool_info=SingleToolInfo(
                 tool_id="T04",
                 tool_name="LS",
-                parameters={"path": "d:\\learnning\\260521\\src\\data\\test"}
+                parameters={"path": "d:\\learnning\\260521\\workspace"}
             )
         )
         
@@ -242,11 +244,12 @@ class TestToolExecutionService:
         """测试工具执行结果结构 - 验证ToolResult属性"""
         executor = get_tool_executor()
         
+        # 使用workspace目录
         result = executor.execute_tool(
             tool_name="LS",
             dialog_id="test-tool-exec-4",
             task_id="test-tool-exec-4",
-            params={"path": "d:\\learnning\\260521\\src\\data\\test"}
+            params={"path": "d:\\learnning\\260521\\workspace", "workspace": "d:\\learnning\\260521\\workspace"}
         )
         
         # 验证ToolResult结构（修复之前的bug: result.content -> result.result）

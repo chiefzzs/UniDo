@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:17:25.655235",
+  "timestamp": "2026-05-20T19:06:00.603146",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3a_task_coordination",
@@ -27,35 +27,35 @@
         "project_id": "",
         "name": "New Session",
         "status": "active",
-        "created_at": "2026-05-19T17:17:25.626125",
-        "updated_at": "2026-05-19T17:17:25.626125"
+        "created_at": "2026-05-20T19:06:00.580865",
+        "updated_at": "2026-05-20T19:06:00.580865"
       }
     ],
     "dialogs": [
       {
-        "dialog_id": "dialog-f5e3063f286e",
+        "dialog_id": "dialog-9e6990dd70dd",
         "session_id": "test-session-simple",
         "dialog_type": "text",
         "status": "active",
-        "created_at": "2026-05-19T17:17:25.631159"
+        "created_at": "2026-05-20T19:06:00.584410"
       }
     ],
     "messages": [
       {
-        "message_id": "msg-7f9ff5fb6ba0",
-        "dialog_id": "dialog-f5e3063f286e",
+        "message_id": "msg-fe4d34563ddd",
+        "dialog_id": "dialog-9e6990dd70dd",
         "role": "user",
         "content": "你好",
         "metadata": {},
-        "created_at": "2026-05-19T17:17:25.632667"
+        "created_at": "2026-05-20T19:06:00.585893"
       },
       {
-        "message_id": "msg-66e7fc756c0d",
-        "dialog_id": "dialog-f5e3063f286e",
+        "message_id": "msg-c654970714be",
+        "dialog_id": "dialog-9e6990dd70dd",
         "role": "assistant",
         "content": "任务已直接完成",
         "metadata": {},
-        "created_at": "2026-05-19T17:17:25.635202"
+        "created_at": "2026-05-20T19:06:00.587398"
       }
     ],
     "task_groups": [],
@@ -64,21 +64,327 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-82f4ba9e0b66",
-        "event_id": "evt-37c187684e8d",
+        "record_id": "rec-5c4ee2c1002e",
+        "event_id": "evt-ef0cfb0480a5",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-20T19:06:00.522168",
+        "payload": {
+          "tool_id": "T01",
+          "tool_name": "Skill"
+        },
+        "stored_at": "2026-05-20T19:06:00.522168",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "09595edc-5886-47e1-b6ba-1036ac84750a",
+        "entity_id": "evt-8ad314cfa41a",
+        "created_at": "2026-05-20T19:06:00.522168",
+        "updated_at": "2026-05-20T19:06:00.522168"
+      },
+      {
+        "record_id": "rec-20889b9fc5fd",
+        "event_id": "evt-c592a2f1f76f",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-20T19:06:00.525025",
+        "payload": {
+          "tool_id": "T02",
+          "tool_name": "SearchCodebase"
+        },
+        "stored_at": "2026-05-20T19:06:00.526099",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "00d6459a-3bd6-4dad-ac53-2fdecdd591e6",
+        "entity_id": "evt-684d6cf914b6",
+        "created_at": "2026-05-20T19:06:00.526099",
+        "updated_at": "2026-05-20T19:06:00.526099"
+      },
+      {
+        "record_id": "rec-decac55f9259",
+        "event_id": "evt-263e48da819b",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-20T19:06:00.528258",
+        "payload": {
+          "tool_id": "T03",
+          "tool_name": "Glob"
+        },
+        "stored_at": "2026-05-20T19:06:00.528258",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "48fb133a-e907-43c6-b58b-f566ef0662ea",
+        "entity_id": "evt-0794492d4be0",
+        "created_at": "2026-05-20T19:06:00.528258",
+        "updated_at": "2026-05-20T19:06:00.528258"
+      },
+      {
+        "record_id": "rec-d94685d37fa7",
+        "event_id": "evt-8d23ca2bcff4",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-20T19:06:00.530840",
+        "payload": {
+          "tool_id": "T04",
+          "tool_name": "LS"
+        },
+        "stored_at": "2026-05-20T19:06:00.530840",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "e20574af-6962-496b-a889-4413a2c401ae",
+        "entity_id": "evt-f71e1b308940",
+        "created_at": "2026-05-20T19:06:00.530840",
+        "updated_at": "2026-05-20T19:06:00.530840"
+      },
+      {
+        "record_id": "rec-c00d116e59a3",
+        "event_id": "evt-37c36dd95209",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-20T19:06:00.533955",
+        "payload": {
+          "tool_id": "T05",
+          "tool_name": "Grep"
+        },
+        "stored_at": "2026-05-20T19:06:00.533955",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "d5e335c5-0160-4bc1-adce-960ed5bfff35",
+        "entity_id": "evt-ecb1fae57466",
+        "created_at": "2026-05-20T19:06:00.533955",
+        "updated_at": "2026-05-20T19:06:00.533955"
+      },
+      {
+        "record_id": "rec-10158e636142",
+        "event_id": "evt-eb854da1e7dc",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-20T19:06:00.536955",
+        "payload": {
+          "tool_id": "T06",
+          "tool_name": "Read"
+        },
+        "stored_at": "2026-05-20T19:06:00.536955",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "642cd058-d876-40ec-b4ad-7ade3cbc4c4e",
+        "entity_id": "evt-b2d8a4843359",
+        "created_at": "2026-05-20T19:06:00.536955",
+        "updated_at": "2026-05-20T19:06:00.536955"
+      },
+      {
+        "record_id": "rec-953bba8bf396",
+        "event_id": "evt-e2de2f7aee2d",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-20T19:06:00.539472",
+        "payload": {
+          "tool_id": "T07",
+          "tool_name": "WebSearch"
+        },
+        "stored_at": "2026-05-20T19:06:00.539472",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "8c170d49-3531-49d5-9064-86bf18a59f52",
+        "entity_id": "evt-491f0cb8081e",
+        "created_at": "2026-05-20T19:06:00.539472",
+        "updated_at": "2026-05-20T19:06:00.539472"
+      },
+      {
+        "record_id": "rec-468a840cf0f8",
+        "event_id": "evt-ce609eebd416",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-20T19:06:00.543248",
+        "payload": {
+          "tool_id": "T08",
+          "tool_name": "WebFetch"
+        },
+        "stored_at": "2026-05-20T19:06:00.543248",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "cf9f04f0-afd4-4d5f-93ac-3b94145b8508",
+        "entity_id": "evt-18b6301135af",
+        "created_at": "2026-05-20T19:06:00.543248",
+        "updated_at": "2026-05-20T19:06:00.543248"
+      },
+      {
+        "record_id": "rec-1d42661dd340",
+        "event_id": "evt-1c1b0eca2de5",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-20T19:06:00.545246",
+        "payload": {
+          "tool_id": "T09",
+          "tool_name": "DeleteFile"
+        },
+        "stored_at": "2026-05-20T19:06:00.545246",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "18ff459e-c7f9-4c8f-aa6b-ec74521b8f29",
+        "entity_id": "evt-e6ad1b1d810a",
+        "created_at": "2026-05-20T19:06:00.545246",
+        "updated_at": "2026-05-20T19:06:00.545246"
+      },
+      {
+        "record_id": "rec-cb0b72592a01",
+        "event_id": "evt-48f817a57ffa",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-20T19:06:00.549380",
+        "payload": {
+          "tool_id": "T10",
+          "tool_name": "SearchReplace"
+        },
+        "stored_at": "2026-05-20T19:06:00.549380",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "1f8223f8-a37c-41f9-8ef4-785c21f9be3b",
+        "entity_id": "evt-4bee314b501f",
+        "created_at": "2026-05-20T19:06:00.549380",
+        "updated_at": "2026-05-20T19:06:00.549380"
+      },
+      {
+        "record_id": "rec-12b432ee9c48",
+        "event_id": "evt-8f0e6671aabc",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-20T19:06:00.552630",
+        "payload": {
+          "tool_id": "T11",
+          "tool_name": "Write"
+        },
+        "stored_at": "2026-05-20T19:06:00.552630",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "b5cc85e8-a8ea-4aa4-9eed-26b55e64937b",
+        "entity_id": "evt-d7218662fef0",
+        "created_at": "2026-05-20T19:06:00.552630",
+        "updated_at": "2026-05-20T19:06:00.552630"
+      },
+      {
+        "record_id": "rec-35c7e1264a69",
+        "event_id": "evt-c8fea909a44d",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-20T19:06:00.555672",
+        "payload": {
+          "tool_id": "T12",
+          "tool_name": "RunCommand"
+        },
+        "stored_at": "2026-05-20T19:06:00.555672",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "fd3d63b0-e020-4430-8b32-ea202fedda2d",
+        "entity_id": "evt-59ce0b0cb02c",
+        "created_at": "2026-05-20T19:06:00.555672",
+        "updated_at": "2026-05-20T19:06:00.555672"
+      },
+      {
+        "record_id": "rec-c0553737852b",
+        "event_id": "evt-c8ff8243ab12",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-20T19:06:00.559319",
+        "payload": {
+          "tool_id": "T13",
+          "tool_name": "CheckCommandStatus"
+        },
+        "stored_at": "2026-05-20T19:06:00.559319",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "d7ba5185-730f-41bb-9e33-f490388ceb8e",
+        "entity_id": "evt-2ec6a844ce1c",
+        "created_at": "2026-05-20T19:06:00.559319",
+        "updated_at": "2026-05-20T19:06:00.559319"
+      },
+      {
+        "record_id": "rec-baab75338da1",
+        "event_id": "evt-71cef4ac0d44",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-20T19:06:00.561877",
+        "payload": {
+          "tool_id": "T14",
+          "tool_name": "StopCommand"
+        },
+        "stored_at": "2026-05-20T19:06:00.561877",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "5b38486b-7345-41a0-947d-2736ea378160",
+        "entity_id": "evt-114b23e83fcd",
+        "created_at": "2026-05-20T19:06:00.561877",
+        "updated_at": "2026-05-20T19:06:00.561877"
+      },
+      {
+        "record_id": "rec-b5a33307e1d1",
+        "event_id": "evt-b826a48e1610",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-20T19:06:00.566881",
+        "payload": {
+          "tool_id": "T15",
+          "tool_name": "GetDiagnostics"
+        },
+        "stored_at": "2026-05-20T19:06:00.566881",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "bb4c7f66-8933-4bb4-9a06-92689d4e878a",
+        "entity_id": "evt-5cc520007d25",
+        "created_at": "2026-05-20T19:06:00.566881",
+        "updated_at": "2026-05-20T19:06:00.566881"
+      },
+      {
+        "record_id": "rec-2f0fb757a131",
+        "event_id": "evt-c001700d063d",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-20T19:06:00.569488",
+        "payload": {
+          "tool_id": "T16",
+          "tool_name": "TodoWrite"
+        },
+        "stored_at": "2026-05-20T19:06:00.569488",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "596a080a-010e-4f70-97b1-d2f647915d62",
+        "entity_id": "evt-5d71e9563388",
+        "created_at": "2026-05-20T19:06:00.569488",
+        "updated_at": "2026-05-20T19:06:00.569488"
+      },
+      {
+        "record_id": "rec-faa1b9b08f90",
+        "event_id": "evt-b44c0b6b6344",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-20T19:06:00.574658",
+        "payload": {
+          "tool_id": "T17",
+          "tool_name": "OpenPreview"
+        },
+        "stored_at": "2026-05-20T19:06:00.574658",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "849a2bfb-8618-4485-aaad-50cfaaca8dda",
+        "entity_id": "evt-1359cd6cd842",
+        "created_at": "2026-05-20T19:06:00.574658",
+        "updated_at": "2026-05-20T19:06:00.574658"
+      },
+      {
+        "record_id": "rec-7e12d4f7cfd5",
+        "event_id": "evt-708c318842bf",
+        "event_type": "tool.registered",
+        "timestamp": "2026-05-20T19:06:00.578281",
+        "payload": {
+          "tool_id": "T18",
+          "tool_name": "AskUserQuestion"
+        },
+        "stored_at": "2026-05-20T19:06:00.578281",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "d5be6b23-e42b-44b7-8f57-51d0600182cd",
+        "entity_id": "evt-ba54a96c6361",
+        "created_at": "2026-05-20T19:06:00.578281",
+        "updated_at": "2026-05-20T19:06:00.578281"
+      },
+      {
+        "record_id": "rec-97430be8756e",
+        "event_id": "evt-750927c65dc4",
         "event_type": "session.created",
-        "timestamp": "2026-05-19T17:17:25.628132",
+        "timestamp": "2026-05-20T19:06:00.582403",
         "payload": {
           "session_id": "test-session-simple",
           "project_id": ""
         },
-        "stored_at": "2026-05-19T17:17:25.628132",
+        "stored_at": "2026-05-20T19:06:00.582403",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "62808616-5416-4652-983e-3315a9139107",
-        "entity_id": "evt-adc12457af92",
-        "created_at": "2026-05-19T17:17:25.628132",
-        "updated_at": "2026-05-19T17:17:25.628132"
+        "correlation_id": "7532d57f-0785-465f-8034-a2e4b4ef8e1e",
+        "entity_id": "evt-8421e8db04ff",
+        "created_at": "2026-05-20T19:06:00.582403",
+        "updated_at": "2026-05-20T19:06:00.582403"
       }
     ],
     "prompts": [],
@@ -93,7 +399,7 @@
   "file_operations": [
     {
       "entity_type": "sessions",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\sessions.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\sessions.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
@@ -101,58 +407,58 @@
         "project_id": "",
         "name": "New Session",
         "status": "active",
-        "created_at": "2026-05-19T17:17:25.626125",
-        "updated_at": "2026-05-19T17:17:25.626125"
+        "created_at": "2026-05-20T19:06:00.580865",
+        "updated_at": "2026-05-20T19:06:00.580865"
       }
     },
     {
       "entity_type": "dialogs",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\dialogs.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\dialogs.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "dialog_id": "dialog-f5e3063f286e",
+        "dialog_id": "dialog-9e6990dd70dd",
         "session_id": "test-session-simple",
         "dialog_type": "text",
         "status": "active",
-        "created_at": "2026-05-19T17:17:25.631159"
+        "created_at": "2026-05-20T19:06:00.584410"
       }
     },
     {
       "entity_type": "messages",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\messages.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\messages.json",
       "operation": "write",
       "record_count": 2,
       "sample_data": {
-        "message_id": "msg-66e7fc756c0d",
-        "dialog_id": "dialog-f5e3063f286e",
+        "message_id": "msg-c654970714be",
+        "dialog_id": "dialog-9e6990dd70dd",
         "role": "assistant",
         "content": "任务已直接完成",
         "metadata": {},
-        "created_at": "2026-05-19T17:17:25.635202"
+        "created_at": "2026-05-20T19:06:00.587398"
       }
     },
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
-      "record_count": 1,
+      "record_count": 19,
       "sample_data": {
-        "record_id": "rec-82f4ba9e0b66",
-        "event_id": "evt-37c187684e8d",
+        "record_id": "rec-97430be8756e",
+        "event_id": "evt-750927c65dc4",
         "event_type": "session.created",
-        "timestamp": "2026-05-19T17:17:25.628132",
+        "timestamp": "2026-05-20T19:06:00.582403",
         "payload": {
           "session_id": "test-session-simple",
           "project_id": ""
         },
-        "stored_at": "2026-05-19T17:17:25.628132",
+        "stored_at": "2026-05-20T19:06:00.582403",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "62808616-5416-4652-983e-3315a9139107",
-        "entity_id": "evt-adc12457af92",
-        "created_at": "2026-05-19T17:17:25.628132",
-        "updated_at": "2026-05-19T17:17:25.628132"
+        "correlation_id": "7532d57f-0785-465f-8034-a2e4b4ef8e1e",
+        "entity_id": "evt-8421e8db04ff",
+        "created_at": "2026-05-20T19:06:00.582403",
+        "updated_at": "2026-05-20T19:06:00.582403"
       }
     }
   ]

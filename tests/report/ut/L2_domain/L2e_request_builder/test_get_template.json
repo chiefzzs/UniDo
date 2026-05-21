@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:09:06.749780",
+  "timestamp": "2026-05-20T19:06:00.070985",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2e_request_builder",
@@ -10,7 +10,7 @@
     "验证prompt_template查询功能"
   ],
   "inputs": {
-    "template_id": "template-b4918667f5b5"
+    "template_id": "template-159158ed8990"
   },
   "outputs": {
     "found": true,

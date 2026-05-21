@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T15:23:18.477523",
+  "timestamp": "2026-05-21T07:49:55.685326",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3a_task_coordination",
@@ -11,7 +11,7 @@
     "验证返回结果格式正确"
   ],
   "inputs": {
-    "path": "d:\\learnning\\260521\\src\\data\\test"
+    "path": "d:\\learnning\\260521\\workspace"
   },
   "outputs": {
     "success": true,
@@ -29,87 +29,89 @@
     "llm_calls": [],
     "tool_calls": [
       {
-        "call_id": "call-116e9f046d32",
+        "call_id": "call-131b4d61b4d2",
         "tool_id": "T04",
         "tool_name": "LS",
         "dialog_id": "test-tool-exec-3",
         "task_id": "test-tool-exec-3",
         "input_params": {
-          "path": "d:\\learnning\\260521\\src\\data\\test"
+          "path": "d:\\learnning\\260521\\workspace",
+          "workspace": "d:\\learnning\\260521\\workspace"
         },
-        "output_result": "{'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test', 'entries': [{'name': 'events.json', 'type': 'file', 'size': 935, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\events.json'}, {'name': 'tool_calls.json', 'type': 'file', 'size': 496, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_calls.json'}, {'name': 'tool_definitions.json', 'type': 'file', 'size': 2, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_definitions.json'}, {'name': 'workspace_configs.json', 'type': 'file', 'size': 2, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\workspace_configs.json'}], 'total': 4, 'directories': 0, 'files': 4}",
+        "output_result": "{'path': 'd:\\\\learnning\\\\260521\\\\workspace', 'entries': [{'name': 'test_1', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_1'}, {'name': 'test_10', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_10'}, {'name': 'test_11', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_11'}, {'name': 'test_12', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_12'}, {'name': 'test_14', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_14'}, {'name': 'test_20', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_20'}, {'name': 'test_21', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_21'}, {'name': 'tool_test_dir', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir'}, {'name': 'tool_test_file.txt', 'type': 'file', 'size': 24, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_file.txt'}], 'total': 9, 'directories': 8, 'files': 1}",
         "status": "completed",
         "error_message": null,
-        "start_time": "2026-05-20T15:23:18.443675",
-        "end_time": "2026-05-20T15:23:18.453901",
-        "duration": 0.008678197860717773
+        "start_time": "2026-05-21T07:49:55.648755",
+        "end_time": "2026-05-21T07:49:55.661488",
+        "duration": 0.010717153549194336
       }
     ],
     "events": [
       {
-        "record_id": "rec-b32e119afbe1",
-        "event_id": "evt-853a95ac261f",
+        "record_id": "rec-00133430793c",
+        "event_id": "evt-4d6f87f50c2d",
         "event_type": "tool.call_started",
-        "timestamp": "2026-05-20T15:23:18.445223",
+        "timestamp": "2026-05-21T07:49:55.650771",
         "payload": {
-          "call_id": "call-116e9f046d32",
+          "call_id": "call-131b4d61b4d2",
           "tool_name": "LS",
           "dialog_id": "test-tool-exec-3",
           "task_id": "test-tool-exec-3",
           "params": {
-            "path": "d:\\learnning\\260521\\src\\data\\test"
+            "path": "d:\\learnning\\260521\\workspace",
+            "workspace": "d:\\learnning\\260521\\workspace"
           },
           "source_component": "L2_tool_execution",
           "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-20T15:23:18.445223",
+        "stored_at": "2026-05-21T07:49:55.650771",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "18f05b51-9315-499d-b75c-ac5eb5ebc500",
-        "entity_id": "evt-bd876ba9a03e",
-        "created_at": "2026-05-20T15:23:18.445223",
-        "updated_at": "2026-05-20T15:23:18.445223"
+        "correlation_id": "1d67848b-7f8a-4282-be80-2b65acfd5df0",
+        "entity_id": "evt-c88d0de3b21e",
+        "created_at": "2026-05-21T07:49:55.650771",
+        "updated_at": "2026-05-21T07:49:55.650771"
       },
       {
-        "record_id": "rec-585289840c5b",
-        "event_id": "evt-57d5b6a6982a",
+        "record_id": "rec-a7f3f7fc3f1d",
+        "event_id": "evt-f80e6321734d",
         "event_type": "tool.execution_output_end",
-        "timestamp": "2026-05-20T15:23:18.451893",
+        "timestamp": "2026-05-21T07:49:55.658353",
         "payload": {
-          "call_id": "call-116e9f046d32",
+          "call_id": "call-131b4d61b4d2",
           "tool_name": "LS",
           "source_component": "L2_tool_execution",
           "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-20T15:23:18.451893",
+        "stored_at": "2026-05-21T07:49:55.658353",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "df9325ca-7969-41f7-8614-e0803751d9d8",
-        "entity_id": "evt-d5e626a2a5a5",
-        "created_at": "2026-05-20T15:23:18.451893",
-        "updated_at": "2026-05-20T15:23:18.451893"
+        "correlation_id": "677b47a9-a41f-405f-9148-cae0028a0df9",
+        "entity_id": "evt-f624a6412daf",
+        "created_at": "2026-05-21T07:49:55.658353",
+        "updated_at": "2026-05-21T07:49:55.658353"
       },
       {
-        "record_id": "rec-d2b47bc15eac",
-        "event_id": "evt-b17c29a6a612",
+        "record_id": "rec-610b0b5714ba",
+        "event_id": "evt-d1bae6a5d7fb",
         "event_type": "tool.call_completed",
-        "timestamp": "2026-05-20T15:23:18.457442",
+        "timestamp": "2026-05-21T07:49:55.665030",
         "payload": {
-          "call_id": "call-116e9f046d32",
+          "call_id": "call-131b4d61b4d2",
           "tool_name": "LS",
           "success": true,
-          "duration": 0.008678197860717773,
+          "duration": 0.010717153549194336,
           "workspace": "D:\\learnning\\260521",
           "source_component": "L2_tool_execution",
           "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-20T15:23:18.457442",
+        "stored_at": "2026-05-21T07:49:55.665030",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "05365032-18d3-4bb8-864d-ced4d5ea0cef",
-        "entity_id": "evt-0dce459f8107",
-        "created_at": "2026-05-20T15:23:18.457442",
-        "updated_at": "2026-05-20T15:23:18.457442"
+        "correlation_id": "c937a601-c7a2-4bb3-97fa-d34683fc6f5d",
+        "entity_id": "evt-9510f6d6c266",
+        "created_at": "2026-05-21T07:49:55.665030",
+        "updated_at": "2026-05-21T07:49:55.665030"
       }
     ],
     "prompts": [],
@@ -121,20 +123,21 @@
   "llm_data": {},
   "tool_calls": [
     {
-      "call_id": "call-116e9f046d32",
+      "call_id": "call-131b4d61b4d2",
       "tool_id": "T04",
       "tool_name": "LS",
       "dialog_id": "test-tool-exec-3",
       "task_id": "test-tool-exec-3",
       "input_params": {
-        "path": "d:\\learnning\\260521\\src\\data\\test"
+        "path": "d:\\learnning\\260521\\workspace",
+        "workspace": "d:\\learnning\\260521\\workspace"
       },
-      "output_result": "{'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test', 'entries': [{'name': 'events.json', 'type': 'file', 'size': 935, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\events.json'}, {'name': 'tool_calls.json', 'type': 'file', 'size': 496, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_calls.json'}, {'name': 'tool_definitions.json', 'type': 'file', 'size': 2, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_definitions.json'}, {'name': 'workspace_configs.json', 'type': 'file', 'size': 2, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\workspace_configs.json'}], 'total': 4, 'directories': 0, 'files': 4}",
+      "output_result": "{'path': 'd:\\\\learnning\\\\260521\\\\workspace', 'entries': [{'name': 'test_1', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_1'}, {'name': 'test_10', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_10'}, {'name': 'test_11', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_11'}, {'name': 'test_12', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_12'}, {'name': 'test_14', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_14'}, {'name': 'test_20', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_20'}, {'name': 'test_21', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_21'}, {'name': 'tool_test_dir', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir'}, {'name': 'tool_test_file.txt', 'type': 'file', 'size': 24, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_file.txt'}], 'total': 9, 'directories': 8, 'files': 1}",
       "status": "completed",
       "error_message": null,
-      "start_time": "2026-05-20T15:23:18.443675",
-      "end_time": "2026-05-20T15:23:18.453901",
-      "duration": 0.008678197860717773
+      "start_time": "2026-05-21T07:49:55.648755",
+      "end_time": "2026-05-21T07:49:55.661488",
+      "duration": 0.010717153549194336
     }
   ],
   "service_calls": [],
@@ -145,20 +148,21 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "call_id": "call-116e9f046d32",
+        "call_id": "call-131b4d61b4d2",
         "tool_id": "T04",
         "tool_name": "LS",
         "dialog_id": "test-tool-exec-3",
         "task_id": "test-tool-exec-3",
         "input_params": {
-          "path": "d:\\learnning\\260521\\src\\data\\test"
+          "path": "d:\\learnning\\260521\\workspace",
+          "workspace": "d:\\learnning\\260521\\workspace"
         },
-        "output_result": "{'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test', 'entries': [{'name': 'events.json', 'type': 'file', 'size': 935, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\events.json'}, {'name': 'tool_calls.json', 'type': 'file', 'size': 496, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_calls.json'}, {'name': 'tool_definitions.json', 'type': 'file', 'size': 2, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\tool_definitions.json'}, {'name': 'workspace_configs.json', 'type': 'file', 'size': 2, 'path': 'd:\\\\learnning\\\\260521\\\\src\\\\data\\\\test\\\\workspace_configs.json'}], 'total': 4, 'directories': 0, 'files': 4}",
+        "output_result": "{'path': 'd:\\\\learnning\\\\260521\\\\workspace', 'entries': [{'name': 'test_1', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_1'}, {'name': 'test_10', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_10'}, {'name': 'test_11', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_11'}, {'name': 'test_12', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_12'}, {'name': 'test_14', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_14'}, {'name': 'test_20', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_20'}, {'name': 'test_21', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_21'}, {'name': 'tool_test_dir', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir'}, {'name': 'tool_test_file.txt', 'type': 'file', 'size': 24, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_file.txt'}], 'total': 9, 'directories': 8, 'files': 1}",
         "status": "completed",
         "error_message": null,
-        "start_time": "2026-05-20T15:23:18.443675",
-        "end_time": "2026-05-20T15:23:18.453901",
-        "duration": 0.008678197860717773
+        "start_time": "2026-05-21T07:49:55.648755",
+        "end_time": "2026-05-21T07:49:55.661488",
+        "duration": 0.010717153549194336
       }
     },
     {
@@ -167,26 +171,26 @@
       "operation": "write",
       "record_count": 3,
       "sample_data": {
-        "record_id": "rec-d2b47bc15eac",
-        "event_id": "evt-b17c29a6a612",
+        "record_id": "rec-610b0b5714ba",
+        "event_id": "evt-d1bae6a5d7fb",
         "event_type": "tool.call_completed",
-        "timestamp": "2026-05-20T15:23:18.457442",
+        "timestamp": "2026-05-21T07:49:55.665030",
         "payload": {
-          "call_id": "call-116e9f046d32",
+          "call_id": "call-131b4d61b4d2",
           "tool_name": "LS",
           "success": true,
-          "duration": 0.008678197860717773,
+          "duration": 0.010717153549194336,
           "workspace": "D:\\learnning\\260521",
           "source_component": "L2_tool_execution",
           "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-20T15:23:18.457442",
+        "stored_at": "2026-05-21T07:49:55.665030",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "05365032-18d3-4bb8-864d-ced4d5ea0cef",
-        "entity_id": "evt-0dce459f8107",
-        "created_at": "2026-05-20T15:23:18.457442",
-        "updated_at": "2026-05-20T15:23:18.457442"
+        "correlation_id": "c937a601-c7a2-4bb3-97fa-d34683fc6f5d",
+        "entity_id": "evt-9510f6d6c266",
+        "created_at": "2026-05-21T07:49:55.665030",
+        "updated_at": "2026-05-21T07:49:55.665030"
       }
     }
   ]

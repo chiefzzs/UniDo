@@ -538,6 +538,8 @@
     <script src="/static/js/socket.io.min.js"></script>
     <!-- Markdown解析库 -->
     <script src="/static/js/marked.min.js"></script>
+    <!-- 缓存管理器 -->
+    <script src="/static/js/cache-manager.js"></script>
     
     <script>
         // ==================== 全局变量 ====================
@@ -665,14 +667,20 @@
                     try {
                         const data = JSON.parse(event.data);
                         console.log('[DEBUG] WebSocket message:', data);
+
+                        // 缓存所有WebSocket消息（原始格式）
+                        if (window.cacheManager && currentSessionId) {
+                            window.cacheManager.saveWebSocketMessage({
+                                ...data,
+                                timestamp: new Date().toISOString()
+                            });
+                            console.log(`[CACHE] 保存WebSocket消息 - type: ${data.type}`);
+                        }
                         
                         if (data.type === 'message_received') {
                             console.log('[DEBUG] Received message_received:', data.data);
                         } else if (data.type === 'message_response') {
-                            console.log('[DEBUG] Received message_response:', data.data);
-                            console.log('[DEBUG] message_response data.content:', data.data?.content);
-                            console.log('[DEBUG] message_response status:', data.status);
-                            
+
                             // 检查是否是错误响应
                             if (data.status === 'error') {
                                 const errorMessage = data.data?.error || data.data?.message || '处理失败';
@@ -709,7 +717,21 @@
                                     const tempId = 'msg-' + Date.now();
                                     createResponseBlock(tempId);
                                 }
-                                appendToResponseBlock('text', data.data.content || '收到响应');
+                                
+                                // 注意：工具卡片由实时事件(tool.call_started)创建，这里不再重复创建
+                                // 工具调用结果已通过 tool.execution_output 和 tool.call_completed 事件实时更新
+                                // message_response 中的 tool_calls 数据仅用于缓存恢复
+                                
+                                // 如果有工具调用，不在文本块中显示content（避免重复）
+                                // 因为工具执行结果已由工具卡片显示
+                                if (!data.data.tool_calls || data.data.tool_calls.length === 0) {
+                                    appendToResponseBlock('text', data.data.content || '收到响应');
+                                } else {
+                                    // 有工具调用时，显示简短确认消息，而不是详细的工具结果总结
+                                    // 详细结果已由工具卡片显示
+                                    console.log('[DEBUG] 工具执行完成，详细结果见工具卡片');
+                                }
+                                
                                 completeResponseBlock();
                                 enableInput();
                             }
@@ -807,11 +829,27 @@
                     <span class="response-status">处理中...</span>
                 </div>
                 <div class="response-block-content">
-                    <!-- ThinkBlock -->
-                    <div class="think-block" id="think-${responseId}" style="display:none;"></div>
+                    <!-- ThinkBlock - 可折叠思考过程 -->
+                    <div class="think-block" id="think-${responseId}" style="display:none;">
+                        <div class="think-header" onclick="toggleThink(this.parentElement)">
+                            <span class="think-icon">🧠</span>
+                            <span class="think-label">思考过程</span>
+                            <span class="think-meta">分析用户意图并规划执行步骤</span>
+                            <button class="think-copy-btn" onclick="event.stopPropagation(); copyContent(this)" title="复制">
+                                <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                                </svg>
+                            </button>
+                            <span class="think-arrow" aria-hidden="true">▼</span>
+                        </div>
+                        <div class="think-content" hidden>
+                            <p class="think-text" id="think-text-${responseId}"></p>
+                        </div>
+                    </div>
                     <!-- TextBlock -->
                     <div class="text-block" id="text-${responseId}"></div>
-                    <!-- ToolCallBlocks -->
+                    <!-- ToolCallBlocks - 独立工具执行卡片容器 -->
                     <div class="tool-calls-container" id="tools-${responseId}"></div>
                 </div>
             `;
@@ -834,10 +872,13 @@
             switch(type) {
                 case 'think':
                     currentResponseBlock.thinkContent += content;
-                    const thinkEl = document.getElementById(`think-${responseId}`);
-                    if (thinkEl) {
-                        thinkEl.style.display = 'block';
-                        thinkEl.innerHTML = `<div class="think-icon">🧠</div><div class="think-text">${escapeHtml(content)}</div>`;
+                    const thinkBlockEl = document.getElementById(`think-${responseId}`);
+                    const thinkTextEl = document.getElementById(`think-text-${responseId}`);
+                    if (thinkBlockEl) {
+                        thinkBlockEl.style.display = 'block';
+                    }
+                    if (thinkTextEl) {
+                        thinkTextEl.textContent = currentResponseBlock.thinkContent;
                     }
                     break;
                     
@@ -862,15 +903,64 @@
                     
                     const toolsContainer = document.getElementById(`tools-${responseId}`);
                     if (toolsContainer) {
+                        const timestamp = new Date().toLocaleString('zh-CN');
                         toolsContainer.innerHTML += `
-                            <div class="tool-call-block" id="tool-call-${callId}">
-                                <div class="tool-call-header">
-                                    <span class="tool-icon">🔧</span>
-                                    <span class="tool-name">${escapeHtml(toolName)}</span>
-                                    <span class="tool-status">执行中...</span>
+                            <div class="tool-execution-card" id="tool-card-${callId}">
+                                <!-- 卡片头部 -->
+                                <div class="tool-card-header">
+                                    <div class="tool-icon-wrapper">
+                                        <span class="tool-icon">🔧</span>
+                                    </div>
+                                    <div class="tool-info">
+                                        <span class="tool-name">${escapeHtml(toolName)}</span>
+                                        <span class="tool-status-badge executing">⏳ 执行中</span>
+                                    </div>
+                                    <div class="tool-timestamp">${timestamp}</div>
                                 </div>
-                                <div class="tool-output" id="tool-output-${callId}"></div>
-                                <div class="tool-result" id="tool-result-${callId}"></div>
+                                
+                                <!-- 工具调用信息区域 -->
+                                <div class="tool-section">
+                                    <div class="section-header" onclick="toggleSection(this)">
+                                        <span class="section-title">工具调用</span>
+                                        <span class="section-arrow">▼</span>
+                                    </div>
+                                    <div class="section-content">
+                                        <div class="tool-arguments">
+                                            <div class="arg-label">执行命令：</div>
+                                            <pre class="arg-value">${escapeHtml(options.arguments || '未提供参数')}</pre>
+                                            <button class="copy-args-btn" onclick="copyToolArgs('${callId}')">复制参数</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 工具输出区域 -->
+                                <div class="tool-section">
+                                    <div class="section-header" onclick="toggleSection(this)">
+                                        <span class="section-title">执行输出</span>
+                                        <span class="section-arrow">▼</span>
+                                    </div>
+                                    <div class="section-content">
+                                        <div class="tool-output">
+                                            <pre class="output-content" id="tool-output-${callId}"></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 工具结果区域 -->
+                                <div class="tool-section">
+                                    <div class="section-header" onclick="toggleSection(this)">
+                                        <span class="section-title">执行结果</span>
+                                        <span class="section-arrow">▼</span>
+                                    </div>
+                                    <div class="section-content">
+                                        <div class="tool-result" id="tool-result-${callId}">
+                                            <div class="result-icon">⏳</div>
+                                            <div class="result-info">
+                                                <div class="result-title">执行中...</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         `;
                     }
@@ -899,18 +989,29 @@
                         toolCallResult.status = success ? 'completed' : 'failed';
                         toolCallResult.result = result;
                         
-                        const statusEl = document.querySelector(`#tool-call-${callIdResult} .tool-status`);
+                        // 更新卡片头部状态
+                        const statusBadge = document.querySelector(`#tool-card-${callIdResult} .tool-status-badge`);
                         const resultEl = document.getElementById(`tool-result-${callIdResult}`);
                         
-                        if (statusEl) {
-                            statusEl.textContent = success ? '完成' : '失败';
-                            statusEl.className = `tool-status ${success ? 'success' : 'error'}`;
+                        if (statusBadge) {
+                            statusBadge.textContent = success ? '✓ 已完成' : '✗ 失败';
+                            statusBadge.className = `tool-status-badge ${success ? 'completed' : 'failed'}`;
                         }
                         
                         if (resultEl) {
-                            resultEl.innerHTML = success 
-                                ? `<span class="result-icon success">✅</span><span class="result-text">${escapeHtml(result?.message || '执行成功')}</span>`
-                                : `<span class="result-icon error">❌</span><span class="result-text">${escapeHtml(result?.error || '执行失败')}</span>`;
+                            const resultMessage = success 
+                                ? (result?.message || result?.result || '执行成功')
+                                : (result?.error || result?.message || '执行失败');
+                            resultEl.innerHTML = `
+                                <div class="result-icon ${success ? 'success' : 'error'}">${success ? '✅' : '❌'}</div>
+                                <div class="result-info">
+                                    <div class="result-title">${success ? '执行成功' : '执行失败'}</div>
+                                    <div class="result-message">${escapeHtml(resultMessage)}</div>
+                                    <div class="result-details">
+                                        <span class="detail-item">返回码: <code>${success ? '0' : '-1'}</code></span>
+                                    </div>
+                                </div>
+                            `;
                         }
                     }
                     break;
@@ -925,29 +1026,29 @@
         
         function completeResponseBlock() {
             if (!currentResponseBlock) return;
-            
+
             const responseId = currentResponseBlock.id;
             currentResponseBlock.status = 'completed';
-            
+
             // 更新响应块状态
             const statusEl = document.querySelector(`#response-block-${responseId} .response-status`);
             if (statusEl) {
                 statusEl.textContent = '已完成';
                 statusEl.className = 'response-status completed';
             }
-            
+
             // 移除流式光标
             const textEl = document.getElementById(`text-${responseId}`);
             if (textEl) {
                 textEl.innerHTML = renderMarkdown(currentResponseBlock.textContent);
             }
-            
+
             // 缓存响应块
             responseBlocks[responseId] = { ...currentResponseBlock };
-            
+
             // 重置当前响应块
             currentResponseBlock = null;
-            
+
             enableInput();
         }
         
@@ -998,11 +1099,30 @@
                     const responseId = payload.round_id || 'round-' + payload.round;
                     createResponseBlock(responseId);
                     showStatusMessage(`🔄 第 ${payload.round} 轮开始...`);
+                    
+                    // 缓存响应块创建
+                    if (window.cacheManager && currentSessionId) {
+                        window.cacheManager.saveResponseBlock(responseId, {
+                            session_id: currentSessionId,
+                            status: 'in_progress',
+                            think_content: '',
+                            text_content: '',
+                            tool_calls: []
+                        });
+                    }
                     break;
                     
                 case 'round.completed':
                     hideStatusMessage();
                     completeResponseBlock();
+                    
+                    // 缓存响应块完成
+                    if (window.cacheManager && currentResponseBlock) {
+                        window.cacheManager.saveResponseBlock(currentResponseBlock.id, {
+                            status: 'completed',
+                            completed_at: new Date().toISOString()
+                        });
+                    }
                     break;
                     
                 // LLM调用事件
@@ -1029,6 +1149,15 @@
                 case 'llm.stream_chunk':
                     // 流式响应片段 - 添加到响应块的文本部分
                     appendToResponseBlock('text', payload.content || '');
+                    
+                    // 缓存文本内容
+                    if (window.cacheManager && currentResponseBlock) {
+                        const currentBlock = window.cacheManager._getCurrentSessionData().response_blocks.find(
+                            b => b.block_id === currentResponseBlock.id
+                        );
+                        const newText = (currentBlock?.text_content || '') + (payload.content || '');
+                        window.cacheManager.saveResponseBlock(currentResponseBlock.id, { text_content: newText });
+                    }
                     break;
                     
                 case 'llm.error':
@@ -1090,18 +1219,39 @@
                     break;
                     
                 // 工具执行事件
-                case 'tool.execution_started':
                 case 'tool.call_started':
+                    // 注意：只处理 tool.call_started 事件，不处理 tool.execution_started
+                    // 因为后者会在批量处理时创建多个卡片，而前者是单个工具调用，可以正确匹配call_id
                     // 创建工具调用子组件
                     // 支持两种格式：单个工具调用和多个工具调用数组
                     if (payload.tool_calls && Array.isArray(payload.tool_calls)) {
                         // 批量工具调用格式
                         payload.tool_calls.forEach((toolCall, index) => {
                             const toolName = toolCall.name || toolCall.tool_id || toolCall.tool_name || '未知工具';
+                            // 优先使用后端传来的call_id，确保与后续事件匹配
+                            const callId = toolCall.call_id || toolCall.id || `tool-${Date.now()}-${index}`;
+                            const toolArgs = toolCall.arguments || toolCall.args || '未提供参数';
                             appendToResponseBlock('tool_call', '', {
-                                callId: `tool-${Date.now()}-${index}`,
-                                toolName: toolName
+                                callId: callId,
+                                toolName: toolName,
+                                arguments: typeof toolArgs === 'object' ? JSON.stringify(toolArgs, null, 2) : toolArgs
                             });
+                            
+                            // 缓存工具调用
+                            if (window.cacheManager && currentResponseBlock) {
+                                window.cacheManager.addToolCall(currentResponseBlock.id, {
+                                    call_id: callId,
+                                    tool_name: toolName,
+                                    tool_id: toolCall.tool_id,
+                                    arguments: toolCall.arguments || {},
+                                    arguments_expanded: true,
+                                    output: '',
+                                    output_expanded: false,
+                                    status: 'running',
+                                    result: null,
+                                    result_expanded: true
+                                });
+                            }
                         });
                         const firstToolName = payload.tool_calls[0]?.name || '工具';
                         showStatusMessage(`🔧 执行 ${payload.tool_calls.length} 个工具...`);
@@ -1109,20 +1259,43 @@
                         // 单个工具调用格式
                         const toolName = payload.tool_id || payload.tool_name || payload.name || 
                                          payload.tool_name_en || payload.tool || '未知工具';
+                        const callId = payload.call_id || payload.id || `tool-${Date.now()}`;
+                        const toolArgs = payload.arguments || payload.args || '未提供参数';
                         appendToResponseBlock('tool_call', '', {
-                            callId: payload.call_id || payload.id || `tool-${Date.now()}`,
-                            toolName: toolName
+                            callId: callId,
+                            toolName: toolName,
+                            arguments: typeof toolArgs === 'object' ? JSON.stringify(toolArgs, null, 2) : toolArgs
                         });
                         showStatusMessage(`🔧 执行工具: ${toolName}...`);
+                        
+                        // 缓存工具调用
+                        if (window.cacheManager && currentResponseBlock) {
+                            window.cacheManager.addToolCall(currentResponseBlock.id, {
+                                call_id: callId,
+                                tool_name: toolName,
+                                tool_id: payload.tool_id,
+                                arguments: payload.arguments || {},
+                                arguments_expanded: true,
+                                output: '',
+                                output_expanded: false,
+                                status: 'running',
+                                result: null,
+                                result_expanded: true
+                            });
+                        }
                     }
                     break;
                     
                 case 'tool.execution_completed':
                 case 'tool.call_completed':
+                    console.log('[TOOL CALL COMPLETED] 收到工具调用完成事件:', payload);
+                    console.log('[TOOL CALL COMPLETED] payload.success:', payload.success, '类型:', typeof payload.success);
+                    console.log('[TOOL CALL COMPLETED] payload.result:', payload.result);
                     hideStatusMessage();
                     // 更新工具调用结果
+                    const callId = payload.call_id || payload.id;
                     appendToResponseBlock('tool_result', '', {
-                        callId: payload.call_id || payload.id,
+                        callId: callId,
                         success: payload.success,
                         result: payload.result
                     });
@@ -1131,18 +1304,50 @@
                     } else {
                         showToast(`❌ 工具执行失败: ${payload.tool_id || payload.name}`, 'error');
                     }
+                    
+                    // 缓存工具调用结果
+                    if (window.cacheManager && currentResponseBlock) {
+                        window.cacheManager.updateToolResult(currentResponseBlock.id, callId, {
+                            success: payload.success,
+                            result: payload.result
+                        });
+                    }
+                    break;
+                    
+                case 'tool.execution_output':
+                    // 工具执行输出事件 - 实时显示工具输出
+                    const outputCallId = payload.call_id || payload.id;
+                    const toolOutput = payload.output || '';
+                    appendToResponseBlock('tool_output', '', {
+                        callId: outputCallId,
+                        output: typeof toolOutput === 'object' ? JSON.stringify(toolOutput, null, 2) : toolOutput
+                    });
+                    
+                    // 缓存工具输出
+                    if (window.cacheManager && currentResponseBlock) {
+                        window.cacheManager.updateToolOutput(currentResponseBlock.id, outputCallId, toolOutput);
+                    }
                     break;
                     
                 case 'tool.execution_failed':
                 case 'tool.call_failed':
                     hideStatusMessage();
                     // 更新工具调用结果为失败
+                    const failedCallId = payload.call_id || payload.id;
                     appendToResponseBlock('tool_result', '', {
-                        callId: payload.call_id || payload.id,
+                        callId: failedCallId,
                         success: false,
                         result: { error: payload.error }
                     });
                     showToast(`❌ 工具执行失败: ${payload.error || '未知错误'}`, 'error');
+                    
+                    // 缓存工具调用失败结果
+                    if (window.cacheManager && currentResponseBlock) {
+                        window.cacheManager.updateToolResult(currentResponseBlock.id, failedCallId, {
+                            success: false,
+                            result: { error: payload.error }
+                        });
+                    }
                     break;
                     
                 // 工具执行实时输出事件（流式输出）
@@ -1151,6 +1356,11 @@
                         callId: payload.call_id,
                         output: payload.output
                     });
+                    
+                    // 缓存工具输出
+                    if (window.cacheManager && currentResponseBlock) {
+                        window.cacheManager.updateToolOutput(currentResponseBlock.id, payload.call_id, payload.output);
+                    }
                     break;
                     
                 case 'tool.execution_output_end':
@@ -1313,6 +1523,52 @@
 
         function getToolExecutionOutput(callId) {
             return toolExecutionOutputs[callId] || '';
+        }
+
+        // ==================== 折叠/展开辅助函数 ====================
+        function toggleThink(thinkBlock) {
+            const content = thinkBlock.querySelector('.think-content');
+            if (content) {
+                const isExpanded = !content.hidden;
+                content.hidden = isExpanded;
+                thinkBlock.classList.toggle('expanded', !isExpanded);
+            }
+        }
+
+        function toggleSection(header) {
+            const section = header.parentElement;
+            const content = header.nextElementSibling;
+            if (content) {
+                const isExpanded = !content.hidden;
+                content.hidden = isExpanded;
+                section.classList.toggle('expanded', !isExpanded);
+            }
+        }
+
+        function copyToolArgs(callId) {
+            const argsEl = document.querySelector(`#tool-card-${callId} .arg-value`);
+            if (argsEl) {
+                navigator.clipboard.writeText(argsEl.textContent).then(() => {
+                    showToast('✓ 参数已复制', 'success');
+                }).catch(() => {
+                    showToast('复制失败', 'error');
+                });
+            }
+        }
+
+        function copyContent(button) {
+            const thinkBlock = button.closest('.think-block');
+            const textEl = thinkBlock?.querySelector('.think-text');
+            if (textEl) {
+                navigator.clipboard.writeText(textEl.textContent).then(() => {
+                    button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>';
+                    setTimeout(() => {
+                        button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>';
+                    }, 2000);
+                }).catch(() => {
+                    showToast('复制失败', 'error');
+                });
+            }
         }
 
         // ==================== 项目管理 ====================
@@ -2308,10 +2564,128 @@
             }
 
             try {
+                // 1. 先从后端API获取会话数据
                 const response = await fetch(`/api/sessions/${sessionId}`);
                 const session = await response.json();
 
+                // 2. 从localStorage缓存中恢复响应块
+                let cachedBlocks = [];
+                let wsMessages = [];
+                if (window.cacheManager) {
+                    const cachedSession = await window.cacheManager.init(sessionId);
+                    cachedBlocks = cachedSession.response_blocks || [];
+                    wsMessages = cachedSession.ws_messages || [];
+                }
+
+                // ========== 控制台日志：显示加载的历史消息 ==========
+                console.log('='.repeat(80));
+                console.log(`[SESSION LOAD] 加载会话: ${sessionId}`);
+                console.log(`[SESSION LOAD] 会话标题: ${session.title || '未命名'}`);
+                console.log(`[SESSION LOAD] 后端消息数: ${session.messages?.length || 0}`);
+                console.log(`[SESSION LOAD] 缓存响应块数: ${cachedBlocks.length}`);
+                console.log(`[SESSION LOAD] ws_messages数: ${wsMessages.length}`);
+                console.log(`[SESSION LOAD] ws_messages数据:`, JSON.stringify(wsMessages, null, 2));
+                console.log('='.repeat(80));
+                
+                if (session.messages && session.messages.length > 0) {
+                    session.messages.forEach((msg, index) => {
+                        console.log(`[MESSAGE ${index + 1}]`);
+                        console.log(`  role: ${msg.role || 'unknown'}`);
+                        console.log(`  timestamp: ${msg.timestamp || 'N/A'}`);
+                        console.log(`  content: ${msg.content?.substring(0, 100)}${msg.content?.length > 100 ? '...' : ''}`);
+                        console.log(`  responseBlockId: ${msg.responseBlockId || 'N/A'}`);
+                        
+                        // 显示工具调用信息（如果有）
+                        if (msg.metadata?.tool_calls) {
+                            console.log(`  tool_calls: ${JSON.stringify(msg.metadata.tool_calls).substring(0, 150)}...`);
+                        }
+                        if (msg.metadata) {
+                            console.log(`  metadata: ${JSON.stringify(msg.metadata).substring(0, 150)}${JSON.stringify(msg.metadata).length > 150 ? '...' : ''}`);
+                        }
+                        console.log('---');
+                    });
+                } else {
+                    console.log('[SESSION LOAD] 后端没有历史消息');
+                }
+                
+                // 显示缓存的响应块信息
+                if (cachedBlocks.length > 0) {
+                    console.log(`[CACHE BLOCKS] 共 ${cachedBlocks.length} 个响应块:`);
+                    cachedBlocks.forEach((block, index) => {
+                        console.log(`  [BLOCK ${index + 1}] id=${block.block_id}, status=${block.status}, type=${block.type}`);
+                        console.log(`  [BLOCK ${index + 1}] text_content=${block.text_content?.substring(0, 100)}`);
+                        console.log(`  [BLOCK ${index + 1}] tool_calls=${JSON.stringify(block.tool_calls)?.substring(0, 200)}`);
+                        console.log(`  [BLOCK ${index + 1}] think_content=${block.think_content?.substring(0, 100)}`);
+                    });
+                } else {
+                    console.log('[CACHE BLOCKS] 没有缓存的响应块');
+                }
+                console.log('='.repeat(80));
+                // ========== 日志结束 ==========
+
+                // 3. 合并后端消息和缓存数据
                 messages = session.messages || [];
+
+                // 4. 从ws_messages缓存恢复（处理事件类型消息）
+                if (window.cacheManager) {
+                    const wsMessages = window.cacheManager.getWebSocketMessages();
+                    console.log(`[SESSION LOAD] ws_messages缓存数据:`);
+                    console.log(JSON.stringify(wsMessages, null, 2));
+
+                    if (wsMessages.length > 0) {
+                        const restoredMessages = [];
+                        const hasMessageResponse = wsMessages.some(msg => msg.type === 'message_response');
+
+                        wsMessages.forEach((msg, index) => {
+                            console.log(`[SESSION LOAD] 处理消息 ${index}: type=${msg.type}, event_type=${msg.event_type}`);
+                            
+                            // 处理我们缓存的用户消息（包含content）
+                            if (msg.type === 'user_message' && msg.role === 'user') {
+                                console.log(`[SESSION LOAD] 恢复用户消息: ${msg.content}`);
+                                restoredMessages.push({
+                                    role: 'user',
+                                    content: msg.content,
+                                    timestamp: msg.timestamp
+                                });
+                            }
+                            // 处理message_response类型（包含完整助手回答）
+                            else if (msg.type === 'message_response') {
+                                console.log(`[SESSION LOAD] 恢复助手响应: ${msg.data?.content?.substring(0, 50)}...`);
+                                restoredMessages.push({
+                                    role: 'assistant',
+                                    content: msg.data?.content || '',
+                                    timestamp: msg.timestamp,
+                                    metadata: msg.data?.tool_calls ? { tool_calls: msg.data.tool_calls } : {}
+                                });
+                            }
+                            // 处理工具调用完成事件（仅当没有message_response时作为备用）
+                            else if (msg.type === 'event' && msg.event_type === 'tool.call_completed' && !hasMessageResponse) {
+                                console.log(`[SESSION LOAD] 恢复工具完成事件: ${msg.payload.tool_name}`);
+                                const payload = msg.payload;
+                                restoredMessages.push({
+                                    role: 'assistant',
+                                    content: `工具执行完成: ${payload.tool_name}\n结果: ${payload.result}`,
+                                    timestamp: msg.timestamp,
+                                    metadata: {
+                                        tool_calls: [{
+                                            tool_name: payload.tool_name,
+                                            arguments: payload.arguments,
+                                            call_id: payload.call_id,
+                                            status: payload.status,
+                                            result: payload.result,
+                                            error: payload.error
+                                        }]
+                                    }
+                                });
+                            }
+                            // 跳过其他类型
+                        });
+
+                        console.log(`[SESSION LOAD] 恢复了 ${restoredMessages.length} 条消息`);
+                        messages = restoredMessages;
+                    }
+                }
+
                 renderMessages();
                 updateSessionTitle(session.title || '会话');
             } catch (e) {
@@ -2349,20 +2723,32 @@
             // 创建用户消息，获取时间戳
             const timestamp = Date.now();
             const timestampStr = new Date(timestamp).toISOString();
+            const responseBlockId = `response-block-msg-${timestamp}`;
             
             // 添加消息，并关联响应块ID
             const messageObj = {
                 role: 'user',
                 content: content,
                 timestamp: timestampStr,
-                responseBlockId: `response-block-msg-${timestamp}`
+                responseBlockId: responseBlockId
             };
             messages.push(messageObj);
             console.log('[DEBUG] messages array length:', messages.length);
             renderMessages();
-            
-            // 创建响应块，使用匹配的时间戳
-            createResponseBlock(`msg-${timestamp}`);
+
+            // 缓存用户消息（补充后端事件中缺少的content）
+            if (window.cacheManager && currentSessionId) {
+                window.cacheManager.saveWebSocketMessage({
+                    type: 'user_message',
+                    role: 'user',
+                    content: content,
+                    timestamp: timestampStr,
+                    session_id: currentSessionId
+                });
+            }
+
+            // 创建响应块，使用与 responseBlockId 匹配的 ID
+            createResponseBlock(responseBlockId);
 
             if (socket && socket.readyState === WebSocket.OPEN) {
                 console.log('[DEBUG] Sending message via WebSocket');
@@ -2473,31 +2859,42 @@
                 console.log('[DEBUG] Message', index, ':', msg.role, msg.content?.substring(0, 30));
                 const role = msg.role || 'assistant';
                 
-                // 只渲染用户消息
-                if (role !== 'user') {
-                    return;
-                }
-                
                 // 开始一轮对话容器
                 html += '<div class="conversation-turn">';
                 
                 // 渲染用户消息
-                const avatar = '👤';
-                const content = formatMessageContent(msg.content);
-                html += `
-                    <div class="message-wrapper ${role}">
-                        <div class="message-avatar">${avatar}</div>
-                        <div class="message-content">
-                            <div class="message-bubble">${content}</div>
-                            <div class="message-time">${formatTime(msg.timestamp)}</div>
+                if (role === 'user') {
+                    const avatar = '👤';
+                    const content = formatMessageContent(msg.content);
+                    html += `
+                        <div class="message-wrapper ${role}">
+                            <div class="message-avatar">${avatar}</div>
+                            <div class="message-content">
+                                <div class="message-bubble">${content}</div>
+                                <div class="message-time">${formatTime(msg.timestamp)}</div>
+                            </div>
                         </div>
-                    </div>
-                `;
-                
-                // 查找对应的响应块（通过 responseBlockId）
-                const responseId = msg.responseBlockId;
-                if (responseId && responseBlocksMap.has(responseId)) {
-                    html += responseBlocksMap.get(responseId);
+                    `;
+                    
+                    // 查找对应的响应块（通过 responseBlockId）
+                    const responseId = msg.responseBlockId;
+                    if (responseId && responseBlocksMap.has(responseId)) {
+                        html += responseBlocksMap.get(responseId);
+                    }
+                }
+                // 渲染助手消息（直接从消息恢复，没有响应块DOM）
+                else if (role === 'assistant') {
+                    const avatar = '🤖';
+                    const content = formatMessageContent(msg.content);
+                    html += `
+                        <div class="message-wrapper ${role}">
+                            <div class="message-avatar">${avatar}</div>
+                            <div class="message-content">
+                                <div class="message-bubble">${content}</div>
+                                <div class="message-time">${formatTime(msg.timestamp)}</div>
+                            </div>
+                        </div>
+                    `;
                 }
                 
                 // 结束一轮对话容器
@@ -2608,6 +3005,16 @@
         // ==================== 初始化 ====================
         window.addEventListener('load', () => {
             initTheme();
+            
+            // 执行定期清理过期会话缓存
+            if (window.cacheManager) {
+                try {
+                    window.cacheManager.cleanupExpiredSessions();
+                } catch (e) {
+                    console.log('[Cache] 清理过期会话失败:', e);
+                }
+            }
+            
             connect();
         });
     </script>

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:09:06.716189",
+  "timestamp": "2026-05-20T19:06:00.042319",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2e_request_builder",
@@ -14,7 +14,7 @@
     "type": "greeting"
   },
   "outputs": {
-    "template_id": "template-73f516abfb0c",
+    "template_id": "template-d561d75731bd",
     "name": "test_template"
   },
   "persistent_data": {

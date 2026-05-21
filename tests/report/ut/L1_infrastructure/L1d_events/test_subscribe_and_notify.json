@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:08:51.042618",
+  "timestamp": "2026-05-20T19:05:36.509105",
   "test_type": "ut",
   "layer": "L1_infrastructure",
   "sub_layer": "L1d_events",
@@ -11,7 +11,7 @@
     "验证事件自动持久化"
   ],
   "inputs": {
-    "subscription_id": "sub-6b70179d",
+    "subscription_id": "sub-b9b177b7",
     "event_type": "session.created"
   },
   "outputs": {
@@ -28,20 +28,20 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-21d92d77bf4e",
-        "event_id": "evt-55f32e2a09c6",
+        "record_id": "rec-0b02cdc7cfbf",
+        "event_id": "evt-4598d8d7d6a8",
         "event_type": "session.created",
-        "timestamp": "2026-05-19T17:08:51.022794",
+        "timestamp": "2026-05-20T19:05:36.496970",
         "payload": {
           "session_id": "test-session"
         },
-        "stored_at": "2026-05-19T17:08:51.022794",
+        "stored_at": "2026-05-20T19:05:36.496970",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "2c6d649e-621e-421b-85cc-add2928a563d",
-        "entity_id": "evt-34b15cfb93f2",
-        "created_at": "2026-05-19T17:08:51.022794",
-        "updated_at": "2026-05-19T17:08:51.022794"
+        "correlation_id": "17a34fc2-907d-4954-99f3-5d2337377baf",
+        "entity_id": "evt-8227ee0241aa",
+        "created_at": "2026-05-20T19:05:36.496970",
+        "updated_at": "2026-05-20T19:05:36.496970"
       }
     ],
     "prompts": [],
@@ -56,24 +56,24 @@
   "file_operations": [
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "record_id": "rec-21d92d77bf4e",
-        "event_id": "evt-55f32e2a09c6",
+        "record_id": "rec-0b02cdc7cfbf",
+        "event_id": "evt-4598d8d7d6a8",
         "event_type": "session.created",
-        "timestamp": "2026-05-19T17:08:51.022794",
+        "timestamp": "2026-05-20T19:05:36.496970",
         "payload": {
           "session_id": "test-session"
         },
-        "stored_at": "2026-05-19T17:08:51.022794",
+        "stored_at": "2026-05-20T19:05:36.496970",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "2c6d649e-621e-421b-85cc-add2928a563d",
-        "entity_id": "evt-34b15cfb93f2",
-        "created_at": "2026-05-19T17:08:51.022794",
-        "updated_at": "2026-05-19T17:08:51.022794"
+        "correlation_id": "17a34fc2-907d-4954-99f3-5d2337377baf",
+        "entity_id": "evt-8227ee0241aa",
+        "created_at": "2026-05-20T19:05:36.496970",
+        "updated_at": "2026-05-20T19:05:36.496970"
       }
     }
   ]

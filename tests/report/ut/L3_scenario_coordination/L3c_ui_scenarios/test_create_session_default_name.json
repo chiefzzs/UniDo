@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:17:36.238291",
+  "timestamp": "2026-05-20T19:06:43.376155",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3c_ui_scenarios",
@@ -11,19 +11,19 @@
   ],
   "inputs": {},
   "outputs": {
-    "session_id": "sess-597e3d65f679",
+    "session_id": "sess-bab99331b019",
     "name": "New Session"
   },
   "persistent_data": {
     "projects": [],
     "sessions": [
       {
-        "session_id": "sess-597e3d65f679",
+        "session_id": "sess-bab99331b019",
         "project_id": "",
         "name": "New Session",
         "status": "active",
-        "created_at": "2026-05-19T17:17:36.217830",
-        "updated_at": "2026-05-19T17:17:36.217830"
+        "created_at": "2026-05-20T19:06:43.358299",
+        "updated_at": "2026-05-20T19:06:43.358299"
       }
     ],
     "dialogs": [],
@@ -34,21 +34,21 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-05b5938fad71",
-        "event_id": "evt-cb0c169957e3",
+        "record_id": "rec-02c509aecc42",
+        "event_id": "evt-4c6f513119c1",
         "event_type": "session.created",
-        "timestamp": "2026-05-19T17:17:36.220345",
+        "timestamp": "2026-05-20T19:06:43.359812",
         "payload": {
-          "session_id": "sess-597e3d65f679",
+          "session_id": "sess-bab99331b019",
           "project_id": ""
         },
-        "stored_at": "2026-05-19T17:17:36.220345",
+        "stored_at": "2026-05-20T19:06:43.359812",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "cb7f4239-982d-4b48-86f3-723d6102a419",
-        "entity_id": "evt-b3ad84613ea9",
-        "created_at": "2026-05-19T17:17:36.220345",
-        "updated_at": "2026-05-19T17:17:36.220345"
+        "correlation_id": "9be5824e-6731-4284-90dc-90ce0ee988aa",
+        "entity_id": "evt-0001a7720fc9",
+        "created_at": "2026-05-20T19:06:43.359812",
+        "updated_at": "2026-05-20T19:06:43.359812"
       }
     ],
     "prompts": [],
@@ -63,39 +63,39 @@
   "file_operations": [
     {
       "entity_type": "sessions",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\sessions.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\sessions.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "session_id": "sess-597e3d65f679",
+        "session_id": "sess-bab99331b019",
         "project_id": "",
         "name": "New Session",
         "status": "active",
-        "created_at": "2026-05-19T17:17:36.217830",
-        "updated_at": "2026-05-19T17:17:36.217830"
+        "created_at": "2026-05-20T19:06:43.358299",
+        "updated_at": "2026-05-20T19:06:43.358299"
       }
     },
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "record_id": "rec-05b5938fad71",
-        "event_id": "evt-cb0c169957e3",
+        "record_id": "rec-02c509aecc42",
+        "event_id": "evt-4c6f513119c1",
         "event_type": "session.created",
-        "timestamp": "2026-05-19T17:17:36.220345",
+        "timestamp": "2026-05-20T19:06:43.359812",
         "payload": {
-          "session_id": "sess-597e3d65f679",
+          "session_id": "sess-bab99331b019",
           "project_id": ""
         },
-        "stored_at": "2026-05-19T17:17:36.220345",
+        "stored_at": "2026-05-20T19:06:43.359812",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "cb7f4239-982d-4b48-86f3-723d6102a419",
-        "entity_id": "evt-b3ad84613ea9",
-        "created_at": "2026-05-19T17:17:36.220345",
-        "updated_at": "2026-05-19T17:17:36.220345"
+        "correlation_id": "9be5824e-6731-4284-90dc-90ce0ee988aa",
+        "entity_id": "evt-0001a7720fc9",
+        "created_at": "2026-05-20T19:06:43.359812",
+        "updated_at": "2026-05-20T19:06:43.359812"
       }
     }
   ]

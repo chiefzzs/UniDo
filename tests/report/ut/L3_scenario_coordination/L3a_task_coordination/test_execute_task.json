@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:17:35.852319",
+  "timestamp": "2026-05-20T19:06:41.561227",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3a_task_coordination",
@@ -37,9 +37,9 @@
             "user_input": "你好"
           }
         },
-        "entity_id": "task-05fe8b8a27b4",
-        "created_at": "2026-05-19T17:17:35.824518",
-        "updated_at": "2026-05-19T17:17:35.827760"
+        "entity_id": "task-b98116d92d40",
+        "created_at": "2026-05-20T19:06:41.540532",
+        "updated_at": "2026-05-20T19:06:41.542539"
       }
     ],
     "llm_calls": [],
@@ -57,7 +57,7 @@
   "file_operations": [
     {
       "entity_type": "tasks",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\tasks.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\tasks.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
@@ -73,9 +73,9 @@
             "user_input": "你好"
           }
         },
-        "entity_id": "task-05fe8b8a27b4",
-        "created_at": "2026-05-19T17:17:35.824518",
-        "updated_at": "2026-05-19T17:17:35.827760"
+        "entity_id": "task-b98116d92d40",
+        "created_at": "2026-05-20T19:06:41.540532",
+        "updated_at": "2026-05-20T19:06:41.542539"
       }
     }
   ]

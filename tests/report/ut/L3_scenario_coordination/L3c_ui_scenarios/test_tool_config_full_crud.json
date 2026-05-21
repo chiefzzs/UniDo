@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:17:36.678182",
+  "timestamp": "2026-05-20T19:06:43.717831",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3c_ui_scenarios",
@@ -24,7 +24,7 @@
   },
   "outputs": {
     "registered": {
-      "tool_id": "tool-2ee5a6968d35",
+      "tool_id": "tool-e92145265901",
       "tool_name": "Test Tool",
       "category": "test",
       "description": "Test description",
@@ -34,11 +34,11 @@
       "retry_config": {},
       "is_async": false,
       "is_task_group_tool": false,
-      "created_at": "2026-05-19T17:17:36.651604",
-      "updated_at": "2026-05-19T17:17:36.651604"
+      "created_at": "2026-05-20T19:06:43.688834",
+      "updated_at": "2026-05-20T19:06:43.688834"
     },
     "queried": {
-      "tool_id": "tool-2ee5a6968d35",
+      "tool_id": "tool-e92145265901",
       "tool_name": "Test Tool",
       "category": "test",
       "description": "Test description",
@@ -48,11 +48,11 @@
       "retry_config": {},
       "is_async": false,
       "is_task_group_tool": false,
-      "created_at": "2026-05-19T17:17:36.651604",
-      "updated_at": "2026-05-19T17:17:36.651604"
+      "created_at": "2026-05-20T19:06:43.688834",
+      "updated_at": "2026-05-20T19:06:43.688834"
     },
     "updated": null,
-    "list_count": 2,
+    "list_count": 31,
     "unregistered": {
       "success": true
     }
@@ -68,37 +68,37 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-b3ca2db779e4",
-        "event_id": "evt-bc53e263b777",
+        "record_id": "rec-86fc438cfffd",
+        "event_id": "evt-0cd4fdc9e0c8",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-19T17:17:36.654210",
+        "timestamp": "2026-05-20T19:06:43.691250",
         "payload": {
-          "tool_id": "tool-2ee5a6968d35",
+          "tool_id": "tool-e92145265901",
           "tool_name": "Test Tool"
         },
-        "stored_at": "2026-05-19T17:17:36.654210",
+        "stored_at": "2026-05-20T19:06:43.691250",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "1ea83221-8263-454f-9d1e-d9405feec8a6",
-        "entity_id": "evt-131b17e952aa",
-        "created_at": "2026-05-19T17:17:36.654210",
-        "updated_at": "2026-05-19T17:17:36.654210"
+        "correlation_id": "30fa8102-5616-4688-bf68-c17ce41e842c",
+        "entity_id": "evt-4b42900abe79",
+        "created_at": "2026-05-20T19:06:43.691250",
+        "updated_at": "2026-05-20T19:06:43.691250"
       },
       {
-        "record_id": "rec-4d18371bdcb0",
-        "event_id": "evt-1eb5d2f5a743",
+        "record_id": "rec-304370f93276",
+        "event_id": "evt-2f97bc1fc7a2",
         "event_type": "tool.unregistered",
-        "timestamp": "2026-05-19T17:17:36.658274",
+        "timestamp": "2026-05-20T19:06:43.696763",
         "payload": {
           "tool_id": "Test Tool"
         },
-        "stored_at": "2026-05-19T17:17:36.658274",
+        "stored_at": "2026-05-20T19:06:43.696763",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "43fb8dac-b7a1-4f03-b1e6-8223272308f5",
-        "entity_id": "evt-b50a468e6046",
-        "created_at": "2026-05-19T17:17:36.658274",
-        "updated_at": "2026-05-19T17:17:36.658274"
+        "correlation_id": "73b4265d-59ef-4606-8e1f-a797cf350172",
+        "entity_id": "evt-5143605be077",
+        "created_at": "2026-05-20T19:06:43.696763",
+        "updated_at": "2026-05-20T19:06:43.696763"
       }
     ],
     "prompts": [],
@@ -113,24 +113,24 @@
   "file_operations": [
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
       "record_count": 2,
       "sample_data": {
-        "record_id": "rec-4d18371bdcb0",
-        "event_id": "evt-1eb5d2f5a743",
+        "record_id": "rec-304370f93276",
+        "event_id": "evt-2f97bc1fc7a2",
         "event_type": "tool.unregistered",
-        "timestamp": "2026-05-19T17:17:36.658274",
+        "timestamp": "2026-05-20T19:06:43.696763",
         "payload": {
           "tool_id": "Test Tool"
         },
-        "stored_at": "2026-05-19T17:17:36.658274",
+        "stored_at": "2026-05-20T19:06:43.696763",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "43fb8dac-b7a1-4f03-b1e6-8223272308f5",
-        "entity_id": "evt-b50a468e6046",
-        "created_at": "2026-05-19T17:17:36.658274",
-        "updated_at": "2026-05-19T17:17:36.658274"
+        "correlation_id": "73b4265d-59ef-4606-8e1f-a797cf350172",
+        "entity_id": "evt-5143605be077",
+        "created_at": "2026-05-20T19:06:43.696763",
+        "updated_at": "2026-05-20T19:06:43.696763"
       }
     }
   ]

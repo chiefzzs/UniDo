@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:09:00.740569",
+  "timestamp": "2026-05-20T19:05:36.699441",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2a_project_config",
@@ -21,14 +21,14 @@
     ]
   },
   "outputs": {
-    "project_id": "proj-9abbdec99ca7",
+    "project_id": "proj-f07b4f4eacb8",
     "name": "Test Project",
     "status": "active"
   },
   "persistent_data": {
     "projects": [
       {
-        "project_id": "proj-9abbdec99ca7",
+        "project_id": "proj-f07b4f4eacb8",
         "name": "Test Project",
         "description": "A test project",
         "workspace_config_id": "ws-config-001",
@@ -38,8 +38,8 @@
           "tool-2"
         ],
         "status": "active",
-        "created_at": "2026-05-19T17:09:00.718807",
-        "updated_at": "2026-05-19T17:09:00.718807"
+        "created_at": "2026-05-20T19:05:36.681808",
+        "updated_at": "2026-05-20T19:05:36.681808"
       }
     ],
     "sessions": [],
@@ -51,21 +51,21 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-576fa43442e3",
-        "event_id": "evt-10a879c7242e",
+        "record_id": "rec-ec1abc826b60",
+        "event_id": "evt-1e7a7b3b3af6",
         "event_type": "project.created",
-        "timestamp": "2026-05-19T17:09:00.720518",
+        "timestamp": "2026-05-20T19:05:36.684320",
         "payload": {
-          "project_id": "proj-9abbdec99ca7",
+          "project_id": "proj-f07b4f4eacb8",
           "name": "Test Project"
         },
-        "stored_at": "2026-05-19T17:09:00.720518",
+        "stored_at": "2026-05-20T19:05:36.684320",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "cc5fd4b8-3add-4623-a29a-5472e7cef45b",
-        "entity_id": "evt-b28418e10844",
-        "created_at": "2026-05-19T17:09:00.720518",
-        "updated_at": "2026-05-19T17:09:00.720518"
+        "correlation_id": "ed0e45f4-133e-4760-b0c0-f640a0f3d253",
+        "entity_id": "evt-55cf7179512b",
+        "created_at": "2026-05-20T19:05:36.684320",
+        "updated_at": "2026-05-20T19:05:36.684320"
       }
     ],
     "prompts": [],
@@ -80,11 +80,11 @@
   "file_operations": [
     {
       "entity_type": "projects",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\projects.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\projects.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "project_id": "proj-9abbdec99ca7",
+        "project_id": "proj-f07b4f4eacb8",
         "name": "Test Project",
         "description": "A test project",
         "workspace_config_id": "ws-config-001",
@@ -94,31 +94,31 @@
           "tool-2"
         ],
         "status": "active",
-        "created_at": "2026-05-19T17:09:00.718807",
-        "updated_at": "2026-05-19T17:09:00.718807"
+        "created_at": "2026-05-20T19:05:36.681808",
+        "updated_at": "2026-05-20T19:05:36.681808"
       }
     },
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "record_id": "rec-576fa43442e3",
-        "event_id": "evt-10a879c7242e",
+        "record_id": "rec-ec1abc826b60",
+        "event_id": "evt-1e7a7b3b3af6",
         "event_type": "project.created",
-        "timestamp": "2026-05-19T17:09:00.720518",
+        "timestamp": "2026-05-20T19:05:36.684320",
         "payload": {
-          "project_id": "proj-9abbdec99ca7",
+          "project_id": "proj-f07b4f4eacb8",
           "name": "Test Project"
         },
-        "stored_at": "2026-05-19T17:09:00.720518",
+        "stored_at": "2026-05-20T19:05:36.684320",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "cc5fd4b8-3add-4623-a29a-5472e7cef45b",
-        "entity_id": "evt-b28418e10844",
-        "created_at": "2026-05-19T17:09:00.720518",
-        "updated_at": "2026-05-19T17:09:00.720518"
+        "correlation_id": "ed0e45f4-133e-4760-b0c0-f640a0f3d253",
+        "entity_id": "evt-55cf7179512b",
+        "created_at": "2026-05-20T19:05:36.684320",
+        "updated_at": "2026-05-20T19:05:36.684320"
       }
     }
   ]

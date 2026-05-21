@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:09:01.469264",
+  "timestamp": "2026-05-20T19:05:38.032034",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2c_tool_execution",
@@ -10,18 +10,18 @@
     "验证ToolCall完整字段"
   ],
   "inputs": {
-    "call_id": "call-d52cecf1e62b"
+    "call_id": "call-0993929b0efa"
   },
   "outputs": {
-    "call_id": "call-d52cecf1e62b",
-    "tool_id": "tool-fd973e79f87c",
+    "call_id": "call-0993929b0efa",
+    "tool_id": "tool-86bfb8191a1c",
     "tool_name": "status_test_tool",
     "dialog_id": "dialog-002",
     "task_id": "task-002",
-    "status": "completed",
-    "start_time": "2026-05-19T17:09:01.444018",
-    "end_time": "2026-05-19T17:09:01.448049",
-    "duration": 0.0
+    "status": "failed",
+    "start_time": "2026-05-20T19:05:37.996827",
+    "end_time": "2026-05-20T19:05:38.005109",
+    "duration": 0.005768299102783203
   },
   "persistent_data": {
     "projects": [],
@@ -33,58 +33,85 @@
     "llm_calls": [],
     "tool_calls": [
       {
-        "call_id": "call-d52cecf1e62b",
-        "tool_id": "tool-fd973e79f87c",
+        "call_id": "call-0993929b0efa",
+        "tool_id": "tool-86bfb8191a1c",
         "tool_name": "status_test_tool",
         "dialog_id": "dialog-002",
         "task_id": "task-002",
         "input_params": {
           "input": "status test"
         },
-        "output_result": "Tool status_test_tool executed successfully with params: {'input': 'status test'}",
-        "status": "completed",
-        "error_message": null,
-        "start_time": "2026-05-19T17:09:01.444018",
-        "end_time": "2026-05-19T17:09:01.448049",
-        "duration": 0.0
+        "output_result": null,
+        "status": "failed",
+        "error_message": "Tool implementation not found for: status_test_tool (ID: tool-86bfb8191a1c)",
+        "start_time": "2026-05-20T19:05:37.996827",
+        "end_time": "2026-05-20T19:05:38.005109",
+        "duration": 0.005768299102783203
       }
     ],
     "events": [
       {
-        "record_id": "rec-6e9beb9ab8b7",
-        "event_id": "evt-baef5ed34209",
+        "record_id": "rec-fc671786cdf6",
+        "event_id": "evt-4a7005cccdc6",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-19T17:09:01.442475",
+        "timestamp": "2026-05-20T19:05:37.994319",
         "payload": {
-          "tool_id": "tool-fd973e79f87c",
+          "tool_id": "tool-86bfb8191a1c",
           "tool_name": "status_test_tool"
         },
-        "stored_at": "2026-05-19T17:09:01.442475",
+        "stored_at": "2026-05-20T19:05:37.994319",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "ff9ab5cc-7e88-4df7-85bb-d491612e1fb1",
-        "entity_id": "evt-f616662ff96e",
-        "created_at": "2026-05-19T17:09:01.442475",
-        "updated_at": "2026-05-19T17:09:01.442475"
+        "correlation_id": "310b75da-4403-4db5-99f7-13ea8601f8b2",
+        "entity_id": "evt-5f9626fa26bf",
+        "created_at": "2026-05-20T19:05:37.994319",
+        "updated_at": "2026-05-20T19:05:37.994319"
       },
       {
-        "record_id": "rec-f4321a1e7f79",
-        "event_id": "evt-0a13dc839b83",
-        "event_type": "tool.call_completed",
-        "timestamp": "2026-05-19T17:09:01.451096",
+        "record_id": "rec-ed62c0bfecba",
+        "event_id": "evt-ed61b93651bf",
+        "event_type": "tool.call_started",
+        "timestamp": "2026-05-20T19:05:37.999341",
         "payload": {
-          "call_id": "call-d52cecf1e62b",
+          "call_id": "call-0993929b0efa",
           "tool_name": "status_test_tool",
-          "success": true,
-          "duration": 0.0
+          "dialog_id": "dialog-002",
+          "task_id": "task-002",
+          "params": {
+            "input": "status test"
+          },
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-19T17:09:01.451096",
+        "stored_at": "2026-05-20T19:05:37.999341",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "0be224c3-898b-4990-bc62-4300d4bc6125",
-        "entity_id": "evt-46bcb4630fe3",
-        "created_at": "2026-05-19T17:09:01.451096",
-        "updated_at": "2026-05-19T17:09:01.451096"
+        "correlation_id": "d9ebf37a-b687-4b0b-9b8f-0c9f6ee794fc",
+        "entity_id": "evt-e2bf813ee13f",
+        "created_at": "2026-05-20T19:05:37.999341",
+        "updated_at": "2026-05-20T19:05:37.999341"
+      },
+      {
+        "record_id": "rec-d60b92861eb6",
+        "event_id": "evt-7c13e4a456ac",
+        "event_type": "tool.call_failed",
+        "timestamp": "2026-05-20T19:05:38.008158",
+        "payload": {
+          "call_id": "call-0993929b0efa",
+          "tool_name": "status_test_tool",
+          "success": false,
+          "error": "Tool implementation not found for: status_test_tool (ID: tool-86bfb8191a1c)",
+          "duration": 0.005768299102783203,
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
+        },
+        "stored_at": "2026-05-20T19:05:38.008158",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "d63d9596-759c-4ebf-97da-29781cdac203",
+        "entity_id": "evt-96f04e30267d",
+        "created_at": "2026-05-20T19:05:38.008158",
+        "updated_at": "2026-05-20T19:05:38.008158"
       }
     ],
     "prompts": [],
@@ -99,49 +126,52 @@
   "file_operations": [
     {
       "entity_type": "tool_calls",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\tool_calls.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\tool_calls.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "call_id": "call-d52cecf1e62b",
-        "tool_id": "tool-fd973e79f87c",
+        "call_id": "call-0993929b0efa",
+        "tool_id": "tool-86bfb8191a1c",
         "tool_name": "status_test_tool",
         "dialog_id": "dialog-002",
         "task_id": "task-002",
         "input_params": {
           "input": "status test"
         },
-        "output_result": "Tool status_test_tool executed successfully with params: {'input': 'status test'}",
-        "status": "completed",
-        "error_message": null,
-        "start_time": "2026-05-19T17:09:01.444018",
-        "end_time": "2026-05-19T17:09:01.448049",
-        "duration": 0.0
+        "output_result": null,
+        "status": "failed",
+        "error_message": "Tool implementation not found for: status_test_tool (ID: tool-86bfb8191a1c)",
+        "start_time": "2026-05-20T19:05:37.996827",
+        "end_time": "2026-05-20T19:05:38.005109",
+        "duration": 0.005768299102783203
       }
     },
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
-      "record_count": 2,
+      "record_count": 3,
       "sample_data": {
-        "record_id": "rec-f4321a1e7f79",
-        "event_id": "evt-0a13dc839b83",
-        "event_type": "tool.call_completed",
-        "timestamp": "2026-05-19T17:09:01.451096",
+        "record_id": "rec-d60b92861eb6",
+        "event_id": "evt-7c13e4a456ac",
+        "event_type": "tool.call_failed",
+        "timestamp": "2026-05-20T19:05:38.008158",
         "payload": {
-          "call_id": "call-d52cecf1e62b",
+          "call_id": "call-0993929b0efa",
           "tool_name": "status_test_tool",
-          "success": true,
-          "duration": 0.0
+          "success": false,
+          "error": "Tool implementation not found for: status_test_tool (ID: tool-86bfb8191a1c)",
+          "duration": 0.005768299102783203,
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-19T17:09:01.451096",
+        "stored_at": "2026-05-20T19:05:38.008158",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "0be224c3-898b-4990-bc62-4300d4bc6125",
-        "entity_id": "evt-46bcb4630fe3",
-        "created_at": "2026-05-19T17:09:01.451096",
-        "updated_at": "2026-05-19T17:09:01.451096"
+        "correlation_id": "d63d9596-759c-4ebf-97da-29781cdac203",
+        "entity_id": "evt-96f04e30267d",
+        "created_at": "2026-05-20T19:05:38.008158",
+        "updated_at": "2026-05-20T19:05:38.008158"
       }
     }
   ]

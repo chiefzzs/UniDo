@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T17:17:30.717578",
+  "timestamp": "2026-05-20T19:06:29.076201",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3a_task_coordination",
@@ -15,7 +15,7 @@
   },
   "outputs": {
     "task_id": "test-tool",
-    "status": "completed"
+    "status": "failed"
   },
   "persistent_data": {
     "projects": [],
@@ -27,7 +27,7 @@
     "llm_calls": [],
     "tool_calls": [
       {
-        "call_id": "call-55e24a205475",
+        "call_id": "call-d9be7be4b8be",
         "tool_id": "tool-calculator-test",
         "tool_name": "calculator",
         "dialog_id": "test-tool",
@@ -35,33 +35,60 @@
         "input_params": {
           "expression": "5 + 5"
         },
-        "output_result": "10",
-        "status": "completed",
-        "error_message": null,
-        "start_time": "2026-05-19T17:17:30.692137",
-        "end_time": "2026-05-19T17:17:30.693652",
-        "duration": 0.0
+        "output_result": null,
+        "status": "failed",
+        "error_message": "Tool implementation not found for: calculator (ID: tool-calculator-test)",
+        "start_time": "2026-05-20T19:06:29.050748",
+        "end_time": "2026-05-20T19:06:29.057188",
+        "duration": 0.002537250518798828
       }
     ],
     "events": [
       {
-        "record_id": "rec-2029981111e7",
-        "event_id": "evt-61660aa771c6",
-        "event_type": "tool.call_completed",
-        "timestamp": "2026-05-19T17:17:30.696215",
+        "record_id": "rec-e3b3602d3ade",
+        "event_id": "evt-2b4d0d1049da",
+        "event_type": "tool.call_started",
+        "timestamp": "2026-05-20T19:06:29.054651",
         "payload": {
-          "call_id": "call-55e24a205475",
+          "call_id": "call-d9be7be4b8be",
           "tool_name": "calculator",
-          "success": true,
-          "duration": 0.0
+          "dialog_id": "test-tool",
+          "task_id": "test-tool",
+          "params": {
+            "expression": "5 + 5"
+          },
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-19T17:17:30.696215",
+        "stored_at": "2026-05-20T19:06:29.054651",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "ee5a6c8b-09c0-4cc7-8213-a78e31051050",
-        "entity_id": "evt-2ba5b377163f",
-        "created_at": "2026-05-19T17:17:30.696215",
-        "updated_at": "2026-05-19T17:17:30.696215"
+        "correlation_id": "e1955629-2b4f-4c01-86b0-7b1eb6e01764",
+        "entity_id": "evt-840cab5d815a",
+        "created_at": "2026-05-20T19:06:29.054651",
+        "updated_at": "2026-05-20T19:06:29.054651"
+      },
+      {
+        "record_id": "rec-fd0b6d07263d",
+        "event_id": "evt-e90351f82452",
+        "event_type": "tool.call_failed",
+        "timestamp": "2026-05-20T19:06:29.061713",
+        "payload": {
+          "call_id": "call-d9be7be4b8be",
+          "tool_name": "calculator",
+          "success": false,
+          "error": "Tool implementation not found for: calculator (ID: tool-calculator-test)",
+          "duration": 0.002537250518798828,
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
+        },
+        "stored_at": "2026-05-20T19:06:29.061713",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "ab17c59e-1661-45ad-b034-5ecf088b3795",
+        "entity_id": "evt-6b1970e54658",
+        "created_at": "2026-05-20T19:06:29.062717",
+        "updated_at": "2026-05-20T19:06:29.062717"
       }
     ],
     "prompts": [],
@@ -76,11 +103,11 @@
   "file_operations": [
     {
       "entity_type": "tool_calls",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\tool_calls.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\tool_calls.json",
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "call_id": "call-55e24a205475",
+        "call_id": "call-d9be7be4b8be",
         "tool_id": "tool-calculator-test",
         "tool_name": "calculator",
         "dialog_id": "test-tool",
@@ -88,37 +115,40 @@
         "input_params": {
           "expression": "5 + 5"
         },
-        "output_result": "10",
-        "status": "completed",
-        "error_message": null,
-        "start_time": "2026-05-19T17:17:30.692137",
-        "end_time": "2026-05-19T17:17:30.693652",
-        "duration": 0.0
+        "output_result": null,
+        "status": "failed",
+        "error_message": "Tool implementation not found for: calculator (ID: tool-calculator-test)",
+        "start_time": "2026-05-20T19:06:29.050748",
+        "end_time": "2026-05-20T19:06:29.057188",
+        "duration": 0.002537250518798828
       }
     },
     {
       "entity_type": "events",
-      "file_path": "D:\\learnning\\260518\\src\\data\\test\\events.json",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
-      "record_count": 1,
+      "record_count": 2,
       "sample_data": {
-        "record_id": "rec-2029981111e7",
-        "event_id": "evt-61660aa771c6",
-        "event_type": "tool.call_completed",
-        "timestamp": "2026-05-19T17:17:30.696215",
+        "record_id": "rec-fd0b6d07263d",
+        "event_id": "evt-e90351f82452",
+        "event_type": "tool.call_failed",
+        "timestamp": "2026-05-20T19:06:29.061713",
         "payload": {
-          "call_id": "call-55e24a205475",
+          "call_id": "call-d9be7be4b8be",
           "tool_name": "calculator",
-          "success": true,
-          "duration": 0.0
+          "success": false,
+          "error": "Tool implementation not found for: calculator (ID: tool-calculator-test)",
+          "duration": 0.002537250518798828,
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-19T17:17:30.696215",
+        "stored_at": "2026-05-20T19:06:29.061713",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "ee5a6c8b-09c0-4cc7-8213-a78e31051050",
-        "entity_id": "evt-2ba5b377163f",
-        "created_at": "2026-05-19T17:17:30.696215",
-        "updated_at": "2026-05-19T17:17:30.696215"
+        "correlation_id": "ab17c59e-1661-45ad-b034-5ecf088b3795",
+        "entity_id": "evt-6b1970e54658",
+        "created_at": "2026-05-20T19:06:29.062717",
+        "updated_at": "2026-05-20T19:06:29.062717"
       }
     }
   ]

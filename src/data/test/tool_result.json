@@ -1,0 +1,7 @@
+[
+    {
+        "role": "tool",
+        "content": "<toolcall_status>done</toolcall_status>\n<toolcall_result>\n{'path': 'd:\\\\learnning\\\\260521\\\\workspace', 'entries': [{'name': 'test_1', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_1'}, {'name': 'test_10', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_10'}, {'name': 'test_11', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_11'}, {'name': 'test_12', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_12'}, {'name': 'test_14', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_14'}, {'name': 'test_20', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_20'}, {'name': 'test_21', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\test_21'}, {'name': 'tool_test_dir', 'type': 'directory', 'size': 0, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_dir'}, {'name': 'tool_test_file.txt', 'type': 'file', 'size': 24, 'path': 'd:\\\\learnning\\\\260521\\\\workspace\\\\tool_test_file.txt'}], 'total': 9, 'directories': 8, 'files': 1}\n</toolcall_result>",
+        "tool_call_id": "call-2a97cd454c5a"
+    }
+]
