@@ -2,6 +2,9 @@
   "tool_id": "T06",
   "name": "Read",
   "category": "File",
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": [],
+  "platform_aliases": {},
   "parameters": {
     "file_path": {
       "type": "string",

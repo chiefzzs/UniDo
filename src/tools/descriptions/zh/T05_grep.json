@@ -2,6 +2,9 @@
   "tool_id": "T05",
   "name": "Grep",
   "category": "搜索",
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": ["powershell", "bash", "zsh"],
+  "platform_aliases": {},
   "parameters": {
     "pattern": {
       "type": "string",

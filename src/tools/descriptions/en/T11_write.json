@@ -2,6 +2,9 @@
   "tool_id": "T11",
   "name": "Write",
   "category": "File",
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": [],
+  "platform_aliases": {},
   "parameters": {
     "file_path": {
       "type": "string",

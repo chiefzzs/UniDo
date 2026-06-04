@@ -2,6 +2,9 @@
   "tool_id": "T01",
   "name": "Skill",
   "category": "System",
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": [],
+  "platform_aliases": {},
   "parameters": {
     "name": {
       "type": "string",

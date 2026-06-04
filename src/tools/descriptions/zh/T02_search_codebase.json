@@ -2,6 +2,9 @@
   "tool_id": "T02",
   "name": "SearchCodebase",
   "category": "搜索",
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": [],
+  "platform_aliases": {},
   "parameters": {
     "information_request": {
       "type": "string",

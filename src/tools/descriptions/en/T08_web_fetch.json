@@ -2,6 +2,9 @@
   "tool_id": "T08",
   "name": "WebFetch",
   "category": "Internet",
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": [],
+  "platform_aliases": {},
   "parameters": {
     "url": {
       "type": "string",

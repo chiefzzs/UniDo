@@ -2,6 +2,9 @@
   "tool_id": "T17",
   "name": "OpenPreview",
   "category": "UI",
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": [],
+  "platform_aliases": {},
   "parameters": {
     "url": {
       "type": "string",

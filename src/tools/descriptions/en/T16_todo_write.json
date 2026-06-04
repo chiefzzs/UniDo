@@ -3,6 +3,9 @@
   "name": "TodoWrite",
   "category": "Task",
   "is_task_group_tool": true,
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": [],
+  "platform_aliases": {},
   "parameters": {
     "merge": {
       "type": "boolean",

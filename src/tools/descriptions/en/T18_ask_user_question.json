@@ -2,6 +2,9 @@
   "tool_id": "T18",
   "name": "AskUserQuestion",
   "category": "UI",
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": [],
+  "platform_aliases": {},
   "parameters": {
     "questions": {
       "type": "string",

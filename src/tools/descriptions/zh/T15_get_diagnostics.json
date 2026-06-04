@@ -2,6 +2,9 @@
   "tool_id": "T15",
   "name": "GetDiagnostics",
   "category": "系统",
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": [],
+  "platform_aliases": {},
   "parameters": {
     "path": {
       "type": "string",

@@ -2,6 +2,9 @@
   "tool_id": "T09",
   "name": "DeleteFile",
   "category": "文件",
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": [],
+  "platform_aliases": {},
   "parameters": {
     "file_paths": {
       "type": "array",

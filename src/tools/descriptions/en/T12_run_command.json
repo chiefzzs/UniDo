@@ -2,11 +2,37 @@
   "tool_id": "T12",
   "name": "RunCommand",
   "category": "System",
+  "description": "Execute shell commands on the system. For any commands that would require user interaction, assume the user is not available to interact and pass non-interactive flags.",
+  "description_zh": "在系统上执行shell命令。对于任何需要用户交互的命令，假定用户不可用并传递非交互标志。",
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": ["powershell", "bash", "zsh", "cmd"],
+  "platform_aliases": {},
+  "command_conversion": {
+    "windows": {
+      "ls": "Get-ChildItem",
+      "rm": "Remove-Item",
+      "cp": "Copy-Item",
+      "mv": "Move-Item",
+      "pwd": "Get-Location",
+      "cat": "Get-Content",
+      "echo": "Write-Output",
+      "grep": "Select-String",
+      "mkdir": "New-Item -ItemType Directory",
+      "rmdir": "Remove-Item",
+      "&&": ";",
+      "||": "; if ($LASTEXITCODE -eq 0) { } else { }"
+    },
+    "linux": {},
+    "macos": {}
+  },
   "parameters": {
     "command": {
       "type": "string",
-      "description": "The CLI command to execute.",
-      "required": true
+      "description": "The CLI command to execute. On Windows PowerShell, Unix commands will be automatically converted.",
+      "required": true,
+      "platform_notes": {
+        "windows_powershell": "Use PowerShell cmdlets or compatible commands. Use ';' instead of '&&' for command chaining."
+      }
     },
     "requires_approval": {
       "type": "boolean",
@@ -14,18 +40,20 @@
       "required": false
     }
   },
-  "description": "Execute shell commands on the system. For any commands that would require user interaction, assume the user is not available to interact and pass non-interactive flags.",
-  "description_zh": "在系统上执行shell命令。对于任何需要用户交互的命令，假定用户不可用并传递非交互标志。",
   "default_params": {
-    "command": "echo \"Hello World\"",
+    "command": "Write-Output \"Hello World\"",
     "requires_approval": false
   },
   "examples": [
     "Run npm install: command=\"npm install\"",
-    "Run with approval: command=\"rm -rf node_modules\", requires_approval=true"
+    "Run with approval: command=\"Remove-Item -Recurse node_modules\", requires_approval=true",
+    "Windows PowerShell: command=\"Get-ChildItem\"",
+    "Windows: command=\"Write-Output 'Hello'\""
   ],
   "examples_zh": [
     "运行npm install: command=\"npm install\"",
-    "需要批准运行: command=\"rm -rf node_modules\", requires_approval=true"
+    "需要批准运行: command=\"Remove-Item -Recurse node_modules\", requires_approval=true",
+    "Windows PowerShell: command=\"Get-ChildItem\"",
+    "Windows: command=\"Write-Output 'Hello'\""
   ]
 }

@@ -2,6 +2,9 @@
   "tool_id": "T11",
   "name": "Write",
   "category": "文件",
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": [],
+  "platform_aliases": {},
   "parameters": {
     "file_path": {
       "type": "string",

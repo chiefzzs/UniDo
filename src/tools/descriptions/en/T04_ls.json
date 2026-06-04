@@ -2,11 +2,25 @@
   "tool_id": "T04",
   "name": "LS",
   "category": "File",
+  "description": "Lists files and directories in a given path. The path parameter must be an absolute path, not a relative path.",
+  "description_zh": "列出给定路径中的文件和目录。路径参数必须是绝对路径，不能是相对路径。",
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": ["powershell", "bash", "zsh"],
+  "platform_aliases": {
+    "windows": "Get-ChildItem",
+    "linux": "ls",
+    "macos": "ls"
+  },
   "parameters": {
     "path": {
       "type": "string",
       "description": "The absolute path to the directory to list.",
-      "required": true
+      "required": true,
+      "platform_defaults": {
+        "windows": "D:\\workspace",
+        "linux": "/workspace",
+        "macos": "/workspace"
+      }
     },
     "ignore": {
       "type": "array",
@@ -15,10 +29,8 @@
       "required": false
     }
   },
-  "description": "Lists files and directories in a given path. The path parameter must be an absolute path, not a relative path.",
-  "description_zh": "列出给定路径中的文件和目录。路径参数必须是绝对路径，不能是相对路径。",
   "default_params": {
-    "path": "/",
+    "path": "/workspace",
     "ignore": ["node_modules", ".git"]
   },
   "examples": [

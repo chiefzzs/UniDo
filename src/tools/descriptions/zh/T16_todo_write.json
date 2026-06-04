@@ -2,6 +2,9 @@
   "tool_id": "T16",
   "name": "TodoWrite",
   "category": "任务",
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": [],
+  "platform_aliases": {},
   "parameters": {
     "merge": {
       "type": "boolean",

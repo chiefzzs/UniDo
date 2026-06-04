@@ -2,6 +2,9 @@
   "tool_id": "T03",
   "name": "Glob",
   "category": "文件",
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": [],
+  "platform_aliases": {},
   "parameters": {
     "pattern": {
       "type": "string",

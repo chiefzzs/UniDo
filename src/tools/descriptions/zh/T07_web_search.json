@@ -2,6 +2,9 @@
   "tool_id": "T07",
   "name": "WebSearch",
   "category": "互联网",
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": [],
+  "platform_aliases": {},
   "parameters": {
     "query": {
       "type": "string",

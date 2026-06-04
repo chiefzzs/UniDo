@@ -2,6 +2,9 @@
   "tool_id": "T02",
   "name": "SearchCodebase",
   "category": "Search",
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": [],
+  "platform_aliases": {},
   "parameters": {
     "information_request": {
       "type": "string",

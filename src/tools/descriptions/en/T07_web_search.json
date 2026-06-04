@@ -2,6 +2,9 @@
   "tool_id": "T07",
   "name": "WebSearch",
   "category": "Internet",
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": [],
+  "platform_aliases": {},
   "parameters": {
     "query": {
       "type": "string",

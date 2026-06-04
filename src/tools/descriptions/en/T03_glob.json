@@ -2,6 +2,9 @@
   "tool_id": "T03",
   "name": "Glob",
   "category": "File",
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": [],
+  "platform_aliases": {},
   "parameters": {
     "pattern": {
       "type": "string",

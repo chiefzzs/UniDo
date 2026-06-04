@@ -2,11 +2,37 @@
   "tool_id": "T12",
   "name": "RunCommand",
   "category": "系统",
+  "description_zh": "在系统上执行shell命令。对于任何需要用户交互的命令，假定用户不可用并传递非交互标志。",
+  "description_en": "Execute shell commands on the system. For any commands that would require user interaction, assume the user is not available to interact and pass non-interactive flags.",
+  "supported_os": ["windows", "linux", "macos"],
+  "supported_terminals": ["powershell", "bash", "zsh", "cmd"],
+  "platform_aliases": {},
+  "command_conversion": {
+    "windows": {
+      "ls": "Get-ChildItem",
+      "rm": "Remove-Item",
+      "cp": "Copy-Item",
+      "mv": "Move-Item",
+      "pwd": "Get-Location",
+      "cat": "Get-Content",
+      "echo": "Write-Output",
+      "grep": "Select-String",
+      "mkdir": "New-Item -ItemType Directory",
+      "rmdir": "Remove-Item",
+      "&&": ";",
+      "||": "; if ($LASTEXITCODE -eq 0) { } else { }"
+    },
+    "linux": {},
+    "macos": {}
+  },
   "parameters": {
     "command": {
       "type": "string",
-      "description": "要执行的CLI命令。",
-      "required": true
+      "description": "要执行的CLI命令。在Windows PowerShell上，Unix命令将被自动转换。",
+      "required": true,
+      "platform_notes": {
+        "windows_powershell": "使用PowerShell cmdlet或兼容的命令。使用';'代替'&&'来连接命令。"
+      }
     },
     "requires_approval": {
       "type": "boolean",
@@ -14,14 +40,20 @@
       "required": false
     }
   },
-  "description_zh": "在系统上执行shell命令。对于任何需要用户交互的命令，假定用户不可用并传递非交互标志。",
-  "description_en": "Execute shell commands on the system. For any commands that would require user interaction, assume the user is not available to interact and pass non-interactive flags.",
+  "default_params": {
+    "command": "Write-Output \"Hello World\"",
+    "requires_approval": false
+  },
   "examples_zh": [
     "运行npm install: command=\"npm install\"",
-    "需要批准运行: command=\"rm -rf node_modules\", requires_approval=true"
+    "需要批准运行: command=\"Remove-Item -Recurse node_modules\", requires_approval=true",
+    "Windows PowerShell: command=\"Get-ChildItem\"",
+    "Windows: command=\"Write-Output 'Hello'\""
   ],
   "examples_en": [
     "Run npm install: command=\"npm install\"",
-    "Run with approval: command=\"rm -rf node_modules\", requires_approval=true"
+    "Run with approval: command=\"Remove-Item -Recurse node_modules\", requires_approval=true",
+    "Windows PowerShell: command=\"Get-ChildItem\"",
+    "Windows: command=\"Write-Output 'Hello'\""
   ]
 }
