@@ -45,14 +45,35 @@ class ToolTaskExecutor:
         
         return task
     
-    def execute_l2_tool(self, task: Task, tool_info) -> Task:
+    def execute_l2_tool(self, task: Task, tool_info, tool_call_id: str = "", dialog_id: str = "", session_id: str = "") -> Task:
+        """
+        执行L2层工具
+        
+        Args:
+            task: 任务对象
+            tool_info: 工具信息
+            tool_call_id: LLM返回的工具调用ID（符合OpenAI API标准，可选）
+            dialog_id: 对话ID（可选，用于正确关联工具调用事件）
+            session_id: 会话ID（可选，用于正确关联工具调用事件）
+        
+        Returns:
+            更新后的任务对象
+        """
         if tool_info:
             try:
+                # 必须显式传入 dialog_id 和 session_id，不允许使用降级方案
+                if dialog_id is None:
+                    raise ValueError("execute_tool_step: dialog_id 参数缺失，必须显式传入")
+                if session_id is None:
+                    raise ValueError("execute_tool_step: session_id 参数缺失，必须显式传入")
+                
                 result = self.tool_executor.execute_tool(
                     tool_name=tool_info.tool_name,
-                    dialog_id=task.task_id,
+                    dialog_id=dialog_id,
                     task_id=task.task_id,
-                    params=tool_info.parameters
+                    params=tool_info.parameters,
+                    session_id=session_id,  # 传递session_id，确保工具调用事件能正确关联会话
+                    tool_call_id=tool_call_id  # 传递LLM原始调用ID（符合OpenAI API标准）
                 )
                 task.execution_history.append({
                     "step": "tool_execution",

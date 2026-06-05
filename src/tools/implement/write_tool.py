@@ -31,6 +31,13 @@ class WriteTool(BaseTool):
         file_path = params.get("file_path", "")
         content = params.get("content", "")
         
+        # 实时打印 content 内容到控制台
+        print(f"\n{'='*80}")
+        print(f"[WriteTool] 正在写入文件: {file_path}")
+        print(f"[WriteTool] 内容长度: {len(content)} 字符")
+        print(f"[WriteTool] 内容:\n{content}")
+        print(f"{'='*80}\n")
+        
         if not file_path:
             return {"error": "文件路径不能为空"}
         

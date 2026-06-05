@@ -1,0 +1,14 @@
+{
+  "name": "newstatic-bundle",
+  "version": "1.0.0",
+  "description": "JS bundle for newstatic",
+  "scripts": {
+    "build": "esbuild main.js --bundle --outfile=../src/newstatic/js/bundle.js --minify --sourcemap",
+    "build:dev": "esbuild main.js --bundle --outfile=../src/newstatic/js/bundle.js --sourcemap --watch"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.1",
+    "esbuild": "^0.19.0"
+  }
+}

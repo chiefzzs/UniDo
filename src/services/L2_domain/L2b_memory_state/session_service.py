@@ -4,10 +4,10 @@ L2b Memory and State Management - Session Service
 会话管理服务：负责会话的创建、查询、更新、删除
 """
 
-import uuid
 from datetime import datetime
 from typing import List, Optional
 
+from services.L1_infrastructure.L1a_id_generator.id_generator import generate_session_id
 from services.L1_infrastructure.L1b_persistence.storage_factory import StorageFactory
 from services.L1_infrastructure.L1d_events.event_bus import EventBus, Event
 from services.L1_infrastructure.L1d_events.event_types import EventTypes
@@ -20,12 +20,9 @@ class SessionService:
         self.persistence = persistence_service or StorageFactory.create()
         self.event_bus = event_bus or EventBus.get_instance()
 
-    def _generate_id(self) -> str:
-        return f"sess-{uuid.uuid4().hex[:12]}"
-
     def create_session(self, project_id: str, name: str, session_id: str = None) -> Session:
         session = Session(
-            session_id=session_id or self._generate_id(),
+            session_id=session_id or generate_session_id(),
             project_id=project_id,
             name=name
         )

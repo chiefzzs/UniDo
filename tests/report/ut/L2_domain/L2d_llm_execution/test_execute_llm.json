@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-21T12:33:31.665045",
+  "timestamp": "2026-05-28T14:50:45.549301",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2d_llm_execution",
@@ -15,9 +15,9 @@
     "message_count": 2
   },
   "outputs": {
-    "request_id": "req-0855631d943f",
-    "status": "completed",
-    "content": "Hello! I'm doing well, thank you for asking. How a"
+    "request_id": "req-eece12b7c498",
+    "status": "failed",
+    "content": "Error: [WinError 10061] 由于目标计算机积极拒绝，无法连接。"
   },
   "persistent_data": {
     "projects": [],
@@ -28,9 +28,10 @@
     "tasks": [],
     "llm_calls": [
       {
-        "call_id": "call-318cb0444b20",
+        "call_id": "call-c13d9d43b431",
         "dialog_id": "session-llm-001",
         "model_config_id": "default",
+        "request_id": "req-eece12b7c498",
         "request": {
           "model_name": "default",
           "messages": [
@@ -43,97 +44,23 @@
               "content": "Hello, how are you?"
             }
           ],
-          "temperature": 0.7,
-          "max_tokens": 100,
-          "stream": false,
           "api_type": "openai",
           "api_address": "http://localhost/v1",
           "api_key": "demo",
-          "tools": [],
-          "tool_choice": null
+          "temperature": 0.7,
+          "max_tokens": 100,
+          "tools": []
         },
         "response": {
-          "content": "Hello! I'm doing well, thank you for asking. How about you? Is there anything I can help you with today?",
-          "finish_reason": "stop",
-          "tool_calls": [],
-          "usage": {
-            "prompt_tokens": 27,
-            "completion_tokens": 371,
-            "total_tokens": 398
-          }
+          "error": "[WinError 10061] 由于目标计算机积极拒绝，无法连接。"
         },
-        "status": "completed",
-        "duration_ms": 2278,
-        "created_at": "2026-05-21T12:33:31.645165"
+        "status": "failed",
+        "duration_ms": 4311,
+        "created_at": "2026-05-28T14:50:45.526579"
       }
     ],
     "tool_calls": [],
-    "events": [
-      {
-        "record_id": "rec-c8626bb3d649",
-        "event_id": "evt-f3c7ccba2e0d",
-        "event_type": "llm.request_sent",
-        "timestamp": "2026-05-21T12:33:29.366644",
-        "payload": {
-          "request_id": "req-0855631d943f",
-          "dialog_id": "session-llm-001",
-          "model_config_id": "default",
-          "num_messages": 2,
-          "num_tools": 0,
-          "stream": false,
-          "source_component": "L2_llm_execution",
-          "source_service": "LLMExecutionService"
-        },
-        "stored_at": "2026-05-21T12:33:29.366644",
-        "source_component": "",
-        "source_service": "",
-        "correlation_id": "9fa4fc85-8511-41a8-ba4d-df2d9d1dac08",
-        "entity_id": "evt-5906cf853f1f",
-        "created_at": "2026-05-21T12:33:29.366644",
-        "updated_at": "2026-05-21T12:33:29.366644"
-      },
-      {
-        "record_id": "rec-0b8b2137e05a",
-        "event_id": "evt-da430aa1d1d3",
-        "event_type": "llm.response_received",
-        "timestamp": "2026-05-21T12:33:31.644132",
-        "payload": {
-          "request_id": "req-0855631d943f",
-          "dialog_id": "session-llm-001",
-          "has_content": true,
-          "has_tool_calls": false,
-          "source_component": "L2_llm_execution",
-          "source_service": "LLMExecutionService"
-        },
-        "stored_at": "2026-05-21T12:33:31.644132",
-        "source_component": "",
-        "source_service": "",
-        "correlation_id": "5774b0b2-c2a5-4917-ab10-544239ce724e",
-        "entity_id": "evt-2746a00bc93b",
-        "created_at": "2026-05-21T12:33:31.644132",
-        "updated_at": "2026-05-21T12:33:31.644132"
-      },
-      {
-        "record_id": "rec-fd59aec18026",
-        "event_id": "evt-9e03b1aa9af1",
-        "event_type": "llm.call_completed",
-        "timestamp": "2026-05-21T12:33:31.647135",
-        "payload": {
-          "request_id": "req-0855631d943f",
-          "dialog_id": "session-llm-001",
-          "duration_ms": 2278,
-          "source_component": "L2_llm_execution",
-          "source_service": "LLMExecutionService"
-        },
-        "stored_at": "2026-05-21T12:33:31.647135",
-        "source_component": "",
-        "source_service": "",
-        "correlation_id": "265bff58-b7e2-4ebf-84b7-c617a994da39",
-        "entity_id": "evt-dfe3948bf223",
-        "created_at": "2026-05-21T12:33:31.647135",
-        "updated_at": "2026-05-21T12:33:31.647135"
-      }
-    ],
+    "events": [],
     "prompts": [],
     "workspace_configs": [],
     "model_configs": [],
@@ -144,9 +71,10 @@
     "file_path": "D:\\learnning\\260521\\src\\data\\test\\llm_calls.json",
     "call_count": 1,
     "last_call": {
-      "call_id": "call-318cb0444b20",
+      "call_id": "call-c13d9d43b431",
       "dialog_id": "session-llm-001",
       "model_config_id": "default",
+      "request_id": "req-eece12b7c498",
       "request": {
         "model_name": "default",
         "messages": [
@@ -159,28 +87,19 @@
             "content": "Hello, how are you?"
           }
         ],
-        "temperature": 0.7,
-        "max_tokens": 100,
-        "stream": false,
         "api_type": "openai",
         "api_address": "http://localhost/v1",
         "api_key": "demo",
-        "tools": [],
-        "tool_choice": null
+        "temperature": 0.7,
+        "max_tokens": 100,
+        "tools": []
       },
       "response": {
-        "content": "Hello! I'm doing well, thank you for asking. How about you? Is there anything I can help you with today?",
-        "finish_reason": "stop",
-        "tool_calls": [],
-        "usage": {
-          "prompt_tokens": 27,
-          "completion_tokens": 371,
-          "total_tokens": 398
-        }
+        "error": "[WinError 10061] 由于目标计算机积极拒绝，无法连接。"
       },
-      "status": "completed",
-      "duration_ms": 2278,
-      "created_at": "2026-05-21T12:33:31.645165"
+      "status": "failed",
+      "duration_ms": 4311,
+      "created_at": "2026-05-28T14:50:45.526579"
     },
     "validation": {
       "valid": true,
@@ -198,9 +117,10 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "call_id": "call-318cb0444b20",
+        "call_id": "call-c13d9d43b431",
         "dialog_id": "session-llm-001",
         "model_config_id": "default",
+        "request_id": "req-eece12b7c498",
         "request": {
           "model_name": "default",
           "messages": [
@@ -213,54 +133,19 @@
               "content": "Hello, how are you?"
             }
           ],
-          "temperature": 0.7,
-          "max_tokens": 100,
-          "stream": false,
           "api_type": "openai",
           "api_address": "http://localhost/v1",
           "api_key": "demo",
-          "tools": [],
-          "tool_choice": null
+          "temperature": 0.7,
+          "max_tokens": 100,
+          "tools": []
         },
         "response": {
-          "content": "Hello! I'm doing well, thank you for asking. How about you? Is there anything I can help you with today?",
-          "finish_reason": "stop",
-          "tool_calls": [],
-          "usage": {
-            "prompt_tokens": 27,
-            "completion_tokens": 371,
-            "total_tokens": 398
-          }
+          "error": "[WinError 10061] 由于目标计算机积极拒绝，无法连接。"
         },
-        "status": "completed",
-        "duration_ms": 2278,
-        "created_at": "2026-05-21T12:33:31.645165"
-      }
-    },
-    {
-      "entity_type": "events",
-      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
-      "operation": "write",
-      "record_count": 3,
-      "sample_data": {
-        "record_id": "rec-fd59aec18026",
-        "event_id": "evt-9e03b1aa9af1",
-        "event_type": "llm.call_completed",
-        "timestamp": "2026-05-21T12:33:31.647135",
-        "payload": {
-          "request_id": "req-0855631d943f",
-          "dialog_id": "session-llm-001",
-          "duration_ms": 2278,
-          "source_component": "L2_llm_execution",
-          "source_service": "LLMExecutionService"
-        },
-        "stored_at": "2026-05-21T12:33:31.647135",
-        "source_component": "",
-        "source_service": "",
-        "correlation_id": "265bff58-b7e2-4ebf-84b7-c617a994da39",
-        "entity_id": "evt-dfe3948bf223",
-        "created_at": "2026-05-21T12:33:31.647135",
-        "updated_at": "2026-05-21T12:33:31.647135"
+        "status": "failed",
+        "duration_ms": 4311,
+        "created_at": "2026-05-28T14:50:45.526579"
       }
     }
   ]

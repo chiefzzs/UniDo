@@ -39,82 +39,50 @@ class SessionManager:
     def create_session(self, project_id: str, name: str = "未命名会话") -> Dict[str, Any]:
         """
         创建会话
-        
+
         场景1：会话创建
         1) 新建session对象
-        2) 初始化此session对象包含的dialog对象
-        3) 给第一个dialog对象增加system message，用于引导对话方向
-        
+   
+
         结果：
         - sessions.json中多了一个session对象
         - events.json中多了一个event对象
-        - dialogs.json中多了一个dialog对象
-        - messages.json中多了一个message对象
         """
         session = self.session_service.create_session(
             project_id=project_id,
             name=name
         )
+
         
-        # 创建初始dialog
-        dialog = self.dialog_service.create_dialog(
-            session_id=session.session_id,
-            dialog_type="default"
-        )
-        
-        # 添加system message
-        system_message = self.message_service.create_message(
-            dialog_id=dialog.dialog_id,
-            role="system",
-            content="你是一个智能助手，能够帮助用户完成各种任务。",
-            metadata={
-                "type": "system",
-                "source": "system_prompt"
-            }
-        )
-        
-        # 发布会话创建事件
-        self.event_bus.publish(Event(
-            event_type=EventTypes.SESSION_CREATED,
-            payload={
-                'session_id': session.session_id,
-                'project_id': project_id,
-                'dialog_id': dialog.dialog_id,
-                'message_id': system_message.message_id
-            }
-        ))
-        
+
         return {
-            'session': session.to_dict(),
-            'dialog': dialog.to_dict(),
-            'system_message': system_message.to_dict()
+            'session': session.to_dict()
         }
     
     def get_or_create_default_dialog(self, session_id: str) -> Dict[str, Any]:
         """
-        获取或创建默认对话
+        获取或创建新的对话
         
-        场景2：新建对话对象
-        1) 如果是第一次，返回session对象的第一个dialog对象
-        2) 如果不是第一次，session对象新建一个dialog对象，并放到自己的队列中
+        每次用户输入都创建新的对话（dialog），确保：
+        1. 新的用户输入对应新的对话
+        2. 对话之间通过 dialog_id 区分
+        3. 轮次编号在每个对话内独立从1开始
+        
+        Returns:
+            新创建的 dialog 对象
         """
         session = self.session_service.get_session(session_id)
         if not session:
             raise ValueError(f"Session {session_id} not found")
         
-        # 获取session的所有dialog
-        dialogs = self.dialog_service.list_dialogs(session_id=session_id)
+        # 每次调用都创建新的dialog（每次用户输入都是新的对话）
+        # dialog_service.create_dialog() 内部已经会发布 dialog.created 事件，这里不需要重复发布
+        dialog = self.dialog_service.create_dialog(
+            session_id=session_id,
+            dialog_type="default"
+        )
         
-        if not dialogs:
-            # 第一次，创建初始dialog
-            dialog = self.dialog_service.create_dialog(
-                session_id=session_id,
-                dialog_type="default"
-            )
-            return dialog.to_dict()
-        else:
-            # 返回第一个dialog
-            return dialogs[0].to_dict()
+        return dialog.to_dict()
     
     def get_history_messages(self, session_id: str, compress: bool = False, limit: int = 100) -> List[Dict[str, Any]]:
         """

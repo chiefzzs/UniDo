@@ -1,0 +1,52 @@
+[
+    {
+        "role": "tool",
+        "content": "<toolcall_status>done</toolcall_status>\n<toolcall_result>\n{'error': \"[WinError 3] 系统找不到指定的路径。: '/working_dir'\"}\n</toolcall_result>",
+        "tool_call_id": "call-74859d410458"
+    },
+    {
+        "role": "tool",
+        "content": "<toolcall_status>done</toolcall_status>\n<toolcall_result>\n{'command_id': 'cmd_2722689513008', 'command': 'pwd', 'status': 'completed', 'return_code': 0, 'stdout': '', 'stderr': '', 'success': True, 'workspace': 'D:\\\\learnning\\\\260521\\\\workspace'}\n</toolcall_result>",
+        "tool_call_id": "call-105dbcab2b70"
+    },
+    {
+        "role": "tool",
+        "content": "<toolcall_status>done</toolcall_status>\n<toolcall_result>\n{'command_id': 'cmd_2722692907312', 'command': 'dir', 'status': 'completed', 'return_code': 0, 'stdout': '', 'stderr': '', 'success': True, 'workspace': 'D:\\\\learnning\\\\260521\\\\workspace'}\n</toolcall_result>",
+        "tool_call_id": "call-270963187b89"
+    },
+    {
+        "role": "tool",
+        "content": "<toolcall_status>failed</toolcall_status>\n<toolcall_result>\n{'command_id': 'cmd_2722692463536', 'command': 'ls -la', 'status': 'completed', 'return_code': 1, 'stdout': '', 'stderr': 'At line:1 char:24\\n+ chcp 65001 > $null; ls -la\\n+                        ~~~\\n    + CategoryInfo          : InvalidArgument: (:) [Get-ChildItem], ParameterBindingExceptio \\n   n\\n    + FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetChildI \\n   temCommand\\n \\n', 'success': False, 'workspace': 'D:\\\\learnning\\\\260521\\\\workspace'}\n</toolcall_result>",
+        "tool_call_id": "call-53b83a4ffe47"
+    },
+    {
+        "role": "tool",
+        "content": "<toolcall_status>done</toolcall_status>\n<toolcall_result>\n{'command_id': 'cmd_2722693312368', 'command': 'Get-ChildItem', 'status': 'completed', 'return_code': 0, 'stdout': '', 'stderr': '', 'success': True, 'workspace': 'D:\\\\learnning\\\\260521\\\\workspace'}\n</toolcall_result>",
+        "tool_call_id": "call-3932c8ada1ee"
+    },
+    {
+        "role": "tool",
+        "content": "<toolcall_status>failed</toolcall_status>\n<toolcall_result>\n{'command_id': 'cmd_2722693531504', 'command': 'dir /b', 'status': 'completed', 'return_code': 1, 'stdout': '', 'stderr': 'At line:1 char:21\\n+ chcp 65001 > $null; dir /b\\n+                     ~~~~~~\\n    + CategoryInfo          : ObjectNotFound: (D:\\\\b:String) [Get-ChildItem], ItemNotFoundExc \\n   eption\\n    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand\\n \\n', 'success': False, 'workspace': 'D:\\\\learnning\\\\260521\\\\workspace'}\n</toolcall_result>",
+        "tool_call_id": "call-42f4507363be"
+    },
+    {
+        "role": "tool",
+        "content": "<toolcall_status>failed</toolcall_status>\n<toolcall_result>\n{'command_id': 'cmd_2722692093792', 'command': 'cd /d \"D:\\\\learnning\\\\260521\\\\workspace\" && dir', 'status': 'completed', 'return_code': 1, 'stdout': '', 'stderr': '+ chcp 65001 > $null; cd /d \"D:\\\\learnning\\\\260521\\\\workspace\" && dir\\n+                                                           ~~\\nThe token \\'&&\\' is not a valid statement separator in this version.\\n    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException\\n    + FullyQualifiedErrorId : InvalidEndOfLine\\n \\n', 'success': False, 'workspace': 'D:\\\\learnning\\\\260521\\\\workspace'}\n</toolcall_result>",
+        "tool_call_id": "call-6a850148f870"
+    },
+    {
+        "role": "tool",
+        "content": "<toolcall_status>done</toolcall_status>\n<toolcall_result>\n{'command_id': 'cmd_2722693335728', 'command': 'cd \"D:\\\\learnning\\\\260521\\\\workspace\"; dir', 'status': 'completed', 'return_code': 0, 'stdout': '', 'stderr': '', 'success': True, 'workspace': 'D:\\\\learnning\\\\260521\\\\workspace'}\n</toolcall_result>",
+        "tool_call_id": "call-aeb3328a0527"
+    },
+    {
+        "role": "tool",
+        "content": "<toolcall_status>done</toolcall_status>\n<toolcall_result>\n{'command_id': 'cmd_2722691446048', 'command': 'Test-Path \"D:\\\\learnning\\\\260521\\\\workspace\\\\doc\"', 'status': 'completed', 'return_code': 0, 'stdout': '', 'stderr': '', 'success': True, 'workspace': 'D:\\\\learnning\\\\260521\\\\workspace'}\n</toolcall_result>",
+        "tool_call_id": "call-46e9dc1648ae"
+    },
+    {
+        "role": "tool",
+        "content": "<toolcall_status>done</toolcall_status>\n<toolcall_result>\n{'command_id': 'cmd_2722673254368', 'command': 'if (Test-Path \"D:\\\\learnning\\\\260521\\\\workspace\\\\doc\") { Get-ChildItem \"D:\\\\learnning\\\\260521\\\\workspace\\\\doc\" } else { Write-Output \"doc directory does not exist\" }', 'status': 'completed', 'return_code': 0, 'stdout': '', 'stderr': '', 'success': True, 'workspace': 'D:\\\\learnning\\\\260521\\\\workspace'}\n</toolcall_result>",
+        "tool_call_id": "call-55cdfe57129f"
+    }
+]

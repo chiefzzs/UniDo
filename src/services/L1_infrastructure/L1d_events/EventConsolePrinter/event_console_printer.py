@@ -76,7 +76,7 @@ class EventConsolePrinter:
         output_parts = []
         
         # 前缀
-        output_parts.append(f"📢 [Event]")
+        output_parts.append(f"[CONSOLE-PRINT] Event received")
         
         # 事件类型
         output_parts.append(f"type={event_type}")
@@ -104,9 +104,9 @@ class EventConsolePrinter:
         if self.config.show_payload and hasattr(event, 'payload') and event.payload:
             try:
                 payload_str = json.dumps(event.payload, ensure_ascii=False, indent=2)
-                print(f"   📦 payload:\n{payload_str}")
+                print(f"   payload:\n{payload_str}")
             except Exception:
-                print(f"   📦 payload: {event.payload}")
+                print(f"   payload: {event.payload}")
     
     def add_excluded_event(self, event_type: str):
         """添加要排除的事件类型"""

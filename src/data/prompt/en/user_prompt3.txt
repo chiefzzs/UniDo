@@ -1,0 +1,5 @@
+# Response Language Settings
+You MUST follow these language requirements when responding to the user:
+- Always use the same language as the user's latest message unless user explicitly asks.
+- For code comments, follow the same language rule unless explicitly instructed otherwise
+- Maintain consistency in language throughout the conversation

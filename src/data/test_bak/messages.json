@@ -1,0 +1,301 @@
+[
+    {
+        "message_id": "msg-9e3592a9c757",
+        "dialog_id": "dialog-fdeedd3730e2",
+        "role": "user",
+        "content": "xxx",
+        "metadata": {
+            "type": "user_input",
+            "source": "ui"
+        },
+        "created_at": "2026-06-02T12:50:17.561296"
+    },
+    {
+        "message_id": "msg-c94aebd2ec8a",
+        "dialog_id": "dialog-fdeedd3730e2",
+        "role": "assistant",
+        "content": "我来帮你分析开源智能 agent 项目并创建需求分析文档。首先让我搜索相关项目的信息。\n\n",
+        "metadata": {
+            "tool_calls": [
+                {
+                    "function": {
+                        "arguments": "{\"num\": 10, \"query\": \"opencalw open source intelligent agent framework\"}",
+                        "name": "WebSearch"
+                    },
+                    "id": "call_023de02230dc4c14b7e5cd6b",
+                    "index": 0,
+                    "type": "function"
+                },
+                {
+                    "function": {
+                        "arguments": "{\"num\": 10, \"query\": \"hermes open source AI agent platform features\"}",
+                        "name": "WebSearch"
+                    },
+                    "id": "call_1f0f1a163b7646348c45fc25",
+                    "index": 1,
+                    "type": "function"
+                }
+            ]
+        },
+        "created_at": "2026-06-02T12:50:17.851049"
+    },
+    {
+        "message_id": "msg-73e615834b89",
+        "dialog_id": "dialog-fdeedd3730e2",
+        "role": "tool",
+        "content": "{'query': 'opencalw open source intelligent agent framework', 'language': '', 'results': [{'title': '搜索结果 1: opencalw open source intelligent agent framework - 相关内容', 'url': 'https://example.com/search?q=opencalw open source intelligent agent framework&page=1', 'snippet': \"这是关于 'opencalw open source intelligent agent framework' 的搜索结果摘要 1。包含相关信息和链接。\", 'rank': 1}, {'title': '搜索结果 2: opencalw open source intelligent agent framework - 相关内容', 'url': 'https://example.com/search?q=opencalw open source intelligent agent framework&page=2', 'snippet': \"这是关于 'opencalw open source intelligent agent framework' 的搜索结果摘要 2。包含相关信息和链接。\", 'rank': 2}, {'title': '搜索结果 3: opencalw open source intelligent agent framework - 相关内容', 'url': 'https://example.com/search?q=opencalw open source intelligent agent framework&page=3', 'snippet': \"这是关于 'opencalw open source intelligent agent framework' 的搜索结果摘要 3。包含相关信息和链接。\", 'rank': 3}, {'title': '搜索结果 4: opencalw open source intelligent agent framework - 相关内容', 'url': 'https://example.com/search?q=opencalw open source intelligent agent framework&page=4', 'snippet': \"这是关于 'opencalw open source intelligent agent framework' 的搜索结果摘要 4。包含相关信息和链接。\", 'rank': 4}, {'title': '搜索结果 5: opencalw open source intelligent agent framework - 相关内容', 'url': 'https://example.com/search?q=opencalw open source intelligent agent framework&page=5', 'snippet': \"这是关于 'opencalw open source intelligent agent framework' 的搜索结果摘要 5。包含相关信息和链接。\", 'rank': 5}], 'total_results': 5}",
+        "metadata": {
+            "tool_call_id": "call_023de02230dc4c14b7e5cd6b",
+            "tool_result": {
+                "success": true,
+                "result": "{'query': 'opencalw open source intelligent agent framework', 'language': '', 'results': [{'title': '搜索结果 1: opencalw open source intelligent agent framework - 相关内容', 'url': 'https://example.com/search?q=opencalw open source intelligent agent framework&page=1', 'snippet': \"这是关于 'opencalw open source intelligent agent framework' 的搜索结果摘要 1。包含相关信息和链接。\", 'rank': 1}, {'title': '搜索结果 2: opencalw open source intelligent agent framework - 相关内容', 'url': 'https://example.com/search?q=opencalw open source intelligent agent framework&page=2', 'snippet': \"这是关于 'opencalw open source intelligent agent framework' 的搜索结果摘要 2。包含相关信息和链接。\", 'rank': 2}, {'title': '搜索结果 3: opencalw open source intelligent agent framework - 相关内容', 'url': 'https://example.com/search?q=opencalw open source intelligent agent framework&page=3', 'snippet': \"这是关于 'opencalw open source intelligent agent framework' 的搜索结果摘要 3。包含相关信息和链接。\", 'rank': 3}, {'title': '搜索结果 4: opencalw open source intelligent agent framework - 相关内容', 'url': 'https://example.com/search?q=opencalw open source intelligent agent framework&page=4', 'snippet': \"这是关于 'opencalw open source intelligent agent framework' 的搜索结果摘要 4。包含相关信息和链接。\", 'rank': 4}, {'title': '搜索结果 5: opencalw open source intelligent agent framework - 相关内容', 'url': 'https://example.com/search?q=opencalw open source intelligent agent framework&page=5', 'snippet': \"这是关于 'opencalw open source intelligent agent framework' 的搜索结果摘要 5。包含相关信息和链接。\", 'rank': 5}], 'total_results': 5}",
+                "error": null,
+                "call_id": "call-15b6392a3850",
+                "tool_call_id": "call_023de02230dc4c14b7e5cd6b"
+            }
+        },
+        "created_at": "2026-06-02T12:50:17.998989"
+    },
+    {
+        "message_id": "msg-9e1a010cb726",
+        "dialog_id": "dialog-fdeedd3730e2",
+        "role": "tool",
+        "content": "{'query': 'hermes open source AI agent platform features', 'language': '', 'results': [{'title': '搜索结果 1: hermes open source AI agent platform features - 相关内容', 'url': 'https://example.com/search?q=hermes open source AI agent platform features&page=1', 'snippet': \"这是关于 'hermes open source AI agent platform features' 的搜索结果摘要 1。包含相关信息和链接。\", 'rank': 1}, {'title': '搜索结果 2: hermes open source AI agent platform features - 相关内容', 'url': 'https://example.com/search?q=hermes open source AI agent platform features&page=2', 'snippet': \"这是关于 'hermes open source AI agent platform features' 的搜索结果摘要 2。包含相关信息和链接。\", 'rank': 2}, {'title': '搜索结果 3: hermes open source AI agent platform features - 相关内容', 'url': 'https://example.com/search?q=hermes open source AI agent platform features&page=3', 'snippet': \"这是关于 'hermes open source AI agent platform features' 的搜索结果摘要 3。包含相关信息和链接。\", 'rank': 3}, {'title': '搜索结果 4: hermes open source AI agent platform features - 相关内容', 'url': 'https://example.com/search?q=hermes open source AI agent platform features&page=4', 'snippet': \"这是关于 'hermes open source AI agent platform features' 的搜索结果摘要 4。包含相关信息和链接。\", 'rank': 4}, {'title': '搜索结果 5: hermes open source AI agent platform features - 相关内容', 'url': 'https://example.com/search?q=hermes open source AI agent platform features&page=5', 'snippet': \"这是关于 'hermes open source AI agent platform features' 的搜索结果摘要 5。包含相关信息和链接。\", 'rank': 5}], 'total_results': 5}",
+        "metadata": {
+            "tool_call_id": "call_1f0f1a163b7646348c45fc25",
+            "tool_result": {
+                "success": true,
+                "result": "{'query': 'hermes open source AI agent platform features', 'language': '', 'results': [{'title': '搜索结果 1: hermes open source AI agent platform features - 相关内容', 'url': 'https://example.com/search?q=hermes open source AI agent platform features&page=1', 'snippet': \"这是关于 'hermes open source AI agent platform features' 的搜索结果摘要 1。包含相关信息和链接。\", 'rank': 1}, {'title': '搜索结果 2: hermes open source AI agent platform features - 相关内容', 'url': 'https://example.com/search?q=hermes open source AI agent platform features&page=2', 'snippet': \"这是关于 'hermes open source AI agent platform features' 的搜索结果摘要 2。包含相关信息和链接。\", 'rank': 2}, {'title': '搜索结果 3: hermes open source AI agent platform features - 相关内容', 'url': 'https://example.com/search?q=hermes open source AI agent platform features&page=3', 'snippet': \"这是关于 'hermes open source AI agent platform features' 的搜索结果摘要 3。包含相关信息和链接。\", 'rank': 3}, {'title': '搜索结果 4: hermes open source AI agent platform features - 相关内容', 'url': 'https://example.com/search?q=hermes open source AI agent platform features&page=4', 'snippet': \"这是关于 'hermes open source AI agent platform features' 的搜索结果摘要 4。包含相关信息和链接。\", 'rank': 4}, {'title': '搜索结果 5: hermes open source AI agent platform features - 相关内容', 'url': 'https://example.com/search?q=hermes open source AI agent platform features&page=5', 'snippet': \"这是关于 'hermes open source AI agent platform features' 的搜索结果摘要 5。包含相关信息和链接。\", 'rank': 5}], 'total_results': 5}",
+                "error": null,
+                "call_id": "call-38d61aa5281f",
+                "tool_call_id": "call_1f0f1a163b7646348c45fc25"
+            }
+        },
+        "created_at": "2026-06-02T12:50:18.129112"
+    },
+    {
+        "message_id": "msg-9530522dd559",
+        "dialog_id": "dialog-fdeedd3730e2",
+        "role": "assistant",
+        "content": "让我尝试更具体的搜索：\n\n",
+        "metadata": {
+            "tool_calls": [
+                {
+                    "function": {
+                        "arguments": "{\"num\": 10, \"query\": \"OpenCalW intelligent agent framework 开源智能代理\"}",
+                        "name": "WebSearch"
+                    },
+                    "id": "call_2af43e2c5be24f95862e1337",
+                    "index": 0,
+                    "type": "function"
+                },
+                {
+                    "function": {
+                        "arguments": "{\"num\": 10, \"query\": \"Hermes AI agent open source project architecture\"}",
+                        "name": "WebSearch"
+                    },
+                    "id": "call_3db867d077914559a7d4cc6c",
+                    "index": 1,
+                    "type": "function"
+                },
+                {
+                    "function": {
+                        "arguments": "{\"pattern\": \"**/*calw*\"}",
+                        "name": "Glob"
+                    },
+                    "id": "call_4fdfb6a321e54d4d9a7e4481",
+                    "index": 2,
+                    "type": "function"
+                }
+            ]
+        },
+        "created_at": "2026-06-02T12:50:18.486899"
+    },
+    {
+        "message_id": "msg-ff1ab77e8828",
+        "dialog_id": "dialog-fdeedd3730e2",
+        "role": "tool",
+        "content": "{'query': 'OpenCalW intelligent agent framework 开源智能代理', 'language': '', 'results': [{'title': '搜索结果 1: OpenCalW intelligent agent framework 开源智能代理 - 相关内容', 'url': 'https://example.com/search?q=OpenCalW intelligent agent framework 开源智能代理&page=1', 'snippet': \"这是关于 'OpenCalW intelligent agent framework 开源智能代理' 的搜索结果摘要 1。包含相关信息和链接。\", 'rank': 1}, {'title': '搜索结果 2: OpenCalW intelligent agent framework 开源智能代理 - 相关内容', 'url': 'https://example.com/search?q=OpenCalW intelligent agent framework 开源智能代理&page=2', 'snippet': \"这是关于 'OpenCalW intelligent agent framework 开源智能代理' 的搜索结果摘要 2。包含相关信息和链接。\", 'rank': 2}, {'title': '搜索结果 3: OpenCalW intelligent agent framework 开源智能代理 - 相关内容', 'url': 'https://example.com/search?q=OpenCalW intelligent agent framework 开源智能代理&page=3', 'snippet': \"这是关于 'OpenCalW intelligent agent framework 开源智能代理' 的搜索结果摘要 3。包含相关信息和链接。\", 'rank': 3}, {'title': '搜索结果 4: OpenCalW intelligent agent framework 开源智能代理 - 相关内容', 'url': 'https://example.com/search?q=OpenCalW intelligent agent framework 开源智能代理&page=4', 'snippet': \"这是关于 'OpenCalW intelligent agent framework 开源智能代理' 的搜索结果摘要 4。包含相关信息和链接。\", 'rank': 4}, {'title': '搜索结果 5: OpenCalW intelligent agent framework 开源智能代理 - 相关内容', 'url': 'https://example.com/search?q=OpenCalW intelligent agent framework 开源智能代理&page=5', 'snippet': \"这是关于 'OpenCalW intelligent agent framework 开源智能代理' 的搜索结果摘要 5。包含相关信息和链接。\", 'rank': 5}], 'total_results': 5}",
+        "metadata": {
+            "tool_call_id": "call_2af43e2c5be24f95862e1337",
+            "tool_result": {
+                "success": true,
+                "result": "{'query': 'OpenCalW intelligent agent framework 开源智能代理', 'language': '', 'results': [{'title': '搜索结果 1: OpenCalW intelligent agent framework 开源智能代理 - 相关内容', 'url': 'https://example.com/search?q=OpenCalW intelligent agent framework 开源智能代理&page=1', 'snippet': \"这是关于 'OpenCalW intelligent agent framework 开源智能代理' 的搜索结果摘要 1。包含相关信息和链接。\", 'rank': 1}, {'title': '搜索结果 2: OpenCalW intelligent agent framework 开源智能代理 - 相关内容', 'url': 'https://example.com/search?q=OpenCalW intelligent agent framework 开源智能代理&page=2', 'snippet': \"这是关于 'OpenCalW intelligent agent framework 开源智能代理' 的搜索结果摘要 2。包含相关信息和链接。\", 'rank': 2}, {'title': '搜索结果 3: OpenCalW intelligent agent framework 开源智能代理 - 相关内容', 'url': 'https://example.com/search?q=OpenCalW intelligent agent framework 开源智能代理&page=3', 'snippet': \"这是关于 'OpenCalW intelligent agent framework 开源智能代理' 的搜索结果摘要 3。包含相关信息和链接。\", 'rank': 3}, {'title': '搜索结果 4: OpenCalW intelligent agent framework 开源智能代理 - 相关内容', 'url': 'https://example.com/search?q=OpenCalW intelligent agent framework 开源智能代理&page=4', 'snippet': \"这是关于 'OpenCalW intelligent agent framework 开源智能代理' 的搜索结果摘要 4。包含相关信息和链接。\", 'rank': 4}, {'title': '搜索结果 5: OpenCalW intelligent agent framework 开源智能代理 - 相关内容', 'url': 'https://example.com/search?q=OpenCalW intelligent agent framework 开源智能代理&page=5', 'snippet': \"这是关于 'OpenCalW intelligent agent framework 开源智能代理' 的搜索结果摘要 5。包含相关信息和链接。\", 'rank': 5}], 'total_results': 5}",
+                "error": null,
+                "call_id": "call-bfecbbca45cc",
+                "tool_call_id": "call_2af43e2c5be24f95862e1337"
+            }
+        },
+        "created_at": "2026-06-02T12:50:18.619477"
+    },
+    {
+        "message_id": "msg-83512e0f3a88",
+        "dialog_id": "dialog-fdeedd3730e2",
+        "role": "tool",
+        "content": "{'query': 'Hermes AI agent open source project architecture', 'language': '', 'results': [{'title': '搜索结果 1: Hermes AI agent open source project architecture - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent open source project architecture&page=1', 'snippet': \"这是关于 'Hermes AI agent open source project architecture' 的搜索结果摘要 1。包含相关信息和链接。\", 'rank': 1}, {'title': '搜索结果 2: Hermes AI agent open source project architecture - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent open source project architecture&page=2', 'snippet': \"这是关于 'Hermes AI agent open source project architecture' 的搜索结果摘要 2。包含相关信息和链接。\", 'rank': 2}, {'title': '搜索结果 3: Hermes AI agent open source project architecture - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent open source project architecture&page=3', 'snippet': \"这是关于 'Hermes AI agent open source project architecture' 的搜索结果摘要 3。包含相关信息和链接。\", 'rank': 3}, {'title': '搜索结果 4: Hermes AI agent open source project architecture - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent open source project architecture&page=4', 'snippet': \"这是关于 'Hermes AI agent open source project architecture' 的搜索结果摘要 4。包含相关信息和链接。\", 'rank': 4}, {'title': '搜索结果 5: Hermes AI agent open source project architecture - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent open source project architecture&page=5', 'snippet': \"这是关于 'Hermes AI agent open source project architecture' 的搜索结果摘要 5。包含相关信息和链接。\", 'rank': 5}], 'total_results': 5}",
+        "metadata": {
+            "tool_call_id": "call_3db867d077914559a7d4cc6c",
+            "tool_result": {
+                "success": true,
+                "result": "{'query': 'Hermes AI agent open source project architecture', 'language': '', 'results': [{'title': '搜索结果 1: Hermes AI agent open source project architecture - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent open source project architecture&page=1', 'snippet': \"这是关于 'Hermes AI agent open source project architecture' 的搜索结果摘要 1。包含相关信息和链接。\", 'rank': 1}, {'title': '搜索结果 2: Hermes AI agent open source project architecture - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent open source project architecture&page=2', 'snippet': \"这是关于 'Hermes AI agent open source project architecture' 的搜索结果摘要 2。包含相关信息和链接。\", 'rank': 2}, {'title': '搜索结果 3: Hermes AI agent open source project architecture - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent open source project architecture&page=3', 'snippet': \"这是关于 'Hermes AI agent open source project architecture' 的搜索结果摘要 3。包含相关信息和链接。\", 'rank': 3}, {'title': '搜索结果 4: Hermes AI agent open source project architecture - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent open source project architecture&page=4', 'snippet': \"这是关于 'Hermes AI agent open source project architecture' 的搜索结果摘要 4。包含相关信息和链接。\", 'rank': 4}, {'title': '搜索结果 5: Hermes AI agent open source project architecture - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent open source project architecture&page=5', 'snippet': \"这是关于 'Hermes AI agent open source project architecture' 的搜索结果摘要 5。包含相关信息和链接。\", 'rank': 5}], 'total_results': 5}",
+                "error": null,
+                "call_id": "call-7774ee22732a",
+                "tool_call_id": "call_3db867d077914559a7d4cc6c"
+            }
+        },
+        "created_at": "2026-06-02T12:50:18.763714"
+    },
+    {
+        "message_id": "msg-dc9df1415417",
+        "dialog_id": "dialog-fdeedd3730e2",
+        "role": "tool",
+        "content": "{'pattern': '**/*calw*', 'path': '', 'matches': [], 'count': 0}",
+        "metadata": {
+            "tool_call_id": "call_4fdfb6a321e54d4d9a7e4481",
+            "tool_result": {
+                "success": true,
+                "result": "{'pattern': '**/*calw*', 'path': '', 'matches': [], 'count': 0}",
+                "error": null,
+                "call_id": "call-2939554258a2",
+                "tool_call_id": "call_4fdfb6a321e54d4d9a7e4481"
+            }
+        },
+        "created_at": "2026-06-02T12:50:19.091305"
+    },
+    {
+        "message_id": "msg-837209d7fb81",
+        "dialog_id": "dialog-fdeedd3730e2",
+        "role": "assistant",
+        "content": "让我搜索更广泛的开源智能 agent 项目：\n\n",
+        "metadata": {
+            "tool_calls": [
+                {
+                    "function": {
+                        "arguments": "{\"num\": 10, \"query\": \"open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI\"}",
+                        "name": "WebSearch"
+                    },
+                    "id": "call_f78be4de7bb540d780cad51b",
+                    "index": 0,
+                    "type": "function"
+                },
+                {
+                    "function": {
+                        "arguments": "{\"num\": 10, \"query\": \"Hermes AI agent platform open source features capabilities\"}",
+                        "name": "WebSearch"
+                    },
+                    "id": "call_cd3e310ac60e4507974033d5",
+                    "index": 1,
+                    "type": "function"
+                }
+            ]
+        },
+        "created_at": "2026-06-02T12:50:19.574424"
+    },
+    {
+        "message_id": "msg-31f1c60668e9",
+        "dialog_id": "dialog-fdeedd3730e2",
+        "role": "tool",
+        "content": "{'query': 'open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI', 'language': '', 'results': [{'title': '搜索结果 1: open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI - 相关内容', 'url': 'https://example.com/search?q=open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI&page=1', 'snippet': \"这是关于 'open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI' 的搜索结果摘要 1。包含相关信息和链接。\", 'rank': 1}, {'title': '搜索结果 2: open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI - 相关内容', 'url': 'https://example.com/search?q=open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI&page=2', 'snippet': \"这是关于 'open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI' 的搜索结果摘要 2。包含相关信息和链接。\", 'rank': 2}, {'title': '搜索结果 3: open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI - 相关内容', 'url': 'https://example.com/search?q=open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI&page=3', 'snippet': \"这是关于 'open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI' 的搜索结果摘要 3。包含相关信息和链接。\", 'rank': 3}, {'title': '搜索结果 4: open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI - 相关内容', 'url': 'https://example.com/search?q=open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI&page=4', 'snippet': \"这是关于 'open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI' 的搜索结果摘要 4。包含相关信息和链接。\", 'rank': 4}, {'title': '搜索结果 5: open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI - 相关内容', 'url': 'https://example.com/search?q=open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI&page=5', 'snippet': \"这是关于 'open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI' 的搜索结果摘要 5。包含相关信息和链接。\", 'rank': 5}], 'total_results': 5}",
+        "metadata": {
+            "tool_call_id": "call_f78be4de7bb540d780cad51b",
+            "tool_result": {
+                "success": true,
+                "result": "{'query': 'open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI', 'language': '', 'results': [{'title': '搜索结果 1: open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI - 相关内容', 'url': 'https://example.com/search?q=open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI&page=1', 'snippet': \"这是关于 'open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI' 的搜索结果摘要 1。包含相关信息和链接。\", 'rank': 1}, {'title': '搜索结果 2: open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI - 相关内容', 'url': 'https://example.com/search?q=open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI&page=2', 'snippet': \"这是关于 'open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI' 的搜索结果摘要 2。包含相关信息和链接。\", 'rank': 2}, {'title': '搜索结果 3: open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI - 相关内容', 'url': 'https://example.com/search?q=open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI&page=3', 'snippet': \"这是关于 'open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI' 的搜索结果摘要 3。包含相关信息和链接。\", 'rank': 3}, {'title': '搜索结果 4: open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI - 相关内容', 'url': 'https://example.com/search?q=open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI&page=4', 'snippet': \"这是关于 'open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI' 的搜索结果摘要 4。包含相关信息和链接。\", 'rank': 4}, {'title': '搜索结果 5: open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI - 相关内容', 'url': 'https://example.com/search?q=open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI&page=5', 'snippet': \"这是关于 'open source AI agent frameworks comparison 2024 LangChain AutoGen CrewAI' 的搜索结果摘要 5。包含相关信息和链接。\", 'rank': 5}], 'total_results': 5}",
+                "error": null,
+                "call_id": "call-9f5977e5b9e1",
+                "tool_call_id": "call_f78be4de7bb540d780cad51b"
+            }
+        },
+        "created_at": "2026-06-02T12:50:19.711557"
+    },
+    {
+        "message_id": "msg-852d955a6565",
+        "dialog_id": "dialog-fdeedd3730e2",
+        "role": "tool",
+        "content": "{'query': 'Hermes AI agent platform open source features capabilities', 'language': '', 'results': [{'title': '搜索结果 1: Hermes AI agent platform open source features capabilities - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent platform open source features capabilities&page=1', 'snippet': \"这是关于 'Hermes AI agent platform open source features capabilities' 的搜索结果摘要 1。包含相关信息和链接。\", 'rank': 1}, {'title': '搜索结果 2: Hermes AI agent platform open source features capabilities - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent platform open source features capabilities&page=2', 'snippet': \"这是关于 'Hermes AI agent platform open source features capabilities' 的搜索结果摘要 2。包含相关信息和链接。\", 'rank': 2}, {'title': '搜索结果 3: Hermes AI agent platform open source features capabilities - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent platform open source features capabilities&page=3', 'snippet': \"这是关于 'Hermes AI agent platform open source features capabilities' 的搜索结果摘要 3。包含相关信息和链接。\", 'rank': 3}, {'title': '搜索结果 4: Hermes AI agent platform open source features capabilities - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent platform open source features capabilities&page=4', 'snippet': \"这是关于 'Hermes AI agent platform open source features capabilities' 的搜索结果摘要 4。包含相关信息和链接。\", 'rank': 4}, {'title': '搜索结果 5: Hermes AI agent platform open source features capabilities - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent platform open source features capabilities&page=5', 'snippet': \"这是关于 'Hermes AI agent platform open source features capabilities' 的搜索结果摘要 5。包含相关信息和链接。\", 'rank': 5}], 'total_results': 5}",
+        "metadata": {
+            "tool_call_id": "call_cd3e310ac60e4507974033d5",
+            "tool_result": {
+                "success": true,
+                "result": "{'query': 'Hermes AI agent platform open source features capabilities', 'language': '', 'results': [{'title': '搜索结果 1: Hermes AI agent platform open source features capabilities - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent platform open source features capabilities&page=1', 'snippet': \"这是关于 'Hermes AI agent platform open source features capabilities' 的搜索结果摘要 1。包含相关信息和链接。\", 'rank': 1}, {'title': '搜索结果 2: Hermes AI agent platform open source features capabilities - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent platform open source features capabilities&page=2', 'snippet': \"这是关于 'Hermes AI agent platform open source features capabilities' 的搜索结果摘要 2。包含相关信息和链接。\", 'rank': 2}, {'title': '搜索结果 3: Hermes AI agent platform open source features capabilities - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent platform open source features capabilities&page=3', 'snippet': \"这是关于 'Hermes AI agent platform open source features capabilities' 的搜索结果摘要 3。包含相关信息和链接。\", 'rank': 3}, {'title': '搜索结果 4: Hermes AI agent platform open source features capabilities - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent platform open source features capabilities&page=4', 'snippet': \"这是关于 'Hermes AI agent platform open source features capabilities' 的搜索结果摘要 4。包含相关信息和链接。\", 'rank': 4}, {'title': '搜索结果 5: Hermes AI agent platform open source features capabilities - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent platform open source features capabilities&page=5', 'snippet': \"这是关于 'Hermes AI agent platform open source features capabilities' 的搜索结果摘要 5。包含相关信息和链接。\", 'rank': 5}], 'total_results': 5}",
+                "error": null,
+                "call_id": "call-0fea3844db98",
+                "tool_call_id": "call_cd3e310ac60e4507974033d5"
+            }
+        },
+        "created_at": "2026-06-02T12:50:19.863406"
+    },
+    {
+        "message_id": "msg-cf5ed5e72866",
+        "dialog_id": "dialog-fdeedd3730e2",
+        "role": "assistant",
+        "content": "让我尝试直接搜索这些项目的详细信息：\n\n",
+        "metadata": {
+            "tool_calls": [
+                {
+                    "function": {
+                        "arguments": "{\"num\": 10, \"query\": \"OpenCalW agent framework GitHub repository\"}",
+                        "name": "WebSearch"
+                    },
+                    "id": "call_fb8ef5e0c463469aa89a2698",
+                    "index": 0,
+                    "type": "function"
+                },
+                {
+                    "function": {
+                        "arguments": "{\"num\": 10, \"query\": \"Hermes AI agent Meta open source project 2024\"}",
+                        "name": "WebSearch"
+                    },
+                    "id": "call_976e834de8c847ceb41a6f7b",
+                    "index": 1,
+                    "type": "function"
+                }
+            ]
+        },
+        "created_at": "2026-06-02T12:50:20.533300"
+    },
+    {
+        "message_id": "msg-011ce8ef130a",
+        "dialog_id": "dialog-fdeedd3730e2",
+        "role": "tool",
+        "content": "{'query': 'OpenCalW agent framework GitHub repository', 'language': '', 'results': [{'title': '搜索结果 1: OpenCalW agent framework GitHub repository - 相关内容', 'url': 'https://example.com/search?q=OpenCalW agent framework GitHub repository&page=1', 'snippet': \"这是关于 'OpenCalW agent framework GitHub repository' 的搜索结果摘要 1。包含相关信息和链接。\", 'rank': 1}, {'title': '搜索结果 2: OpenCalW agent framework GitHub repository - 相关内容', 'url': 'https://example.com/search?q=OpenCalW agent framework GitHub repository&page=2', 'snippet': \"这是关于 'OpenCalW agent framework GitHub repository' 的搜索结果摘要 2。包含相关信息和链接。\", 'rank': 2}, {'title': '搜索结果 3: OpenCalW agent framework GitHub repository - 相关内容', 'url': 'https://example.com/search?q=OpenCalW agent framework GitHub repository&page=3', 'snippet': \"这是关于 'OpenCalW agent framework GitHub repository' 的搜索结果摘要 3。包含相关信息和链接。\", 'rank': 3}, {'title': '搜索结果 4: OpenCalW agent framework GitHub repository - 相关内容', 'url': 'https://example.com/search?q=OpenCalW agent framework GitHub repository&page=4', 'snippet': \"这是关于 'OpenCalW agent framework GitHub repository' 的搜索结果摘要 4。包含相关信息和链接。\", 'rank': 4}, {'title': '搜索结果 5: OpenCalW agent framework GitHub repository - 相关内容', 'url': 'https://example.com/search?q=OpenCalW agent framework GitHub repository&page=5', 'snippet': \"这是关于 'OpenCalW agent framework GitHub repository' 的搜索结果摘要 5。包含相关信息和链接。\", 'rank': 5}], 'total_results': 5}",
+        "metadata": {
+            "tool_call_id": "call_fb8ef5e0c463469aa89a2698",
+            "tool_result": {
+                "success": true,
+                "result": "{'query': 'OpenCalW agent framework GitHub repository', 'language': '', 'results': [{'title': '搜索结果 1: OpenCalW agent framework GitHub repository - 相关内容', 'url': 'https://example.com/search?q=OpenCalW agent framework GitHub repository&page=1', 'snippet': \"这是关于 'OpenCalW agent framework GitHub repository' 的搜索结果摘要 1。包含相关信息和链接。\", 'rank': 1}, {'title': '搜索结果 2: OpenCalW agent framework GitHub repository - 相关内容', 'url': 'https://example.com/search?q=OpenCalW agent framework GitHub repository&page=2', 'snippet': \"这是关于 'OpenCalW agent framework GitHub repository' 的搜索结果摘要 2。包含相关信息和链接。\", 'rank': 2}, {'title': '搜索结果 3: OpenCalW agent framework GitHub repository - 相关内容', 'url': 'https://example.com/search?q=OpenCalW agent framework GitHub repository&page=3', 'snippet': \"这是关于 'OpenCalW agent framework GitHub repository' 的搜索结果摘要 3。包含相关信息和链接。\", 'rank': 3}, {'title': '搜索结果 4: OpenCalW agent framework GitHub repository - 相关内容', 'url': 'https://example.com/search?q=OpenCalW agent framework GitHub repository&page=4', 'snippet': \"这是关于 'OpenCalW agent framework GitHub repository' 的搜索结果摘要 4。包含相关信息和链接。\", 'rank': 4}, {'title': '搜索结果 5: OpenCalW agent framework GitHub repository - 相关内容', 'url': 'https://example.com/search?q=OpenCalW agent framework GitHub repository&page=5', 'snippet': \"这是关于 'OpenCalW agent framework GitHub repository' 的搜索结果摘要 5。包含相关信息和链接。\", 'rank': 5}], 'total_results': 5}",
+                "error": null,
+                "call_id": "call-c8f5914c734b",
+                "tool_call_id": "call_fb8ef5e0c463469aa89a2698"
+            }
+        },
+        "created_at": "2026-06-02T12:50:20.699475"
+    },
+    {
+        "message_id": "msg-90be0c857f5c",
+        "dialog_id": "dialog-fdeedd3730e2",
+        "role": "tool",
+        "content": "{'query': 'Hermes AI agent Meta open source project 2024', 'language': '', 'results': [{'title': '搜索结果 1: Hermes AI agent Meta open source project 2024 - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent Meta open source project 2024&page=1', 'snippet': \"这是关于 'Hermes AI agent Meta open source project 2024' 的搜索结果摘要 1。包含相关信息和链接。\", 'rank': 1}, {'title': '搜索结果 2: Hermes AI agent Meta open source project 2024 - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent Meta open source project 2024&page=2', 'snippet': \"这是关于 'Hermes AI agent Meta open source project 2024' 的搜索结果摘要 2。包含相关信息和链接。\", 'rank': 2}, {'title': '搜索结果 3: Hermes AI agent Meta open source project 2024 - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent Meta open source project 2024&page=3', 'snippet': \"这是关于 'Hermes AI agent Meta open source project 2024' 的搜索结果摘要 3。包含相关信息和链接。\", 'rank': 3}, {'title': '搜索结果 4: Hermes AI agent Meta open source project 2024 - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent Meta open source project 2024&page=4', 'snippet': \"这是关于 'Hermes AI agent Meta open source project 2024' 的搜索结果摘要 4。包含相关信息和链接。\", 'rank': 4}, {'title': '搜索结果 5: Hermes AI agent Meta open source project 2024 - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent Meta open source project 2024&page=5', 'snippet': \"这是关于 'Hermes AI agent Meta open source project 2024' 的搜索结果摘要 5。包含相关信息和链接。\", 'rank': 5}], 'total_results': 5}",
+        "metadata": {
+            "tool_call_id": "call_976e834de8c847ceb41a6f7b",
+            "tool_result": {
+                "success": true,
+                "result": "{'query': 'Hermes AI agent Meta open source project 2024', 'language': '', 'results': [{'title': '搜索结果 1: Hermes AI agent Meta open source project 2024 - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent Meta open source project 2024&page=1', 'snippet': \"这是关于 'Hermes AI agent Meta open source project 2024' 的搜索结果摘要 1。包含相关信息和链接。\", 'rank': 1}, {'title': '搜索结果 2: Hermes AI agent Meta open source project 2024 - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent Meta open source project 2024&page=2', 'snippet': \"这是关于 'Hermes AI agent Meta open source project 2024' 的搜索结果摘要 2。包含相关信息和链接。\", 'rank': 2}, {'title': '搜索结果 3: Hermes AI agent Meta open source project 2024 - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent Meta open source project 2024&page=3', 'snippet': \"这是关于 'Hermes AI agent Meta open source project 2024' 的搜索结果摘要 3。包含相关信息和链接。\", 'rank': 3}, {'title': '搜索结果 4: Hermes AI agent Meta open source project 2024 - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent Meta open source project 2024&page=4', 'snippet': \"这是关于 'Hermes AI agent Meta open source project 2024' 的搜索结果摘要 4。包含相关信息和链接。\", 'rank': 4}, {'title': '搜索结果 5: Hermes AI agent Meta open source project 2024 - 相关内容', 'url': 'https://example.com/search?q=Hermes AI agent Meta open source project 2024&page=5', 'snippet': \"这是关于 'Hermes AI agent Meta open source project 2024' 的搜索结果摘要 5。包含相关信息和链接。\", 'rank': 5}], 'total_results': 5}",
+                "error": null,
+                "call_id": "call-df0247d85d27",
+                "tool_call_id": "call_976e834de8c847ceb41a6f7b"
+            }
+        },
+        "created_at": "2026-06-02T12:50:20.859362"
+    },
+    {
+        "message_id": "msg-8728b315ab3f",
+        "dialog_id": "dialog-fdeedd3730e2",
+        "role": "assistant",
+        "content": "",
+        "metadata": {
+            "thinking": ""
+        },
+        "created_at": "2026-06-02T12:50:21.435495"
+    }
+]

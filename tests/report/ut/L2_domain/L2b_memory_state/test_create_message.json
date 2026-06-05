@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-21T12:33:28.887594",
+  "timestamp": "2026-05-25T17:08:32.154145",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2b_memory_state",
@@ -15,7 +15,7 @@
     "content": "Hello"
   },
   "outputs": {
-    "message_id": "msg-1d7db61e89eb",
+    "message_id": "msg-0f3e59965f42",
     "role": "user"
   },
   "persistent_data": {
@@ -24,12 +24,12 @@
     "dialogs": [],
     "messages": [
       {
-        "message_id": "msg-1d7db61e89eb",
+        "message_id": "msg-0f3e59965f42",
         "dialog_id": "dialog-001",
         "role": "user",
         "content": "Hello",
         "metadata": {},
-        "created_at": "2026-05-21T12:33:28.865183"
+        "created_at": "2026-05-25T17:08:32.136001"
       }
     ],
     "task_groups": [],
@@ -53,12 +53,12 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "message_id": "msg-1d7db61e89eb",
+        "message_id": "msg-0f3e59965f42",
         "dialog_id": "dialog-001",
         "role": "user",
         "content": "Hello",
         "metadata": {},
-        "created_at": "2026-05-21T12:33:28.865183"
+        "created_at": "2026-05-25T17:08:32.136001"
       }
     }
   ]

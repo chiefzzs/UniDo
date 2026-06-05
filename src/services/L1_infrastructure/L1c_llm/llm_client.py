@@ -1,6 +1,8 @@
 import uuid
 import time
 import httpx
+import os
+import json
 from datetime import datetime
 from dataclasses import dataclass, field
 from typing import List, Dict, Any, Callable, Optional
@@ -46,6 +48,7 @@ class LLMResponse:
     content: str
     finish_reason: str
     model_name: str
+    thinking: str = ""
     usage: Dict[str, int] = field(default_factory=dict)
     tool_calls: List[Dict] = field(default_factory=list)
 
@@ -67,6 +70,13 @@ class LLMClient:
         self._persistence_service = persistence_service
         self._adapters: Dict[str, BaseAdapter] = {}
         self._response_parser = ResponseParser()
+        self._mode = 'record'  # 'record' or 'loopback'
+    
+    def set_mode(self, mode: str):
+        """设置模式（record/loopback）"""
+        self._mode = mode
+        mode_display = "📹 录制模式" if mode == 'record' else "🔄 回放模式"
+        print(f"🔄 LLMClient 模式切换: {mode_display}")
 
     def _get_adapter(self, api_type: str, api_address: str, api_key: str, model_name: str) -> BaseAdapter:
         key = f"{api_type}:{api_address}"
@@ -93,6 +103,11 @@ class LLMClient:
 
     def _save_call_record(self, session_id: Optional[str], model_config_id: Optional[str],
                           request_data: Dict, response_data: Dict, status: str, duration_ms: int):
+        # 回放模式下不保存调用记录
+        if self._mode == 'loopback':
+            print(f"🔄 [LLMClient] 回放模式跳过保存调用记录")
+            return
+            
         if self._persistence_service is None:
             return
 
@@ -110,6 +125,7 @@ class LLMClient:
 
     def send_request(self, request: LLMRequest, session_id: Optional[str] = None,
                     model_config_id: Optional[str] = None) -> LLMResponse:
+        # 真实调用大模型
         start_time = time.time()
         adapter = self._get_adapter(request.api_type, request.api_address, request.api_key, request.model_name)
 
@@ -133,11 +149,11 @@ class LLMClient:
 
             parsed = self._response_parser.parse(response_data, request.api_type)
             duration_ms = int((time.time() - start_time) * 1000)
-
             self._save_call_record(session_id, model_config_id, request_payload, response_data, 'completed', duration_ms)
 
             return LLMResponse(
                 content=parsed.get('content', ''),
+                thinking=parsed.get('thinking', ''),
                 finish_reason=parsed.get('finish_reason', 'stop'),
                 model_name=parsed.get('model_name', request.model_name),
                 usage=parsed.get('usage', {}),
@@ -150,6 +166,7 @@ class LLMClient:
 
     def send_stream_request(self, request: LLMRequest, on_chunk: Callable[[StreamChunk], None],
                            session_id: Optional[str] = None, model_config_id: Optional[str] = None) -> LLMResponse:
+        # 真实调用大模型
         start_time = time.time()
         adapter = self._get_adapter(request.api_type, request.api_address, request.api_key, request.model_name)
 

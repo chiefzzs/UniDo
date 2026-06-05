@@ -17,6 +17,7 @@ from typing import List, Dict, Any, Optional
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
+import re
 
 import sys
 from pathlib import Path
@@ -79,14 +80,17 @@ class LLMResponse:
     """LLM响应结构"""
     success: bool
     content: str = ""
+    thinking: str = ""  # 思考内容
     tool_calls: Optional[List[Dict[str, Any]]] = None
     usage: Optional[Dict[str, int]] = None
     error: Optional[str] = None
+    request_id: str = ""  # 新增：驱动当前响应的LLM请求ID
 
     def to_dict(self) -> Dict[str, Any]:
         return {
             "success": self.success,
             "content": self.content,
+            "thinking": self.thinking,
             "tool_calls": self.tool_calls,
             "usage": self.usage,
             "error": self.error
@@ -106,7 +110,9 @@ class DialogueBasedLLMService:
     """
 
     def __init__(self):
-        self.llm_executor = LLMExecutionService()
+        # 使用单例模式获取 LLM 执行服务，确保模式设置全局生效
+        from services.L2_domain.L2d_llm_execution import get_llm_execution_service
+        self.llm_executor = get_llm_execution_service()
         self.memory_service = MemoryService()
         self.tool_management = ToolManagementService()
         # 添加消息服务用于获取对话历史
@@ -130,14 +136,14 @@ class DialogueBasedLLMService:
         except Exception as e:
             print(f"[DialogueBasedLLMService] 加载工具描述失败: {e}")
 
-    def build_messages_from_history(self, session_id: str, user_input: str, 
+    def build_messages_from_history(self, session_id: str, user_input: str = None, 
                                      tools: List[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
         """
         从历史记录构造messages
         
         Args:
             session_id: 会话ID
-            user_input: 当前用户输入
+            user_input: 当前用户输入（可选，如果提供则添加到末尾）
             tools: 工具定义列表
             
         Returns:
@@ -179,9 +185,15 @@ class DialogueBasedLLMService:
                 
                 messages.append(message_dict)
         
-        # 添加当前用户输入（包含环境信息）
-        user_message = self._build_user_message_with_context(user_input)
-        messages.append(user_message)
+        # 如果提供了user_input，添加到末尾
+        # 注意：只有在用户消息还没有被添加到历史时才需要添加
+        # 因为 DialogManager.process_user_input 会先创建用户消息并存入 MessageService
+        if user_input:
+            # 检查历史中是否已经包含当前用户输入（通过内容匹配）
+            history_contents = [item.get("content", "") for item in history]
+            if user_input not in history_contents:
+                user_message = self.build_user_message(user_input)
+                messages.append(user_message)
         
         return messages
     
@@ -211,11 +223,19 @@ class DialogueBasedLLMService:
             # 转换为字典格式
             history = []
             for msg in messages:
+                # 处理 created_at - 可能是字符串或 datetime 对象
+                created_at_value = msg.created_at
+                if created_at_value:
+                    if hasattr(created_at_value, 'isoformat'):
+                        created_at_value = created_at_value.isoformat()
+                else:
+                    created_at_value = None
+                
                 msg_dict = {
                     "role": msg.role,
                     "content": msg.content,
                     "message_id": msg.message_id,
-                    "created_at": msg.created_at.isoformat() if msg.created_at else None
+                    "created_at": created_at_value
                 }
                 
                 # 如果有 metadata，检查是否包含 tool_call 或 tool_result
@@ -278,6 +298,32 @@ class DialogueBasedLLMService:
             # 降级：返回简单的用户消息
             return {"role": MessageRole.USER.value, "content": user_input}
     
+    def build_user_message(self, user_input: str) -> Dict:
+        """
+        构建干净的用户消息，过滤系统提示污染
+        
+        Args:
+            user_input: 原始用户输入
+            
+        Returns:
+            清理后的用户消息字典
+        """
+        # 移除 <system-reminder> 标签及其内容
+        cleaned_input = re.sub(r'<system-reminder>.*?</system-reminder>', '', user_input, flags=re.DOTALL)
+        cleaned_input = cleaned_input.strip()
+        
+        # 移除 <user_input> 标签
+        cleaned_input = re.sub(r'</?user_input>', '', cleaned_input)
+        
+        # 移除其他可能的标签
+        cleaned_input = re.sub(r'<[^>]+>', '', cleaned_input)
+        cleaned_input = cleaned_input.strip()
+        
+        return {
+            "role": MessageRole.USER.value,
+            "content": cleaned_input
+        }
+
     def _get_workspace_path(self) -> str:
         """
         获取当前workspace路径
@@ -418,7 +464,8 @@ class DialogueBasedLLMService:
             return None
 
     def construct_llm_request(self, session_id: str, user_input: str, 
-                              include_tools: bool = True, messages: list = None, **kwargs) -> LLMRequest:
+                              include_tools: bool = True, messages: list = None, 
+                              dialog_id: str = None, **kwargs) -> LLMRequest:
         """
         构造完整的LLM请求
         
@@ -427,6 +474,7 @@ class DialogueBasedLLMService:
             user_input: 用户输入
             include_tools: 是否包含工具定义
             messages: 可选的消息列表，如果提供则使用它而不是重新构建
+            dialog_id: 对话ID
             **kwargs: 其他参数（max_tokens, temperature等）
             
         Returns:
@@ -453,37 +501,44 @@ class DialogueBasedLLMService:
         )
         
         # 发布LLM请求构造完毕消息
-        self._publish_request_constructed_event(llm_request)
+        self._publish_request_constructed_event(llm_request, dialog_id)
         
         return llm_request
     
-    def _publish_request_constructed_event(self, llm_request: LLMRequest):
+    def _publish_request_constructed_event(self, llm_request: LLMRequest, dialog_id: str = None):
         """
         发布LLM请求构造完毕事件
         
         Args:
             llm_request: 构造好的LLM请求
+            dialog_id: 对话ID
         """
         try:
             from services.L1_infrastructure.L1d_events.event_bus import EventBus, Event
             from services.L1_infrastructure.L1d_events.event_types import EventTypes
             
             event_bus = EventBus.get_instance()
+            payload = {
+                'session_id': llm_request.session_id,
+                'model_config_id': llm_request.model_config_id,
+                'num_messages': len(llm_request.messages),
+                'num_tools': len(llm_request.tools) if llm_request.tools else 0,
+                'stream': llm_request.stream
+            }
+            
+            # 添加 dialog_id（如果提供）
+            if dialog_id:
+                payload['dialog_id'] = dialog_id
+            
             event_bus.publish(Event(
-                event_type=EventTypes.LLM_REQUEST_SENT,
-                payload={
-                    'session_id': llm_request.session_id,
-                    'model_config_id': llm_request.model_config_id,
-                    'num_messages': len(llm_request.messages),
-                    'num_tools': len(llm_request.tools) if llm_request.tools else 0,
-                    'stream': llm_request.stream
-                }
+                event_type=EventTypes.LLM_REQUEST_PREPARED,  # 使用不同的事件类型
+                payload=payload
             ))
-            print(f"✅ 已发布LLM请求构造完毕事件: session_id={llm_request.session_id}")
+            print(f"✅ 已发布LLM请求构造完毕事件: session_id={llm_request.session_id}, dialog_id={dialog_id}")
         except Exception as e:
             print(f"❌ 发布LLM请求构造完毕事件失败: {e}")
 
-    def call_llm(self, session_id: str, user_input: str, messages: list = None, **kwargs) -> LLMResponse:
+    def call_llm(self, session_id: str, user_input: str, messages: list = None, dialog_id: str = None, round_number: int = None, **kwargs) -> LLMResponse:
         """
         调用LLM执行服务
         
@@ -491,14 +546,19 @@ class DialogueBasedLLMService:
             session_id: 会话ID
             user_input: 用户输入
             messages: 可选的消息列表，如果提供则使用它而不是重新构建
+            dialog_id: 对话ID
+            round_number: 轮次编号（用于关联到特定轮次）
             **kwargs: 额外参数
             
         Returns:
             LLMResponse对象
         """
         try:
-            # 构造请求
-            llm_request = self.construct_llm_request(session_id, user_input, messages=messages, **kwargs)
+            # 保存session_id到实例属性，供后续事件发布使用
+            self._session_id = session_id
+            
+            # 构造请求（传递 dialog_id）
+            llm_request = self.construct_llm_request(session_id, user_input, messages=messages, dialog_id=dialog_id, **kwargs)
             
             # 调用L2d LLM执行服务
             response = self.llm_executor.execute(
@@ -508,11 +568,13 @@ class DialogueBasedLLMService:
                 max_tokens=llm_request.max_tokens,
                 temperature=llm_request.temperature,
                 stream=llm_request.stream,
-                tools=llm_request.tools
+                tools=llm_request.tools,
+                dialog_id=dialog_id,
+                round_number=round_number
             )
             
-            # 解析响应
-            return self._parse_llm_response(response)
+            # 解析响应（传递session_id）
+            return self._parse_llm_response(response, session_id=session_id)
             
         except Exception as e:
             return LLMResponse(
@@ -520,12 +582,13 @@ class DialogueBasedLLMService:
                 error=f"LLM调用失败: {str(e)}"
             )
 
-    def _parse_llm_response(self, response) -> LLMResponse:
+    def _parse_llm_response(self, response, session_id: str = "") -> LLMResponse:
         """
         解析LLM执行服务的响应
         
         Args:
             response: L2d LLM执行服务返回的响应
+            session_id: 会话ID（用于事件发布）
             
         Returns:
             结构化的LLMResponse
@@ -539,7 +602,8 @@ class DialogueBasedLLMService:
                     content='',
                     tool_calls=[],
                     finish_reason='error',
-                    error=getattr(response, 'error', '未知错误')
+                    error=getattr(response, 'error', '未知错误'),
+                    session_id=session_id
                 )
                 return LLMResponse(
                     success=False,
@@ -548,9 +612,11 @@ class DialogueBasedLLMService:
             
             # 提取内容
             content = getattr(response, 'content', '')
+            thinking = getattr(response, 'thinking', '') or getattr(response, 'reasoning', '')
             tool_calls = getattr(response, 'tool_calls', None) or []
             usage = getattr(response, 'usage', None)
             finish_reason = getattr(response, 'finish_reason', '')
+            request_id = getattr(response, 'request_id', '')  # 提取LLM请求ID
             
             # 检查内容是否为空，如果为空则视为失败
             # 但如果有工具调用或finish_reason是tool_calls，则不视为失败
@@ -560,7 +626,8 @@ class DialogueBasedLLMService:
                     content='',
                     tool_calls=[],
                     finish_reason=finish_reason,
-                    error='LLM返回空内容'
+                    error='LLM返回空内容',
+                    session_id=session_id
                 )
                 return LLMResponse(
                     success=False,
@@ -582,14 +649,18 @@ class DialogueBasedLLMService:
                 content=content,
                 tool_calls=tool_calls,
                 finish_reason=finish_reason,
-                usage=usage
+                usage=usage,
+                thinking=thinking,
+                session_id=session_id
             )
             
             return LLMResponse(
                 success=True,
                 content=content,
+                thinking=thinking,
                 tool_calls=tool_calls,
-                usage=usage
+                usage=usage,
+                request_id=request_id  # 传递LLM请求ID
             )
             
         except Exception as e:
@@ -840,6 +911,8 @@ class DialogueBasedLLMService:
             finish_reason: 结束原因
             usage: 使用统计
             error: 错误信息（可选）
+            thinking: 思考内容（可选）
+            session_id: 会话ID（可选）
         """
         try:
             from services.L1_infrastructure.L1d_events.event_record import Event
@@ -847,16 +920,23 @@ class DialogueBasedLLMService:
             
             event_bus = self._get_event_bus()
             
+            # 获取会话ID（从上下文中）
+            session_id = kwargs.get('session_id', getattr(self, '_session_id', ''))
+            
             # 构建事件payload
             payload = {
                 'response_type': kwargs.get('response_type', 'unknown'),
                 'has_content': bool(kwargs.get('content')),
+                'content': kwargs.get('content', ''),
                 'content_length': len(kwargs.get('content', '')) if kwargs.get('content') else 0,
                 'has_tool_calls': bool(kwargs.get('tool_calls') and len(kwargs.get('tool_calls')) > 0),
                 'tool_call_count': len(kwargs.get('tool_calls', [])),
                 'tool_names': [tc.get('function', {}).get('name', tc.get('name', '')) 
                              for tc in kwargs.get('tool_calls', [])],
+                'tool_calls': kwargs.get('tool_calls', []),
                 'finish_reason': kwargs.get('finish_reason', ''),
+                'thinking': kwargs.get('thinking', ''),
+                'session_id': session_id,
                 'source_component': 'L3_task_coordination',
                 'source_service': 'DialogueBasedLLMService'
             }
@@ -876,11 +956,24 @@ class DialogueBasedLLMService:
             else:
                 payload['success'] = True
             
-            # 发布事件
+            # 发布响应分类事件
             event_bus.publish(Event(
                 event_type=EventTypes.LLM_RESPONSE_CLASSIFIED,
                 payload=payload
             ))
+            
+            # 额外发布思考内容事件（如果有thinking）
+            thinking = kwargs.get('thinking')
+            if thinking and thinking.strip():
+                event_bus.publish(Event(
+                    event_type=EventTypes.LLM_THINKING,
+                    payload={
+                        'thinking': thinking,
+                        'session_id': session_id,
+                        'source_component': 'L3_task_coordination',
+                        'source_service': 'DialogueBasedLLMService'
+                    }
+                ))
             
         except Exception as e:
             print(f"❌ 发布LLM响应分类事件失败: {e}")

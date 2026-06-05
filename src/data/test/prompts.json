@@ -1,0 +1,57 @@
+[
+     {
+        "prompt_id": "prompt-system",
+        "name": "初次对话提示",
+        "category": "system_prompt",
+        "content_path": "en/system_prompt.txt",
+        "version": "1.0",
+        "variables": [],
+        "is_active": true,
+        "created_at": "2026-06-01T00:00:00",
+        "updated_at": "2026-06-01T00:00:00"
+    },
+    {
+        "prompt_id": "prompt-user-001",
+        "name": "Todo提醒",
+        "category": "user_prompt",
+        "content_path": "en/user_prompt1.txt",
+        "version": "1.0",
+        "variables": [],
+        "is_active": true,
+        "created_at": "2026-06-01T00:00:00",
+        "updated_at": "2026-06-01T00:00:00"
+    },
+    {
+        "prompt_id": "prompt-user-002",
+        "name": "重要指令提醒",
+        "category": "user_prompt",
+        "content_path": "en/user_prompt2.txt",
+        "version": "1.0",
+        "variables": [],
+        "is_active": true,
+        "created_at": "2026-06-01T00:00:00",
+        "updated_at": "2026-06-01T00:00:00"
+    },
+    {
+        "prompt_id": "prompt-user-003",
+        "name": "响应语言设置",
+        "category": "user_prompt",
+        "content_path": "en/user_prompt3.txt",
+        "version": "1.0",
+        "variables": [],
+        "is_active": true,
+        "created_at": "2026-06-01T00:00:00",
+        "updated_at": "2026-06-01T00:00:00"
+    },
+    {
+        "prompt_id": "prompt-user-004",
+        "name": "技能检查提醒",
+        "category": "user_prompt",
+        "content_path": "en/user_prompt4.txt",
+        "version": "1.0",
+        "variables": [],
+        "is_active": true,
+        "created_at": "2026-06-01T00:00:00",
+        "updated_at": "2026-06-01T00:00:00"
+    }
+]

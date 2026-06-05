@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-21T13:07:51.613887",
+  "timestamp": "2026-05-21T17:23:10.718486",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3a_task_coordination",
@@ -17,7 +17,7 @@
   "outputs": {
     "session_id": "test-session-simple",
     "status": "completed",
-    "content": "你好！有什么我可以帮你的吗？"
+    "content": "你好！有什么我可以帮助你的吗？"
   },
   "persistent_data": {
     "projects": [],
@@ -27,42 +27,54 @@
         "project_id": "",
         "name": "New Session",
         "status": "active",
-        "created_at": "2026-05-21T13:07:49.257385",
-        "updated_at": "2026-05-21T13:07:49.257385"
+        "created_at": "2026-05-21T17:23:06.782887",
+        "updated_at": "2026-05-21T17:23:06.782887"
       }
     ],
     "dialogs": [
       {
-        "dialog_id": "dialog-39c746a15492",
+        "dialog_id": "dialog-70cd95e152ec",
         "session_id": "test-session-simple",
         "dialog_type": "text",
         "status": "active",
-        "created_at": "2026-05-21T13:07:49.262457"
+        "created_at": "2026-05-21T17:23:06.782887"
       }
     ],
     "messages": [
       {
-        "message_id": "msg-b801dca838b5",
-        "dialog_id": "dialog-39c746a15492",
+        "message_id": "msg-33dc72d5176b",
+        "dialog_id": "dialog-70cd95e152ec",
         "role": "user",
         "content": "你好",
         "metadata": {},
-        "created_at": "2026-05-21T13:07:49.263467"
+        "created_at": "2026-05-21T17:23:06.782887"
       },
       {
-        "message_id": "msg-f490c5771786",
-        "dialog_id": "dialog-39c746a15492",
+        "message_id": "msg-d006931af5ed",
+        "dialog_id": "dialog-70cd95e152ec",
         "role": "assistant",
-        "content": "你好！有什么我可以帮你的吗？",
-        "metadata": {},
-        "created_at": "2026-05-21T13:07:51.596828"
+        "content": "你好！有什么我可以帮助你的吗？",
+        "metadata": {
+          "thinking": ""
+        },
+        "created_at": "2026-05-21T17:23:10.697043"
+      },
+      {
+        "message_id": "msg-b8880eb17681",
+        "dialog_id": "dialog-70cd95e152ec",
+        "role": "assistant",
+        "content": "你好！有什么我可以帮助你的吗？",
+        "metadata": {
+          "thinking": ""
+        },
+        "created_at": "2026-05-21T17:23:10.698553"
       }
     ],
     "task_groups": [],
     "tasks": [],
     "llm_calls": [
       {
-        "call_id": "call-61951015da5d",
+        "call_id": "call-701ccb635e83",
         "dialog_id": "test-session-simple",
         "model_config_id": "default",
         "request": {
@@ -70,7 +82,11 @@
           "messages": [
             {
               "role": "system",
-              "content": "你是一个智能助手，能够理解用户意图并调用合适的工具来完成任务。\n\n## 角色\n- 你是一个有能力的AI助手\n- 你可以使用工具来获取信息或执行操作\n- 如果不需要工具，直接回答用户问题\n\n## 可用工具\n- Skill: Execute a skill within the main conversation. Skills provide specialized capabilities and domain knowledge. When a skill is relevant, it should be invoked IMMEDIATELY as the first action.\n  参数:\n  - *name (string): The skill name (no arguments). E.g., \"pdf\" or \"xlsx\"\n\n- SearchCodebase: Trae's context engine that uses natural language to search code. Maintains a real-time index of the codebase. Can retrieve across different programming languages. Only reflects the current state on disk.\n  参数:\n  - *information_request (string): A description of the information you need.\n  - target_directories (array): Specific directories to search within. Must use absolute paths.\n\n- Glob: Fast file pattern matching tool that works with any codebase size. Supports glob patterns like \"/*.js\" or \"src/**/*.ts\". Returns matching file paths sorted by modification time.\n  参数:\n  - *pattern (string): The glob pattern to match files against.\n  - path (string): The directory to search in. Must be absolute path.\n\n- LS: Lists files and directories in a given path. The path parameter must be an absolute path, not a relative path.\n  参数:\n  - *path (string): The absolute path to the directory to list.\n  - ignore (array): List of glob patterns to ignore.\n\n- Grep: A powerful search tool built on ripgrep. Supports full regex syntax. Can filter files by glob pattern or type.\n  参数:\n  - *pattern (string): The regular expression pattern to search for in file contents\n  - path (string): File or directory to search in. Defaults to current working directory.\n  - glob (string): Glob pattern to filter files (e.g. \"*.js\", \"*.{ts,tsx}\")\n  - output_mode (string): Output mode: content shows lines, files_with_matches shows paths, count shows counts\n  - type (string): File type to search (e.g., js, py, rust)\n  - -i (boolean): Case insensitive search\n  - -n (boolean): Show line numbers in output\n  - -C (integer): Number of lines to show before and after each match\n  - head_limit (integer): Limit output to first N lines\n\n- Read: Reads a file from the local filesystem. Can read at most 1000 lines at a time and at least 1 line minimum. Results are returned with line numbers starting at 1.\n  参数:\n  - *file_path (string): The absolute path to the file to read.\n  - offset (integer): The line number to start reading from (must be at least 1).\n  - *limit (integer): The number of lines to read (must be at least 1).\n\n- WebSearch: This tool can be used to search the internet. Should be used with caution as frequent searches result in a bad user experience and excessive costs.\n  参数:\n  - *query (string): The search query to be executed\n  - num (integer): Maximum number of search results to return (default: 5)\n  - lr (string): Language restriction for search results (e.g., 'lang_en' for English)\n\n- WebFetch: Fetches content from a specified URL and processes it into markdown. Converts HTML to markdown and returns the content. Results may be truncated if the content is very large.\n  参数:\n  - *url (string): The URL to fetch content from\n\n- DeleteFile: Delete files from the filesystem. You can delete multiple files in one call. Must ensure files exist before deleting.\n  参数:\n  - *file_paths (array): The list of file paths you want to delete. Must be absolute paths.\n\n- SearchReplace: Edit files with search and replace. The old_str must match exactly what exists in the file. Only replaces the first match occurrence.\n  参数:\n  - *file_path (string): The file path to edit.\n  - *old_str (string): The SEARCH section, a contiguous chunk of lines to search for.\n  - *new_str (string): The REPLACE section to replace into the file.\n\n- Write: Write content to a file. Will overwrite existing file if it exists. Parent directories will be created if needed.\n  参数:\n  - *file_path (string): The absolute path to the file to write.\n  - *content (string): The content to write to the file.\n\n- RunCommand: Execute shell commands on the system. For any commands that would require user interaction, assume the user is not available to interact and pass non-interactive flags.\n  参数:\n  - *command (string): The CLI command to execute.\n  - requires_approval (boolean): Set to true if the command requires user approval.\n\n- CheckCommandStatus: Check the execution status of a previously run command. Returns whether the command is still running, completed, or failed.\n  参数:\n  - *command_id (string): The command ID to check status for.\n\n- StopCommand: Stop a running command by its ID. Use CheckCommandStatus to get the command ID first.\n  参数:\n  - *command_id (string): The command ID to stop.\n\n- GetDiagnostics: Read and display linter errors and diagnostics from the current workspace. Returns errors, warnings, and hints from language servers and linters.\n  参数:\n  - path (string): Optional path to read diagnostics for. If not provided, returns diagnostics for all files.\n\n- TodoWrite: Create and manage a structured todo list for tracking progress. Each item has a unique id, status (pending/in_progress/completed/cancelled), and content description.\n  参数:\n  - merge (boolean): Whether to merge with existing todos.\n  - *todos (string): JSON string of todo items array. Each item has id, status, and content.\n\n- OpenPreview: Preview a web URL in the IDE's built-in browser. The URL must be a fully-formed valid HTTP/HTTPS URL.\n  参数:\n  - *url (string): A complete, valid HTTP/HTTPS URL to open.\n\n- AskUserQuestion: Collect structured multiple-choice answers from the user. Provide one or more questions with options, and set multiSelect when multi-select is appropriate.\n  参数:\n  - *questions (string): JSON string containing questions array with id, question, options, and multiSelect settings.\n  - title (string): Optional title for the questions form.\n\n## 输出格式\n- 如果需要调用工具，输出JSON格式的工具调用\n- 如果直接回答，使用Markdown格式输出\n- 代码块请使用```语言名 ```包裹\n- 支持使用标题、列表、粗体、斜体等Markdown语法\n\n## 注意事项\n- 仔细分析用户问题，确定是否需要调用工具\n- 如果调用工具，确保参数正确\n- 如果收到工具结果，用Markdown格式总结给用户\n"
+              "content": "你是一个智能助手，能够理解用户意图并调用合适的工具来完成任务。\n\n## 角色\n- 你是一个有能力的AI助手\n- 你可以使用工具来获取信息或执行操作\n- 如果不需要工具，直接回答用户问题\n\n## 可用工具\n- Skill: Execute a skill within the main conversation. Skills provide specialized capabilities and domain knowledge. When a skill is relevant, it should be invoked IMMEDIATELY as the first action.\n  参数:\n  - *name (string): The skill name (no arguments). E.g., \"pdf\" or \"xlsx\"\n\n- SearchCodebase: UniDo's context engine that uses natural language to search code. Maintains a real-time index of the codebase. Can retrieve across different programming languages. Only reflects the current state on disk.\n  参数:\n  - *information_request (string): A description of the information you need.\n  - target_directories (array): Specific directories to search within. Must use absolute paths.\n\n- Glob: Fast file pattern matching tool that works with any codebase size. Supports glob patterns like \"/*.js\" or \"src/**/*.ts\". Returns matching file paths sorted by modification time.\n  参数:\n  - *pattern (string): The glob pattern to match files against.\n  - path (string): The directory to search in. Must be absolute path.\n\n- LS: Lists files and directories in a given path. The path parameter must be an absolute path, not a relative path.\n  参数:\n  - *path (string): The absolute path to the directory to list.\n  - ignore (array): List of glob patterns to ignore.\n\n- Grep: A powerful search tool built on ripgrep. Supports full regex syntax. Can filter files by glob pattern or type.\n  参数:\n  - *pattern (string): The regular expression pattern to search for in file contents\n  - path (string): File or directory to search in. Defaults to current working directory.\n  - glob (string): Glob pattern to filter files (e.g. \"*.js\", \"*.{ts,tsx}\")\n  - output_mode (string): Output mode: content shows lines, files_with_matches shows paths, count shows counts\n  - type (string): File type to search (e.g., js, py, rust)\n  - -i (boolean): Case insensitive search\n  - -n (boolean): Show line numbers in output\n  - -C (integer): Number of lines to show before and after each match\n  - head_limit (integer): Limit output to first N lines\n\n- Read: Reads a file from the local filesystem. Can read at most 1000 lines at a time and at least 1 line minimum. Results are returned with line numbers starting at 1.\n  参数:\n  - *file_path (string): The absolute path to the file to read.\n  - offset (integer): The line number to start reading from (must be at least 1).\n  - *limit (integer): The number of lines to read (must be at least 1).\n\n- WebSearch: This tool can be used to search the internet. Should be used with caution as frequent searches result in a bad user experience and excessive costs.\n  参数:\n  - *query (string): The search query to be executed\n  - num (integer): Maximum number of search results to return (default: 5)\n  - lr (string): Language restriction for search results (e.g., 'lang_en' for English)\n\n- WebFetch: Fetches content from a specified URL and processes it into markdown. Converts HTML to markdown and returns the content. Results may be truncated if the content is very large.\n  参数:\n  - *url (string): The URL to fetch content from\n\n- DeleteFile: Delete files from the filesystem. You can delete multiple files in one call. Must ensure files exist before deleting.\n  参数:\n  - *file_paths (array): The list of file paths you want to delete. Must be absolute paths.\n\n- SearchReplace: Edit files with search and replace. The old_str must match exactly what exists in the file. Only replaces the first match occurrence.\n  参数:\n  - *file_path (string): The file path to edit.\n  - *old_str (string): The SEARCH section, a contiguous chunk of lines to search for.\n  - *new_str (string): The REPLACE section to replace into the file.\n\n- Write: Write content to a file. Will overwrite existing file if it exists. Parent directories will be created if needed.\n  参数:\n  - *file_path (string): The absolute path to the file to write.\n  - *content (string): The content to write to the file.\n\n- RunCommand: Execute shell commands on the system. For any commands that would require user interaction, assume the user is not available to interact and pass non-interactive flags.\n  参数:\n  - *command (string): The CLI command to execute.\n  - requires_approval (boolean): Set to true if the command requires user approval.\n\n- CheckCommandStatus: Check the execution status of a previously run command. Returns whether the command is still running, completed, or failed.\n  参数:\n  - *command_id (string): The command ID to check status for.\n\n- StopCommand: Stop a running command by its ID. Use CheckCommandStatus to get the command ID first.\n  参数:\n  - *command_id (string): The command ID to stop.\n\n- GetDiagnostics: Read and display linter errors and diagnostics from the current workspace. Returns errors, warnings, and hints from language servers and linters.\n  参数:\n  - path (string): Optional path to read diagnostics for. If not provided, returns diagnostics for all files.\n\n- TodoWrite: Create and manage a structured todo list for tracking progress. Each item has a unique id, status (pending/in_progress/completed/cancelled), and content description.\n  参数:\n  - merge (boolean): Whether to merge with existing todos.\n  - *todos (string): JSON string of todo items array. Each item has id, status, and content.\n\n- OpenPreview: Preview a web URL in the IDE's built-in browser. The URL must be a fully-formed valid HTTP/HTTPS URL.\n  参数:\n  - *url (string): A complete, valid HTTP/HTTPS URL to open.\n\n- AskUserQuestion: Collect structured multiple-choice answers from the user. Provide one or more questions with options, and set multiSelect when multi-select is appropriate.\n  参数:\n  - *questions (string): JSON string containing questions array with id, question, options, and multiSelect settings.\n  - title (string): Optional title for the questions form.\n\n## 输出格式\n- 如果需要调用工具，输出JSON格式的工具调用\n- 如果直接回答，使用Markdown格式输出\n- 代码块请使用```语言名 ```包裹\n- 支持使用标题、列表、粗体、斜体等Markdown语法\n\n## 注意事项\n- 仔细分析用户问题，确定是否需要调用工具\n- 如果调用工具，确保参数正确\n- 如果收到工具结果，用Markdown格式总结给用户\n"
+            },
+            {
+              "role": "user",
+              "content": "你好"
             },
             {
               "role": "user",
@@ -98,12 +114,11 @@
               ]
             }
           ],
-          "temperature": 0.7,
-          "max_tokens": 4096,
-          "stream": false,
           "api_type": "openai",
           "api_address": "http://localhost/v1",
           "api_key": "demo",
+          "temperature": 0.7,
+          "max_tokens": 4096,
           "tools": [
             {
               "type": "function",
@@ -123,7 +138,7 @@
               "type": "function",
               "function": {
                 "name": "SearchCodebase",
-                "description": "Trae's context engine that uses natural language to search code. Maintains a real-time index of the codebase. Can retrieve across different programming languages. Only reflects the current state on disk.",
+                "description": "UniDo's context engine that uses natural language to search code. Maintains a real-time index of the codebase. Can retrieve across different programming languages. Only reflects the current state on disk.",
                 "parameters": {
                   "information_request": {
                     "type": "string",
@@ -479,462 +494,402 @@
                 }
               }
             }
-          ],
-          "tool_choice": null
+          ]
         },
         "response": {
-          "content": "你好！有什么我可以帮你的吗？",
+          "content": "你好！有什么我可以帮助你的吗？",
+          "thinking": "",
           "finish_reason": "stop",
-          "tool_calls": [],
+          "tool_calls": null,
           "usage": {
-            "prompt_tokens": 4360,
-            "completion_tokens": 42,
-            "total_tokens": 4402
+            "prompt_tokens": 4366,
+            "completion_tokens": 33,
+            "total_tokens": 4399
           }
         },
         "status": "completed",
-        "duration_ms": 2261,
-        "created_at": "2026-05-21T13:07:51.590254"
+        "duration_ms": 3846,
+        "created_at": "2026-05-21T17:23:10.691875"
       }
     ],
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-1e4a6f6c00ce",
-        "event_id": "evt-646768f7e8bf",
+        "record_id": "rec-37ce59adcc33",
+        "event_id": "evt-66a59478d77f",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-21T13:07:49.207758",
+        "timestamp": "2026-05-21T17:23:06.734162",
         "payload": {
           "tool_id": "T01",
           "tool_name": "Skill"
         },
-        "stored_at": "2026-05-21T13:07:49.207758",
+        "stored_at": "2026-05-21T17:23:06.734162",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "b06e8131-bfa6-4fef-8af7-eddf9d565006",
-        "entity_id": "evt-a4f44bf5347a",
-        "created_at": "2026-05-21T13:07:49.207758",
-        "updated_at": "2026-05-21T13:07:49.207758"
+        "correlation_id": "369d3116-f366-4a53-af8e-780b0f5c8e61",
+        "entity_id": "evt-0c0c6250198d",
+        "created_at": "2026-05-21T17:23:06.734162",
+        "updated_at": "2026-05-21T17:23:06.734162"
       },
       {
-        "record_id": "rec-f11e6f5f65a3",
-        "event_id": "evt-d92bf188f264",
+        "record_id": "rec-55b4886eaaa7",
+        "event_id": "evt-5dd808ee8e63",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-21T13:07:49.211937",
+        "timestamp": "2026-05-21T17:23:06.737180",
         "payload": {
           "tool_id": "T02",
           "tool_name": "SearchCodebase"
         },
-        "stored_at": "2026-05-21T13:07:49.211937",
+        "stored_at": "2026-05-21T17:23:06.737180",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "9bff007e-caea-4801-8e08-f2d5fb01019b",
-        "entity_id": "evt-16b0d2dea564",
-        "created_at": "2026-05-21T13:07:49.211937",
-        "updated_at": "2026-05-21T13:07:49.211937"
+        "correlation_id": "d8585c34-3eea-414a-9fe9-17d8e8560d55",
+        "entity_id": "evt-1093b2058bfb",
+        "created_at": "2026-05-21T17:23:06.737180",
+        "updated_at": "2026-05-21T17:23:06.737180"
       },
       {
-        "record_id": "rec-57152d595a4f",
-        "event_id": "evt-e5375e75e2bc",
+        "record_id": "rec-72b1bf111127",
+        "event_id": "evt-fe9cd11c4339",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-21T13:07:49.213957",
+        "timestamp": "2026-05-21T17:23:06.738664",
         "payload": {
           "tool_id": "T03",
           "tool_name": "Glob"
         },
-        "stored_at": "2026-05-21T13:07:49.213957",
+        "stored_at": "2026-05-21T17:23:06.738664",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "c9cd86c2-9f0f-4c33-b386-11c1d9fa37fb",
-        "entity_id": "evt-8341a1c70c00",
-        "created_at": "2026-05-21T13:07:49.213957",
-        "updated_at": "2026-05-21T13:07:49.213957"
+        "correlation_id": "5e664e15-f918-4db5-92bb-814e47072c61",
+        "entity_id": "evt-010b98afaf24",
+        "created_at": "2026-05-21T17:23:06.738664",
+        "updated_at": "2026-05-21T17:23:06.738664"
       },
       {
-        "record_id": "rec-61ed83901e73",
-        "event_id": "evt-2151ea4d059a",
+        "record_id": "rec-f6bb5f4a4b16",
+        "event_id": "evt-b9f08502e152",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-21T13:07:49.216989",
+        "timestamp": "2026-05-21T17:23:06.741869",
         "payload": {
           "tool_id": "T04",
           "tool_name": "LS"
         },
-        "stored_at": "2026-05-21T13:07:49.216989",
+        "stored_at": "2026-05-21T17:23:06.741869",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "d0b06632-6ca2-4f5a-8a1d-1d1d681118cc",
-        "entity_id": "evt-153e005cbd03",
-        "created_at": "2026-05-21T13:07:49.216989",
-        "updated_at": "2026-05-21T13:07:49.216989"
+        "correlation_id": "7d248e23-d729-4835-99ce-afe111c38d1d",
+        "entity_id": "evt-3902c3c3cfac",
+        "created_at": "2026-05-21T17:23:06.741869",
+        "updated_at": "2026-05-21T17:23:06.741869"
       },
       {
-        "record_id": "rec-a71e350a0b68",
-        "event_id": "evt-05ecb2ae6daf",
+        "record_id": "rec-7fc5db9df96a",
+        "event_id": "evt-597a6a774430",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-21T13:07:49.217496",
+        "timestamp": "2026-05-21T17:23:06.743347",
         "payload": {
           "tool_id": "T05",
           "tool_name": "Grep"
         },
-        "stored_at": "2026-05-21T13:07:49.217496",
+        "stored_at": "2026-05-21T17:23:06.743347",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "0ef945d1-4329-438e-9674-bfe7f5880c2d",
-        "entity_id": "evt-2be559136221",
-        "created_at": "2026-05-21T13:07:49.217496",
-        "updated_at": "2026-05-21T13:07:49.217496"
+        "correlation_id": "235cfe2b-e0dc-49ae-9fef-9ed75553efb3",
+        "entity_id": "evt-02f954eff25a",
+        "created_at": "2026-05-21T17:23:06.743347",
+        "updated_at": "2026-05-21T17:23:06.743347"
       },
       {
-        "record_id": "rec-e17267df1b0a",
-        "event_id": "evt-5e08b2539908",
+        "record_id": "rec-3d99a42a7a65",
+        "event_id": "evt-ca106419f80f",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-21T13:07:49.221140",
+        "timestamp": "2026-05-21T17:23:06.746348",
         "payload": {
           "tool_id": "T06",
           "tool_name": "Read"
         },
-        "stored_at": "2026-05-21T13:07:49.221140",
+        "stored_at": "2026-05-21T17:23:06.746348",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "c7aa086c-884e-4f7a-97a5-45dc840cb73c",
-        "entity_id": "evt-cf6bc999b4f4",
-        "created_at": "2026-05-21T13:07:49.221140",
-        "updated_at": "2026-05-21T13:07:49.221140"
+        "correlation_id": "b6f99f7c-7592-4de8-af1a-0a47390383fe",
+        "entity_id": "evt-b2e835cfe1c8",
+        "created_at": "2026-05-21T17:23:06.746348",
+        "updated_at": "2026-05-21T17:23:06.746348"
       },
       {
-        "record_id": "rec-0dbb699994d2",
-        "event_id": "evt-12d23fea7bc1",
+        "record_id": "rec-72ed3a6d0df2",
+        "event_id": "evt-9f0e9ac7b6f4",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-21T13:07:49.224289",
+        "timestamp": "2026-05-21T17:23:06.748917",
         "payload": {
           "tool_id": "T07",
           "tool_name": "WebSearch"
         },
-        "stored_at": "2026-05-21T13:07:49.224289",
+        "stored_at": "2026-05-21T17:23:06.748917",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "8056615d-7ab0-4abb-9781-be9c7127538f",
-        "entity_id": "evt-ba10251936ab",
-        "created_at": "2026-05-21T13:07:49.224289",
-        "updated_at": "2026-05-21T13:07:49.224289"
+        "correlation_id": "bb973ae0-e9d3-4e5a-8552-c61d6602f4fc",
+        "entity_id": "evt-014dbf8454d1",
+        "created_at": "2026-05-21T17:23:06.748917",
+        "updated_at": "2026-05-21T17:23:06.748917"
       },
       {
-        "record_id": "rec-c10e05c083df",
-        "event_id": "evt-04a0121b4337",
+        "record_id": "rec-a0cf1e63a90d",
+        "event_id": "evt-59a7a0d4044b",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-21T13:07:49.226462",
+        "timestamp": "2026-05-21T17:23:06.750973",
         "payload": {
           "tool_id": "T08",
           "tool_name": "WebFetch"
         },
-        "stored_at": "2026-05-21T13:07:49.226462",
+        "stored_at": "2026-05-21T17:23:06.750973",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "b98dd247-8d70-4754-9c26-366633a4ab7b",
-        "entity_id": "evt-47ff3209d254",
-        "created_at": "2026-05-21T13:07:49.226462",
-        "updated_at": "2026-05-21T13:07:49.226462"
+        "correlation_id": "fdb5997c-ba08-4377-84fe-d207ed11b197",
+        "entity_id": "evt-d4dea49bb878",
+        "created_at": "2026-05-21T17:23:06.750973",
+        "updated_at": "2026-05-21T17:23:06.750973"
       },
       {
-        "record_id": "rec-ae168432858e",
-        "event_id": "evt-0af77963e137",
+        "record_id": "rec-193fa8e50ff6",
+        "event_id": "evt-832e33a66f40",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-21T13:07:49.228490",
+        "timestamp": "2026-05-21T17:23:06.753520",
         "payload": {
           "tool_id": "T09",
           "tool_name": "DeleteFile"
         },
-        "stored_at": "2026-05-21T13:07:49.228490",
+        "stored_at": "2026-05-21T17:23:06.753520",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "8d183bb1-f01d-4dec-9f2d-fb3bbe2f3899",
-        "entity_id": "evt-f7ab236519ae",
-        "created_at": "2026-05-21T13:07:49.228490",
-        "updated_at": "2026-05-21T13:07:49.228490"
+        "correlation_id": "9f281a71-a248-46f3-b2c1-2ce3ff277b25",
+        "entity_id": "evt-20bc5e6d3a94",
+        "created_at": "2026-05-21T17:23:06.753520",
+        "updated_at": "2026-05-21T17:23:06.753520"
       },
       {
-        "record_id": "rec-20bd3203123f",
-        "event_id": "evt-0c293fc6e216",
+        "record_id": "rec-3ca71b858c24",
+        "event_id": "evt-bffac0e436ba",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-21T13:07:49.230998",
+        "timestamp": "2026-05-21T17:23:06.756527",
         "payload": {
           "tool_id": "T10",
           "tool_name": "SearchReplace"
         },
-        "stored_at": "2026-05-21T13:07:49.230998",
+        "stored_at": "2026-05-21T17:23:06.756527",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "e76d03bb-0237-4ded-b2da-46dfbeff7dc6",
-        "entity_id": "evt-9c3f54792fb8",
-        "created_at": "2026-05-21T13:07:49.230998",
-        "updated_at": "2026-05-21T13:07:49.230998"
+        "correlation_id": "c592b835-9226-487c-9754-cd982acb2498",
+        "entity_id": "evt-1a11bfff7ff6",
+        "created_at": "2026-05-21T17:23:06.756527",
+        "updated_at": "2026-05-21T17:23:06.756527"
       },
       {
-        "record_id": "rec-47127f7ce27b",
-        "event_id": "evt-7120f558c3af",
+        "record_id": "rec-f299cde7a0ac",
+        "event_id": "evt-3e533a8173f6",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-21T13:07:49.234506",
+        "timestamp": "2026-05-21T17:23:06.759567",
         "payload": {
           "tool_id": "T11",
           "tool_name": "Write"
         },
-        "stored_at": "2026-05-21T13:07:49.234506",
+        "stored_at": "2026-05-21T17:23:06.759567",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "a725c6c7-6245-46b2-899c-95fb40116ecb",
-        "entity_id": "evt-1b972d165d7b",
-        "created_at": "2026-05-21T13:07:49.234506",
-        "updated_at": "2026-05-21T13:07:49.234506"
+        "correlation_id": "583e2c03-1bd2-4585-87ac-5d0826f79f15",
+        "entity_id": "evt-934faaabf08a",
+        "created_at": "2026-05-21T17:23:06.759567",
+        "updated_at": "2026-05-21T17:23:06.759567"
       },
       {
-        "record_id": "rec-79f113f6714e",
-        "event_id": "evt-a299c63cbbc3",
+        "record_id": "rec-95f91bd91927",
+        "event_id": "evt-0f965954d720",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-21T13:07:49.236513",
+        "timestamp": "2026-05-21T17:23:06.762094",
         "payload": {
           "tool_id": "T12",
           "tool_name": "RunCommand"
         },
-        "stored_at": "2026-05-21T13:07:49.236513",
+        "stored_at": "2026-05-21T17:23:06.762094",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "4f5d9964-3567-471d-8688-7bedd8f95af9",
-        "entity_id": "evt-c96cbadf2cac",
-        "created_at": "2026-05-21T13:07:49.236513",
-        "updated_at": "2026-05-21T13:07:49.236513"
+        "correlation_id": "536db0fa-cb03-4632-a422-40a91fb49e5f",
+        "entity_id": "evt-bd095a9cd663",
+        "created_at": "2026-05-21T17:23:06.762094",
+        "updated_at": "2026-05-21T17:23:06.762094"
       },
       {
-        "record_id": "rec-aa8d761218c7",
-        "event_id": "evt-d1af55183170",
+        "record_id": "rec-212b26786b86",
+        "event_id": "evt-782f181b01b2",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-21T13:07:49.240441",
+        "timestamp": "2026-05-21T17:23:06.764605",
         "payload": {
           "tool_id": "T13",
           "tool_name": "CheckCommandStatus"
         },
-        "stored_at": "2026-05-21T13:07:49.240441",
+        "stored_at": "2026-05-21T17:23:06.764605",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "39935639-3e88-458c-bdab-f6fd45edc29b",
-        "entity_id": "evt-20728f54642c",
-        "created_at": "2026-05-21T13:07:49.240441",
-        "updated_at": "2026-05-21T13:07:49.240441"
+        "correlation_id": "4f64707a-b680-4894-a0af-fb2443b08e6a",
+        "entity_id": "evt-2842f280208d",
+        "created_at": "2026-05-21T17:23:06.764605",
+        "updated_at": "2026-05-21T17:23:06.764605"
       },
       {
-        "record_id": "rec-43c820f9c5dd",
-        "event_id": "evt-d81b8fd54ec1",
+        "record_id": "rec-aa69ed41faf0",
+        "event_id": "evt-cc755e5eec61",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-21T13:07:49.242751",
+        "timestamp": "2026-05-21T17:23:06.764605",
         "payload": {
           "tool_id": "T14",
           "tool_name": "StopCommand"
         },
-        "stored_at": "2026-05-21T13:07:49.242751",
+        "stored_at": "2026-05-21T17:23:06.764605",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "0054d1b4-a352-4b74-9f6a-a2dcfe16baf1",
-        "entity_id": "evt-d11f8e26f9fb",
-        "created_at": "2026-05-21T13:07:49.242751",
-        "updated_at": "2026-05-21T13:07:49.242751"
+        "correlation_id": "3625c163-7276-4ec5-8c1a-f87dbd9f2c44",
+        "entity_id": "evt-11e2a4e36c1e",
+        "created_at": "2026-05-21T17:23:06.764605",
+        "updated_at": "2026-05-21T17:23:06.764605"
       },
       {
-        "record_id": "rec-48ab3d469c5d",
-        "event_id": "evt-4c6aa23964b7",
+        "record_id": "rec-742afc144efe",
+        "event_id": "evt-e5366974a801",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-21T13:07:49.246868",
+        "timestamp": "2026-05-21T17:23:06.771077",
         "payload": {
           "tool_id": "T15",
           "tool_name": "GetDiagnostics"
         },
-        "stored_at": "2026-05-21T13:07:49.246868",
+        "stored_at": "2026-05-21T17:23:06.771077",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "0801cd87-09d1-4c4f-9078-da560fe55ecb",
-        "entity_id": "evt-93a08c2a2a39",
-        "created_at": "2026-05-21T13:07:49.246868",
-        "updated_at": "2026-05-21T13:07:49.246868"
+        "correlation_id": "2bb22995-d1e1-445d-805b-6d55a7e20ee7",
+        "entity_id": "evt-99082f368d3a",
+        "created_at": "2026-05-21T17:23:06.771077",
+        "updated_at": "2026-05-21T17:23:06.771077"
       },
       {
-        "record_id": "rec-bc32d9f51a6e",
-        "event_id": "evt-b94f41217d26",
+        "record_id": "rec-bf0aea256be5",
+        "event_id": "evt-ae36ff566bd4",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-21T13:07:49.249380",
+        "timestamp": "2026-05-21T17:23:06.772589",
         "payload": {
           "tool_id": "T16",
           "tool_name": "TodoWrite"
         },
-        "stored_at": "2026-05-21T13:07:49.249380",
+        "stored_at": "2026-05-21T17:23:06.772589",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "de3ca18c-43ad-42ac-aa90-a4e51e1108e3",
-        "entity_id": "evt-112a8560529f",
-        "created_at": "2026-05-21T13:07:49.249380",
-        "updated_at": "2026-05-21T13:07:49.249380"
+        "correlation_id": "1020f792-672c-4100-ad16-b4ae4d13c973",
+        "entity_id": "evt-f568b7d3d9cf",
+        "created_at": "2026-05-21T17:23:06.772589",
+        "updated_at": "2026-05-21T17:23:06.772589"
       },
       {
-        "record_id": "rec-f04cbd1fde4c",
-        "event_id": "evt-bb5001d56a75",
+        "record_id": "rec-60d63cd9bfaf",
+        "event_id": "evt-97097b33783c",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-21T13:07:49.252890",
+        "timestamp": "2026-05-21T17:23:06.772589",
         "payload": {
           "tool_id": "T17",
           "tool_name": "OpenPreview"
         },
-        "stored_at": "2026-05-21T13:07:49.252890",
+        "stored_at": "2026-05-21T17:23:06.772589",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "a2dcc6de-76af-42ce-982a-cca41a32f29d",
-        "entity_id": "evt-957cb6548f7b",
-        "created_at": "2026-05-21T13:07:49.252890",
-        "updated_at": "2026-05-21T13:07:49.252890"
+        "correlation_id": "ac4bd5d4-0814-44ec-8c60-86e6af44a511",
+        "entity_id": "evt-6a9c19e8f8e3",
+        "created_at": "2026-05-21T17:23:06.772589",
+        "updated_at": "2026-05-21T17:23:06.772589"
       },
       {
-        "record_id": "rec-ce99abc15e9a",
-        "event_id": "evt-7fc17ff985e2",
+        "record_id": "rec-f9b0a1c44255",
+        "event_id": "evt-1e09abc64b74",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-21T13:07:49.257385",
+        "timestamp": "2026-05-21T17:23:06.780341",
         "payload": {
           "tool_id": "T18",
           "tool_name": "AskUserQuestion"
         },
-        "stored_at": "2026-05-21T13:07:49.257385",
+        "stored_at": "2026-05-21T17:23:06.780341",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "84460ced-ae42-4c53-b41c-d6d8c3ec4094",
-        "entity_id": "evt-b6178bc63375",
-        "created_at": "2026-05-21T13:07:49.257385",
-        "updated_at": "2026-05-21T13:07:49.257385"
+        "correlation_id": "e8951caa-9392-4b28-b254-d09fa18be692",
+        "entity_id": "evt-4b06357c2734",
+        "created_at": "2026-05-21T17:23:06.780341",
+        "updated_at": "2026-05-21T17:23:06.780341"
       },
       {
-        "record_id": "rec-f250def8f92d",
-        "event_id": "evt-a4f1b6d8791c",
+        "record_id": "rec-08935d628aca",
+        "event_id": "evt-ded46bd56879",
         "event_type": "session.created",
-        "timestamp": "2026-05-21T13:07:49.257385",
+        "timestamp": "2026-05-21T17:23:06.782887",
         "payload": {
           "session_id": "test-session-simple",
           "project_id": ""
         },
-        "stored_at": "2026-05-21T13:07:49.257385",
+        "stored_at": "2026-05-21T17:23:06.782887",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "e4f7ba29-5e5f-455e-9452-92bafd0d633b",
-        "entity_id": "evt-835e80afb499",
-        "created_at": "2026-05-21T13:07:49.257385",
-        "updated_at": "2026-05-21T13:07:49.257385"
+        "correlation_id": "25c69b28-3920-488b-a27b-237af4a0bc74",
+        "entity_id": "evt-ec764db87a65",
+        "created_at": "2026-05-21T17:23:06.782887",
+        "updated_at": "2026-05-21T17:23:06.782887"
       },
       {
-        "record_id": "rec-2b0b1a7ef01e",
-        "event_id": "evt-7d62c12512b4",
+        "record_id": "rec-f2699e901e4e",
+        "event_id": "evt-fc887a23cb22",
         "event_type": "llm.request_sent",
-        "timestamp": "2026-05-21T13:07:49.326858",
+        "timestamp": "2026-05-21T17:23:06.844534",
         "payload": {
           "session_id": "test-session-simple",
           "model_config_id": "default",
-          "num_messages": 2,
+          "num_messages": 3,
           "num_tools": 18,
           "stream": false
         },
-        "stored_at": "2026-05-21T13:07:49.326858",
+        "stored_at": "2026-05-21T17:23:06.844534",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "3827fb0b-b374-4a1c-abc8-fecf72d1a590",
-        "entity_id": "evt-20fcbb0da1a8",
-        "created_at": "2026-05-21T13:07:49.326858",
-        "updated_at": "2026-05-21T13:07:49.326858"
+        "correlation_id": "3a10f415-1ad7-4578-b6a9-dbcae0217bf1",
+        "entity_id": "evt-16f05de65e1b",
+        "created_at": "2026-05-21T17:23:06.844534",
+        "updated_at": "2026-05-21T17:23:06.844534"
       },
       {
-        "record_id": "rec-1ac19b66eb08",
-        "event_id": "evt-8e41eae98048",
-        "event_type": "llm.request_sent",
-        "timestamp": "2026-05-21T13:07:49.328426",
-        "payload": {
-          "request_id": "req-367a17f47a3f",
-          "dialog_id": "test-session-simple",
-          "model_config_id": "default",
-          "num_messages": 2,
-          "num_tools": 18,
-          "stream": false,
-          "source_component": "L2_llm_execution",
-          "source_service": "LLMExecutionService"
-        },
-        "stored_at": "2026-05-21T13:07:49.328426",
-        "source_component": "",
-        "source_service": "",
-        "correlation_id": "04415b0d-c68f-449f-9f38-2252f5ac69e2",
-        "entity_id": "evt-c1f266ca63f6",
-        "created_at": "2026-05-21T13:07:49.328426",
-        "updated_at": "2026-05-21T13:07:49.328426"
-      },
-      {
-        "record_id": "rec-07339316208c",
-        "event_id": "evt-c3cc54ca6321",
-        "event_type": "llm.response_received",
-        "timestamp": "2026-05-21T13:07:51.588214",
-        "payload": {
-          "request_id": "req-367a17f47a3f",
-          "dialog_id": "test-session-simple",
-          "has_content": true,
-          "has_tool_calls": false,
-          "source_component": "L2_llm_execution",
-          "source_service": "LLMExecutionService"
-        },
-        "stored_at": "2026-05-21T13:07:51.588214",
-        "source_component": "",
-        "source_service": "",
-        "correlation_id": "f4ffe4ad-555c-4139-a2bc-69b62a1cd79c",
-        "entity_id": "evt-0969743c32cc",
-        "created_at": "2026-05-21T13:07:51.588214",
-        "updated_at": "2026-05-21T13:07:51.588214"
-      },
-      {
-        "record_id": "rec-6b0e4b9d320b",
-        "event_id": "evt-925cb2361451",
-        "event_type": "llm.call_completed",
-        "timestamp": "2026-05-21T13:07:51.593762",
-        "payload": {
-          "request_id": "req-367a17f47a3f",
-          "dialog_id": "test-session-simple",
-          "duration_ms": 2261,
-          "source_component": "L2_llm_execution",
-          "source_service": "LLMExecutionService"
-        },
-        "stored_at": "2026-05-21T13:07:51.593762",
-        "source_component": "",
-        "source_service": "",
-        "correlation_id": "56bd3e8c-dd51-4813-94bf-e35d414d424a",
-        "entity_id": "evt-170172f776c1",
-        "created_at": "2026-05-21T13:07:51.593762",
-        "updated_at": "2026-05-21T13:07:51.593762"
-      },
-      {
-        "record_id": "rec-4c1fe1fde23f",
-        "event_id": "evt-04318507358f",
+        "record_id": "rec-8c712eca59af",
+        "event_id": "evt-8e1cebfbc139",
         "event_type": "llm.response_classified",
-        "timestamp": "2026-05-21T13:07:51.595280",
+        "timestamp": "2026-05-21T17:23:10.695879",
         "payload": {
           "response_type": "direct_answer",
           "has_content": true,
-          "content_length": 14,
+          "content": "你好！有什么我可以帮助你的吗？",
+          "content_length": 15,
           "has_tool_calls": false,
           "tool_call_count": 0,
           "tool_names": [],
+          "tool_calls": [],
           "finish_reason": "stop",
+          "thinking": "",
+          "session_id": "",
           "source_component": "L3_task_coordination",
           "source_service": "DialogueBasedLLMService",
           "usage": {
-            "prompt_tokens": 4360,
-            "completion_tokens": 42,
-            "total_tokens": 4402
+            "prompt_tokens": 4366,
+            "completion_tokens": 33,
+            "total_tokens": 4399
           },
           "success": true
         },
-        "stored_at": "2026-05-21T13:07:51.595280",
+        "stored_at": "2026-05-21T17:23:10.695879",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "2afef84f-76c2-473c-bd58-5519710a83a1",
-        "entity_id": "evt-9001d5e94320",
-        "created_at": "2026-05-21T13:07:51.595280",
-        "updated_at": "2026-05-21T13:07:51.595280"
+        "correlation_id": "bc040e47-04fb-449e-a976-a3e0f11f9519",
+        "entity_id": "evt-f6e504b90fc6",
+        "created_at": "2026-05-21T17:23:10.695879",
+        "updated_at": "2026-05-21T17:23:10.695879"
       }
     ],
     "prompts": [],
@@ -947,7 +902,7 @@
     "file_path": "D:\\learnning\\260521\\src\\data\\test\\llm_calls.json",
     "call_count": 1,
     "last_call": {
-      "call_id": "call-61951015da5d",
+      "call_id": "call-701ccb635e83",
       "dialog_id": "test-session-simple",
       "model_config_id": "default",
       "request": {
@@ -955,7 +910,11 @@
         "messages": [
           {
             "role": "system",
-            "content": "你是一个智能助手，能够理解用户意图并调用合适的工具来完成任务。\n\n## 角色\n- 你是一个有能力的AI助手\n- 你可以使用工具来获取信息或执行操作\n- 如果不需要工具，直接回答用户问题\n\n## 可用工具\n- Skill: Execute a skill within the main conversation. Skills provide specialized capabilities and domain knowledge. When a skill is relevant, it should be invoked IMMEDIATELY as the first action.\n  参数:\n  - *name (string): The skill name (no arguments). E.g., \"pdf\" or \"xlsx\"\n\n- SearchCodebase: Trae's context engine that uses natural language to search code. Maintains a real-time index of the codebase. Can retrieve across different programming languages. Only reflects the current state on disk.\n  参数:\n  - *information_request (string): A description of the information you need.\n  - target_directories (array): Specific directories to search within. Must use absolute paths.\n\n- Glob: Fast file pattern matching tool that works with any codebase size. Supports glob patterns like \"/*.js\" or \"src/**/*.ts\". Returns matching file paths sorted by modification time.\n  参数:\n  - *pattern (string): The glob pattern to match files against.\n  - path (string): The directory to search in. Must be absolute path.\n\n- LS: Lists files and directories in a given path. The path parameter must be an absolute path, not a relative path.\n  参数:\n  - *path (string): The absolute path to the directory to list.\n  - ignore (array): List of glob patterns to ignore.\n\n- Grep: A powerful search tool built on ripgrep. Supports full regex syntax. Can filter files by glob pattern or type.\n  参数:\n  - *pattern (string): The regular expression pattern to search for in file contents\n  - path (string): File or directory to search in. Defaults to current working directory.\n  - glob (string): Glob pattern to filter files (e.g. \"*.js\", \"*.{ts,tsx}\")\n  - output_mode (string): Output mode: content shows lines, files_with_matches shows paths, count shows counts\n  - type (string): File type to search (e.g., js, py, rust)\n  - -i (boolean): Case insensitive search\n  - -n (boolean): Show line numbers in output\n  - -C (integer): Number of lines to show before and after each match\n  - head_limit (integer): Limit output to first N lines\n\n- Read: Reads a file from the local filesystem. Can read at most 1000 lines at a time and at least 1 line minimum. Results are returned with line numbers starting at 1.\n  参数:\n  - *file_path (string): The absolute path to the file to read.\n  - offset (integer): The line number to start reading from (must be at least 1).\n  - *limit (integer): The number of lines to read (must be at least 1).\n\n- WebSearch: This tool can be used to search the internet. Should be used with caution as frequent searches result in a bad user experience and excessive costs.\n  参数:\n  - *query (string): The search query to be executed\n  - num (integer): Maximum number of search results to return (default: 5)\n  - lr (string): Language restriction for search results (e.g., 'lang_en' for English)\n\n- WebFetch: Fetches content from a specified URL and processes it into markdown. Converts HTML to markdown and returns the content. Results may be truncated if the content is very large.\n  参数:\n  - *url (string): The URL to fetch content from\n\n- DeleteFile: Delete files from the filesystem. You can delete multiple files in one call. Must ensure files exist before deleting.\n  参数:\n  - *file_paths (array): The list of file paths you want to delete. Must be absolute paths.\n\n- SearchReplace: Edit files with search and replace. The old_str must match exactly what exists in the file. Only replaces the first match occurrence.\n  参数:\n  - *file_path (string): The file path to edit.\n  - *old_str (string): The SEARCH section, a contiguous chunk of lines to search for.\n  - *new_str (string): The REPLACE section to replace into the file.\n\n- Write: Write content to a file. Will overwrite existing file if it exists. Parent directories will be created if needed.\n  参数:\n  - *file_path (string): The absolute path to the file to write.\n  - *content (string): The content to write to the file.\n\n- RunCommand: Execute shell commands on the system. For any commands that would require user interaction, assume the user is not available to interact and pass non-interactive flags.\n  参数:\n  - *command (string): The CLI command to execute.\n  - requires_approval (boolean): Set to true if the command requires user approval.\n\n- CheckCommandStatus: Check the execution status of a previously run command. Returns whether the command is still running, completed, or failed.\n  参数:\n  - *command_id (string): The command ID to check status for.\n\n- StopCommand: Stop a running command by its ID. Use CheckCommandStatus to get the command ID first.\n  参数:\n  - *command_id (string): The command ID to stop.\n\n- GetDiagnostics: Read and display linter errors and diagnostics from the current workspace. Returns errors, warnings, and hints from language servers and linters.\n  参数:\n  - path (string): Optional path to read diagnostics for. If not provided, returns diagnostics for all files.\n\n- TodoWrite: Create and manage a structured todo list for tracking progress. Each item has a unique id, status (pending/in_progress/completed/cancelled), and content description.\n  参数:\n  - merge (boolean): Whether to merge with existing todos.\n  - *todos (string): JSON string of todo items array. Each item has id, status, and content.\n\n- OpenPreview: Preview a web URL in the IDE's built-in browser. The URL must be a fully-formed valid HTTP/HTTPS URL.\n  参数:\n  - *url (string): A complete, valid HTTP/HTTPS URL to open.\n\n- AskUserQuestion: Collect structured multiple-choice answers from the user. Provide one or more questions with options, and set multiSelect when multi-select is appropriate.\n  参数:\n  - *questions (string): JSON string containing questions array with id, question, options, and multiSelect settings.\n  - title (string): Optional title for the questions form.\n\n## 输出格式\n- 如果需要调用工具，输出JSON格式的工具调用\n- 如果直接回答，使用Markdown格式输出\n- 代码块请使用```语言名 ```包裹\n- 支持使用标题、列表、粗体、斜体等Markdown语法\n\n## 注意事项\n- 仔细分析用户问题，确定是否需要调用工具\n- 如果调用工具，确保参数正确\n- 如果收到工具结果，用Markdown格式总结给用户\n"
+            "content": "你是一个智能助手，能够理解用户意图并调用合适的工具来完成任务。\n\n## 角色\n- 你是一个有能力的AI助手\n- 你可以使用工具来获取信息或执行操作\n- 如果不需要工具，直接回答用户问题\n\n## 可用工具\n- Skill: Execute a skill within the main conversation. Skills provide specialized capabilities and domain knowledge. When a skill is relevant, it should be invoked IMMEDIATELY as the first action.\n  参数:\n  - *name (string): The skill name (no arguments). E.g., \"pdf\" or \"xlsx\"\n\n- SearchCodebase: UniDo's context engine that uses natural language to search code. Maintains a real-time index of the codebase. Can retrieve across different programming languages. Only reflects the current state on disk.\n  参数:\n  - *information_request (string): A description of the information you need.\n  - target_directories (array): Specific directories to search within. Must use absolute paths.\n\n- Glob: Fast file pattern matching tool that works with any codebase size. Supports glob patterns like \"/*.js\" or \"src/**/*.ts\". Returns matching file paths sorted by modification time.\n  参数:\n  - *pattern (string): The glob pattern to match files against.\n  - path (string): The directory to search in. Must be absolute path.\n\n- LS: Lists files and directories in a given path. The path parameter must be an absolute path, not a relative path.\n  参数:\n  - *path (string): The absolute path to the directory to list.\n  - ignore (array): List of glob patterns to ignore.\n\n- Grep: A powerful search tool built on ripgrep. Supports full regex syntax. Can filter files by glob pattern or type.\n  参数:\n  - *pattern (string): The regular expression pattern to search for in file contents\n  - path (string): File or directory to search in. Defaults to current working directory.\n  - glob (string): Glob pattern to filter files (e.g. \"*.js\", \"*.{ts,tsx}\")\n  - output_mode (string): Output mode: content shows lines, files_with_matches shows paths, count shows counts\n  - type (string): File type to search (e.g., js, py, rust)\n  - -i (boolean): Case insensitive search\n  - -n (boolean): Show line numbers in output\n  - -C (integer): Number of lines to show before and after each match\n  - head_limit (integer): Limit output to first N lines\n\n- Read: Reads a file from the local filesystem. Can read at most 1000 lines at a time and at least 1 line minimum. Results are returned with line numbers starting at 1.\n  参数:\n  - *file_path (string): The absolute path to the file to read.\n  - offset (integer): The line number to start reading from (must be at least 1).\n  - *limit (integer): The number of lines to read (must be at least 1).\n\n- WebSearch: This tool can be used to search the internet. Should be used with caution as frequent searches result in a bad user experience and excessive costs.\n  参数:\n  - *query (string): The search query to be executed\n  - num (integer): Maximum number of search results to return (default: 5)\n  - lr (string): Language restriction for search results (e.g., 'lang_en' for English)\n\n- WebFetch: Fetches content from a specified URL and processes it into markdown. Converts HTML to markdown and returns the content. Results may be truncated if the content is very large.\n  参数:\n  - *url (string): The URL to fetch content from\n\n- DeleteFile: Delete files from the filesystem. You can delete multiple files in one call. Must ensure files exist before deleting.\n  参数:\n  - *file_paths (array): The list of file paths you want to delete. Must be absolute paths.\n\n- SearchReplace: Edit files with search and replace. The old_str must match exactly what exists in the file. Only replaces the first match occurrence.\n  参数:\n  - *file_path (string): The file path to edit.\n  - *old_str (string): The SEARCH section, a contiguous chunk of lines to search for.\n  - *new_str (string): The REPLACE section to replace into the file.\n\n- Write: Write content to a file. Will overwrite existing file if it exists. Parent directories will be created if needed.\n  参数:\n  - *file_path (string): The absolute path to the file to write.\n  - *content (string): The content to write to the file.\n\n- RunCommand: Execute shell commands on the system. For any commands that would require user interaction, assume the user is not available to interact and pass non-interactive flags.\n  参数:\n  - *command (string): The CLI command to execute.\n  - requires_approval (boolean): Set to true if the command requires user approval.\n\n- CheckCommandStatus: Check the execution status of a previously run command. Returns whether the command is still running, completed, or failed.\n  参数:\n  - *command_id (string): The command ID to check status for.\n\n- StopCommand: Stop a running command by its ID. Use CheckCommandStatus to get the command ID first.\n  参数:\n  - *command_id (string): The command ID to stop.\n\n- GetDiagnostics: Read and display linter errors and diagnostics from the current workspace. Returns errors, warnings, and hints from language servers and linters.\n  参数:\n  - path (string): Optional path to read diagnostics for. If not provided, returns diagnostics for all files.\n\n- TodoWrite: Create and manage a structured todo list for tracking progress. Each item has a unique id, status (pending/in_progress/completed/cancelled), and content description.\n  参数:\n  - merge (boolean): Whether to merge with existing todos.\n  - *todos (string): JSON string of todo items array. Each item has id, status, and content.\n\n- OpenPreview: Preview a web URL in the IDE's built-in browser. The URL must be a fully-formed valid HTTP/HTTPS URL.\n  参数:\n  - *url (string): A complete, valid HTTP/HTTPS URL to open.\n\n- AskUserQuestion: Collect structured multiple-choice answers from the user. Provide one or more questions with options, and set multiSelect when multi-select is appropriate.\n  参数:\n  - *questions (string): JSON string containing questions array with id, question, options, and multiSelect settings.\n  - title (string): Optional title for the questions form.\n\n## 输出格式\n- 如果需要调用工具，输出JSON格式的工具调用\n- 如果直接回答，使用Markdown格式输出\n- 代码块请使用```语言名 ```包裹\n- 支持使用标题、列表、粗体、斜体等Markdown语法\n\n## 注意事项\n- 仔细分析用户问题，确定是否需要调用工具\n- 如果调用工具，确保参数正确\n- 如果收到工具结果，用Markdown格式总结给用户\n"
+          },
+          {
+            "role": "user",
+            "content": "你好"
           },
           {
             "role": "user",
@@ -983,12 +942,11 @@
             ]
           }
         ],
-        "temperature": 0.7,
-        "max_tokens": 4096,
-        "stream": false,
         "api_type": "openai",
         "api_address": "http://localhost/v1",
         "api_key": "demo",
+        "temperature": 0.7,
+        "max_tokens": 4096,
         "tools": [
           {
             "type": "function",
@@ -1008,7 +966,7 @@
             "type": "function",
             "function": {
               "name": "SearchCodebase",
-              "description": "Trae's context engine that uses natural language to search code. Maintains a real-time index of the codebase. Can retrieve across different programming languages. Only reflects the current state on disk.",
+              "description": "UniDo's context engine that uses natural language to search code. Maintains a real-time index of the codebase. Can retrieve across different programming languages. Only reflects the current state on disk.",
               "parameters": {
                 "information_request": {
                   "type": "string",
@@ -1364,22 +1322,22 @@
               }
             }
           }
-        ],
-        "tool_choice": null
+        ]
       },
       "response": {
-        "content": "你好！有什么我可以帮你的吗？",
+        "content": "你好！有什么我可以帮助你的吗？",
+        "thinking": "",
         "finish_reason": "stop",
-        "tool_calls": [],
+        "tool_calls": null,
         "usage": {
-          "prompt_tokens": 4360,
-          "completion_tokens": 42,
-          "total_tokens": 4402
+          "prompt_tokens": 4366,
+          "completion_tokens": 33,
+          "total_tokens": 4399
         }
       },
       "status": "completed",
-      "duration_ms": 2261,
-      "created_at": "2026-05-21T13:07:51.590254"
+      "duration_ms": 3846,
+      "created_at": "2026-05-21T17:23:10.691875"
     },
     "validation": {
       "valid": true,
@@ -1401,8 +1359,8 @@
         "project_id": "",
         "name": "New Session",
         "status": "active",
-        "created_at": "2026-05-21T13:07:49.257385",
-        "updated_at": "2026-05-21T13:07:49.257385"
+        "created_at": "2026-05-21T17:23:06.782887",
+        "updated_at": "2026-05-21T17:23:06.782887"
       }
     },
     {
@@ -1411,25 +1369,27 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "dialog_id": "dialog-39c746a15492",
+        "dialog_id": "dialog-70cd95e152ec",
         "session_id": "test-session-simple",
         "dialog_type": "text",
         "status": "active",
-        "created_at": "2026-05-21T13:07:49.262457"
+        "created_at": "2026-05-21T17:23:06.782887"
       }
     },
     {
       "entity_type": "messages",
       "file_path": "D:\\learnning\\260521\\src\\data\\test\\messages.json",
       "operation": "write",
-      "record_count": 2,
+      "record_count": 3,
       "sample_data": {
-        "message_id": "msg-f490c5771786",
-        "dialog_id": "dialog-39c746a15492",
+        "message_id": "msg-b8880eb17681",
+        "dialog_id": "dialog-70cd95e152ec",
         "role": "assistant",
-        "content": "你好！有什么我可以帮你的吗？",
-        "metadata": {},
-        "created_at": "2026-05-21T13:07:51.596828"
+        "content": "你好！有什么我可以帮助你的吗？",
+        "metadata": {
+          "thinking": ""
+        },
+        "created_at": "2026-05-21T17:23:10.698553"
       }
     },
     {
@@ -1438,7 +1398,7 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "call_id": "call-61951015da5d",
+        "call_id": "call-701ccb635e83",
         "dialog_id": "test-session-simple",
         "model_config_id": "default",
         "request": {
@@ -1446,7 +1406,11 @@
           "messages": [
             {
               "role": "system",
-              "content": "你是一个智能助手，能够理解用户意图并调用合适的工具来完成任务。\n\n## 角色\n- 你是一个有能力的AI助手\n- 你可以使用工具来获取信息或执行操作\n- 如果不需要工具，直接回答用户问题\n\n## 可用工具\n- Skill: Execute a skill within the main conversation. Skills provide specialized capabilities and domain knowledge. When a skill is relevant, it should be invoked IMMEDIATELY as the first action.\n  参数:\n  - *name (string): The skill name (no arguments). E.g., \"pdf\" or \"xlsx\"\n\n- SearchCodebase: Trae's context engine that uses natural language to search code. Maintains a real-time index of the codebase. Can retrieve across different programming languages. Only reflects the current state on disk.\n  参数:\n  - *information_request (string): A description of the information you need.\n  - target_directories (array): Specific directories to search within. Must use absolute paths.\n\n- Glob: Fast file pattern matching tool that works with any codebase size. Supports glob patterns like \"/*.js\" or \"src/**/*.ts\". Returns matching file paths sorted by modification time.\n  参数:\n  - *pattern (string): The glob pattern to match files against.\n  - path (string): The directory to search in. Must be absolute path.\n\n- LS: Lists files and directories in a given path. The path parameter must be an absolute path, not a relative path.\n  参数:\n  - *path (string): The absolute path to the directory to list.\n  - ignore (array): List of glob patterns to ignore.\n\n- Grep: A powerful search tool built on ripgrep. Supports full regex syntax. Can filter files by glob pattern or type.\n  参数:\n  - *pattern (string): The regular expression pattern to search for in file contents\n  - path (string): File or directory to search in. Defaults to current working directory.\n  - glob (string): Glob pattern to filter files (e.g. \"*.js\", \"*.{ts,tsx}\")\n  - output_mode (string): Output mode: content shows lines, files_with_matches shows paths, count shows counts\n  - type (string): File type to search (e.g., js, py, rust)\n  - -i (boolean): Case insensitive search\n  - -n (boolean): Show line numbers in output\n  - -C (integer): Number of lines to show before and after each match\n  - head_limit (integer): Limit output to first N lines\n\n- Read: Reads a file from the local filesystem. Can read at most 1000 lines at a time and at least 1 line minimum. Results are returned with line numbers starting at 1.\n  参数:\n  - *file_path (string): The absolute path to the file to read.\n  - offset (integer): The line number to start reading from (must be at least 1).\n  - *limit (integer): The number of lines to read (must be at least 1).\n\n- WebSearch: This tool can be used to search the internet. Should be used with caution as frequent searches result in a bad user experience and excessive costs.\n  参数:\n  - *query (string): The search query to be executed\n  - num (integer): Maximum number of search results to return (default: 5)\n  - lr (string): Language restriction for search results (e.g., 'lang_en' for English)\n\n- WebFetch: Fetches content from a specified URL and processes it into markdown. Converts HTML to markdown and returns the content. Results may be truncated if the content is very large.\n  参数:\n  - *url (string): The URL to fetch content from\n\n- DeleteFile: Delete files from the filesystem. You can delete multiple files in one call. Must ensure files exist before deleting.\n  参数:\n  - *file_paths (array): The list of file paths you want to delete. Must be absolute paths.\n\n- SearchReplace: Edit files with search and replace. The old_str must match exactly what exists in the file. Only replaces the first match occurrence.\n  参数:\n  - *file_path (string): The file path to edit.\n  - *old_str (string): The SEARCH section, a contiguous chunk of lines to search for.\n  - *new_str (string): The REPLACE section to replace into the file.\n\n- Write: Write content to a file. Will overwrite existing file if it exists. Parent directories will be created if needed.\n  参数:\n  - *file_path (string): The absolute path to the file to write.\n  - *content (string): The content to write to the file.\n\n- RunCommand: Execute shell commands on the system. For any commands that would require user interaction, assume the user is not available to interact and pass non-interactive flags.\n  参数:\n  - *command (string): The CLI command to execute.\n  - requires_approval (boolean): Set to true if the command requires user approval.\n\n- CheckCommandStatus: Check the execution status of a previously run command. Returns whether the command is still running, completed, or failed.\n  参数:\n  - *command_id (string): The command ID to check status for.\n\n- StopCommand: Stop a running command by its ID. Use CheckCommandStatus to get the command ID first.\n  参数:\n  - *command_id (string): The command ID to stop.\n\n- GetDiagnostics: Read and display linter errors and diagnostics from the current workspace. Returns errors, warnings, and hints from language servers and linters.\n  参数:\n  - path (string): Optional path to read diagnostics for. If not provided, returns diagnostics for all files.\n\n- TodoWrite: Create and manage a structured todo list for tracking progress. Each item has a unique id, status (pending/in_progress/completed/cancelled), and content description.\n  参数:\n  - merge (boolean): Whether to merge with existing todos.\n  - *todos (string): JSON string of todo items array. Each item has id, status, and content.\n\n- OpenPreview: Preview a web URL in the IDE's built-in browser. The URL must be a fully-formed valid HTTP/HTTPS URL.\n  参数:\n  - *url (string): A complete, valid HTTP/HTTPS URL to open.\n\n- AskUserQuestion: Collect structured multiple-choice answers from the user. Provide one or more questions with options, and set multiSelect when multi-select is appropriate.\n  参数:\n  - *questions (string): JSON string containing questions array with id, question, options, and multiSelect settings.\n  - title (string): Optional title for the questions form.\n\n## 输出格式\n- 如果需要调用工具，输出JSON格式的工具调用\n- 如果直接回答，使用Markdown格式输出\n- 代码块请使用```语言名 ```包裹\n- 支持使用标题、列表、粗体、斜体等Markdown语法\n\n## 注意事项\n- 仔细分析用户问题，确定是否需要调用工具\n- 如果调用工具，确保参数正确\n- 如果收到工具结果，用Markdown格式总结给用户\n"
+              "content": "你是一个智能助手，能够理解用户意图并调用合适的工具来完成任务。\n\n## 角色\n- 你是一个有能力的AI助手\n- 你可以使用工具来获取信息或执行操作\n- 如果不需要工具，直接回答用户问题\n\n## 可用工具\n- Skill: Execute a skill within the main conversation. Skills provide specialized capabilities and domain knowledge. When a skill is relevant, it should be invoked IMMEDIATELY as the first action.\n  参数:\n  - *name (string): The skill name (no arguments). E.g., \"pdf\" or \"xlsx\"\n\n- SearchCodebase: UniDo's context engine that uses natural language to search code. Maintains a real-time index of the codebase. Can retrieve across different programming languages. Only reflects the current state on disk.\n  参数:\n  - *information_request (string): A description of the information you need.\n  - target_directories (array): Specific directories to search within. Must use absolute paths.\n\n- Glob: Fast file pattern matching tool that works with any codebase size. Supports glob patterns like \"/*.js\" or \"src/**/*.ts\". Returns matching file paths sorted by modification time.\n  参数:\n  - *pattern (string): The glob pattern to match files against.\n  - path (string): The directory to search in. Must be absolute path.\n\n- LS: Lists files and directories in a given path. The path parameter must be an absolute path, not a relative path.\n  参数:\n  - *path (string): The absolute path to the directory to list.\n  - ignore (array): List of glob patterns to ignore.\n\n- Grep: A powerful search tool built on ripgrep. Supports full regex syntax. Can filter files by glob pattern or type.\n  参数:\n  - *pattern (string): The regular expression pattern to search for in file contents\n  - path (string): File or directory to search in. Defaults to current working directory.\n  - glob (string): Glob pattern to filter files (e.g. \"*.js\", \"*.{ts,tsx}\")\n  - output_mode (string): Output mode: content shows lines, files_with_matches shows paths, count shows counts\n  - type (string): File type to search (e.g., js, py, rust)\n  - -i (boolean): Case insensitive search\n  - -n (boolean): Show line numbers in output\n  - -C (integer): Number of lines to show before and after each match\n  - head_limit (integer): Limit output to first N lines\n\n- Read: Reads a file from the local filesystem. Can read at most 1000 lines at a time and at least 1 line minimum. Results are returned with line numbers starting at 1.\n  参数:\n  - *file_path (string): The absolute path to the file to read.\n  - offset (integer): The line number to start reading from (must be at least 1).\n  - *limit (integer): The number of lines to read (must be at least 1).\n\n- WebSearch: This tool can be used to search the internet. Should be used with caution as frequent searches result in a bad user experience and excessive costs.\n  参数:\n  - *query (string): The search query to be executed\n  - num (integer): Maximum number of search results to return (default: 5)\n  - lr (string): Language restriction for search results (e.g., 'lang_en' for English)\n\n- WebFetch: Fetches content from a specified URL and processes it into markdown. Converts HTML to markdown and returns the content. Results may be truncated if the content is very large.\n  参数:\n  - *url (string): The URL to fetch content from\n\n- DeleteFile: Delete files from the filesystem. You can delete multiple files in one call. Must ensure files exist before deleting.\n  参数:\n  - *file_paths (array): The list of file paths you want to delete. Must be absolute paths.\n\n- SearchReplace: Edit files with search and replace. The old_str must match exactly what exists in the file. Only replaces the first match occurrence.\n  参数:\n  - *file_path (string): The file path to edit.\n  - *old_str (string): The SEARCH section, a contiguous chunk of lines to search for.\n  - *new_str (string): The REPLACE section to replace into the file.\n\n- Write: Write content to a file. Will overwrite existing file if it exists. Parent directories will be created if needed.\n  参数:\n  - *file_path (string): The absolute path to the file to write.\n  - *content (string): The content to write to the file.\n\n- RunCommand: Execute shell commands on the system. For any commands that would require user interaction, assume the user is not available to interact and pass non-interactive flags.\n  参数:\n  - *command (string): The CLI command to execute.\n  - requires_approval (boolean): Set to true if the command requires user approval.\n\n- CheckCommandStatus: Check the execution status of a previously run command. Returns whether the command is still running, completed, or failed.\n  参数:\n  - *command_id (string): The command ID to check status for.\n\n- StopCommand: Stop a running command by its ID. Use CheckCommandStatus to get the command ID first.\n  参数:\n  - *command_id (string): The command ID to stop.\n\n- GetDiagnostics: Read and display linter errors and diagnostics from the current workspace. Returns errors, warnings, and hints from language servers and linters.\n  参数:\n  - path (string): Optional path to read diagnostics for. If not provided, returns diagnostics for all files.\n\n- TodoWrite: Create and manage a structured todo list for tracking progress. Each item has a unique id, status (pending/in_progress/completed/cancelled), and content description.\n  参数:\n  - merge (boolean): Whether to merge with existing todos.\n  - *todos (string): JSON string of todo items array. Each item has id, status, and content.\n\n- OpenPreview: Preview a web URL in the IDE's built-in browser. The URL must be a fully-formed valid HTTP/HTTPS URL.\n  参数:\n  - *url (string): A complete, valid HTTP/HTTPS URL to open.\n\n- AskUserQuestion: Collect structured multiple-choice answers from the user. Provide one or more questions with options, and set multiSelect when multi-select is appropriate.\n  参数:\n  - *questions (string): JSON string containing questions array with id, question, options, and multiSelect settings.\n  - title (string): Optional title for the questions form.\n\n## 输出格式\n- 如果需要调用工具，输出JSON格式的工具调用\n- 如果直接回答，使用Markdown格式输出\n- 代码块请使用```语言名 ```包裹\n- 支持使用标题、列表、粗体、斜体等Markdown语法\n\n## 注意事项\n- 仔细分析用户问题，确定是否需要调用工具\n- 如果调用工具，确保参数正确\n- 如果收到工具结果，用Markdown格式总结给用户\n"
+            },
+            {
+              "role": "user",
+              "content": "你好"
             },
             {
               "role": "user",
@@ -1474,12 +1438,11 @@
               ]
             }
           ],
-          "temperature": 0.7,
-          "max_tokens": 4096,
-          "stream": false,
           "api_type": "openai",
           "api_address": "http://localhost/v1",
           "api_key": "demo",
+          "temperature": 0.7,
+          "max_tokens": 4096,
           "tools": [
             {
               "type": "function",
@@ -1499,7 +1462,7 @@
               "type": "function",
               "function": {
                 "name": "SearchCodebase",
-                "description": "Trae's context engine that uses natural language to search code. Maintains a real-time index of the codebase. Can retrieve across different programming languages. Only reflects the current state on disk.",
+                "description": "UniDo's context engine that uses natural language to search code. Maintains a real-time index of the codebase. Can retrieve across different programming languages. Only reflects the current state on disk.",
                 "parameters": {
                   "information_request": {
                     "type": "string",
@@ -1855,58 +1818,62 @@
                 }
               }
             }
-          ],
-          "tool_choice": null
+          ]
         },
         "response": {
-          "content": "你好！有什么我可以帮你的吗？",
+          "content": "你好！有什么我可以帮助你的吗？",
+          "thinking": "",
           "finish_reason": "stop",
-          "tool_calls": [],
+          "tool_calls": null,
           "usage": {
-            "prompt_tokens": 4360,
-            "completion_tokens": 42,
-            "total_tokens": 4402
+            "prompt_tokens": 4366,
+            "completion_tokens": 33,
+            "total_tokens": 4399
           }
         },
         "status": "completed",
-        "duration_ms": 2261,
-        "created_at": "2026-05-21T13:07:51.590254"
+        "duration_ms": 3846,
+        "created_at": "2026-05-21T17:23:10.691875"
       }
     },
     {
       "entity_type": "events",
       "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
-      "record_count": 24,
+      "record_count": 21,
       "sample_data": {
-        "record_id": "rec-4c1fe1fde23f",
-        "event_id": "evt-04318507358f",
+        "record_id": "rec-8c712eca59af",
+        "event_id": "evt-8e1cebfbc139",
         "event_type": "llm.response_classified",
-        "timestamp": "2026-05-21T13:07:51.595280",
+        "timestamp": "2026-05-21T17:23:10.695879",
         "payload": {
           "response_type": "direct_answer",
           "has_content": true,
-          "content_length": 14,
+          "content": "你好！有什么我可以帮助你的吗？",
+          "content_length": 15,
           "has_tool_calls": false,
           "tool_call_count": 0,
           "tool_names": [],
+          "tool_calls": [],
           "finish_reason": "stop",
+          "thinking": "",
+          "session_id": "",
           "source_component": "L3_task_coordination",
           "source_service": "DialogueBasedLLMService",
           "usage": {
-            "prompt_tokens": 4360,
-            "completion_tokens": 42,
-            "total_tokens": 4402
+            "prompt_tokens": 4366,
+            "completion_tokens": 33,
+            "total_tokens": 4399
           },
           "success": true
         },
-        "stored_at": "2026-05-21T13:07:51.595280",
+        "stored_at": "2026-05-21T17:23:10.695879",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "2afef84f-76c2-473c-bd58-5519710a83a1",
-        "entity_id": "evt-9001d5e94320",
-        "created_at": "2026-05-21T13:07:51.595280",
-        "updated_at": "2026-05-21T13:07:51.595280"
+        "correlation_id": "bc040e47-04fb-449e-a976-a3e0f11f9519",
+        "entity_id": "evt-f6e504b90fc6",
+        "created_at": "2026-05-21T17:23:10.695879",
+        "updated_at": "2026-05-21T17:23:10.695879"
       }
     }
   ]

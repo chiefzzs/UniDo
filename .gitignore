@@ -17,3 +17,5 @@ build/
 src/data/*.json
 workspace
 auto_commit.ps1
+bak/
+doc_bak/

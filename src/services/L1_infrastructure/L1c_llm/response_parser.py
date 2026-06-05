@@ -36,14 +36,17 @@ class ResponseParser:
         if choices:
             choice = choices[0]
             message = choice.get('message', {})
+            # 提取思考内容（可能在 message 或 choice 中）
+            thinking = message.get('thinking', '') or message.get('reasoning', '') or choice.get('thinking', '') or choice.get('reasoning', '')
             return {
                 'content': message.get('content', ''),
+                'thinking': thinking,
                 'finish_reason': choice.get('finish_reason', 'stop'),
                 'model_name': response_data.get('model', ''),
                 'usage': response_data.get('usage', {}),
                 'tool_calls': message.get('tool_calls', [])
             }
-        return {'content': '', 'finish_reason': 'stop', 'model_name': '', 'usage': {}, 'tool_calls': []}
+        return {'content': '', 'thinking': '', 'finish_reason': 'stop', 'model_name': '', 'usage': {}, 'tool_calls': []}
 
     @staticmethod
     def _parse_anthropic(response_data: Dict[str, Any]) -> Dict[str, Any]:

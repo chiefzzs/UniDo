@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-21T13:08:25.592814",
+  "timestamp": "2026-05-21T17:14:43.340018",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3a_task_coordination",
@@ -40,9 +40,9 @@
           },
           "messages_count": 0
         },
-        "entity_id": "task-981c5eca8f29",
-        "created_at": "2026-05-21T13:08:25.563797",
-        "updated_at": "2026-05-21T13:08:25.566737"
+        "entity_id": "task-04ffa6c368ac",
+        "created_at": "2026-05-21T17:14:43.308154",
+        "updated_at": "2026-05-21T17:14:43.308154"
       },
       {
         "task_id": "group_test_group_task_2_sub2",
@@ -58,9 +58,9 @@
           },
           "messages_count": 0
         },
-        "entity_id": "task-9c71a4be7340",
-        "created_at": "2026-05-21T13:08:25.567743",
-        "updated_at": "2026-05-21T13:08:25.568743"
+        "entity_id": "task-56c8b00ee98e",
+        "created_at": "2026-05-21T17:14:43.308154",
+        "updated_at": "2026-05-21T17:14:43.317330"
       },
       {
         "task_id": "group_test_group_task_2_sub3",
@@ -76,9 +76,9 @@
           },
           "messages_count": 0
         },
-        "entity_id": "task-d3d05a170b41",
-        "created_at": "2026-05-21T13:08:25.570346",
-        "updated_at": "2026-05-21T13:08:25.571402"
+        "entity_id": "task-16d71b8aaf73",
+        "created_at": "2026-05-21T17:14:43.319346",
+        "updated_at": "2026-05-21T17:14:43.321341"
       }
     ],
     "llm_calls": [],
@@ -113,9 +113,9 @@
           },
           "messages_count": 0
         },
-        "entity_id": "task-d3d05a170b41",
-        "created_at": "2026-05-21T13:08:25.570346",
-        "updated_at": "2026-05-21T13:08:25.571402"
+        "entity_id": "task-16d71b8aaf73",
+        "created_at": "2026-05-21T17:14:43.319346",
+        "updated_at": "2026-05-21T17:14:43.321341"
       }
     }
   ]

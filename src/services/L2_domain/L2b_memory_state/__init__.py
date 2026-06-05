@@ -24,6 +24,7 @@ from .task_group_service import TaskGroupService
 from .task_service import TaskService
 from .memory_service import MemoryService
 from .api_log_service import APILogService, get_api_log_service
+from .websocket_log_service import WebSocketLogService, get_websocket_log_service
 
 
 def get_session_service() -> SessionService:
@@ -55,7 +56,8 @@ __all__ = [
     'APIRequestLog', 'WebSocketMessageLog',
     'SessionService', 'DialogService', 'MessageService',
     'TaskGroupService', 'TaskService', 'MemoryService', 'APILogService',
+    'WebSocketLogService',
     'get_session_service', 'get_dialog_service', 'get_message_service',
     'get_task_group_service', 'get_task_service', 'get_memory_service',
-    'get_api_log_service'
+    'get_api_log_service', 'get_websocket_log_service'
 ]

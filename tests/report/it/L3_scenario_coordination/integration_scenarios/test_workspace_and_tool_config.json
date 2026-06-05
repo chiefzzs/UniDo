@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-21T12:32:54.817726",
+  "timestamp": "2026-05-21T17:15:59.217925",
   "test_type": "it",
   "layer": "L3_scenario_coordination",
   "sub_layer": "integration_scenarios",
@@ -22,7 +22,7 @@
     }
   },
   "outputs": {
-    "workspace_config_id": "ws-config-0045b431b923",
+    "workspace_config_id": "ws-config-135e6a8b0f94",
     "tool_name": "IT Test Tool"
   },
   "persistent_data": {
@@ -36,34 +36,34 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-8cbb29074fb5",
-        "event_id": "evt-3affffed2987",
+        "record_id": "rec-7b4f3ce1a846",
+        "event_id": "evt-9de780610226",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-21T12:32:54.799200",
+        "timestamp": "2026-05-21T17:15:59.198066",
         "payload": {
-          "tool_id": "tool-9e59561c603a",
+          "tool_id": "tool-806ff4cb9d78",
           "tool_name": "IT Test Tool"
         },
-        "stored_at": "2026-05-21T12:32:54.799200",
+        "stored_at": "2026-05-21T17:15:59.198066",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "1b705590-75cb-448f-a8af-f313adf7bf48",
-        "entity_id": "evt-0fa77744db40",
-        "created_at": "2026-05-21T12:32:54.799200",
-        "updated_at": "2026-05-21T12:32:54.799200"
+        "correlation_id": "3384e2c6-db38-48fc-b7c0-567e1686ceeb",
+        "entity_id": "evt-667773a6420b",
+        "created_at": "2026-05-21T17:15:59.198066",
+        "updated_at": "2026-05-21T17:15:59.198066"
       }
     ],
     "prompts": [],
     "workspace_configs": [
       {
-        "config_id": "ws-config-0045b431b923",
+        "config_id": "ws-config-135e6a8b0f94",
         "name": "IT Test Workspace",
         "root_path": "/workspace/it-test",
         "type": "local",
         "encoding": "utf-8",
         "excluded_patterns": [],
-        "created_at": "2026-05-21T12:32:54.795550",
-        "updated_at": "2026-05-21T12:32:54.795550"
+        "created_at": "2026-05-21T17:15:59.195458",
+        "updated_at": "2026-05-21T17:15:59.195458"
       }
     ],
     "model_configs": [],
@@ -80,21 +80,21 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "record_id": "rec-8cbb29074fb5",
-        "event_id": "evt-3affffed2987",
+        "record_id": "rec-7b4f3ce1a846",
+        "event_id": "evt-9de780610226",
         "event_type": "tool.registered",
-        "timestamp": "2026-05-21T12:32:54.799200",
+        "timestamp": "2026-05-21T17:15:59.198066",
         "payload": {
-          "tool_id": "tool-9e59561c603a",
+          "tool_id": "tool-806ff4cb9d78",
           "tool_name": "IT Test Tool"
         },
-        "stored_at": "2026-05-21T12:32:54.799200",
+        "stored_at": "2026-05-21T17:15:59.198066",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "1b705590-75cb-448f-a8af-f313adf7bf48",
-        "entity_id": "evt-0fa77744db40",
-        "created_at": "2026-05-21T12:32:54.799200",
-        "updated_at": "2026-05-21T12:32:54.799200"
+        "correlation_id": "3384e2c6-db38-48fc-b7c0-567e1686ceeb",
+        "entity_id": "evt-667773a6420b",
+        "created_at": "2026-05-21T17:15:59.198066",
+        "updated_at": "2026-05-21T17:15:59.198066"
       }
     },
     {
@@ -103,14 +103,14 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "config_id": "ws-config-0045b431b923",
+        "config_id": "ws-config-135e6a8b0f94",
         "name": "IT Test Workspace",
         "root_path": "/workspace/it-test",
         "type": "local",
         "encoding": "utf-8",
         "excluded_patterns": [],
-        "created_at": "2026-05-21T12:32:54.795550",
-        "updated_at": "2026-05-21T12:32:54.795550"
+        "created_at": "2026-05-21T17:15:59.195458",
+        "updated_at": "2026-05-21T17:15:59.195458"
       }
     }
   ]

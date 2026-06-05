@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对话归属修复测试</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #1a1a2e; color: #fff; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #333; border-radius: 8px; }
+        .test-title { font-size: 18px; font-weight: bold; margin-bottom: 15px; color: #4CAF50; }
+        .test-step { margin: 10px 0; padding: 10px; background: #2d2d44; border-radius: 4px; }
+        .test-step span { color: #FF9800; }
+        .log-output { background: #0d0d1a; padding: 15px; border-radius: 4px; font-family: monospace; font-size: 12px; max-height: 300px; overflow-y: auto; }
+        .verify-btn { background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        .verify-btn:hover { background: #45a049; }
+        .result { margin-top: 15px; padding: 10px; border-radius: 4px; }
+        .result.pass { background: #2e7d32; }
+        .result.fail { background: #c62828; }
+    </style>
+</head>
+<body>
+    <h1>对话归属修复测试工具</h1>
+    <p>此工具用于验证第二次对话的工具调用是否正确归属</p>
+
+    <div class="test-section">
+        <div class="test-title">📋 测试步骤</div>
+        <div class="test-step"><span>1.</span> 打开浏览器控制台 (F12)</div>
+        <div class="test-step"><span>2.</span> 选择第一个项目 → 选择第一个 Session</div>
+        <div class="test-step"><span>3.</span> 观察控制台日志</div>
+        <div class="test-step"><span>4.</span> 点击下方按钮验证修复效果</div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">🔍 验证标准</div>
+        <div class="test-step"><span>✅</span> 切换 Session 时看到: <code>[SessionManager] Resetting state for session switch</code></div>
+        <div class="test-step"><span>✅</span> 两轮对话正确分开显示</div>
+        <div class="test-step"><span>✅</span> 工具调用通过 dialogId 正确匹配响应块</div>
+        <div class="test-step"><span>✅</span> 看到: <code>[ChatManager] ✓ Found response block by dialogId</code></div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">📝 控制台日志输出</div>
+        <div id="logOutput" class="log-output">等待日志...</div>
+        <button class="verify-btn" onclick="verifyFix()">🔧 验证修复</button>
+        <div id="verifyResult" class="result" style="display: none;"></div>
+    </div>
+
+    <script>
+        // 日志收集器
+        const originalLog = console.log;
+        const logMessages = [];
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            const message = args.map(arg => 
+                typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
+            ).join(' ');
+            logMessages.push({
+                timestamp: new Date().toLocaleTimeString(),
+                message: message
+            });
+            
+            // 更新日志显示
+            updateLogDisplay();
+        };
+
+        function updateLogDisplay() {
+            const logOutput = document.getElementById('logOutput');
+            logOutput.innerHTML = logMessages.map(entry => 
+                `<div><span style="color: #666;">${entry.timestamp}</span> ${entry.message}</div>`
+            ).join('\n');
+            logOutput.scrollTop = logOutput.scrollHeight;
+        }
+
+        function verifyFix() {
+            const resultDiv = document.getElementById('verifyResult');
+            let allPassed = true;
+            let resultText = '';
+
+            // 检查1: 是否有状态重置日志
+            const hasResetLog = logMessages.some(log => 
+                log.message.includes('[SessionManager] Resetting state for session switch')
+            );
+            resultText += hasResetLog ? '✅ 状态重置日志已找到\n' : '❌ 状态重置日志未找到\n';
+            allPassed = allPassed && hasResetLog;
+
+            // 检查2: 是否有 dialog.created 事件
+            const hasDialogCreated = logMessages.some(log => 
+                log.message.includes('Handling dialog.created')
+            );
+            resultText += hasDialogCreated ? '✅ Dialog创建事件已处理\n' : '❌ Dialog创建事件未处理\n';
+            allPassed = allPassed && hasDialogCreated;
+
+            // 检查3: 是否有 llm.request_sent 事件
+            const hasLLMRequest = logMessages.some(log => 
+                log.message.includes('Handling llm.request_sent')
+            );
+            resultText += hasLLMRequest ? '✅ LLM请求事件已处理\n' : '❌ LLM请求事件未处理\n';
+            allPassed = allPassed && hasLLMRequest;
+
+            // 检查4: 是否有工具调用通过 dialogId 匹配
+            const hasDialogIdMatch = logMessages.some(log => 
+                log.message.includes('Found response block by dialogId')
+            );
+            resultText += hasDialogIdMatch ? '✅ 工具调用通过dialogId正确匹配\n' : '❌ 工具调用未通过dialogId匹配\n';
+            allPassed = allPassed && hasDialogIdMatch;
+
+            // 检查5: 是否有响应块创建日志
+            const hasResponseBlock = logMessages.some(log => 
+                log.message.includes('Response block created')
+            );
+            resultText += hasResponseBlock ? '✅ 响应块已创建\n' : '❌ 响应块未创建\n';
+            allPassed = allPassed && hasResponseBlock;
+
+            // 显示结果
+            resultDiv.style.display = 'block';
+            resultDiv.className = `result ${allPassed ? 'pass' : 'fail'}`;
+            resultDiv.innerHTML = `<strong>${allPassed ? '🎉 所有测试通过！' : '❌ 测试未完全通过'}</strong><br>${resultText}`;
+        }
+
+        // 页面加载完成后提示用户
+        window.onload = function() {
+            console.log('====================================');
+            console.log('对话归属修复测试工具已加载');
+            console.log('请选择项目和Session进行测试');
+            console.log('====================================');
+        };
+    </script>
+</body>
+</html>

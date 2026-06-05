@@ -16,13 +16,22 @@ class EventTypes:
     MESSAGE_UPDATED = 'message.updated'
     MESSAGE_DELETED = 'message.deleted'
 
-    LLM_REQUEST_SENT = 'llm.request_sent'
+    LLM_REQUEST_PREPARED = 'llm.request_prepared'  # 请求构造完毕（不包含request_id）
+    LLM_REQUEST_SENT = 'llm.request_sent'          # 实际发送请求（包含request_id）
     LLM_RESPONSE_RECEIVED = 'llm.response_received'
     LLM_STREAM_CHUNK = 'llm.stream_chunk'
     LLM_ERROR = 'llm.error'
     LLM_CALL_FAILED = 'llm.call_failed'
     LLM_CALL_COMPLETED = 'llm.call_completed'
     LLM_RESPONSE_CLASSIFIED = 'llm.response_classified'
+    LLM_THINKING = 'llm.thinking'
+    LLM_REASONING = 'llm.reasoning'                          # reasoning_content 流式思考
+    
+    # 聚合事件（按SSE顺序发布）
+    LLM_CALL_TEXT_COMPLETED = 'llm.call_text_completed'      # 文本聚合完成
+    LLM_CALL_THINKING_COMPLETED = 'llm.call_thinking_completed'  # thinking 思考聚合完成
+    LLM_CALL_REASONING_COMPLETED = 'llm.call_reasoning_completed'  # reasoning_content 思考聚合完成
+    LLM_TOOL_CALL_COMPLETED = 'llm.tool_call_completed'      # 工具调用完成
 
     TOOL_REGISTERED = 'tool.registered'
     TOOL_UNREGISTERED = 'tool.unregistered'
@@ -37,6 +46,7 @@ class EventTypes:
     # 工具执行实时输出事件（流式输出）
     TOOL_EXECUTION_OUTPUT = 'tool.execution_output'
     TOOL_EXECUTION_OUTPUT_END = 'tool.execution_output_end'
+    TOOL_EXECUTION_RESULT = 'tool.execution_result'
 
     SKILL_REGISTERED = 'skill.registered'
     SKILL_UNREGISTERED = 'skill.unregistered'
@@ -61,3 +71,8 @@ class EventTypes:
     
     # 系统状态事件
     SYSTEM_STATUS_CHANGED = 'system.status_changed'
+    
+    # 会话切换与历史回放事件
+    SESSION_SWITCHED = 'session.switched'
+    HISTORY_REPLAY_STARTED = 'history.replay.started'
+    HISTORY_REPLAY_COMPLETE = 'history.replay.complete'

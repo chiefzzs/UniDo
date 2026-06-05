@@ -27,10 +27,10 @@ def main():
     parser.add_argument("--dev", action="store_true", default=True, help="Development mode")
     args = parser.parse_args()
     
-    print("🚀 Starting AI Agent System in Development Mode")
-    print(f"📡 Host: {args.host}")
-    print(f"🔌 Port: {args.port}")
-    print(f"🔄 Hot Reload: {args.dev}")
+    print("Starting AI Agent System in Development Mode")
+    print(f"Host: {args.host}")
+    print(f"Port: {args.port}")
+    print(f"Hot Reload: {args.dev}")
     print("=" * 50)
     
     import uvicorn

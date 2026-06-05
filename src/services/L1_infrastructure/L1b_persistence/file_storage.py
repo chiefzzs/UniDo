@@ -53,7 +53,10 @@ class FileStorage:
             'tool_calls': 'call_id',
             'short_term_memory': 'memory_id',
             'long_term_memory': 'memory_id',
-            'memory_compression': 'memory_id'
+            'memory_compression': 'memory_id',
+            'frontend_history': 'message_id',
+            'websocket_messages': 'log_id',
+            'api_requests': 'log_id'
         }
         
         id_field = entity_type_id_map.get(entity_type)

@@ -12,6 +12,7 @@ from typing import Dict, Any, List
 from services.L3_scenario_coordination.L3c_ui_scenarios.ConfigManager.workspace_config import WorkspaceConfig
 from services.L3_scenario_coordination.L3c_ui_scenarios.ConfigManager.model_config import ModelConfig
 from services.L3_scenario_coordination.L3c_ui_scenarios.ConfigManager.tool_config import ToolConfig
+from services.L1_infrastructure.L1e_storage_config.storage_config_service import StorageConfigService
 
 router = APIRouter()
 
@@ -22,6 +23,19 @@ async def list_workspace_configs():
     try:
         config = WorkspaceConfig()
         result = config.list()
+        return result if isinstance(result, list) else []
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/workspaces")
+async def list_workspaces(search: str = ""):
+    """获取工作区列表"""
+    try:
+        config = WorkspaceConfig()
+        result = config.list()
+        # 支持搜索过滤
+        if search:
+            result = [w for w in result if search.lower() in w.get('name', '').lower()]
         return result if isinstance(result, list) else []
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -248,6 +262,58 @@ async def unregister_tool(tool_id: str):
         result = config.unregister(tool_id)
         if not result.get("success"):
             raise HTTPException(status_code=404, detail="Tool not found")
+        return result
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+# 存储配置路由
+@router.get("/storages")
+async def list_storages(search: str = ""):
+    """获取存储配置列表"""
+    try:
+        config = StorageConfigService()
+        result = config.list_configs()
+        # 支持搜索过滤
+        if search:
+            result = [s for s in result if search.lower() in s.get('entity_type', '').lower()]
+        return result if isinstance(result, list) else []
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/storages")
+async def create_storage(data: Dict[str, Any]):
+    """创建存储配置"""
+    try:
+        config = StorageConfigService()
+        result = config.create(data)
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/storages/{entity_type}")
+async def get_storage(entity_type: str):
+    """获取存储配置"""
+    try:
+        config = StorageConfigService()
+        result = config.get(entity_type)
+        if not result:
+            raise HTTPException(status_code=404, detail="Storage config not found")
+        return result
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.put("/storages/{entity_type}")
+async def update_storage(entity_type: str, data: Dict[str, Any]):
+    """更新存储配置"""
+    try:
+        config = StorageConfigService()
+        result = config.update(entity_type, data)
+        if not result:
+            raise HTTPException(status_code=404, detail="Storage config not found")
         return result
     except HTTPException:
         raise

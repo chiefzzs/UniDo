@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-21T13:08:20.509798",
+  "timestamp": "2026-05-21T17:14:42.902780",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3a_task_coordination",
@@ -27,7 +27,7 @@
     "llm_calls": [],
     "tool_calls": [
       {
-        "call_id": "call-b56f8fece6fa",
+        "call_id": "call-dd9b06a86b8a",
         "tool_id": "tool-calculator-test",
         "tool_name": "calculator",
         "dialog_id": "test-tool",
@@ -38,76 +38,105 @@
         "output_result": "10",
         "status": "completed",
         "error_message": null,
-        "start_time": "2026-05-21T13:08:20.474991",
-        "end_time": "2026-05-21T13:08:20.488447",
-        "duration": 0.011416196823120117
+        "start_time": "2026-05-21T17:14:42.746546",
+        "end_time": "2026-05-21T17:14:42.885619",
+        "duration": 0.13396501541137695
       }
     ],
     "events": [
       {
-        "record_id": "rec-883cfcab227f",
-        "event_id": "evt-cd11af5594ac",
+        "record_id": "rec-14211af7db29",
+        "event_id": "evt-2451f047111b",
         "event_type": "tool.call_started",
-        "timestamp": "2026-05-21T13:08:20.477031",
+        "timestamp": "2026-05-21T17:14:42.751654",
         "payload": {
-          "call_id": "call-b56f8fece6fa",
+          "call_id": "call-dd9b06a86b8a",
           "tool_name": "calculator",
           "dialog_id": "test-tool",
           "task_id": "test-tool",
+          "session_id": "",
           "params": {
             "expression": "5 + 5"
           },
           "source_component": "L2_tool_execution",
           "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-21T13:08:20.477031",
+        "stored_at": "2026-05-21T17:14:42.751654",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "e18817f2-8d52-4700-a17c-bd0f60292c59",
-        "entity_id": "evt-d0879aae46a0",
-        "created_at": "2026-05-21T13:08:20.477031",
-        "updated_at": "2026-05-21T13:08:20.477031"
+        "correlation_id": "a7476c22-3c4c-4453-8b9a-262c12ea34b3",
+        "entity_id": "evt-0871d8b9f655",
+        "created_at": "2026-05-21T17:14:42.751654",
+        "updated_at": "2026-05-21T17:14:42.751654"
       },
       {
-        "record_id": "rec-c84e2bff2d85",
-        "event_id": "evt-3c4825f2c065",
+        "record_id": "rec-f232e3d0b105",
+        "event_id": "evt-9336e9dbc25f",
         "event_type": "tool.execution_output_end",
-        "timestamp": "2026-05-21T13:08:20.487430",
+        "timestamp": "2026-05-21T17:14:42.884613",
         "payload": {
-          "call_id": "call-b56f8fece6fa",
+          "call_id": "call-dd9b06a86b8a",
           "tool_name": "calculator",
           "source_component": "L2_tool_execution",
           "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-21T13:08:20.487430",
+        "stored_at": "2026-05-21T17:14:42.884613",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "97ad82a5-1f94-4a1a-8674-3cb84c0bbf04",
-        "entity_id": "evt-9cab27a9921a",
-        "created_at": "2026-05-21T13:08:20.487430",
-        "updated_at": "2026-05-21T13:08:20.487430"
+        "correlation_id": "6cfaeaa6-9fba-481c-8eee-50ddc1e8b282",
+        "entity_id": "evt-eed9d5190946",
+        "created_at": "2026-05-21T17:14:42.884613",
+        "updated_at": "2026-05-21T17:14:42.884613"
       },
       {
-        "record_id": "rec-bdf1aef7bc20",
-        "event_id": "evt-85684aaa3724",
+        "record_id": "rec-86c1e6abc1c8",
+        "event_id": "evt-c5f9a408826a",
         "event_type": "tool.call_completed",
-        "timestamp": "2026-05-21T13:08:20.491328",
+        "timestamp": "2026-05-21T17:14:42.888109",
         "payload": {
-          "call_id": "call-b56f8fece6fa",
+          "call_id": "call-dd9b06a86b8a",
           "tool_name": "calculator",
           "success": true,
-          "duration": 0.011416196823120117,
+          "duration": 0.13396501541137695,
           "workspace": "D:\\learnning\\260521",
+          "result": "10",
+          "error": null,
+          "session_id": "",
           "source_component": "L2_tool_execution",
           "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-21T13:08:20.491328",
+        "stored_at": "2026-05-21T17:14:42.888109",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "58cff08a-82ff-49e9-9142-d984375ea4e4",
-        "entity_id": "evt-99f24946570f",
-        "created_at": "2026-05-21T13:08:20.491328",
-        "updated_at": "2026-05-21T13:08:20.491328"
+        "correlation_id": "81c1dd5d-ad11-430a-b3ce-13df38796588",
+        "entity_id": "evt-3ba6865872a4",
+        "created_at": "2026-05-21T17:14:42.888109",
+        "updated_at": "2026-05-21T17:14:42.888109"
+      },
+      {
+        "record_id": "rec-7349fb440377",
+        "event_id": "evt-9a53a81f435e",
+        "event_type": "tool.execution_result",
+        "timestamp": "2026-05-21T17:14:42.889114",
+        "payload": {
+          "call_id": "call-dd9b06a86b8a",
+          "tool_name": "calculator",
+          "success": true,
+          "result": "10",
+          "error": null,
+          "duration": 0.13396501541137695,
+          "workspace": "D:\\learnning\\260521",
+          "session_id": "",
+          "source_component": "L2_tool_execution",
+          "source_service": "ToolExecutor"
+        },
+        "stored_at": "2026-05-21T17:14:42.889114",
+        "source_component": "",
+        "source_service": "",
+        "correlation_id": "7c2a847a-98d6-4ba2-b264-d5c9e030a771",
+        "entity_id": "evt-e6740df8ecf5",
+        "created_at": "2026-05-21T17:14:42.889114",
+        "updated_at": "2026-05-21T17:14:42.889114"
       }
     ],
     "prompts": [],
@@ -126,7 +155,7 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "call_id": "call-b56f8fece6fa",
+        "call_id": "call-dd9b06a86b8a",
         "tool_id": "tool-calculator-test",
         "tool_name": "calculator",
         "dialog_id": "test-tool",
@@ -137,37 +166,40 @@
         "output_result": "10",
         "status": "completed",
         "error_message": null,
-        "start_time": "2026-05-21T13:08:20.474991",
-        "end_time": "2026-05-21T13:08:20.488447",
-        "duration": 0.011416196823120117
+        "start_time": "2026-05-21T17:14:42.746546",
+        "end_time": "2026-05-21T17:14:42.885619",
+        "duration": 0.13396501541137695
       }
     },
     {
       "entity_type": "events",
       "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
       "operation": "write",
-      "record_count": 3,
+      "record_count": 4,
       "sample_data": {
-        "record_id": "rec-bdf1aef7bc20",
-        "event_id": "evt-85684aaa3724",
-        "event_type": "tool.call_completed",
-        "timestamp": "2026-05-21T13:08:20.491328",
+        "record_id": "rec-7349fb440377",
+        "event_id": "evt-9a53a81f435e",
+        "event_type": "tool.execution_result",
+        "timestamp": "2026-05-21T17:14:42.889114",
         "payload": {
-          "call_id": "call-b56f8fece6fa",
+          "call_id": "call-dd9b06a86b8a",
           "tool_name": "calculator",
           "success": true,
-          "duration": 0.011416196823120117,
+          "result": "10",
+          "error": null,
+          "duration": 0.13396501541137695,
           "workspace": "D:\\learnning\\260521",
+          "session_id": "",
           "source_component": "L2_tool_execution",
           "source_service": "ToolExecutor"
         },
-        "stored_at": "2026-05-21T13:08:20.491328",
+        "stored_at": "2026-05-21T17:14:42.889114",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "58cff08a-82ff-49e9-9142-d984375ea4e4",
-        "entity_id": "evt-99f24946570f",
-        "created_at": "2026-05-21T13:08:20.491328",
-        "updated_at": "2026-05-21T13:08:20.491328"
+        "correlation_id": "7c2a847a-98d6-4ba2-b264-d5c9e030a771",
+        "entity_id": "evt-e6740df8ecf5",
+        "created_at": "2026-05-21T17:14:42.889114",
+        "updated_at": "2026-05-21T17:14:42.889114"
       }
     }
   ]

@@ -47,7 +47,7 @@ class WebSocketMessageLog:
     session_id: Optional[str] = None
     message_type: str = ""
     direction: str = "inbound"  # inbound 或 outbound
-    payload: Optional[str] = None
+    payload: Optional[Any] = None  # 可以是 dict 或 str
     error_message: Optional[str] = None
     created_at: str = ""
 

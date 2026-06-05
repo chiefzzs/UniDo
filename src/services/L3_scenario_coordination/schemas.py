@@ -11,9 +11,17 @@ class TaskStatus(Enum):
     FAILED = "failed"
     CANCELLED = "cancelled"
 
+class TaskType(Enum):
+    DIALOGUE = "dialogue"
+    TOOL_CALL = "tool_call"
+    CODE_EXECUTION = "code_execution"
+    DATA_ANALYSIS = "data_analysis"
+    FILE_OPERATION = "file_operation"
+
 @dataclass
 class Task:
     task_id: str
+    type: Optional[TaskType] = None
     input_data: Dict[str, Any] = field(default_factory=dict)
     output_data: Dict[str, Any] = field(default_factory=dict)
     status: TaskStatus = TaskStatus.PENDING
@@ -38,6 +46,8 @@ class TaskGroup:
 class DialogueResponse:
     session_id: str
     task_id: str
+    dialog_id: str
     status: str
     content: str
+    thinking: str = ""
     created_at: datetime = field(default_factory=datetime.now)

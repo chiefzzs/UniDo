@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-21T12:32:54.753372",
+  "timestamp": "2026-05-21T17:15:59.140593",
   "test_type": "it",
   "layer": "L3_scenario_coordination",
   "sub_layer": "integration_scenarios",
@@ -17,36 +17,36 @@
     },
     "session": {
       "name": "Integration Test Session",
-      "project_id": "proj-98b4f1f1590e"
+      "project_id": "proj-116fd493e784"
     }
   },
   "outputs": {
-    "project_id": "proj-98b4f1f1590e",
-    "session_id": "sess-968152391bc5",
-    "session_project_id": "proj-98b4f1f1590e"
+    "project_id": "proj-116fd493e784",
+    "session_id": "sess-08522f4105cb",
+    "session_project_id": "proj-116fd493e784"
   },
   "persistent_data": {
     "projects": [
       {
-        "project_id": "proj-98b4f1f1590e",
+        "project_id": "proj-116fd493e784",
         "name": "Integration Test Project",
         "description": "",
         "workspace_config_id": "ws-test-it",
         "model_config_id": "mc-test-it",
         "tool_config_ids": [],
         "status": "active",
-        "created_at": "2026-05-21T12:32:54.732940",
-        "updated_at": "2026-05-21T12:32:54.732940"
+        "created_at": "2026-05-21T17:15:59.119949",
+        "updated_at": "2026-05-21T17:15:59.119949"
       }
     ],
     "sessions": [
       {
-        "session_id": "sess-968152391bc5",
-        "project_id": "proj-98b4f1f1590e",
+        "session_id": "sess-08522f4105cb",
+        "project_id": "proj-116fd493e784",
         "name": "Integration Test Session",
         "status": "active",
-        "created_at": "2026-05-21T12:32:54.735378",
-        "updated_at": "2026-05-21T12:32:54.735378"
+        "created_at": "2026-05-21T17:15:59.122956",
+        "updated_at": "2026-05-21T17:15:59.122956"
       }
     ],
     "dialogs": [],
@@ -57,38 +57,38 @@
     "tool_calls": [],
     "events": [
       {
-        "record_id": "rec-a8255f5e90cc",
-        "event_id": "evt-a278c4cae9c2",
+        "record_id": "rec-6c63516c4212",
+        "event_id": "evt-f73b3a2bfde2",
         "event_type": "project.created",
-        "timestamp": "2026-05-21T12:32:54.733805",
+        "timestamp": "2026-05-21T17:15:59.121452",
         "payload": {
-          "project_id": "proj-98b4f1f1590e",
+          "project_id": "proj-116fd493e784",
           "name": "Integration Test Project"
         },
-        "stored_at": "2026-05-21T12:32:54.733805",
+        "stored_at": "2026-05-21T17:15:59.121452",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "21d249c2-1e32-434c-a5ce-6d6328d20b4d",
-        "entity_id": "evt-56ee527c09dd",
-        "created_at": "2026-05-21T12:32:54.734826",
-        "updated_at": "2026-05-21T12:32:54.734826"
+        "correlation_id": "f4411cb3-2859-4a88-bcfb-402a18ec134f",
+        "entity_id": "evt-43cba60e4001",
+        "created_at": "2026-05-21T17:15:59.121452",
+        "updated_at": "2026-05-21T17:15:59.121452"
       },
       {
-        "record_id": "rec-80933b6ceec8",
-        "event_id": "evt-e56f7bac63ae",
+        "record_id": "rec-8993539ff415",
+        "event_id": "evt-fa30c980d4fe",
         "event_type": "session.created",
-        "timestamp": "2026-05-21T12:32:54.738038",
+        "timestamp": "2026-05-21T17:15:59.125481",
         "payload": {
-          "session_id": "sess-968152391bc5",
-          "project_id": "proj-98b4f1f1590e"
+          "session_id": "sess-08522f4105cb",
+          "project_id": "proj-116fd493e784"
         },
-        "stored_at": "2026-05-21T12:32:54.738038",
+        "stored_at": "2026-05-21T17:15:59.125481",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "dc347854-7682-4148-9c7b-7e2b14dca903",
-        "entity_id": "evt-f1340eebf3b7",
-        "created_at": "2026-05-21T12:32:54.738038",
-        "updated_at": "2026-05-21T12:32:54.738038"
+        "correlation_id": "48625298-15b0-498a-91de-45ff38933f8f",
+        "entity_id": "evt-fdf4c9f151cd",
+        "created_at": "2026-05-21T17:15:59.125481",
+        "updated_at": "2026-05-21T17:15:59.125481"
       }
     ],
     "prompts": [],
@@ -107,15 +107,15 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "project_id": "proj-98b4f1f1590e",
+        "project_id": "proj-116fd493e784",
         "name": "Integration Test Project",
         "description": "",
         "workspace_config_id": "ws-test-it",
         "model_config_id": "mc-test-it",
         "tool_config_ids": [],
         "status": "active",
-        "created_at": "2026-05-21T12:32:54.732940",
-        "updated_at": "2026-05-21T12:32:54.732940"
+        "created_at": "2026-05-21T17:15:59.119949",
+        "updated_at": "2026-05-21T17:15:59.119949"
       }
     },
     {
@@ -124,12 +124,12 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "session_id": "sess-968152391bc5",
-        "project_id": "proj-98b4f1f1590e",
+        "session_id": "sess-08522f4105cb",
+        "project_id": "proj-116fd493e784",
         "name": "Integration Test Session",
         "status": "active",
-        "created_at": "2026-05-21T12:32:54.735378",
-        "updated_at": "2026-05-21T12:32:54.735378"
+        "created_at": "2026-05-21T17:15:59.122956",
+        "updated_at": "2026-05-21T17:15:59.122956"
       }
     },
     {
@@ -138,21 +138,21 @@
       "operation": "write",
       "record_count": 2,
       "sample_data": {
-        "record_id": "rec-80933b6ceec8",
-        "event_id": "evt-e56f7bac63ae",
+        "record_id": "rec-8993539ff415",
+        "event_id": "evt-fa30c980d4fe",
         "event_type": "session.created",
-        "timestamp": "2026-05-21T12:32:54.738038",
+        "timestamp": "2026-05-21T17:15:59.125481",
         "payload": {
-          "session_id": "sess-968152391bc5",
-          "project_id": "proj-98b4f1f1590e"
+          "session_id": "sess-08522f4105cb",
+          "project_id": "proj-116fd493e784"
         },
-        "stored_at": "2026-05-21T12:32:54.738038",
+        "stored_at": "2026-05-21T17:15:59.125481",
         "source_component": "",
         "source_service": "",
-        "correlation_id": "dc347854-7682-4148-9c7b-7e2b14dca903",
-        "entity_id": "evt-f1340eebf3b7",
-        "created_at": "2026-05-21T12:32:54.738038",
-        "updated_at": "2026-05-21T12:32:54.738038"
+        "correlation_id": "48625298-15b0-498a-91de-45ff38933f8f",
+        "entity_id": "evt-fdf4c9f151cd",
+        "created_at": "2026-05-21T17:15:59.125481",
+        "updated_at": "2026-05-21T17:15:59.125481"
       }
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-21T12:33:31.692467",
+  "timestamp": "2026-05-28T14:50:50.082929",
   "test_type": "ut",
   "layer": "L2_domain",
   "sub_layer": "L2d_llm_execution",
@@ -13,7 +13,7 @@
     "session_id": "session-stream-001"
   },
   "outputs": {
-    "request_id": "req-eb71d28c46d3",
+    "request_id": "req-b0e22cc0b9d4",
     "chunk_count": 0,
     "status": "failed"
   },
@@ -26,9 +26,10 @@
     "tasks": [],
     "llm_calls": [
       {
-        "call_id": "call-0e431159bfec",
+        "call_id": "call-91ff8bb0cd4f",
         "dialog_id": "session-stream-001",
         "model_config_id": "default",
+        "request_id": "req-b0e22cc0b9d4",
         "request": {
           "model_name": "default",
           "messages": [
@@ -37,25 +38,33 @@
               "content": "Stream test"
             }
           ],
-          "temperature": 0.7,
-          "max_tokens": 2000,
-          "stream": false,
           "api_type": "openai",
           "api_address": "http://localhost/v1",
           "api_key": "demo",
-          "tools": [],
-          "tool_choice": null
+          "temperature": 0.7,
+          "max_tokens": 4096,
+          "tools": []
         },
         "response": {
-          "error": "'LLMClient' object has no attribute 'send_request_stream'"
+          "error": "[WinError 10061] 由于目标计算机积极拒绝，无法连接。"
         },
         "status": "failed",
-        "duration_ms": 0,
-        "created_at": "2026-05-21T12:33:31.672828"
+        "duration_ms": 4481,
+        "created_at": "2026-05-28T14:50:50.041087"
       }
     ],
     "tool_calls": [],
-    "events": [],
+    "events": [
+      {
+        "record_id": "test",
+        "event_type": "test",
+        "payload": {},
+        "test": true,
+        "entity_id": "evt-0945263dd6d6",
+        "created_at": "2026-05-28T14:50:47.334358",
+        "updated_at": "2026-05-28T14:50:47.334358"
+      }
+    ],
     "prompts": [],
     "workspace_configs": [],
     "model_configs": [],
@@ -66,9 +75,10 @@
     "file_path": "D:\\learnning\\260521\\src\\data\\test\\llm_calls.json",
     "call_count": 1,
     "last_call": {
-      "call_id": "call-0e431159bfec",
+      "call_id": "call-91ff8bb0cd4f",
       "dialog_id": "session-stream-001",
       "model_config_id": "default",
+      "request_id": "req-b0e22cc0b9d4",
       "request": {
         "model_name": "default",
         "messages": [
@@ -77,21 +87,19 @@
             "content": "Stream test"
           }
         ],
-        "temperature": 0.7,
-        "max_tokens": 2000,
-        "stream": false,
         "api_type": "openai",
         "api_address": "http://localhost/v1",
         "api_key": "demo",
-        "tools": [],
-        "tool_choice": null
+        "temperature": 0.7,
+        "max_tokens": 4096,
+        "tools": []
       },
       "response": {
-        "error": "'LLMClient' object has no attribute 'send_request_stream'"
+        "error": "[WinError 10061] 由于目标计算机积极拒绝，无法连接。"
       },
       "status": "failed",
-      "duration_ms": 0,
-      "created_at": "2026-05-21T12:33:31.672828"
+      "duration_ms": 4481,
+      "created_at": "2026-05-28T14:50:50.041087"
     },
     "validation": {
       "valid": true,
@@ -109,9 +117,10 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "call_id": "call-0e431159bfec",
+        "call_id": "call-91ff8bb0cd4f",
         "dialog_id": "session-stream-001",
         "model_config_id": "default",
+        "request_id": "req-b0e22cc0b9d4",
         "request": {
           "model_name": "default",
           "messages": [
@@ -120,21 +129,34 @@
               "content": "Stream test"
             }
           ],
-          "temperature": 0.7,
-          "max_tokens": 2000,
-          "stream": false,
           "api_type": "openai",
           "api_address": "http://localhost/v1",
           "api_key": "demo",
-          "tools": [],
-          "tool_choice": null
+          "temperature": 0.7,
+          "max_tokens": 4096,
+          "tools": []
         },
         "response": {
-          "error": "'LLMClient' object has no attribute 'send_request_stream'"
+          "error": "[WinError 10061] 由于目标计算机积极拒绝，无法连接。"
         },
         "status": "failed",
-        "duration_ms": 0,
-        "created_at": "2026-05-21T12:33:31.672828"
+        "duration_ms": 4481,
+        "created_at": "2026-05-28T14:50:50.041087"
+      }
+    },
+    {
+      "entity_type": "events",
+      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
+      "operation": "write",
+      "record_count": 1,
+      "sample_data": {
+        "record_id": "test",
+        "event_type": "test",
+        "payload": {},
+        "test": true,
+        "entity_id": "evt-0945263dd6d6",
+        "created_at": "2026-05-28T14:50:47.334358",
+        "updated_at": "2026-05-28T14:50:47.334358"
       }
     }
   ]

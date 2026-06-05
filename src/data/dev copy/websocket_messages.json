@@ -1,0 +1,26 @@
+[
+    {
+        "log_id": "ws-ce589c769a44",
+        "client_id": "client-f4ced1mbf",
+        "session_id": "sess-f55f3d5b6fee",
+        "message_type": "send_message",
+        "direction": "inbound",
+        "payload": "{\"action\": \"send_message\", \"type\": \"message\", \"session_id\": \"sess-f55f3d5b6fee\", \"content\": \"请检查需求分析文档和设计文档，生成一个开发文件\"}",
+        "error_message": null,
+        "created_at": "2026-05-21T14:52:36.475164",
+        "entity_id": "ent-d942fa353ce4",
+        "updated_at": "2026-05-21T14:52:36.475164"
+    },
+    {
+        "log_id": "ws-95b9a55a963b",
+        "client_id": "client-f4ced1mbf",
+        "session_id": "sess-f55f3d5b6fee",
+        "message_type": "message_response",
+        "direction": "outbound",
+        "payload": "{\"type\": \"message_response\", \"status\": \"error\", \"session_id\": \"sess-f55f3d5b6fee\", \"data\": {\"content\": \"服务暂时不可用，请稍后重试。错误信息：cannot import name 'TaskType' from 'services.L3_scenario_coordination.schemas' (D:\\\\learnning\\\\260521\\\\\"}}",
+        "error_message": null,
+        "created_at": "2026-05-21T14:54:01.160296",
+        "entity_id": "ent-c1269f425769",
+        "updated_at": "2026-05-21T14:54:01.160296"
+    }
+]

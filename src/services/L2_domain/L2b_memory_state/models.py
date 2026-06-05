@@ -64,6 +64,7 @@ class Message:
     role: str
     content: str
     metadata: Dict[str, Any] = field(default_factory=dict)
+    platform_info: Dict[str, str] = field(default_factory=dict)  # 平台信息：{"os_type": "windows", "terminal_type": "powershell"}
     created_at: str = ""
 
     def __post_init__(self):
@@ -75,6 +76,10 @@ class Message:
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> 'Message':
+        # 处理旧数据兼容
+        data = data.copy()
+        if 'platform_info' not in data:
+            data['platform_info'] = {}
         return cls(**data)
 
 

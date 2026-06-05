@@ -23,6 +23,34 @@ class BaseTool(ABC):
         self.examples: list = []
         self.examples_zh: list = []
     
+    def _decode_output(self, output: bytes) -> str:
+        """
+        智能解码输出，支持多种编码格式，确保不乱码
+        
+        Args:
+            output: 原始字节输出
+            
+        Returns:
+            解码后的字符串
+        """
+        if isinstance(output, str):
+            return output
+        
+        # 按优先级尝试多种编码
+        encodings = ['utf-8', 'gbk', 'gb2312', 'cp1252', 'utf-16']
+        
+        for encoding in encodings:
+            try:
+                return output.decode(encoding)
+            except (UnicodeDecodeError, TypeError):
+                continue
+        
+        # 如果所有编码都失败，使用 'replace' 模式处理
+        try:
+            return output.decode('utf-8', errors='replace')
+        except:
+            return str(output)
+    
     @abstractmethod
     def execute(self, params: Dict[str, Any]) -> Dict[str, Any]:
         """

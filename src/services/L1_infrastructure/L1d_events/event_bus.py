@@ -8,6 +8,22 @@ from .event_types import EventTypes
 from .subscription import Subscription, SubscriptionManager
 
 
+# 事件存储配置服务（延迟导入以避免循环依赖）
+_event_storage_config_service = None
+
+
+def _get_event_storage_config_service():
+    """延迟获取事件存储配置服务"""
+    global _event_storage_config_service
+    if _event_storage_config_service is None:
+        try:
+            from services.L1_infrastructure.L1e_storage_config.event_storage_config_service import get_event_storage_config_service
+            _event_storage_config_service = get_event_storage_config_service()
+        except ImportError:
+            pass
+    return _event_storage_config_service
+
+
 class EventBusConfig:
     """
     事件总线配置类
@@ -62,6 +78,22 @@ class EventBus:
 
         # 根据配置决定是否持久化
         should_persist = persist if persist is not None else self._config.persistence_enabled
+        
+        # 如果全局配置允许持久化，再检查事件存储配置
+        if should_persist:
+            event_storage_config = _get_event_storage_config_service()
+            if event_storage_config:
+                # 获取项目ID（如果事件payload中包含）
+                project_id = None
+                if hasattr(event, 'payload') and isinstance(event.payload, dict):
+                    project_id = event.payload.get('project_id')
+                
+                # 检查该事件类型是否应该被持久化
+                should_persist = event_storage_config.should_persist_event(
+                    event.event_type, 
+                    project_id
+                )
+        
         if should_persist and self._persistence_service:
             record_dict = event_record.to_dict()
             

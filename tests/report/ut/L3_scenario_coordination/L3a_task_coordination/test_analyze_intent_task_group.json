@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-21T13:08:20.413157",
+  "timestamp": "2026-05-21T17:14:42.689270",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3a_task_coordination",
@@ -25,7 +25,7 @@
     "tasks": [],
     "llm_calls": [
       {
-        "call_id": "call-75aa09130d35",
+        "call_id": "call-2e85a28f727a",
         "dialog_id": "intent-analysis-default-session",
         "model_config_id": "default",
         "request": {
@@ -40,93 +40,23 @@
               "content": "先分析需求，然后执行操作，最后汇总结果"
             }
           ],
-          "temperature": 0.1,
-          "max_tokens": 1024,
-          "stream": false,
           "api_type": "openai",
           "api_address": "http://localhost/v1",
           "api_key": "demo",
-          "tools": [],
-          "tool_choice": null
+          "temperature": 0.1,
+          "max_tokens": 1024,
+          "tools": []
         },
         "response": {
-          "content": "",
-          "finish_reason": "stop",
-          "tool_calls": [],
-          "usage": {}
+          "error": "'dict' object has no attribute 'api_type'"
         },
-        "status": "completed",
-        "duration_ms": 2318,
-        "created_at": "2026-05-21T13:08:20.392670"
+        "status": "failed",
+        "duration_ms": 0,
+        "created_at": "2026-05-21T17:14:42.668821"
       }
     ],
     "tool_calls": [],
-    "events": [
-      {
-        "record_id": "rec-df51190c2665",
-        "event_id": "evt-461821739efd",
-        "event_type": "llm.request_sent",
-        "timestamp": "2026-05-21T13:08:18.073914",
-        "payload": {
-          "request_id": "req-5ca89c8080ba",
-          "dialog_id": "intent-analysis-default-session",
-          "model_config_id": "default",
-          "num_messages": 2,
-          "num_tools": 0,
-          "stream": false,
-          "source_component": "L2_llm_execution",
-          "source_service": "LLMExecutionService"
-        },
-        "stored_at": "2026-05-21T13:08:18.073914",
-        "source_component": "",
-        "source_service": "",
-        "correlation_id": "6a94350c-cef4-4f76-ace7-e5b3fa46aece",
-        "entity_id": "evt-a701a3c27efd",
-        "created_at": "2026-05-21T13:08:18.073914",
-        "updated_at": "2026-05-21T13:08:18.073914"
-      },
-      {
-        "record_id": "rec-1b0c09292129",
-        "event_id": "evt-bd0d4ca8b816",
-        "event_type": "llm.response_received",
-        "timestamp": "2026-05-21T13:08:20.391142",
-        "payload": {
-          "request_id": "req-5ca89c8080ba",
-          "dialog_id": "intent-analysis-default-session",
-          "has_content": false,
-          "has_tool_calls": false,
-          "source_component": "L2_llm_execution",
-          "source_service": "LLMExecutionService"
-        },
-        "stored_at": "2026-05-21T13:08:20.391142",
-        "source_component": "",
-        "source_service": "",
-        "correlation_id": "7684b76b-892a-480a-955a-8b558c80f670",
-        "entity_id": "evt-f330e5ed50f1",
-        "created_at": "2026-05-21T13:08:20.391142",
-        "updated_at": "2026-05-21T13:08:20.391142"
-      },
-      {
-        "record_id": "rec-391fd51acaf0",
-        "event_id": "evt-a903bfe4a9b4",
-        "event_type": "llm.call_completed",
-        "timestamp": "2026-05-21T13:08:20.394202",
-        "payload": {
-          "request_id": "req-5ca89c8080ba",
-          "dialog_id": "intent-analysis-default-session",
-          "duration_ms": 2318,
-          "source_component": "L2_llm_execution",
-          "source_service": "LLMExecutionService"
-        },
-        "stored_at": "2026-05-21T13:08:20.394202",
-        "source_component": "",
-        "source_service": "",
-        "correlation_id": "5a5c57ec-c256-451a-a948-e034267100a2",
-        "entity_id": "evt-cbd419b9f718",
-        "created_at": "2026-05-21T13:08:20.394202",
-        "updated_at": "2026-05-21T13:08:20.394202"
-      }
-    ],
+    "events": [],
     "prompts": [],
     "workspace_configs": [],
     "model_configs": [],
@@ -137,7 +67,7 @@
     "file_path": "D:\\learnning\\260521\\src\\data\\test\\llm_calls.json",
     "call_count": 1,
     "last_call": {
-      "call_id": "call-75aa09130d35",
+      "call_id": "call-2e85a28f727a",
       "dialog_id": "intent-analysis-default-session",
       "model_config_id": "default",
       "request": {
@@ -152,24 +82,19 @@
             "content": "先分析需求，然后执行操作，最后汇总结果"
           }
         ],
-        "temperature": 0.1,
-        "max_tokens": 1024,
-        "stream": false,
         "api_type": "openai",
         "api_address": "http://localhost/v1",
         "api_key": "demo",
-        "tools": [],
-        "tool_choice": null
+        "temperature": 0.1,
+        "max_tokens": 1024,
+        "tools": []
       },
       "response": {
-        "content": "",
-        "finish_reason": "stop",
-        "tool_calls": [],
-        "usage": {}
+        "error": "'dict' object has no attribute 'api_type'"
       },
-      "status": "completed",
-      "duration_ms": 2318,
-      "created_at": "2026-05-21T13:08:20.392670"
+      "status": "failed",
+      "duration_ms": 0,
+      "created_at": "2026-05-21T17:14:42.668821"
     },
     "validation": {
       "valid": true,
@@ -187,7 +112,7 @@
       "operation": "write",
       "record_count": 1,
       "sample_data": {
-        "call_id": "call-75aa09130d35",
+        "call_id": "call-2e85a28f727a",
         "dialog_id": "intent-analysis-default-session",
         "model_config_id": "default",
         "request": {
@@ -202,50 +127,19 @@
               "content": "先分析需求，然后执行操作，最后汇总结果"
             }
           ],
-          "temperature": 0.1,
-          "max_tokens": 1024,
-          "stream": false,
           "api_type": "openai",
           "api_address": "http://localhost/v1",
           "api_key": "demo",
-          "tools": [],
-          "tool_choice": null
+          "temperature": 0.1,
+          "max_tokens": 1024,
+          "tools": []
         },
         "response": {
-          "content": "",
-          "finish_reason": "stop",
-          "tool_calls": [],
-          "usage": {}
+          "error": "'dict' object has no attribute 'api_type'"
         },
-        "status": "completed",
-        "duration_ms": 2318,
-        "created_at": "2026-05-21T13:08:20.392670"
-      }
-    },
-    {
-      "entity_type": "events",
-      "file_path": "D:\\learnning\\260521\\src\\data\\test\\events.json",
-      "operation": "write",
-      "record_count": 3,
-      "sample_data": {
-        "record_id": "rec-391fd51acaf0",
-        "event_id": "evt-a903bfe4a9b4",
-        "event_type": "llm.call_completed",
-        "timestamp": "2026-05-21T13:08:20.394202",
-        "payload": {
-          "request_id": "req-5ca89c8080ba",
-          "dialog_id": "intent-analysis-default-session",
-          "duration_ms": 2318,
-          "source_component": "L2_llm_execution",
-          "source_service": "LLMExecutionService"
-        },
-        "stored_at": "2026-05-21T13:08:20.394202",
-        "source_component": "",
-        "source_service": "",
-        "correlation_id": "5a5c57ec-c256-451a-a948-e034267100a2",
-        "entity_id": "evt-cbd419b9f718",
-        "created_at": "2026-05-21T13:08:20.394202",
-        "updated_at": "2026-05-21T13:08:20.394202"
+        "status": "failed",
+        "duration_ms": 0,
+        "created_at": "2026-05-21T17:14:42.668821"
       }
     }
   ]

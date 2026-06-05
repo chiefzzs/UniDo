@@ -23,7 +23,7 @@ class DialogManager:
     
     职责：
     1. 管理对话的生命周期
-    2. 处理用户输入，生成message对象
+    2. 处理用户输入，生成message对象（现在由DialogueService内部处理）
     3. 调用通用任务协调流程
     4. 结束会话，启动对话压缩历史
     """
@@ -38,65 +38,42 @@ class DialogManager:
         处理用户的一次对话
         
         主要流程：
-        1. 向session对象得到一个新的dialog对象
-        2. 生成一个用户输入的message对象，保存到此dialog对象的消息列表中
-        3. 调用通用任务协调流程
-        4. 结束会话，启动对话压缩历史
+        1. 调用通用任务协调流程（DialogueService内部创建dialog和用户消息）
+        2. 获取助手回复消息
+        3. 返回结果
         
         状态：
         - idle: 首次创建的对象
         - ongoing: 对话进行中
         - finished: 对话结束
         """
-        # 1. 获取或创建dialog
-        from services.L3_scenario_coordination.L3c_ui_scenarios.SessionManager.session_manager import SessionManager
-        session_manager = SessionManager()
-        dialog_data = session_manager.get_or_create_default_dialog(session_id)
-        dialog_id = dialog_data['dialog_id']
-        
-        # 更新dialog状态为ongoing
-        self.dialog_service.update_dialog_status(dialog_id, 'ongoing')
-        
-        # 2. 生成用户message对象
-        user_message = self.message_service.create_message(
-            dialog_id=dialog_id,
-            role='user',
-            content=user_input,
-            metadata={
-                'type': 'user_input',
-                'source': 'ui'
-            }
-        )
-        
-        # 发布用户输入事件
-        self.event_bus.publish(Event(
-            event_type=EventTypes.MESSAGE_CREATED,
-            payload={
-                'dialog_id': dialog_id,
-                'message_id': user_message.message_id,
-                'role': 'user'
-            }
-        ))
-        
-        # 3. 调用通用任务协调流程
+        # 调用通用任务协调流程（不传递dialog_id，由DialogueService内部创建）
         from services.L3_scenario_coordination.L3a_task_coordination.dialogue_service import DialogueService
         dialogue_service = DialogueService()
         dialogue_result = dialogue_service.process_dialogue(session_id, user_input)
         
-        # 4. 获取助手回复消息
+        # 从 dialogue_result 获取 dialog_id
+        dialog_id = dialogue_result.dialog_id
+        
+        # 获取助手回复消息
         messages = self.message_service.list_messages(dialog_id)
         assistant_message = None
+        user_message = None
         for msg in reversed(messages):
-            if msg.role == 'assistant':
+            if not assistant_message and msg.role == 'assistant':
                 assistant_message = msg
+            elif not user_message and msg.role == 'user':
+                user_message = msg
+            if assistant_message and user_message:
                 break
         
         result = {
             'dialog_id': dialog_id,
-            'user_message': user_message.to_dict(),
+            'user_message': user_message.to_dict() if user_message else None,
             'assistant_message': assistant_message.to_dict() if assistant_message else None,
             'status': 'completed',
-            'content': dialogue_result.content
+            'content': dialogue_result.content,
+            'round_number': 1  # 每个对话从1开始
         }
         
         return result

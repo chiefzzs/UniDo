@@ -165,6 +165,37 @@ class StorageConfigService:
     def get_non_persist_types(self) -> List[str]:
         """获取不需要持久化的实体类型列表"""
         return [item['entity_type'] for item in self._config if not item.get('persist', True)]
+    
+    # 以下方法用于兼容前端 API 接口
+    def list(self) -> List[Dict[str, Any]]:
+        """获取所有存储配置（别名）"""
+        return self.list_configs()
+    
+    def create(self, data: Dict[str, Any]) -> Dict[str, Any]:
+        """创建存储配置"""
+        entity_type = data.get('entity_type')
+        if not entity_type:
+            raise ValueError("entity_type is required")
+        persist = data.get('persist', True)
+        description = data.get('description', '')
+        return self.add_config(entity_type, persist, description)
+    
+    def update(self, entity_type: str, data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        """更新存储配置"""
+        persist = data.get('persist')
+        description = data.get('description')
+        if persist is not None and self.update_config(entity_type, persist, description):
+            return self.get_config(entity_type)
+        return None
+    
+    def delete(self, entity_type: str) -> Dict[str, Any]:
+        """删除存储配置"""
+        success = self.delete_config(entity_type)
+        return {"success": success, "entity_type": entity_type}
+    
+    def get(self, entity_type: str) -> Optional[Dict[str, Any]]:
+        """获取指定实体类型的配置（别名）"""
+        return self.get_config(entity_type)
 
 
 # 全局单例

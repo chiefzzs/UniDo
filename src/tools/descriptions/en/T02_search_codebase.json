@@ -18,8 +18,8 @@
       "required": false
     }
   },
-  "description": "Trae's context engine that uses natural language to search code. Maintains a real-time index of the codebase. Can retrieve across different programming languages. Only reflects the current state on disk.",
-  "description_zh": "Trae的上下文引擎，使用自然语言搜索代码。维护代码库的实时索引。支持跨不同编程语言检索。仅反映磁盘上的当前状态。",
+  "description": "UniDo's context engine that uses natural language to search code. Maintains a real-time index of the codebase. Can retrieve across different programming languages. Only reflects the current state on disk.",
+  "description_zh": "UniDo的上下文引擎，使用自然语言搜索代码。维护代码库的实时索引。支持跨不同编程语言检索。仅反映磁盘上的当前状态。",
   "default_params": {
     "information_request": "authentication logic or user login",
     "target_directories": []

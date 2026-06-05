@@ -9,6 +9,7 @@ from services.L3_scenario_coordination.L3c_ui_scenarios.SessionManager.update_se
 from services.L3_scenario_coordination.L3c_ui_scenarios.SessionManager.delete_session import DeleteSession
 from services.L3_scenario_coordination.L3c_ui_scenarios.SessionManager.archive_session import ArchiveSession
 from services.L3_scenario_coordination.L3c_ui_scenarios.SessionManager.list_sessions import ListSessions
+from services.L3_scenario_coordination.L3c_ui_scenarios.SessionManager.session_manager import SessionManager
 
 router = APIRouter()
 
@@ -47,6 +48,18 @@ async def get_session(session_id: str):
         return session
     except HTTPException:
         raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/{session_id}/messages")
+async def get_session_messages(session_id: str):
+    """获取会话的消息列表"""
+    try:
+        manager = SessionManager()
+        messages = manager.get_history_messages(session_id)
+        return {"status": "success", "data": messages}
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

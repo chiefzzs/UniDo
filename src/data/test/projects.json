@@ -1,1 +1,25 @@
-[]
+[
+    {
+        "project_id": "proj-7c63e388c0c5",
+        "name": "Test Project Basic",
+        "description": "A basic test project",
+        "workspace_config_id": "ws-config-46f194fc9301",
+        "model_config_id": "model-config-8d6ddae1c860",
+        "tool_config_ids": [],
+        "status": "active",
+        "created_at": "2026-05-19T10:58:35.917191",
+        "updated_at": "2026-05-25T09:19:16.918949",
+        "workspace_id": "ws-config-46f194fc9301"
+    },
+    {
+        "project_id": "proj-e750f9f98642",
+        "name": "测试工作区关联-更新",
+        "description": "测试工作区关联功能-更新",
+        "workspace_config_id": "ws-config-0f336f3b1a27",
+        "model_config_id": "",
+        "tool_config_ids": [],
+        "status": "active",
+        "created_at": "2026-05-19T19:59:37.630906",
+        "updated_at": "2026-05-19T19:59:47.685649"
+    }
+]

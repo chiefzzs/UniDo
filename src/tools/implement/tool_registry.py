@@ -22,6 +22,23 @@ class ToolRegistry:
     工具注册器，用于管理所有可用工具
     支持配置驱动和手动注册两种模式
     """
+    _instance = None
+
+    @classmethod
+    def get_instance(cls, use_config_driven: bool = True, config_path: Optional[str] = None) -> 'ToolRegistry':
+        """
+        获取ToolRegistry单例
+        
+        Args:
+            use_config_driven: 是否使用配置驱动模式
+            config_path: 配置文件路径
+            
+        Returns:
+            ToolRegistry单例
+        """
+        if cls._instance is None:
+            cls._instance = ToolRegistry(use_config_driven=use_config_driven, config_path=config_path)
+        return cls._instance
     
     def __init__(self, use_config_driven: bool = True, config_path: Optional[str] = None):
         """

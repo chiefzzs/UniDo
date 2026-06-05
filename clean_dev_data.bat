@@ -3,7 +3,7 @@ chcp 65001 >nul
 setlocal enabledelayedexpansion
 
 set "TARGET_DIR=.\src\data\dev"
-set "KEEP_FILES=projects.json model_configs.json workspace_configs.json"
+set "KEEP_FILES=projects.json model_configs.json workspace_configs.json prompts.json"
 
 echo ============================================
 echo Clean Dev Data Directory

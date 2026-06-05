@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-21T13:08:25.500222",
+  "timestamp": "2026-05-21T17:14:43.260274",
   "test_type": "ut",
   "layer": "L3_scenario_coordination",
   "sub_layer": "L3a_task_coordination",
@@ -38,9 +38,9 @@
           },
           "messages_count": 0
         },
-        "entity_id": "task-50aed60f2da5",
-        "created_at": "2026-05-21T13:08:25.475545",
-        "updated_at": "2026-05-21T13:08:25.478559"
+        "entity_id": "task-0c7ea4b47385",
+        "created_at": "2026-05-21T17:14:43.235092",
+        "updated_at": "2026-05-21T17:14:43.238631"
       }
     ],
     "llm_calls": [],
@@ -75,9 +75,9 @@
           },
           "messages_count": 0
         },
-        "entity_id": "task-50aed60f2da5",
-        "created_at": "2026-05-21T13:08:25.475545",
-        "updated_at": "2026-05-21T13:08:25.478559"
+        "entity_id": "task-0c7ea4b47385",
+        "created_at": "2026-05-21T17:14:43.235092",
+        "updated_at": "2026-05-21T17:14:43.238631"
       }
     }
   ]

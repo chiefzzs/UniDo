@@ -1,0 +1,281 @@
+{
+    "default": [
+        {
+            "event_type": "project.created",
+            "persist": true,
+            "description": "项目创建"
+        },
+        {
+            "event_type": "project.updated",
+            "persist": true,
+            "description": "项目更新"
+        },
+        {
+            "event_type": "project.deleted",
+            "persist": true,
+            "description": "项目删除"
+        },
+        {
+            "event_type": "session.created",
+            "persist": true,
+            "description": "会话创建"
+        },
+        {
+            "event_type": "session.updated",
+            "persist": true,
+            "description": "会话更新"
+        },
+        {
+            "event_type": "session.deleted",
+            "persist": true,
+            "description": "会话删除"
+        },
+        {
+            "event_type": "dialog.created",
+            "persist": true,
+            "description": "对话创建"
+        },
+        {
+            "event_type": "dialog.updated",
+            "persist": true,
+            "description": "对话更新"
+        },
+        {
+            "event_type": "dialog.deleted",
+            "persist": true,
+            "description": "对话删除"
+        },
+        {
+            "event_type": "dialog.completed",
+            "persist": true,
+            "description": "对话完成"
+        },
+        {
+            "event_type": "message.created",
+            "persist": true,
+            "description": "消息创建"
+        },
+        {
+            "event_type": "message.updated",
+            "persist": true,
+            "description": "消息更新"
+        },
+        {
+            "event_type": "message.deleted",
+            "persist": true,
+            "description": "消息删除"
+        },
+        {
+            "event_type": "llm.request_sent",
+            "persist": true,
+            "description": "LLM请求发送"
+        },
+        {
+            "event_type": "llm.response_received",
+            "persist": true,
+            "description": "LLM响应接收"
+        },
+        {
+            "event_type": "llm.stream_chunk",
+            "persist": false,
+            "description": "LLM流式片段（通常不存储以节省空间）"
+        },
+        {
+            "event_type": "llm.thinking",
+            "persist": false,
+            "description": "LLM思考过程（通常不存储）"
+        },
+        {
+            "event_type": "llm.call_completed",
+            "persist": true,
+            "description": "LLM调用完成"
+        },
+        {
+            "event_type": "llm.call_text_completed",
+            "persist": true,
+            "description": "LLM文本聚合完成"
+        },
+        {
+            "event_type": "llm.call_thinking_completed",
+            "persist": true,
+            "description": "LLM思考聚合完成"
+        },
+        {
+            "event_type": "llm.tool_call_completed",
+            "persist": true,
+            "description": "LLM工具调用完成"
+        },
+        {
+            "event_type": "llm.error",
+            "persist": true,
+            "description": "LLM错误"
+        },
+        {
+            "event_type": "llm.call_failed",
+            "persist": true,
+            "description": "LLM调用失败"
+        },
+        {
+            "event_type": "llm.response_classified",
+            "persist": true,
+            "description": "LLM响应分类完成"
+        },
+        {
+            "event_type": "tool.registered",
+            "persist": false,
+            "description": "工具注册（不持久化）"
+        },
+        {
+            "event_type": "tool.unregistered",
+            "persist": false,
+            "description": "工具注销（不持久化）"
+        },
+        {
+            "event_type": "tool.execution_started",
+            "persist": true,
+            "description": "工具执行开始"
+        },
+        {
+            "event_type": "tool.execution_completed",
+            "persist": true,
+            "description": "工具执行完成"
+        },
+        {
+            "event_type": "tool.execution_failed",
+            "persist": true,
+            "description": "工具执行失败"
+        },
+        {
+            "event_type": "tool.call_started",
+            "persist": true,
+            "description": "工具调用开始"
+        },
+        {
+            "event_type": "tool.call_completed",
+            "persist": true,
+            "description": "工具调用完成"
+        },
+        {
+            "event_type": "tool.call_failed",
+            "persist": true,
+            "description": "工具调用失败"
+        },
+        {
+            "event_type": "tool.call_cancelled",
+            "persist": true,
+            "description": "工具调用取消"
+        },
+        {
+            "event_type": "tool.execution_output",
+            "persist": false,
+            "description": "工具执行输出（流式）"
+        },
+        {
+            "event_type": "tool.execution_output_end",
+            "persist": false,
+            "description": "工具执行输出结束"
+        },
+        {
+            "event_type": "tool.execution_result",
+            "persist": true,
+            "description": "工具执行结果"
+        },
+        {
+            "event_type": "skill.registered",
+            "persist": true,
+            "description": "技能注册"
+        },
+        {
+            "event_type": "skill.unregistered",
+            "persist": true,
+            "description": "技能注销"
+        },
+        {
+            "event_type": "task.started",
+            "persist": true,
+            "description": "任务开始"
+        },
+        {
+            "event_type": "task.completed",
+            "persist": true,
+            "description": "任务完成"
+        },
+        {
+            "event_type": "task.updated",
+            "persist": true,
+            "description": "任务更新"
+        },
+        {
+            "event_type": "task.failed",
+            "persist": true,
+            "description": "任务失败"
+        },
+        {
+            "event_type": "task_group.created",
+            "persist": true,
+            "description": "任务组创建"
+        },
+        {
+            "event_type": "task_group.updated",
+            "persist": true,
+            "description": "任务组更新"
+        },
+        {
+            "event_type": "task_group.deleted",
+            "persist": true,
+            "description": "任务组删除"
+        },
+        {
+            "event_type": "task_group.completed",
+            "persist": true,
+            "description": "任务组完成"
+        },
+        {
+            "event_type": "round.started",
+            "persist": true,
+            "description": "轮次开始"
+        },
+        {
+            "event_type": "round.completed",
+            "persist": true,
+            "description": "轮次完成"
+        },
+        {
+            "event_type": "client.message_received",
+            "persist": false,
+            "description": "客户端消息接收（不持久化）"
+        },
+        {
+            "event_type": "client.message_sent",
+            "persist": false,
+            "description": "客户端消息发送（不持久化）"
+        },
+        {
+            "event_type": "system.status_changed",
+            "persist": true,
+            "description": "系统状态变更"
+        },
+        {
+            "event_type": "session.switched",
+            "persist": true,
+            "description": "会话切换"
+        },
+        {
+            "event_type": "history.replay.started",
+            "persist": true,
+            "description": "历史回放开始"
+        },
+        {
+            "event_type": "history.replay.complete",
+            "persist": true,
+            "description": "历史回放完成"
+        },
+        {
+            "event_type": "llm.request_prepared",
+            "persist": true,
+            "description": "自动发现的事件类型: llm.request_prepared",
+            "auto_discovered": true,
+            "discovered_at": "2026-06-04T20:11:43.102668"
+        }
+    ]
+}
