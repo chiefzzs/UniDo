@@ -1,0 +1,25 @@
+# Web框架和服务器
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+starlette>=0.27.0
+python-multipart>=0.0.6
+
+# 数据验证
+pydantic>=2.0.0
+
+# HTTP请求
+requests>=2.31.0
+
+# WebSocket支持
+websockets>=12.0
+
+# LLM API客户端（可选）
+openai>=1.0.0
+anthropic>=0.7.0
+
+# 异步支持
+aiohttp>=3.9.0
+asyncio-throttle>=1.0.2
+
+# 工具和实用程序
+python-dotenv>=1.0.0
